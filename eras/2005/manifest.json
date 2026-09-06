@@ -1,0 +1,17 @@
+{
+  "id": "2005",
+  "label": "2005 — Web social et vidéo",
+  "dateStart": "2005-01-01",
+  "dateEnd": "2005-12-31",
+  "machine": {
+    "id": "pc-2005",
+    "resolution": { "width": 1024, "height": 768 },
+    "bootSequence": "pc-2005-boot",
+    "theme": "silver-flatscreen-2005"
+  },
+  "apps": ["browser", "file-manager", "notepad", "messenger", "media-player"],
+  "network": { "web": true, "minitel": false, "bbs": false, "messenger": true },
+  "searchProvider": "time-search-2005",
+  "browser": "time-browser-2005",
+  "timelineTags": ["web", "video", "messaging", "search", "social"]
+}

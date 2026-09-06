@@ -1,0 +1,17 @@
+{
+  "id": "1998",
+  "label": "1998 — Le Web grand public",
+  "dateStart": "1998-01-01",
+  "dateEnd": "1998-12-31",
+  "machine": {
+    "id": "pc-1998",
+    "resolution": { "width": 800, "height": 600 },
+    "bootSequence": "pc-1998-boot",
+    "theme": "beige-crt-1998"
+  },
+  "apps": ["browser", "file-manager", "notepad", "terminal", "mail"],
+  "network": { "web": true, "minitel": false, "bbs": true, "messenger": false },
+  "searchProvider": "time-search-1998",
+  "browser": "time-browser-1998",
+  "timelineTags": ["web", "hardware", "software", "search"]
+}

@@ -1,0 +1,176 @@
+[
+  {
+    "id": "minitel-launch",
+    "date": "1980-07-01",
+    "title": "Lancement expérimental du Minitel",
+    "summary": "France Télécom lance l'expérimentation grand public du vidéotex Minitel à Saint-Malo, préfigurant le service télématique national.",
+    "category": ["minitel", "telecom", "france"],
+    "importance": 4,
+    "experienceId": "minitel-demo",
+    "sourceIds": ["src-wikipedia-minitel"],
+    "needsResearch": true
+  },
+  {
+    "id": "first-web-server",
+    "date": "1990-12-25",
+    "title": "Premier serveur Web",
+    "summary": "Tim Berners-Lee met en service le premier serveur Web (CERN httpd) sur sa station NeXT au CERN.",
+    "category": ["web", "hardware", "world"],
+    "importance": 5,
+    "sourceIds": ["src-w3-first-server"],
+    "needsResearch": true
+  },
+  {
+    "id": "first-website",
+    "date": "1991-08-06",
+    "title": "Premier site Web",
+    "summary": "Tim Berners-Lee publie info.cern.ch, le premier site Web accessible en dehors du CERN.",
+    "category": ["web", "world"],
+    "importance": 5,
+    "sourceIds": ["src-wikipedia-first-website"]
+  },
+  {
+    "id": "first-webcam",
+    "date": "1991-11-01",
+    "title": "Première webcam",
+    "summary": "La cafetière de la Trojan Room à l'université de Cambridge est filmée en continu pour vérifier à distance si le café est prêt — l'une des premières webcams.",
+    "category": ["hardware", "culture", "world"],
+    "importance": 2,
+    "sourceIds": ["src-wikipedia-webcam"],
+    "needsResearch": true
+  },
+  {
+    "id": "yahoo-founded",
+    "date": "1994-04-01",
+    "title": "Fondation de Yahoo!",
+    "summary": "Jerry Yang et David Filo créent \"Jerry and David's Guide to the World Wide Web\", qui deviendra l'annuaire Yahoo!.",
+    "category": ["search", "web", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-yahoo"],
+    "needsResearch": true
+  },
+  {
+    "id": "lycos-launch",
+    "date": "1994-07-20",
+    "title": "Lancement de Lycos",
+    "summary": "Le moteur de recherche Lycos, né d'un projet de l'université Carnegie Mellon, est mis en ligne.",
+    "category": ["search", "web", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-lycos"],
+    "needsResearch": true
+  },
+  {
+    "id": "altavista-launch",
+    "date": "1995-12-15",
+    "title": "Lancement d'AltaVista",
+    "summary": "Digital Equipment Corporation lance AltaVista, l'un des premiers moteurs de recherche à indexer le Web en texte intégral.",
+    "category": ["search", "web", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-altavista"]
+  },
+  {
+    "id": "google-founded",
+    "date": "1998-09-04",
+    "title": "Fondation de Google",
+    "summary": "Larry Page et Sergey Brin fondent Google, dont le moteur de recherche s'appuie sur l'algorithme PageRank.",
+    "category": ["search", "web", "world"],
+    "importance": 5,
+    "sourceIds": ["src-wikipedia-google"]
+  },
+  {
+    "id": "msn-messenger-launch",
+    "date": "1999-07-22",
+    "title": "Lancement de MSN Messenger",
+    "summary": "Microsoft lance MSN Messenger Service, sa messagerie instantanée grand public.",
+    "category": ["messaging", "software", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-msn-messenger"],
+    "needsResearch": true
+  },
+  {
+    "id": "napster-launch",
+    "date": "1999-06-01",
+    "title": "Lancement de Napster",
+    "summary": "Shawn Fanning lance Napster, service pionnier de partage de fichiers musicaux en pair-à-pair.",
+    "category": ["culture", "web", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-napster"],
+    "needsResearch": true
+  },
+  {
+    "id": "wikipedia-launch",
+    "date": "2001-01-15",
+    "title": "Lancement de Wikipedia",
+    "summary": "Jimmy Wales et Larry Sanger lancent Wikipedia, encyclopédie collaborative librement modifiable.",
+    "category": ["culture", "web", "world"],
+    "importance": 5,
+    "sourceIds": ["src-wikipedia-wikipedia"]
+  },
+  {
+    "id": "facebook-launch",
+    "date": "2004-02-04",
+    "title": "Lancement de Facebook",
+    "summary": "Mark Zuckerberg lance \"Thefacebook\" depuis l'université Harvard.",
+    "category": ["social", "web", "world"],
+    "importance": 5,
+    "sourceIds": ["src-wikipedia-facebook"]
+  },
+  {
+    "id": "gmail-launch",
+    "date": "2004-04-01",
+    "title": "Lancement de Gmail",
+    "summary": "Google lance Gmail en accès limité sur invitation, avec 1 Go de stockage — une révolution pour l'époque.",
+    "category": ["software", "web", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-gmail"]
+  },
+  {
+    "id": "skype-launch",
+    "date": "2003-08-29",
+    "title": "Lancement de Skype",
+    "summary": "Niklas Zennström et Janus Friis lancent Skype, logiciel de voix et messagerie sur IP.",
+    "category": ["messaging", "software", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-skype"],
+    "needsResearch": true
+  },
+  {
+    "id": "myspace-launch",
+    "date": "2003-08-01",
+    "title": "Lancement de Myspace",
+    "summary": "Myspace ouvre ses portes et devient l'un des premiers réseaux sociaux grand public.",
+    "category": ["social", "web", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-myspace"],
+    "needsResearch": true
+  },
+  {
+    "id": "youtube-founded",
+    "date": "2005-02-14",
+    "title": "Fondation de YouTube",
+    "summary": "Chad Hurley, Steve Chen et Jawed Karim fondent YouTube, plateforme de partage de vidéos.",
+    "category": ["video", "web", "world"],
+    "importance": 5,
+    "sourceIds": ["src-wikipedia-youtube"]
+  },
+  {
+    "id": "first-youtube-video",
+    "date": "2005-04-23",
+    "title": "Première vidéo YouTube",
+    "summary": "Jawed Karim publie \"Me at the zoo\", la première vidéo mise en ligne sur YouTube.",
+    "category": ["video", "web", "world"],
+    "importance": 4,
+    "experienceId": "youtube-first-video",
+    "sourceIds": ["src-wikipedia-me-at-the-zoo"]
+  },
+  {
+    "id": "twitter-launch",
+    "date": "2006-07-15",
+    "title": "Lancement public de Twitter",
+    "summary": "Twitter, créé en mars 2006, ouvre son service de micro-blogging au public.",
+    "category": ["social", "web", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-twitter"],
+    "needsResearch": true
+  }
+]
