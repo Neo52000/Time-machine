@@ -27,7 +27,7 @@ interface Props {
 }
 
 export function Taskbar(props: Props) {
-  const { theme, clock, apps, windows, activeWindowId, startMenuOpen } = props;
+  const { theme, clock, apps, windows, activeWindowId, startMenuOpen, onCloseStartMenu } = props;
   const [now, setNow] = useState(() => eraNow(clock));
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -39,16 +39,16 @@ export function Taskbar(props: Props) {
   useEffect(() => {
     if (!startMenuOpen) return;
     const onPointerDown = (e: PointerEvent) => {
-      if (!menuRef.current?.contains(e.target as Node)) props.onCloseStartMenu();
+      if (!menuRef.current?.contains(e.target as Node)) onCloseStartMenu();
     };
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && props.onCloseStartMenu();
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onCloseStartMenu();
     document.addEventListener("pointerdown", onPointerDown);
     document.addEventListener("keydown", onKey);
     return () => {
       document.removeEventListener("pointerdown", onPointerDown);
       document.removeEventListener("keydown", onKey);
     };
-  }, [startMenuOpen, props]);
+  }, [startMenuOpen, onCloseStartMenu]);
 
   const iconOf = (appId: string) => apps.find((a) => a.id === appId)?.icon ?? "▪";
 
