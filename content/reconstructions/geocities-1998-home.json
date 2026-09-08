@@ -1,11 +1,16 @@
 {
   "id": "page-geocities-1998-home",
   "websiteId": "geocities-com",
+  "snapshotId": "snap-geocities-1998",
   "path": "/",
   "title": "GeoCities — Bienvenue dans votre quartier",
   "style": "gray",
   "blocks": [
-    { "type": "heading", "level": 1, "text": "GeoCities" },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "GeoCities"
+    },
     {
       "type": "paragraph",
       "text": "Créez votre page personnelle gratuite et installez-vous dans le quartier qui vous ressemble."
@@ -15,12 +20,36 @@
       "title": "Quartiers",
       "layout": "columns",
       "items": [
-        { "label": "SiliconValley", "href": "/", "description": "Informatique et programmation" },
-        { "label": "Hollywood", "href": "/", "description": "Cinéma et télévision" },
-        { "label": "Area51", "href": "/", "description": "Science-fiction et fantastique" },
-        { "label": "Paris", "href": "/", "description": "Romance, poésie, arts" },
-        { "label": "Colosseum", "href": "/", "description": "Sports" },
-        { "label": "SunsetStrip", "href": "/", "description": "Musique rock et clubs" }
+        {
+          "label": "SiliconValley",
+          "href": "/",
+          "description": "Informatique et programmation"
+        },
+        {
+          "label": "Hollywood",
+          "href": "/",
+          "description": "Cinéma et télévision"
+        },
+        {
+          "label": "Area51",
+          "href": "/",
+          "description": "Science-fiction et fantastique"
+        },
+        {
+          "label": "Paris",
+          "href": "/",
+          "description": "Romance, poésie, arts"
+        },
+        {
+          "label": "Colosseum",
+          "href": "/",
+          "description": "Sports"
+        },
+        {
+          "label": "SunsetStrip",
+          "href": "/",
+          "description": "Musique rock et clubs"
+        }
       ]
     },
     {

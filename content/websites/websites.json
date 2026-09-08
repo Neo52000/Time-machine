@@ -76,12 +76,13 @@
     "id": "napster-com",
     "domain": "napster.com",
     "title": "Napster",
-    "description": "Service de partage de fichiers MP3 en pair-à-pair.",
+    "description": "Service de partage de fichiers MP3 en pair-à-pair, fermé sur décision de justice en 2001.",
     "category": ["music", "p2p"],
     "availableFrom": "1999-06-01",
     "sourceIds": ["src-wikipedia-napster"],
     "relatedEventIds": ["napster-launch"],
-    "needsResearch": true
+    "needsResearch": true,
+    "availableUntil": "2001-07-01"
   },
   {
     "id": "wikipedia-org",
@@ -92,5 +93,56 @@
     "availableFrom": "2001-01-15",
     "sourceIds": ["src-wikipedia-wikipedia"],
     "relatedEventIds": ["wikipedia-launch"]
+  },
+  {
+    "id": "hotmail-com",
+    "domain": "hotmail.com",
+    "title": "Hotmail",
+    "description": "Messagerie électronique gratuite accessible depuis n'importe quel navigateur.",
+    "category": ["email", "webmail"],
+    "availableFrom": "1996-07-04",
+    "sourceIds": ["src-wikipedia-hotmail"]
+  },
+  {
+    "id": "excite-com",
+    "domain": "excite.com",
+    "title": "Excite",
+    "description": "Portail et moteur de recherche : actualités, météo, e-mail et annuaire.",
+    "category": ["search", "portal"],
+    "availableFrom": "1995-10-01",
+    "sourceIds": ["src-wikipedia-excite"],
+    "needsResearch": true
+  },
+  {
+    "id": "youtube-com",
+    "domain": "youtube.com",
+    "title": "YouTube",
+    "description": "Partage de vidéos en ligne : regardez, publiez et commentez des vidéos.",
+    "category": ["video", "social"],
+    "availableFrom": "2005-04-23",
+    "sourceIds": ["src-wikipedia-youtube", "src-wikipedia-me-at-the-zoo"],
+    "relatedEventIds": ["youtube-founded", "first-youtube-video"],
+    "needsResearch": true
+  },
+  {
+    "id": "myspace-com",
+    "domain": "myspace.com",
+    "title": "Myspace",
+    "description": "Réseau social : profils personnalisables, amis, musique et blogs.",
+    "category": ["social", "music"],
+    "availableFrom": "2003-08-01",
+    "sourceIds": ["src-wikipedia-myspace"],
+    "relatedEventIds": ["myspace-launch"],
+    "needsResearch": true
+  },
+  {
+    "id": "gmail-com",
+    "domain": "gmail.com",
+    "title": "Gmail",
+    "description": "Webmail de Google lancé en bêta sur invitation, avec 1 Go de stockage.",
+    "category": ["email", "webmail"],
+    "availableFrom": "2004-04-01",
+    "sourceIds": ["src-wikipedia-gmail"],
+    "relatedEventIds": ["gmail-launch"]
   }
 ]

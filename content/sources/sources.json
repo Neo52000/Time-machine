@@ -143,5 +143,19 @@
     "url": "https://web.archive.org/web/1998/http://www.yahoo.com/",
     "publisher": "Internet Archive",
     "notes": "Documentary reference only; never rendered inline (docs/rights-policy.md)."
+  },
+  {
+    "id": "src-wikipedia-hotmail",
+    "label": "Outlook.com (Hotmail) — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Outlook.com",
+    "publisher": "Wikipedia",
+    "notes": "Hotmail launched 4 July 1996."
+  },
+  {
+    "id": "src-wikipedia-excite",
+    "label": "Excite — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Excite",
+    "publisher": "Wikipedia",
+    "notes": "Portal launched in 1995; exact day to confirm."
   }
 ]

@@ -41,6 +41,8 @@ export interface TimeWebCatalog {
   getSource(id: string): SourceReference | undefined;
   snapshotsOf(websiteId: string): HistoricalSnapshot[];
   pagesOf(websiteId: string): ReconstructedPage[];
+  /** Pages of one reconstruction snapshot (a site version). */
+  pagesOfSnapshot(snapshotId: string): ReconstructedPage[];
 }
 
 export function createTimeWebCatalog(data: TimeWebData): TimeWebCatalog {
@@ -74,17 +76,36 @@ export function createTimeWebCatalog(data: TimeWebData): TimeWebCatalog {
   for (const s of snapshots) {
     assertRef(websiteById, s.websiteId, "website", `snapshot ${s.id}`);
     for (const id of s.sourceIds) assertRef(sourceById, id, "source", `snapshot ${s.id}`);
-    if (s.type === "reconstruction") assertRef(pageById, s.contentRef, "page", `snapshot ${s.id}`);
+    if (s.type === "reconstruction") {
+      assertRef(pageById, s.contentRef, "page", `snapshot ${s.id}`);
+      const home = pageById.get(s.contentRef)!;
+      if (home.snapshotId !== s.id) {
+        throw new Error(
+          `snapshot ${s.id} points to page ${home.id} of snapshot ${home.snapshotId}`,
+        );
+      }
+    }
   }
-  for (const p of pages) assertRef(websiteById, p.websiteId, "website", `page ${p.id}`);
+  for (const p of pages) {
+    assertRef(websiteById, p.websiteId, "website", `page ${p.id}`);
+    assertRef(snapshotById, p.snapshotId, "snapshot", `page ${p.id}`);
+    const snapshot = snapshotById.get(p.snapshotId)!;
+    if (snapshot.type !== "reconstruction" || snapshot.websiteId !== p.websiteId) {
+      throw new Error(
+        `page ${p.id} must belong to a reconstruction snapshot of website ${p.websiteId}`,
+      );
+    }
+  }
 
   const snapshotsByWebsite = new Map<string, HistoricalSnapshot[]>();
   for (const s of snapshots) {
     snapshotsByWebsite.set(s.websiteId, [...(snapshotsByWebsite.get(s.websiteId) ?? []), s]);
   }
   const pagesByWebsite = new Map<string, ReconstructedPage[]>();
+  const pagesBySnapshot = new Map<string, ReconstructedPage[]>();
   for (const p of pages) {
     pagesByWebsite.set(p.websiteId, [...(pagesByWebsite.get(p.websiteId) ?? []), p]);
+    pagesBySnapshot.set(p.snapshotId, [...(pagesBySnapshot.get(p.snapshotId) ?? []), p]);
   }
 
   return {
@@ -105,5 +126,6 @@ export function createTimeWebCatalog(data: TimeWebData): TimeWebCatalog {
     getSource: (id) => sourceById.get(id),
     snapshotsOf: (websiteId) => snapshotsByWebsite.get(websiteId) ?? [],
     pagesOf: (websiteId) => pagesByWebsite.get(websiteId) ?? [],
+    pagesOfSnapshot: (snapshotId) => pagesBySnapshot.get(snapshotId) ?? [],
   };
 }

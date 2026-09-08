@@ -17,8 +17,8 @@ TIME MACHINE
 ├── Window Manager      — packages/window-manager  (implemented: pure state transitions, z-order, cascade, clamping)
 ├── Application Runtime — packages/apps-runtime    (implemented: app registry + per-era resolution)
 ├── Browser Engine      — packages/browser-engine  (implemented: URL normalisation, Time Web catalogue, 6-step resolution, history)
-├── Time Web Engine     — browser-engine catalogue + content/websites|snapshots|reconstructions (seed only)
-├── Time Search Engine  — not yet implemented (Phase 6)
+├── Time Web Engine     — browser-engine catalogue + content/websites|snapshots|reconstructions (14 sites, 12 pages)
+├── Time Search Engine  — packages/search-engine  (implemented: catalogue-derived index, +/-/phrase syntax, temporal filter)
 ├── Minitel Engine      — not yet implemented (Phase 7)
 ├── Museum Engine       — not yet implemented
 ├── Content Engine      — content/ + content-schema (partial: seed data only)
@@ -74,6 +74,7 @@ packages/
   era-engine/       Era manifest loading & validation
   timeline-engine/  Date-availability filtering, category filters, sorting, search
   browser-engine/   URL normalisation, Time Web catalogue, resolveHistoricalUrl, browser history
+  search-engine/    Inverted index derived from the catalogue, query syntax, dated search, providers
   window-manager/   Window state transitions (no React)
   desktop-engine/   Boot sequences, themes, virtual filesystem, era clock, mailbox seeds
   apps-runtime/     App definitions (window defaults, singleton, era restrictions) + registry

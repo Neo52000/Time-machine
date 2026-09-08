@@ -2,10 +2,18 @@
 
 import { useState, type FormEvent } from "react";
 import type { PageBlock, ReconstructedPage } from "@time-machine/content-schema";
+import type { SearchProvider, SearchResponse } from "@time-machine/search-engine";
+
+export interface SearchResultsData {
+  response: SearchResponse;
+  provider: SearchProvider;
+}
 
 interface Props {
   page: ReconstructedPage;
   query: Record<string, string>;
+  /** Present when the page carries a `search-results` block and a query was given. */
+  searchResults?: SearchResultsData;
   /** Navigate to an href (absolute historical URL or same-site path). */
   onNavigate: (href: string) => void;
 }
@@ -15,7 +23,7 @@ interface Props {
  * there is no HTML string, no dangerouslySetInnerHTML, no script, so a
  * content file can never execute anything in the visitor's browser.
  */
-export function ReconstructedPageView({ page, query, onNavigate }: Props) {
+export function ReconstructedPageView({ page, query, searchResults, onNavigate }: Props) {
   return (
     <div
       className={`tw-page tw-style-${page.style}`}
@@ -23,13 +31,24 @@ export function ReconstructedPageView({ page, query, onNavigate }: Props) {
       data-page-id={page.id}
     >
       {page.blocks.map((block, i) => (
-        <Block key={i} block={block} query={query} onNavigate={onNavigate} />
+        <Block
+          key={i}
+          block={block}
+          query={query}
+          searchResults={searchResults}
+          onNavigate={onNavigate}
+        />
       ))}
     </div>
   );
 }
 
-function Block({ block, query, onNavigate }: { block: PageBlock } & Omit<Props, "page">) {
+function Block({
+  block,
+  query,
+  searchResults,
+  onNavigate,
+}: { block: PageBlock } & Omit<Props, "page">) {
   switch (block.type) {
     case "heading": {
       const Tag = `h${block.level}` as const;
@@ -86,9 +105,12 @@ function Block({ block, query, onNavigate }: { block: PageBlock } & Omit<Props, 
     case "search-results": {
       const q = query[block.paramName] ?? "";
       return (
-        <p className="tw-results" data-testid="search-results">
-          {block.template.replace("{query}", q)}
-        </p>
+        <SearchResults
+          heading={block.template.replace("{query}", q)}
+          query={q}
+          data={searchResults}
+          onNavigate={onNavigate}
+        />
       );
     }
   }
@@ -122,5 +144,75 @@ function SearchForm(props: {
         {props.buttonLabel}
       </button>
     </form>
+  );
+}
+
+function frDate(iso: string): string {
+  const [y, m, d] = iso.split("-");
+  return `${d}/${m}/${y}`;
+}
+
+/**
+ * Results come from the Time Search index at the machine's date, so a site
+ * that did not exist yet simply never appears. Each hit navigates back
+ * through the Browser Engine.
+ */
+function SearchResults({
+  heading,
+  query,
+  data,
+  onNavigate,
+}: {
+  heading: string;
+  query: string;
+  data?: SearchResultsData;
+  onNavigate: (href: string) => void;
+}) {
+  if (!query.trim()) {
+    return (
+      <p className="tw-results" data-testid="search-results" data-count="0">
+        Tapez un ou plusieurs mots-clés.
+      </p>
+    );
+  }
+  const hits = data?.response.hits ?? [];
+  const total = data?.response.total ?? 0;
+  return (
+    <div data-testid="search-results" data-count={total}>
+      <p className="tw-results">{heading}</p>
+      {hits.length === 0 ? (
+        <p className="tw-paragraph" data-testid="search-empty">
+          Aucun résultat pour « {query} » à la date du{" "}
+          {data ? frDate(data.response.selectedDate) : "?"}. Le Time Web ne connaît que ce qui
+          existait à cette date.
+        </p>
+      ) : (
+        <ol className="tw-hits">
+          {hits.map((hit) => (
+            <li key={hit.document.id} className="tw-hit" data-testid={`hit-${hit.document.id}`}>
+              <a
+                href={hit.document.url ?? "#"}
+                className="tw-link"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (hit.document.url) onNavigate(hit.document.url);
+                }}
+              >
+                {hit.document.title}
+              </a>
+              <div className="tw-hit-snippet">{hit.snippet}</div>
+              <div className="tw-hit-meta">
+                {hit.document.url} — en ligne depuis le {frDate(hit.document.availableFrom)}
+              </div>
+            </li>
+          ))}
+        </ol>
+      )}
+      {data && (
+        <p className="tw-notice">
+          {total} résultat(s) — {data.provider.label} : {data.provider.tagline}
+        </p>
+      )}
+    </div>
   );
 }

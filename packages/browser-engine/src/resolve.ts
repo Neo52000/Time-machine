@@ -97,7 +97,9 @@ export function resolveHistoricalUrl(
   // 1. Local interactive reconstruction.
   const reconstruction = snapshots.find((s) => s.type === "reconstruction");
   if (reconstruction) {
-    const pages = catalog.pagesOf(website.id);
+    // Only the pages of the version selected for this date: a 2005 machine
+    // must never be served a 1998 sub-page of the same site.
+    const pages = catalog.pagesOfSnapshot(reconstruction.id);
     const page = pages.find((p) => p.path === url.pathname);
     if (page) {
       return {

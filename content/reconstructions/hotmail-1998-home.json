@@ -1,0 +1,47 @@
+{
+  "id": "page-hotmail-1998-home",
+  "websiteId": "hotmail-com",
+  "snapshotId": "snap-hotmail-1998",
+  "path": "/",
+  "title": "Hotmail — messagerie gratuite",
+  "style": "plain",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "Hotmail"
+    },
+    {
+      "type": "paragraph",
+      "text": "Votre courrier électronique gratuit, lisible depuis n'importe quel ordinateur connecté au Web : au bureau, au cybercafé ou chez des amis."
+    },
+    {
+      "type": "links",
+      "title": "Compte",
+      "items": [
+        {
+          "label": "Ouvrir une boîte gratuite",
+          "href": "/",
+          "description": "Inscription en deux minutes, 2 Mo de stockage."
+        },
+        {
+          "label": "Se connecter",
+          "href": "/",
+          "description": "Identifiant et mot de passe."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Accessible depuis tout navigateur",
+        "Filtre anti-courrier indésirable",
+        "Carnet d'adresses en ligne"
+      ]
+    },
+    {
+      "type": "notice",
+      "text": "Reconstitution originale inspirée des webmails de 1998. Aucun élément graphique d'origine reproduit."
+    }
+  ]
+}

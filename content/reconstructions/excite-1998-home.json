@@ -1,0 +1,76 @@
+{
+  "id": "page-excite-1998-home",
+  "websiteId": "excite-com",
+  "snapshotId": "snap-excite-1998",
+  "path": "/",
+  "title": "Excite — portail",
+  "style": "portal",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "Excite"
+    },
+    {
+      "type": "paragraph",
+      "text": "Votre page de départ : recherche, actualités, météo, cours de bourse et e-mail gratuit."
+    },
+    {
+      "type": "search-form",
+      "action": "/search",
+      "paramName": "search",
+      "buttonLabel": "Rechercher"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "links",
+      "layout": "columns",
+      "items": [
+        {
+          "label": "Actualités",
+          "href": "/search?search=actualit%C3%A9s"
+        },
+        {
+          "label": "Météo",
+          "href": "/search?search=m%C3%A9t%C3%A9o"
+        },
+        {
+          "label": "Bourse",
+          "href": "/search?search=bourse"
+        },
+        {
+          "label": "Sports",
+          "href": "/search?search=sport"
+        },
+        {
+          "label": "Voyages",
+          "href": "/search?search=voyages"
+        },
+        {
+          "label": "Informatique",
+          "href": "/search?search=informatique"
+        }
+      ]
+    },
+    {
+      "type": "links",
+      "title": "Ailleurs",
+      "items": [
+        {
+          "label": "Hotmail — e-mail gratuit",
+          "href": "http://www.hotmail.com/"
+        },
+        {
+          "label": "AltaVista",
+          "href": "http://www.altavista.com/"
+        }
+      ]
+    },
+    {
+      "type": "notice",
+      "text": "Reconstitution originale inspirée des portails de 1998, sans reproduction de la charte graphique d'origine."
+    }
+  ]
+}

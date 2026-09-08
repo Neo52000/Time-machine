@@ -1,0 +1,35 @@
+{
+  "id": "page-youtube-2005-results",
+  "websiteId": "youtube-com",
+  "snapshotId": "snap-youtube-2005",
+  "path": "/results",
+  "title": "YouTube — résultats",
+  "style": "plain",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Résultats"
+    },
+    {
+      "type": "search-form",
+      "action": "/results",
+      "paramName": "search_query",
+      "buttonLabel": "Rechercher"
+    },
+    {
+      "type": "search-results",
+      "paramName": "search_query",
+      "template": "Sites et pages pour « {query} » :"
+    },
+    {
+      "type": "links",
+      "items": [
+        {
+          "label": "Accueil",
+          "href": "/"
+        }
+      ]
+    }
+  ]
+}

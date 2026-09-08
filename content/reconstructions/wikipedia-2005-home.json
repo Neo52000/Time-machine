@@ -1,0 +1,60 @@
+{
+  "id": "page-wikipedia-2005-home",
+  "websiteId": "wikipedia-org",
+  "snapshotId": "snap-wikipedia-2005",
+  "path": "/",
+  "title": "Wikipédia, l'encyclopédie libre",
+  "style": "plain",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "Wikipédia"
+    },
+    {
+      "type": "paragraph",
+      "text": "L'encyclopédie libre que chacun peut améliorer. Des centaines de milliers d'articles rédigés par des bénévoles, dans des dizaines de langues."
+    },
+    {
+      "type": "search-form",
+      "action": "/search",
+      "paramName": "search",
+      "buttonLabel": "Rechercher"
+    },
+    {
+      "type": "links",
+      "title": "Portails",
+      "layout": "columns",
+      "items": [
+        {
+          "label": "Arts",
+          "href": "/"
+        },
+        {
+          "label": "Histoire",
+          "href": "/"
+        },
+        {
+          "label": "Sciences",
+          "href": "/"
+        },
+        {
+          "label": "Technologies",
+          "href": "/"
+        },
+        {
+          "label": "Société",
+          "href": "/"
+        },
+        {
+          "label": "Sport",
+          "href": "/"
+        }
+      ]
+    },
+    {
+      "type": "notice",
+      "text": "Reconstitution originale inspirée de l'époque. Le contenu des articles n'est pas reproduit."
+    }
+  ]
+}

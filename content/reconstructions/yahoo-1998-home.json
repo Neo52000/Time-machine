@@ -1,17 +1,29 @@
 {
   "id": "page-yahoo-1998-home",
   "websiteId": "yahoo-com",
+  "snapshotId": "snap-yahoo-1998",
   "path": "/",
   "title": "Yahoo!",
   "style": "portal",
   "blocks": [
-    { "type": "heading", "level": 1, "text": "Yahoo!" },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "Yahoo!"
+    },
     {
       "type": "paragraph",
       "text": "L'annuaire du Web, classé par des humains. Choisissez une rubrique ou cherchez un site."
     },
-    { "type": "search-form", "action": "/", "paramName": "p", "buttonLabel": "Chercher" },
-    { "type": "divider" },
+    {
+      "type": "search-form",
+      "action": "/search",
+      "paramName": "p",
+      "buttonLabel": "Chercher"
+    },
+    {
+      "type": "divider"
+    },
     {
       "type": "links",
       "layout": "columns",
@@ -31,25 +43,53 @@
           "href": "/",
           "description": "Web, logiciels, multimédia…"
         },
-        { "label": "Enseignement", "href": "/", "description": "Universités, formation…" },
-        { "label": "Divertissement", "href": "/", "description": "Cinéma, musique, humour…" },
+        {
+          "label": "Enseignement",
+          "href": "/",
+          "description": "Universités, formation…"
+        },
+        {
+          "label": "Divertissement",
+          "href": "/",
+          "description": "Cinéma, musique, humour…"
+        },
         {
           "label": "Actualités et médias",
           "href": "/",
           "description": "Journaux, télévision, météo…"
         },
-        { "label": "Loisirs et sport", "href": "/", "description": "Sports, jeux, voyages…" },
-        { "label": "Sciences", "href": "/", "description": "Astronomie, biologie, ingénierie…" },
-        { "label": "Société", "href": "/", "description": "Politique, religions, communautés…" }
+        {
+          "label": "Loisirs et sport",
+          "href": "/",
+          "description": "Sports, jeux, voyages…"
+        },
+        {
+          "label": "Sciences",
+          "href": "/",
+          "description": "Astronomie, biologie, ingénierie…"
+        },
+        {
+          "label": "Société",
+          "href": "/",
+          "description": "Politique, religions, communautés…"
+        }
       ]
     },
-    { "type": "divider" },
+    {
+      "type": "divider"
+    },
     {
       "type": "links",
       "title": "Autres moteurs",
       "items": [
-        { "label": "AltaVista", "href": "http://www.altavista.com/" },
-        { "label": "Google (bêta)", "href": "http://www.google.com/" }
+        {
+          "label": "AltaVista",
+          "href": "http://www.altavista.com/"
+        },
+        {
+          "label": "Google (bêta)",
+          "href": "http://www.google.com/"
+        }
       ]
     },
     {

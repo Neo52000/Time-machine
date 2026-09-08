@@ -81,6 +81,22 @@ describe("seed catalogue", () => {
     }
   });
 
+  it("rejects a page attached to another website's snapshot", () => {
+    const stray = {
+      ...timeWebCatalog.getPage("page-geocities-1998-modem")!,
+      snapshotId: "snap-altavista-1998",
+    };
+    expect(() =>
+      createTimeWebCatalog({
+        websites: timeWebCatalog.websites,
+        snapshots: timeWebCatalog.snapshots,
+        pages: timeWebCatalog.pages.map((p) => (p.id === stray.id ? stray : p)),
+        events: timeWebCatalog.events,
+        sources: timeWebCatalog.sources,
+      }),
+    ).toThrow(/must belong to a reconstruction snapshot/);
+  });
+
   it("rejects dangling references", () => {
     expect(() =>
       createTimeWebCatalog({
@@ -153,6 +169,7 @@ describe("resolveHistoricalUrl (six-step flow)", () => {
     const catalog = createTimeWebCatalog({
       websites: timeWebCatalog.websites,
       snapshots: [
+        ...timeWebCatalog.snapshots,
         {
           id: "bad-archive",
           websiteId: "lycos-com",
@@ -166,8 +183,8 @@ describe("resolveHistoricalUrl (six-step flow)", () => {
           id: "unknown-rights",
           websiteId: "lycos-com",
           capturedAt: "1997-01-01",
-          type: "reconstruction",
-          contentRef: "page-altavista-1998-home",
+          type: "screenshot",
+          contentRef: "lycos-1997.png",
           sourceIds: [],
           rightsStatus: "unknown",
         },
@@ -223,6 +240,29 @@ describe("resolveHistoricalUrl (six-step flow)", () => {
     });
     expect(at1998("???")).toMatchObject({ type: "not-found", reason: "invalid-url" });
     expect(at1998("about:home")).toMatchObject({ type: "not-found", reason: "invalid-url" });
+  });
+
+  it("serves the pages of the version selected for the date, never another version's", () => {
+    const in1998 = resolveHistoricalUrl(timeWebCatalog, {
+      url: "google.com",
+      selectedDate: "1998-10-01",
+    });
+    expect(in1998).toMatchObject({ type: "reconstruction", pageId: "page-google-1998-home" });
+    const in2005 = resolveHistoricalUrl(timeWebCatalog, {
+      url: "google.com",
+      selectedDate: "2005-06-01",
+    });
+    expect(in2005).toMatchObject({
+      type: "reconstruction",
+      snapshotId: "snap-google-2005",
+      pageId: "page-google-2005-home",
+    });
+    // The 2005 version has no /search page of its own → page-unknown, not the 1998 page.
+    const sub2005 = resolveHistoricalUrl(timeWebCatalog, {
+      url: "google.com/search?q=x",
+      selectedDate: "2005-06-01",
+    });
+    expect(sub2005).toMatchObject({ type: "not-found", reason: "page-unknown" });
   });
 
   it("a reconstruction captured after the date is not shown", () => {

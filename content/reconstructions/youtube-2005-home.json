@@ -1,0 +1,40 @@
+{
+  "id": "page-youtube-2005-home",
+  "websiteId": "youtube-com",
+  "snapshotId": "snap-youtube-2005",
+  "path": "/",
+  "title": "YouTube — vidéos en ligne",
+  "style": "plain",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "YouTube"
+    },
+    {
+      "type": "paragraph",
+      "text": "Un site tout neuf pour partager vos vidéos : filmez, envoyez, regardez. Aucun logiciel à installer, la lecture se fait dans le navigateur."
+    },
+    {
+      "type": "search-form",
+      "action": "/results",
+      "paramName": "search_query",
+      "buttonLabel": "Rechercher"
+    },
+    {
+      "type": "links",
+      "title": "Dernières vidéos",
+      "items": [
+        {
+          "label": "Me at the zoo",
+          "href": "/",
+          "description": "19 secondes devant les éléphants — la toute première vidéo publiée, le 23 avril 2005."
+        }
+      ]
+    },
+    {
+      "type": "notice",
+      "text": "Reconstitution originale inspirée de l'époque. Le lecteur vidéo arrive avec l'expérience vidéo (phase 8)."
+    }
+  ]
+}

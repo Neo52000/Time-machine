@@ -50,6 +50,9 @@ Homepage ("WHEN DO YOU WANT TO GO?")
         info.cern.ch), in-page links and search forms
       · temporal 404 for sites not yet / no longer online, with the event
         that explains it — nothing is ever fetched from the real Internet
+  → Time Search inside the reconstructed search engines
+      · +mot / -mot / "expression" syntax, results filtered at the machine's
+        date: Napster is unfindable in 1998, YouTube is findable in 2005
 ```
 
 1985 (Minitel), 1998 (early Web desktop), and 2005 (social web + video) each
@@ -57,8 +60,8 @@ load their own `EraManifest` (`eras/<id>/manifest.json`) — nothing is
 hard-coded per era in the app code. Themes, boot sequences, disks and app
 lists are all resolved from manifest keys.
 
-Not yet implemented: time search index, more Time Web sites and snapshots,
-Minitel UI, messenger / media player, admin app, Supabase backend. See
+Not yet implemented: Minitel UI, messenger / media player, admin app,
+Supabase backend. See
 `docs/roadmap.md`.
 
 ## Monorepo layout
@@ -73,6 +76,7 @@ packages/
   desktop-engine/     Boot sequences, themes, virtual disk, era clock
   apps-runtime/       App registry + per-era resolution
   browser-engine/     Time Web catalogue + resolveHistoricalUrl + history
+  search-engine/      Dated search index derived from the catalogue
   timeline-engine/    Event date/category filtering, sorting, search
 eras/                 EraManifest JSON, one folder per era
 content/

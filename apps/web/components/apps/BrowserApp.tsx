@@ -16,6 +16,8 @@ import {
   timeWebCatalog,
 } from "@time-machine/browser-engine";
 import { eraNow, readTextFile } from "@time-machine/desktop-engine";
+import { getSearchProvider, search, timeSearchIndex } from "@time-machine/search-engine";
+import type { SearchResultsData } from "./browser/ReconstructedPage";
 import { ResolutionView } from "./browser/ResolutionView";
 import type { AppProps } from "./types";
 import "./browser/reconstruction.css";
@@ -50,11 +52,27 @@ export function BrowserApp({ era, fs, clock, payload }: AppProps) {
     [fs],
   );
 
+  const provider = useMemo(() => getSearchProvider(era.searchProvider), [era.searchProvider]);
+
   const resolution = useMemo(
     () =>
       isAboutUrl(url) ? undefined : resolveHistoricalUrl(timeWebCatalog, { url, selectedDate }),
     [url, selectedDate],
   );
+
+  // Time Search runs only for reconstructed pages that carry a `search-results`
+  // block, with the query parameter that block declares, at the machine's date.
+  const searchResults = useMemo<SearchResultsData | undefined>(() => {
+    if (resolution?.type !== "reconstruction") return undefined;
+    const page = timeWebCatalog.getPage(resolution.pageId);
+    const block = page?.blocks.find((b) => b.type === "search-results");
+    if (!block) return undefined;
+    const query = resolution.url.query[block.paramName] ?? "";
+    return {
+      provider,
+      response: search(timeSearchIndex, { query, selectedDate, limit: provider.resultsPerPage }),
+    };
+  }, [resolution, selectedDate, provider]);
 
   /** Go to an absolute address (address bar, favourites, home). */
   function navigate(target: string) {
@@ -97,7 +115,9 @@ export function BrowserApp({ era, fs, clock, payload }: AppProps) {
     if (!resolution) return "Terminé";
     switch (resolution.type) {
       case "reconstruction":
-        return `Reconstitution — ${resolution.url.hostname}`;
+        return searchResults
+          ? `${provider.label} — ${searchResults.response.total} résultat(s) au ${selectedDate}`
+          : `Reconstitution — ${resolution.url.hostname}`;
       case "archive":
         return "Archive documentaire référencée";
       case "snapshot":
@@ -165,6 +185,7 @@ export function BrowserApp({ era, fs, clock, payload }: AppProps) {
             catalog={timeWebCatalog}
             era={era}
             selectedDate={selectedDate}
+            searchResults={searchResults}
             onNavigate={follow}
           />
         ) : (

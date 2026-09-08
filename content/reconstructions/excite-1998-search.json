@@ -1,0 +1,35 @@
+{
+  "id": "page-excite-1998-search",
+  "websiteId": "excite-com",
+  "snapshotId": "snap-excite-1998",
+  "path": "/search",
+  "title": "Excite — résultats",
+  "style": "portal",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Excite — résultats"
+    },
+    {
+      "type": "search-form",
+      "action": "/search",
+      "paramName": "search",
+      "buttonLabel": "Rechercher"
+    },
+    {
+      "type": "search-results",
+      "paramName": "search",
+      "template": "Résultats pour « {query} »"
+    },
+    {
+      "type": "links",
+      "items": [
+        {
+          "label": "Accueil Excite",
+          "href": "/"
+        }
+      ]
+    }
+  ]
+}
