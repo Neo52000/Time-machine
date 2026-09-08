@@ -155,6 +155,7 @@ export function Desktop({ era }: { era: EraManifest }) {
                 app={app}
                 era={era}
                 fs={fs}
+                clock={clock}
                 payload={payloads[win.id] ?? {}}
                 openApp={openAppById}
                 closeSelf={() => actions.close(win.id)}

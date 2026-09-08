@@ -1,0 +1,104 @@
+/* Era-inspired document styling for reconstructed pages. Deliberately
+   generic 1990s HTML defaults (Times, blue links, grey or white ground);
+   no brand chrome is reproduced. */
+.tw-page {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 15px;
+  line-height: 1.35;
+  color: #000;
+  background: #fff;
+  padding: 12px 16px;
+  min-height: 100%;
+  user-select: text;
+}
+.tw-style-gray {
+  background: #c0c0c0;
+}
+.tw-style-portal {
+  background: #fff;
+}
+.tw-heading {
+  font-weight: bold;
+  margin: 8px 0 6px;
+}
+h1.tw-heading {
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+h2.tw-heading {
+  font-size: 20px;
+}
+h3.tw-heading {
+  font-size: 16px;
+}
+.tw-paragraph {
+  margin: 6px 0;
+}
+.tw-notice {
+  margin: 8px 0;
+  font-size: 12px;
+  color: #444;
+}
+.tw-divider {
+  border: 0;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #fff;
+  margin: 10px 0;
+}
+.tw-list {
+  list-style: square;
+  padding-left: 22px;
+  margin: 6px 0;
+}
+.tw-links-list {
+  list-style: disc;
+  padding-left: 22px;
+  margin: 4px 0;
+}
+.tw-links-columns {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 4px 16px;
+}
+.tw-link {
+  color: #0000ee;
+  text-decoration: underline;
+  font-weight: bold;
+}
+.tw-link:visited {
+  color: #551a8b;
+}
+.tw-link-desc {
+  font-size: 13px;
+  color: #333;
+}
+.tw-search {
+  display: flex;
+  gap: 6px;
+  margin: 10px 0;
+}
+.tw-input {
+  flex: 1;
+  max-width: 420px;
+  font: inherit;
+  padding: 2px 4px;
+  border: 2px inset #c0c0c0;
+  background: #fff;
+}
+.tw-button {
+  font: inherit;
+  padding: 2px 10px;
+  border: 2px outset #c0c0c0;
+  background: #c0c0c0;
+}
+.tw-button:active {
+  border-style: inset;
+}
+.tw-results {
+  margin: 8px 0;
+  font-style: italic;
+}

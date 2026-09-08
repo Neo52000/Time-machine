@@ -109,5 +109,39 @@
     "label": "Twitter (X) — Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Twitter",
     "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-geocities",
+    "label": "GeoCities — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/GeoCities",
+    "publisher": "Wikipedia",
+    "notes": "Founded November 1994 as Beverly Hills Internet; US service closed 26 October 2009."
+  },
+  {
+    "id": "src-wikipedia-amazon",
+    "label": "Amazon (company) — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Amazon_(company)",
+    "publisher": "Wikipedia",
+    "notes": "Online bookstore opened July 1995; exact launch day to confirm."
+  },
+  {
+    "id": "src-w3-first-website",
+    "label": "The first website — CERN / W3C",
+    "url": "https://info.cern.ch/hypertext/WWW/TheProject.html",
+    "publisher": "CERN",
+    "notes": "Restored copy of the first website hosted at info.cern.ch."
+  },
+  {
+    "id": "src-timemachine-reconstruction",
+    "label": "Time Machine original reconstruction",
+    "publisher": "Time Machine",
+    "notes": "Era-inspired page authored for this project. Original layout and text; no third-party markup, artwork or trademarked chrome reproduced."
+  },
+  {
+    "id": "src-wayback-yahoo-1998",
+    "label": "Wayback Machine capture of yahoo.com (1998)",
+    "url": "https://web.archive.org/web/1998/http://www.yahoo.com/",
+    "publisher": "Internet Archive",
+    "notes": "Documentary reference only; never rendered inline (docs/rights-policy.md)."
   }
 ]

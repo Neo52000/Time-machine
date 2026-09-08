@@ -1,0 +1,39 @@
+{
+  "id": "page-google-1998-home",
+  "websiteId": "google-com",
+  "path": "/",
+  "title": "Google (BETA)",
+  "style": "plain",
+  "blocks": [
+    { "type": "heading", "level": 1, "text": "Google — BETA" },
+    {
+      "type": "paragraph",
+      "text": "Un moteur de recherche né à Stanford, qui classe les pages selon les liens qui pointent vers elles."
+    },
+    {
+      "type": "search-form",
+      "action": "/search",
+      "paramName": "q",
+      "buttonLabel": "Recherche Google"
+    },
+    {
+      "type": "notice",
+      "text": "Index d'environ 25 millions de pages. Ceci est une version bêta : des résultats peuvent manquer."
+    },
+    { "type": "divider" },
+    {
+      "type": "links",
+      "items": [
+        {
+          "label": "À propos de Google",
+          "href": "/",
+          "description": "Deux étudiants, un garage, un algorithme."
+        }
+      ]
+    },
+    {
+      "type": "notice",
+      "text": "Reconstitution originale inspirée de l'époque. Aucun logo ni charte d'origine reproduits."
+    }
+  ]
+}

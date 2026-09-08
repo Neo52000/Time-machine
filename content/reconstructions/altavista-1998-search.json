@@ -1,0 +1,22 @@
+{
+  "id": "page-altavista-1998-search",
+  "websiteId": "altavista-com",
+  "path": "/cgi-bin/query",
+  "title": "AltaVista : résultats",
+  "style": "plain",
+  "blocks": [
+    { "type": "heading", "level": 2, "text": "AltaVista — résultats de la recherche" },
+    {
+      "type": "search-form",
+      "action": "/cgi-bin/query",
+      "paramName": "q",
+      "buttonLabel": "Rechercher"
+    },
+    { "type": "search-results", "paramName": "q", "template": "Vous avez cherché : « {query} »." },
+    {
+      "type": "paragraph",
+      "text": "L'index daté du Time Web n'est pas encore branché : les résultats filtrés à la date de la machine arrivent avec le Time Search (phase 6)."
+    },
+    { "type": "links", "items": [{ "label": "Retour à la page d'accueil", "href": "/" }] }
+  ]
+}

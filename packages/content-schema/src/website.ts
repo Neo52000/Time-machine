@@ -10,6 +10,10 @@ export const HistoricalWebsiteSchema = z.object({
   availableFrom: z.string(),
   availableUntil: z.string().optional(),
   sourceIds: z.array(z.string()),
+  /** Events to surface when the site is not reachable at the selected date (temporal 404). */
+  relatedEventIds: z.array(z.string()).optional(),
+  /** Set when availableFrom/availableUntil are not confirmed to the day. */
+  needsResearch: z.boolean().optional(),
 });
 
 export const SnapshotTypeSchema = z.enum(["reconstruction", "archive", "screenshot", "document"]);

@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@time-machine/apps-runtime": "workspace:*",
+    "@time-machine/browser-engine": "workspace:*",
     "@time-machine/content-schema": "workspace:*",
     "@time-machine/desktop-engine": "workspace:*",
     "@time-machine/era-engine": "workspace:*",
