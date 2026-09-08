@@ -27,27 +27,33 @@ Other commands:
 ```bash
 pnpm lint                # ESLint across the workspace
 pnpm typecheck           # TypeScript, strict mode, across the workspace
-pnpm test                # Vitest unit tests (content-schema, era-engine, timeline-engine)
+pnpm test                # Vitest unit tests (every package)
 pnpm build               # production build of apps/web
 pnpm test:e2e            # Playwright end-to-end tests (starts the app itself)
 ```
 
-## What works today (first vertical slice)
+## What works today (Phases 0–3)
 
 ```text
 Homepage ("WHEN DO YOU WANT TO GO?")
   → horizontal timeline with 1985 / 1998 / 2005 era markers
   → select an era
   → loading screen
-  → desktop placeholder (boot sequence text + the era's app list)
+  → boot sequence (BIOS-style, data-driven, click to skip)
+  → desktop at the machine's native resolution, themed per era
+      · icons, draggable / resizable / minimizable / maximizable windows
+      · taskbar with start menu and the *simulated* era clock
+      · 1998 apps: Time Browser shell, file manager over a virtual C: disk,
+        notepad, DOS-like terminal (dir, cd, type, date…), mail inbox
 ```
 
 1985 (Minitel), 1998 (early Web desktop), and 2005 (social web + video) each
 load their own `EraManifest` (`eras/<id>/manifest.json`) — nothing is
-hard-coded per era in the app code.
+hard-coded per era in the app code. Themes, boot sequences, disks and app
+lists are all resolved from manifest keys.
 
-Not yet implemented: real desktop/window manager, internal browser, time
-search, Minitel UI, messenger, admin app, Supabase backend. See
+Not yet implemented: internal browser content (Time Web), time search,
+Minitel UI, messenger / media player, admin app, Supabase backend. See
 `docs/roadmap.md`.
 
 ## Monorepo layout
@@ -58,6 +64,9 @@ apps/
 packages/
   content-schema/     Zod schemas + TS types shared by every engine
   era-engine/         Era manifest loading, validation, registry
+  window-manager/     Pure window state (open/focus/move/resize/z-order)
+  desktop-engine/     Boot sequences, themes, virtual disk, era clock
+  apps-runtime/       App registry + per-era resolution
   timeline-engine/    Event date/category filtering, sorting, search
 eras/                 EraManifest JSON, one folder per era
 content/

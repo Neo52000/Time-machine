@@ -12,9 +12,12 @@
     "clean": "rm -rf .next .turbo"
   },
   "dependencies": {
+    "@time-machine/apps-runtime": "workspace:*",
     "@time-machine/content-schema": "workspace:*",
+    "@time-machine/desktop-engine": "workspace:*",
     "@time-machine/era-engine": "workspace:*",
     "@time-machine/timeline-engine": "workspace:*",
+    "@time-machine/window-manager": "workspace:*",
     "next": "^15.1.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
