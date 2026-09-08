@@ -1,0 +1,312 @@
+/* Desktop chrome. Colours/fonts come from the era theme via --tm-* tokens
+   set on .tm-desktop-root (see @time-machine/desktop-engine getDesktopTheme). */
+
+.tm-stage {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tm-desktop-root {
+  position: relative;
+  flex: none;
+  overflow: hidden;
+  background: var(--tm-desktop);
+  color: var(--tm-text);
+  font-family: var(--tm-font);
+  font-size: 12px;
+  user-select: none;
+  transform-origin: center center;
+}
+
+.tm-crt::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.08) 3px
+  );
+  z-index: 10000;
+}
+
+/* 3D bevel shared by windows, buttons and the taskbar (Win9x look). */
+.tm-bevel {
+  background: var(--tm-surface);
+  box-shadow:
+    inset -1px -1px var(--tm-surface-darker),
+    inset 1px 1px var(--tm-surface-light),
+    inset -2px -2px var(--tm-surface-dark),
+    inset 2px 2px var(--tm-surface);
+}
+
+.tm-bevel-in {
+  background: var(--tm-content);
+  box-shadow:
+    inset -1px -1px var(--tm-surface-light),
+    inset 1px 1px var(--tm-surface-dark),
+    inset -2px -2px var(--tm-surface),
+    inset 2px 2px var(--tm-surface-darker);
+}
+
+.tm-style-flat .tm-bevel {
+  box-shadow: 0 0 0 1px var(--tm-surface-dark);
+  border-radius: 6px 6px 0 0;
+}
+
+.tm-style-text .tm-bevel,
+.tm-style-text .tm-bevel-in {
+  box-shadow: 0 0 0 1px var(--tm-surface-light);
+  background: var(--tm-surface);
+}
+
+.tm-btn {
+  background: var(--tm-surface);
+  color: var(--tm-text);
+  padding: 1px 8px;
+  font: inherit;
+  line-height: 18px;
+  box-shadow:
+    inset -1px -1px var(--tm-surface-darker),
+    inset 1px 1px var(--tm-surface-light),
+    inset -2px -2px var(--tm-surface-dark),
+    inset 2px 2px var(--tm-surface);
+}
+.tm-btn:active,
+.tm-btn[aria-pressed="true"] {
+  box-shadow:
+    inset 1px 1px var(--tm-surface-darker),
+    inset -1px -1px var(--tm-surface-light),
+    inset 2px 2px var(--tm-surface-dark);
+}
+.tm-btn:disabled {
+  color: var(--tm-surface-dark);
+  text-shadow: 1px 1px var(--tm-surface-light);
+}
+
+.tm-input,
+.tm-textarea,
+.tm-terminal {
+  background: var(--tm-content);
+  color: var(--tm-text);
+  font: inherit;
+  padding: 1px 4px;
+  box-shadow:
+    inset -1px -1px var(--tm-surface-light),
+    inset 1px 1px var(--tm-surface-dark),
+    inset -2px -2px var(--tm-surface),
+    inset 2px 2px var(--tm-surface-darker);
+  user-select: text;
+}
+.tm-textarea {
+  font-family: var(--tm-font-mono);
+}
+.tm-terminal {
+  background: #000;
+  color: #c0c0c0;
+  font-family: var(--tm-font-mono);
+  box-shadow: none;
+}
+
+.tm-toolbar,
+.tm-menubar {
+  background: var(--tm-surface);
+  border-bottom: 1px solid var(--tm-surface-dark);
+}
+.tm-statusbar {
+  background: var(--tm-surface);
+  border-top: 1px solid var(--tm-surface-light);
+  color: var(--tm-text);
+}
+.tm-app-body {
+  background: var(--tm-content);
+  color: var(--tm-text);
+  user-select: text;
+}
+.tm-table-head th {
+  background: var(--tm-surface);
+  box-shadow:
+    inset -1px -1px var(--tm-surface-darker),
+    inset 1px 1px var(--tm-surface-light);
+}
+
+/* Windows */
+.tm-window {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding: 3px;
+}
+.tm-window[hidden] {
+  display: none;
+}
+.tm-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 18px;
+  padding: 0 2px 0 4px;
+  color: var(--tm-title-text);
+  font-weight: bold;
+  background: linear-gradient(90deg, var(--tm-title-inactive-from), var(--tm-title-inactive-to));
+  cursor: default;
+  touch-action: none;
+}
+.tm-window[data-active="true"] .tm-titlebar {
+  background: linear-gradient(90deg, var(--tm-title-active-from), var(--tm-title-active-to));
+}
+.tm-titlebar-btn {
+  width: 16px;
+  height: 14px;
+  font-size: 10px;
+  line-height: 12px;
+  padding: 0;
+  color: var(--tm-text);
+}
+.tm-window-content {
+  flex: 1;
+  min-height: 0;
+  margin-top: 2px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.tm-window-content > * {
+  flex: 1;
+  min-height: 0;
+}
+.tm-resize-handle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 14px;
+  height: 14px;
+  cursor: nwse-resize;
+  touch-action: none;
+  background: linear-gradient(
+    135deg,
+    transparent 0 50%,
+    var(--tm-surface-dark) 50% 60%,
+    transparent 60% 70%,
+    var(--tm-surface-dark) 70% 80%,
+    transparent 80% 90%,
+    var(--tm-surface-dark) 90%
+  );
+}
+
+/* Icons */
+.tm-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 72px;
+  padding: 4px 2px;
+  color: var(--tm-icon-text);
+  text-shadow: 1px 1px 1px #000;
+  text-align: center;
+  background: transparent;
+  border: 1px dotted transparent;
+  font: inherit;
+}
+.tm-icon:focus-visible,
+.tm-icon[data-selected="true"] {
+  outline: none;
+  border-color: var(--tm-icon-text);
+}
+.tm-icon[data-selected="true"] .tm-icon-label {
+  background: var(--tm-selection);
+}
+.tm-icon-glyph {
+  font-size: 28px;
+  line-height: 32px;
+  filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.6));
+}
+
+/* Taskbar */
+.tm-taskbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px;
+  z-index: 9000;
+}
+.tm-task-btn {
+  min-width: 120px;
+  max-width: 160px;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.tm-tray {
+  margin-left: auto;
+  padding: 1px 8px;
+  line-height: 18px;
+  box-shadow:
+    inset 1px 1px var(--tm-surface-dark),
+    inset -1px -1px var(--tm-surface-light);
+}
+.tm-start-menu {
+  position: absolute;
+  left: 2px;
+  bottom: 100%;
+  min-width: 190px;
+  padding: 3px;
+  z-index: 9100;
+}
+.tm-start-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 4px 8px;
+  text-align: left;
+  font: inherit;
+  color: var(--tm-text);
+  background: transparent;
+}
+.tm-start-menu-item:hover,
+.tm-start-menu-item:focus-visible {
+  background: var(--tm-selection);
+  color: var(--tm-title-text);
+  outline: none;
+}
+
+/* Boot */
+.tm-boot {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  color: #c0c0c0;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 14px;
+  padding: 24px;
+  white-space: pre-wrap;
+  cursor: pointer;
+}
+.tm-boot-cursor::after {
+  content: "_";
+  animation: tm-blink 0.8s steps(1) infinite;
+}
+@keyframes tm-blink {
+  50% {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tm-boot-cursor::after {
+    animation: none;
+  }
+}

@@ -32,15 +32,24 @@ importers:
 
   apps/web:
     dependencies:
+      '@time-machine/apps-runtime':
+        specifier: workspace:*
+        version: link:../../packages/apps-runtime
       '@time-machine/content-schema':
         specifier: workspace:*
         version: link:../../packages/content-schema
+      '@time-machine/desktop-engine':
+        specifier: workspace:*
+        version: link:../../packages/desktop-engine
       '@time-machine/era-engine':
         specifier: workspace:*
         version: link:../../packages/era-engine
       '@time-machine/timeline-engine':
         specifier: workspace:*
         version: link:../../packages/timeline-engine
+      '@time-machine/window-manager':
+        specifier: workspace:*
+        version: link:../../packages/window-manager
       next:
         specifier: ^15.1.3
         version: 15.5.25(@playwright/test@1.63.0)(@types/node@22.20.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -82,11 +91,37 @@ importers:
         specifier: ^5.7.2
         version: 5.9.3
 
+  packages/apps-runtime:
+    dependencies:
+      '@time-machine/content-schema':
+        specifier: workspace:*
+        version: link:../content-schema
+    devDependencies:
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@22.20.1)
+
   packages/content-schema:
     dependencies:
       zod:
         specifier: ^3.24.1
         version: 3.25.76
+    devDependencies:
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@22.20.1)
+
+  packages/desktop-engine:
+    dependencies:
+      '@time-machine/content-schema':
+        specifier: workspace:*
+        version: link:../content-schema
     devDependencies:
       typescript:
         specifier: ^5.7.2
@@ -109,6 +144,19 @@ importers:
         version: 2.1.9(@types/node@22.20.1)
 
   packages/timeline-engine:
+    dependencies:
+      '@time-machine/content-schema':
+        specifier: workspace:*
+        version: link:../content-schema
+    devDependencies:
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@22.20.1)
+
+  packages/window-manager:
     dependencies:
       '@time-machine/content-schema':
         specifier: workspace:*

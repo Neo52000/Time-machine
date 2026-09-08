@@ -9,6 +9,9 @@ const nextConfig = {
     "@time-machine/content-schema",
     "@time-machine/era-engine",
     "@time-machine/timeline-engine",
+    "@time-machine/apps-runtime",
+    "@time-machine/desktop-engine",
+    "@time-machine/window-manager",
   ],
   outputFileTracingRoot: path.join(__dirname, "../.."),
 };
