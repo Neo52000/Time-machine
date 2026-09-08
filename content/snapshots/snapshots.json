@@ -1,0 +1,56 @@
+[
+  {
+    "id": "snap-info-cern-ch-1991",
+    "websiteId": "info-cern-ch",
+    "capturedAt": "1991-08-06",
+    "type": "reconstruction",
+    "contentRef": "page-info-cern-ch-1991-home",
+    "sourceIds": ["src-w3-first-website", "src-timemachine-reconstruction"],
+    "rightsStatus": "original"
+  },
+  {
+    "id": "snap-altavista-1998",
+    "websiteId": "altavista-com",
+    "capturedAt": "1998-01-01",
+    "type": "reconstruction",
+    "contentRef": "page-altavista-1998-home",
+    "sourceIds": ["src-wikipedia-altavista", "src-timemachine-reconstruction"],
+    "rightsStatus": "original"
+  },
+  {
+    "id": "snap-yahoo-1998",
+    "websiteId": "yahoo-com",
+    "capturedAt": "1998-01-01",
+    "type": "reconstruction",
+    "contentRef": "page-yahoo-1998-home",
+    "sourceIds": ["src-wikipedia-yahoo", "src-timemachine-reconstruction"],
+    "rightsStatus": "original"
+  },
+  {
+    "id": "snap-yahoo-1998-archive",
+    "websiteId": "yahoo-com",
+    "capturedAt": "1998-01-01",
+    "type": "archive",
+    "contentRef": "https://web.archive.org/web/1998/http://www.yahoo.com/",
+    "sourceIds": ["src-wayback-yahoo-1998"],
+    "rightsStatus": "reference-only"
+  },
+  {
+    "id": "snap-google-1998",
+    "websiteId": "google-com",
+    "capturedAt": "1998-09-04",
+    "type": "reconstruction",
+    "contentRef": "page-google-1998-home",
+    "sourceIds": ["src-wikipedia-google", "src-timemachine-reconstruction"],
+    "rightsStatus": "original"
+  },
+  {
+    "id": "snap-geocities-1998",
+    "websiteId": "geocities-com",
+    "capturedAt": "1998-01-01",
+    "type": "reconstruction",
+    "contentRef": "page-geocities-1998-home",
+    "sourceIds": ["src-wikipedia-geocities", "src-timemachine-reconstruction"],
+    "rightsStatus": "original"
+  }
+]

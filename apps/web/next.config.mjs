@@ -10,6 +10,7 @@ const nextConfig = {
     "@time-machine/era-engine",
     "@time-machine/timeline-engine",
     "@time-machine/apps-runtime",
+    "@time-machine/browser-engine",
     "@time-machine/desktop-engine",
     "@time-machine/window-manager",
   ],

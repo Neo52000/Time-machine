@@ -1,0 +1,39 @@
+{
+  "id": "page-geocities-1998-home",
+  "websiteId": "geocities-com",
+  "path": "/",
+  "title": "GeoCities — Bienvenue dans votre quartier",
+  "style": "gray",
+  "blocks": [
+    { "type": "heading", "level": 1, "text": "GeoCities" },
+    {
+      "type": "paragraph",
+      "text": "Créez votre page personnelle gratuite et installez-vous dans le quartier qui vous ressemble."
+    },
+    {
+      "type": "links",
+      "title": "Quartiers",
+      "layout": "columns",
+      "items": [
+        { "label": "SiliconValley", "href": "/", "description": "Informatique et programmation" },
+        { "label": "Hollywood", "href": "/", "description": "Cinéma et télévision" },
+        { "label": "Area51", "href": "/", "description": "Science-fiction et fantastique" },
+        { "label": "Paris", "href": "/", "description": "Romance, poésie, arts" },
+        { "label": "Colosseum", "href": "/", "description": "Sports" },
+        { "label": "SunsetStrip", "href": "/", "description": "Musique rock et clubs" }
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Compteur de visiteurs : 000 042 317",
+        "Pages en construction : 1 204 555",
+        "Dernière mise à jour : cette nuit"
+      ]
+    },
+    {
+      "type": "notice",
+      "text": "Reconstitution originale inspirée de l'époque des pages personnelles. Aucun élément graphique d'origine reproduit."
+    }
+  ]
+}

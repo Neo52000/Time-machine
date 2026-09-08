@@ -4,6 +4,7 @@
 
 ```ts
 type RightsStatus =
+  | "original" // era-inspired reconstruction authored by this project
   | "public-domain"
   | "licensed"
   | "permission-granted"

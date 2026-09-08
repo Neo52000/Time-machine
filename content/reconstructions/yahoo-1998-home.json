@@ -1,0 +1,60 @@
+{
+  "id": "page-yahoo-1998-home",
+  "websiteId": "yahoo-com",
+  "path": "/",
+  "title": "Yahoo!",
+  "style": "portal",
+  "blocks": [
+    { "type": "heading", "level": 1, "text": "Yahoo!" },
+    {
+      "type": "paragraph",
+      "text": "L'annuaire du Web, classé par des humains. Choisissez une rubrique ou cherchez un site."
+    },
+    { "type": "search-form", "action": "/", "paramName": "p", "buttonLabel": "Chercher" },
+    { "type": "divider" },
+    {
+      "type": "links",
+      "layout": "columns",
+      "items": [
+        {
+          "label": "Arts et culture",
+          "href": "/",
+          "description": "Littérature, photographie, architecture…"
+        },
+        {
+          "label": "Commerce et économie",
+          "href": "/",
+          "description": "Entreprises, finance, emploi…"
+        },
+        {
+          "label": "Informatique et Internet",
+          "href": "/",
+          "description": "Web, logiciels, multimédia…"
+        },
+        { "label": "Enseignement", "href": "/", "description": "Universités, formation…" },
+        { "label": "Divertissement", "href": "/", "description": "Cinéma, musique, humour…" },
+        {
+          "label": "Actualités et médias",
+          "href": "/",
+          "description": "Journaux, télévision, météo…"
+        },
+        { "label": "Loisirs et sport", "href": "/", "description": "Sports, jeux, voyages…" },
+        { "label": "Sciences", "href": "/", "description": "Astronomie, biologie, ingénierie…" },
+        { "label": "Société", "href": "/", "description": "Politique, religions, communautés…" }
+      ]
+    },
+    { "type": "divider" },
+    {
+      "type": "links",
+      "title": "Autres moteurs",
+      "items": [
+        { "label": "AltaVista", "href": "http://www.altavista.com/" },
+        { "label": "Google (bêta)", "href": "http://www.google.com/" }
+      ]
+    },
+    {
+      "type": "notice",
+      "text": "Reconstitution originale inspirée de l'époque, sans reproduction de la charte graphique d'origine."
+    }
+  ]
+}

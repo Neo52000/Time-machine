@@ -35,6 +35,9 @@ importers:
       '@time-machine/apps-runtime':
         specifier: workspace:*
         version: link:../../packages/apps-runtime
+      '@time-machine/browser-engine':
+        specifier: workspace:*
+        version: link:../../packages/browser-engine
       '@time-machine/content-schema':
         specifier: workspace:*
         version: link:../../packages/content-schema
@@ -92,6 +95,19 @@ importers:
         version: 5.9.3
 
   packages/apps-runtime:
+    dependencies:
+      '@time-machine/content-schema':
+        specifier: workspace:*
+        version: link:../content-schema
+    devDependencies:
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@22.20.1)
+
+  packages/browser-engine:
     dependencies:
       '@time-machine/content-schema':
         specifier: workspace:*

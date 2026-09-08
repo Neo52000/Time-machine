@@ -4,17 +4,18 @@ All shared data contracts live in `packages/content-schema` as Zod schemas
 (runtime-validated) with inferred TypeScript types. Nothing outside this
 package should redefine these shapes.
 
-| Type                                                          | File                | Used by                                           |
-| ------------------------------------------------------------- | ------------------- | ------------------------------------------------- |
-| `EraManifest`                                                 | `src/era.ts`        | era-engine                                        |
-| `HistoricalEvent`                                             | `src/event.ts`      | timeline-engine, `content/events/*.json`          |
-| `SourceReference`                                             | `src/source.ts`     | any content citing provenance                     |
-| `RightsStatus`                                                | `src/rights.ts`     | `HistoricalSnapshot`, admin rights review         |
-| `HistoricalWebsite` / `HistoricalSnapshot`                    | `src/website.ts`    | Time Web Engine (Phase 5, not yet implemented)    |
-| `SearchDocument` + `isAvailableAt`                            | `src/search.ts`     | Time Search Engine (Phase 6, not yet implemented) |
-| `DesktopWindow`                                               | `src/desktop.ts`    | Window Manager (Phase 3, not yet implemented)     |
-| `VirtualFile`                                                 | `src/filesystem.ts` | Virtual File System (not yet implemented)         |
-| `NarrativeTrigger` / `NarrativeCondition` / `NarrativeAction` | `src/narrative.ts`  | Narrative Engine (contracts only, not wired up)   |
+| Type                                                          | File                    | Used by                                                                       |
+| ------------------------------------------------------------- | ----------------------- | ----------------------------------------------------------------------------- |
+| `EraManifest`                                                 | `src/era.ts`            | era-engine                                                                    |
+| `HistoricalEvent`                                             | `src/event.ts`          | timeline-engine, `content/events/*.json`                                      |
+| `SourceReference`                                             | `src/source.ts`         | any content citing provenance                                                 |
+| `RightsStatus`                                                | `src/rights.ts`         | `HistoricalSnapshot`, admin rights review                                     |
+| `HistoricalWebsite` / `HistoricalSnapshot`                    | `src/website.ts`        | browser-engine catalogue, `content/websites`, `content/snapshots`             |
+| `ReconstructedPage` / `PageBlock`                             | `src/reconstruction.ts` | browser-engine, `content/reconstructions/*.json` (declarative pages, no HTML) |
+| `SearchDocument` + `isAvailableAt`                            | `src/search.ts`         | Time Search Engine (Phase 6, not yet implemented)                             |
+| `DesktopWindow`                                               | `src/desktop.ts`        | window-manager                                                                |
+| `VirtualFile`                                                 | `src/filesystem.ts`     | desktop-engine virtual disk                                                   |
+| `NarrativeTrigger` / `NarrativeCondition` / `NarrativeAction` | `src/narrative.ts`      | Narrative Engine (contracts only, not wired up)                               |
 
 ## Events
 
@@ -38,9 +39,18 @@ these with primary sources (contemporary press, archived pages, official
 company histories) is tracked as follow-up work, not blocking the technical
 MVP.
 
+## Websites, snapshots, reconstructions
+
+`content/websites/websites.json`, `content/snapshots/snapshots.json` and
+`content/reconstructions/*.json` feed the Time Web catalogue
+(`docs/browser-engine.md`). Same rules as events: sourced dates or
+`needsResearch: true`, at least one `sourceIds` entry, and referential
+integrity checked at load time.
+
 ## Rights
 
-`RightsStatus` is `"public-domain" | "licensed" | "permission-granted" |
-"fair-use-review" | "reference-only" | "unknown"`. See
+`RightsStatus` is `"original" | "public-domain" | "licensed" |
+"permission-granted" | "fair-use-review" | "reference-only" | "unknown"`
+(`original` = era-inspired page authored by this project). See
 `docs/rights-policy.md` — the admin (Phase 9, not yet built) must refuse to
 publish anything left as `"unknown"`.

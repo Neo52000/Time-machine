@@ -16,8 +16,8 @@ TIME MACHINE
 ├── Desktop Engine      — packages/desktop-engine  (implemented: boot sequences, themes, virtual disk, era clock, mailbox)
 ├── Window Manager      — packages/window-manager  (implemented: pure state transitions, z-order, cascade, clamping)
 ├── Application Runtime — packages/apps-runtime    (implemented: app registry + per-era resolution)
-├── Browser Engine      — not yet implemented (Phase 4)
-├── Time Web Engine     — not yet implemented (Phase 5)
+├── Browser Engine      — packages/browser-engine  (implemented: URL normalisation, Time Web catalogue, 6-step resolution, history)
+├── Time Web Engine     — browser-engine catalogue + content/websites|snapshots|reconstructions (seed only)
 ├── Time Search Engine  — not yet implemented (Phase 6)
 ├── Minitel Engine      — not yet implemented (Phase 7)
 ├── Museum Engine       — not yet implemented
@@ -73,6 +73,7 @@ packages/
   content-schema/   Zod schemas + inferred TS types shared by every engine
   era-engine/       Era manifest loading & validation
   timeline-engine/  Date-availability filtering, category filters, sorting, search
+  browser-engine/   URL normalisation, Time Web catalogue, resolveHistoricalUrl, browser history
   window-manager/   Window state transitions (no React)
   desktop-engine/   Boot sequences, themes, virtual filesystem, era clock, mailbox seeds
   apps-runtime/     App definitions (window defaults, singleton, era restrictions) + registry
@@ -80,6 +81,9 @@ eras/               EraManifest JSON per era (1985, 1998, 2005)
 content/
   events/           HistoricalEvent seed data
   sources/          SourceReference seed data
+  websites/         HistoricalWebsite seed data (Time Web)
+  snapshots/        HistoricalSnapshot seed data (reconstruction / archive references)
+  reconstructions/  ReconstructedPage JSON — declarative pages, no HTML
 ```
 
 See `docs/era-format.md` and `docs/content-model.md` for the data contracts,

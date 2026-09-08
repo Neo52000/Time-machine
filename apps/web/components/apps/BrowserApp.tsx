@@ -1,32 +1,75 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-import { readTextFile } from "@time-machine/desktop-engine";
+import { useMemo, useState, type FormEvent } from "react";
+import {
+  canGoBack,
+  canGoForward,
+  createBrowserHistory,
+  currentUrl,
+  goBack,
+  goForward,
+  isAboutUrl,
+  navigateTo,
+  normalizeUrl,
+  resolveHistoricalUrl,
+  resolveLink,
+  timeWebCatalog,
+} from "@time-machine/browser-engine";
+import { eraNow, readTextFile } from "@time-machine/desktop-engine";
+import { ResolutionView } from "./browser/ResolutionView";
 import type { AppProps } from "./types";
+import "./browser/reconstruction.css";
+
+const HOME = "about:home";
+
+function isoDate(date: Date): string {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
 
 /**
- * Time Browser — shell only for now. The Browser Engine (Phase 4) will plug
- * `resolveHistoricalUrl` into `navigate`; the chrome (address bar, history,
- * status bar) is already in place so Phase 4 only swaps the content pane.
+ * Time Browser — the internal, simulated browser. Every address goes
+ * through the Browser Engine's `resolveHistoricalUrl` at the machine's
+ * simulated date; nothing is ever fetched from the real network.
  */
-export function BrowserApp({ era, fs }: AppProps) {
-  const [history, setHistory] = useState<string[]>(["about:home"]);
-  const [cursor, setCursor] = useState(0);
-  const [input, setInput] = useState("about:home");
-  const url = history[cursor] ?? "about:home";
+export function BrowserApp({ era, fs, clock, payload }: AppProps) {
+  const initialUrl = typeof payload.url === "string" ? payload.url : HOME;
+  const [history, setHistory] = useState(() => createBrowserHistory(initialUrl));
+  const [input, setInput] = useState(initialUrl);
+  const url = currentUrl(history);
+  // The date is sampled at navigation time; a long session drifts naturally with the era clock.
+  const [selectedDate, setSelectedDate] = useState(() => isoDate(eraNow(clock)));
 
-  const favorites =
-    readTextFile(fs, "/Mes Documents/favoris.txt")
-      ?.split("\n")
-      .filter((l) => l.startsWith("http")) ?? [];
+  const favorites = useMemo(
+    () =>
+      readTextFile(fs, "/Mes Documents/favoris.txt")
+        ?.split("\n")
+        .filter((l) => l.startsWith("http")) ?? [],
+    [fs],
+  );
 
-  function navigate(next: string) {
-    const target = next.trim();
-    if (!target) return;
-    const trimmed = history.slice(0, cursor + 1);
-    setHistory([...trimmed, target]);
-    setCursor(trimmed.length);
-    setInput(target);
+  const resolution = useMemo(
+    () =>
+      isAboutUrl(url) ? undefined : resolveHistoricalUrl(timeWebCatalog, { url, selectedDate }),
+    [url, selectedDate],
+  );
+
+  /** Go to an absolute address (address bar, favourites, home). */
+  function navigate(target: string) {
+    const trimmed = target.trim();
+    if (!trimmed) return;
+    const canonical = normalizeUrl(trimmed)?.href ?? trimmed;
+    setSelectedDate(isoDate(eraNow(clock)));
+    setHistory((h) => navigateTo(h, canonical));
+    setInput(canonical);
+  }
+
+  /** Follow a link found inside a page: paths are relative to the current page. */
+  function follow(href: string) {
+    const base = normalizeUrl(url);
+    navigate(base && base.scheme !== "about" ? resolveLink(href, base) : href);
   }
 
   function onSubmit(e: FormEvent) {
@@ -34,28 +77,67 @@ export function BrowserApp({ era, fs }: AppProps) {
     navigate(input);
   }
 
-  function go(delta: number) {
-    const next = cursor + delta;
-    if (next < 0 || next >= history.length) return;
-    setCursor(next);
-    setInput(history[next] ?? "");
+  function back() {
+    setHistory((h) => {
+      const next = goBack(h);
+      setInput(currentUrl(next));
+      return next;
+    });
   }
+
+  function forward() {
+    setHistory((h) => {
+      const next = goForward(h);
+      setInput(currentUrl(next));
+      return next;
+    });
+  }
+
+  const status = (() => {
+    if (!resolution) return "Terminé";
+    switch (resolution.type) {
+      case "reconstruction":
+        return `Reconstitution — ${resolution.url.hostname}`;
+      case "archive":
+        return "Archive documentaire référencée";
+      case "snapshot":
+        return "Capture historique";
+      case "document":
+        return "Document historique";
+      case "website-card":
+        return "Fiche documentaire";
+      case "not-found":
+        return `404 temporelle (${resolution.reason})`;
+    }
+  })();
 
   return (
     <div className="flex h-full flex-col">
       <div className="tm-toolbar flex items-center gap-1 p-1">
-        <button className="tm-btn" onClick={() => go(-1)} disabled={cursor === 0} type="button">
+        <button
+          className="tm-btn"
+          onClick={back}
+          disabled={!canGoBack(history)}
+          type="button"
+          data-testid="browser-back"
+        >
           ◀ Précédent
         </button>
         <button
           className="tm-btn"
-          onClick={() => go(1)}
-          disabled={cursor >= history.length - 1}
+          onClick={forward}
+          disabled={!canGoForward(history)}
           type="button"
+          data-testid="browser-forward"
         >
           Suivant ▶
         </button>
-        <button className="tm-btn" onClick={() => navigate("about:home")} type="button">
+        <button
+          className="tm-btn"
+          onClick={() => navigate(HOME)}
+          type="button"
+          data-testid="browser-home-button"
+        >
           Accueil
         </button>
       </div>
@@ -70,55 +152,63 @@ export function BrowserApp({ era, fs }: AppProps) {
           onChange={(e) => setInput(e.target.value)}
           spellCheck={false}
           autoComplete="off"
+          data-testid="browser-address"
         />
-        <button className="tm-btn" type="submit">
+        <button className="tm-btn" type="submit" data-testid="browser-go">
           OK
         </button>
       </form>
-      <div className="tm-app-body flex-1 overflow-auto p-4 text-sm" data-testid="browser-page">
-        {url === "about:home" ? (
-          <>
-            <h2 className="text-lg font-bold">Time Browser — {era.label}</h2>
-            <p className="mt-2">
-              Vous êtes connecté au réseau de {era.dateStart.slice(0, 4)}
+      <div className="tm-app-body flex-1 overflow-auto" data-testid="browser-page">
+        {resolution ? (
+          <ResolutionView
+            resolution={resolution}
+            catalog={timeWebCatalog}
+            era={era}
+            selectedDate={selectedDate}
+            onNavigate={follow}
+          />
+        ) : (
+          <div className="tw-page" data-testid="browser-home">
+            <h1 className="tw-heading">Time Browser</h1>
+            <p className="tw-paragraph">
+              {era.label}. Vous êtes connecté au réseau de {era.dateStart.slice(0, 4)}
               {era.network.web ? " via un modem 56k." : ", mais le Web n'y est pas disponible."}
             </p>
-            <p className="mt-2 text-[var(--tm-text-muted)]">
-              Le Time Web (sites historiques et recherche datée) est branché en phases 4 à 6. En
-              attendant, la barre d&apos;adresse et l&apos;historique fonctionnent.
+            <p className="tw-notice">
+              Le Time Browser n&apos;affiche que ce qui existait à la date de la machine :
+              reconstitutions locales, captures et documents historiques. Rien n&apos;est chargé
+              depuis l&apos;Internet réel.
             </p>
             {favorites.length > 0 && (
               <>
-                <h3 className="mt-4 font-bold">Favoris</h3>
-                <ul className="mt-1 list-disc pl-5">
+                <h3 className="tw-heading">Favoris</h3>
+                <ul className="tw-links-list">
                   {favorites.map((f) => (
                     <li key={f}>
-                      <button
-                        type="button"
-                        className="underline"
-                        style={{ color: "var(--tm-selection)" }}
-                        onClick={() => navigate(f)}
+                      <a
+                        href={f}
+                        className="tw-link"
+                        data-testid={`favorite-${normalizeUrl(f)?.domain ?? f}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          navigate(f);
+                        }}
                       >
                         {f}
-                      </button>
+                      </a>
                     </li>
                   ))}
                 </ul>
               </>
             )}
-          </>
-        ) : (
-          <>
-            <h2 className="text-lg font-bold">Impossible d&apos;afficher la page</h2>
-            <p className="mt-2">
-              <span className="font-mono">{url}</span> n&apos;est pas encore reconstitué dans le
-              Time Web. Cette adresse sera résolue par le moteur de navigation historique (phase 4).
+            <p className="tw-notice">
+              Sites documentés : {timeWebCatalog.websites.map((w) => w.domain).join(", ")}.
             </p>
-          </>
+          </div>
         )}
       </div>
-      <div className="tm-statusbar px-2 py-0.5 text-xs">
-        {url === "about:home" ? "Terminé" : `Connexion à ${url}...`}
+      <div className="tm-statusbar px-2 py-0.5 text-xs" data-testid="browser-status">
+        {status}
       </div>
     </div>
   );

@@ -16,8 +16,12 @@ implement → test → validate → commit.
       resizable / minimizable / maximizable windows, taskbar + start menu,
       era clock, virtual disk, and the 1998 apps (browser shell, file
       manager, notepad, terminal, mail).
-- [ ] **Phase 4 — Browser**: internal browser, routing, history, URL
-      resolver (`resolveHistoricalUrl`).
+- [x] **Phase 4 — Browser**: `packages/browser-engine` — URL normalisation,
+      six-step `resolveHistoricalUrl` (reconstruction → snapshot → allow-listed
+      archive → document → card → temporal 404), rights gating, pure history;
+      Time Browser renders declarative reconstructions (AltaVista, Yahoo!,
+      Google beta, GeoCities, info.cern.ch) and temporal 404s with the
+      explaining event.
 - [ ] **Phase 5 — Time Web**: historical sites, snapshots, temporal
       routing.
 - [ ] **Phase 6 — Time Search**: search index, date-filtered search UI.
@@ -29,12 +33,19 @@ implement → test → validate → commit.
 
 ## Recommended next step
 
-Phase 4: Browser Engine (`packages/browser-engine`) — `resolveHistoricalUrl`,
-temporal routing and history, plugged into the existing Time Browser shell
-(`apps/web/components/apps/BrowserApp.tsx` already has the address bar,
-back/forward history and status bar; only the content pane changes).
+Phase 5/6 together: Time Web content + Time Search. The browser already
+resolves any site in the catalogue, so Phase 5 is mostly content (more
+`HistoricalWebsite` / `ReconstructedPage` records, screenshot/document
+snapshots with qualified rights). Phase 6 plugs a date-filtered index
+(`SearchDocument` + `isAvailableAt`) into the `search-results` block that
+AltaVista's and Google's reconstructions already render.
 
 Known gaps carried forward:
+
+- Reconstructions cover home + search pages only; other in-site links land
+  on the home page or a `page-unknown` 404.
+- No screenshot/document snapshots yet (step 2 of the flow is exercised by
+  tests only).
 
 - 1985 renders the generic desktop at 320×240 with a Minitel placeholder;
   Phase 7 replaces it with the videotex UI.

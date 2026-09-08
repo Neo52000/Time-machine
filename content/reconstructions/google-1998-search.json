@@ -1,0 +1,19 @@
+{
+  "id": "page-google-1998-search",
+  "websiteId": "google-com",
+  "path": "/search",
+  "title": "Google — résultats",
+  "style": "plain",
+  "blocks": [
+    { "type": "heading", "level": 2, "text": "Google — résultats" },
+    {
+      "type": "search-form",
+      "action": "/search",
+      "paramName": "q",
+      "buttonLabel": "Recherche Google"
+    },
+    { "type": "search-results", "paramName": "q", "template": "Résultats pour « {query} »." },
+    { "type": "paragraph", "text": "Les résultats datés arrivent avec le Time Search (phase 6)." },
+    { "type": "links", "items": [{ "label": "Accueil", "href": "/" }] }
+  ]
+}

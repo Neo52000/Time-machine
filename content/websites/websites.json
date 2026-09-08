@@ -1,0 +1,96 @@
+[
+  {
+    "id": "info-cern-ch",
+    "domain": "info.cern.ch",
+    "title": "World Wide Web — CERN",
+    "description": "Le premier site Web, hébergé au CERN sur la machine NeXT de Tim Berners-Lee.",
+    "category": ["science", "web"],
+    "availableFrom": "1991-08-06",
+    "sourceIds": ["src-wikipedia-first-website", "src-w3-first-website"],
+    "relatedEventIds": ["first-website"]
+  },
+  {
+    "id": "altavista-com",
+    "domain": "altavista.com",
+    "title": "AltaVista",
+    "description": "Moteur de recherche plein texte de Digital Equipment Corporation, référence des années 1996-1999.",
+    "category": ["search"],
+    "availableFrom": "1995-12-15",
+    "sourceIds": ["src-wikipedia-altavista"],
+    "relatedEventIds": ["altavista-launch"]
+  },
+  {
+    "id": "yahoo-com",
+    "domain": "yahoo.com",
+    "title": "Yahoo!",
+    "description": "Annuaire hiérarchique du Web devenu portail grand public.",
+    "category": ["directory", "portal"],
+    "availableFrom": "1995-01-18",
+    "sourceIds": ["src-wikipedia-yahoo"],
+    "relatedEventIds": ["yahoo-founded"],
+    "needsResearch": true
+  },
+  {
+    "id": "google-com",
+    "domain": "google.com",
+    "title": "Google",
+    "description": "Moteur de recherche fondé sur PageRank, encore en bêta en 1998.",
+    "category": ["search"],
+    "availableFrom": "1997-09-15",
+    "sourceIds": ["src-wikipedia-google"],
+    "relatedEventIds": ["google-founded"]
+  },
+  {
+    "id": "geocities-com",
+    "domain": "geocities.com",
+    "title": "GeoCities",
+    "description": "Hébergement gratuit de pages personnelles organisées en « quartiers » thématiques.",
+    "category": ["hosting", "community"],
+    "availableFrom": "1995-12-01",
+    "availableUntil": "2009-10-26",
+    "sourceIds": ["src-wikipedia-geocities"],
+    "needsResearch": true
+  },
+  {
+    "id": "lycos-com",
+    "domain": "lycos.com",
+    "title": "Lycos",
+    "description": "Moteur de recherche issu de l'université Carnegie Mellon.",
+    "category": ["search"],
+    "availableFrom": "1994-07-20",
+    "sourceIds": ["src-wikipedia-lycos"],
+    "relatedEventIds": ["lycos-launch"],
+    "needsResearch": true
+  },
+  {
+    "id": "amazon-com",
+    "domain": "amazon.com",
+    "title": "Amazon.com",
+    "description": "Librairie en ligne « Earth's Biggest Bookstore ».",
+    "category": ["commerce"],
+    "availableFrom": "1995-07-16",
+    "sourceIds": ["src-wikipedia-amazon"],
+    "needsResearch": true
+  },
+  {
+    "id": "napster-com",
+    "domain": "napster.com",
+    "title": "Napster",
+    "description": "Service de partage de fichiers MP3 en pair-à-pair.",
+    "category": ["music", "p2p"],
+    "availableFrom": "1999-06-01",
+    "sourceIds": ["src-wikipedia-napster"],
+    "relatedEventIds": ["napster-launch"],
+    "needsResearch": true
+  },
+  {
+    "id": "wikipedia-org",
+    "domain": "wikipedia.org",
+    "title": "Wikipedia",
+    "description": "Encyclopédie libre et collaborative.",
+    "category": ["reference"],
+    "availableFrom": "2001-01-15",
+    "sourceIds": ["src-wikipedia-wikipedia"],
+    "relatedEventIds": ["wikipedia-launch"]
+  }
+]

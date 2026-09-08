@@ -1,0 +1,43 @@
+{
+  "id": "page-info-cern-ch-1991-home",
+  "websiteId": "info-cern-ch",
+  "path": "/",
+  "title": "World Wide Web",
+  "style": "plain",
+  "blocks": [
+    { "type": "heading", "level": 1, "text": "World Wide Web" },
+    {
+      "type": "paragraph",
+      "text": "Le WorldWideWeb (W3) est une initiative de recherche d'information hypermédia à grande échelle visant à donner un accès universel à un vaste univers de documents."
+    },
+    {
+      "type": "paragraph",
+      "text": "Tout ce qu'il y a en ligne sur le W3 est accessible ici, ainsi que des informations sur le projet lui-même : logiciels, documentation technique, listes de diffusion et bibliographie."
+    },
+    {
+      "type": "links",
+      "title": "Sommaire",
+      "items": [
+        {
+          "label": "Qu'est-ce que le W3 ?",
+          "href": "/",
+          "description": "Présentation du projet et de ses objectifs."
+        },
+        {
+          "label": "Serveurs disponibles",
+          "href": "/",
+          "description": "Liste des serveurs W3 connus, par sujet."
+        },
+        {
+          "label": "Logiciels",
+          "href": "/",
+          "description": "Navigateurs en mode ligne et clients NeXTStep."
+        }
+      ]
+    },
+    {
+      "type": "notice",
+      "text": "Reconstitution originale d'après la page restaurée par le CERN. En 1991, il n'existe ni images, ni couleurs, ni formulaires : uniquement du texte et des liens."
+    }
+  ]
+}

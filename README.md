@@ -43,8 +43,13 @@ Homepage ("WHEN DO YOU WANT TO GO?")
   → desktop at the machine's native resolution, themed per era
       · icons, draggable / resizable / minimizable / maximizable windows
       · taskbar with start menu and the *simulated* era clock
-      · 1998 apps: Time Browser shell, file manager over a virtual C: disk,
+      · 1998 apps: Time Browser, file manager over a virtual C: disk,
         notepad, DOS-like terminal (dir, cd, type, date…), mail inbox
+  → Time Browser: type an address, get what existed at the machine's date
+      · original reconstructions (AltaVista, Yahoo!, Google beta, GeoCities,
+        info.cern.ch), in-page links and search forms
+      · temporal 404 for sites not yet / no longer online, with the event
+        that explains it — nothing is ever fetched from the real Internet
 ```
 
 1985 (Minitel), 1998 (early Web desktop), and 2005 (social web + video) each
@@ -52,7 +57,7 @@ load their own `EraManifest` (`eras/<id>/manifest.json`) — nothing is
 hard-coded per era in the app code. Themes, boot sequences, disks and app
 lists are all resolved from manifest keys.
 
-Not yet implemented: internal browser content (Time Web), time search,
+Not yet implemented: time search index, more Time Web sites and snapshots,
 Minitel UI, messenger / media player, admin app, Supabase backend. See
 `docs/roadmap.md`.
 
@@ -67,6 +72,7 @@ packages/
   window-manager/     Pure window state (open/focus/move/resize/z-order)
   desktop-engine/     Boot sequences, themes, virtual disk, era clock
   apps-runtime/       App registry + per-era resolution
+  browser-engine/     Time Web catalogue + resolveHistoricalUrl + history
   timeline-engine/    Event date/category filtering, sorting, search
 eras/                 EraManifest JSON, one folder per era
 content/

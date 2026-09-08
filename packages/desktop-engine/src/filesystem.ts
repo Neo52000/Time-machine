@@ -172,11 +172,11 @@ const fs1998: VirtualFileSystem = {
     "favoris-1998": [
       "Mes sites favoris",
       "-----------------",
-      "http://www.altavista.com",
-      "http://www.yahoo.fr",
-      "http://www.geocities.com",
-      "http://www.multimania.com",
-      "http://www.google.com   (nouveau, septembre)",
+      "http://www.altavista.com/",
+      "http://www.yahoo.com/",
+      "http://www.geocities.com/",
+      "http://www.google.com/",
+      "http://info.cern.ch/",
     ].join("\n"),
     "modem-1998": [
       "Connexion modem 56k",
