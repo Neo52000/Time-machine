@@ -1,0 +1,113 @@
+[
+  {
+    "id": "src-wikipedia-minitel",
+    "label": "Minitel — Wikipedia",
+    "url": "https://fr.wikipedia.org/wiki/Minitel",
+    "publisher": "Wikipedia",
+    "notes": "Reference source for the seed MVP; exact commercial launch date needs primary-source verification."
+  },
+  {
+    "id": "src-wikipedia-first-website",
+    "label": "World Wide Web — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/History_of_the_World_Wide_Web",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-w3-first-server",
+    "label": "First Web server — World Wide Web Consortium (W3C)",
+    "url": "https://www.w3.org/History/1991-WWW-NeXT.txt",
+    "publisher": "W3C",
+    "notes": "Exact day of the first working CERN httpd needs primary-source verification."
+  },
+  {
+    "id": "src-wikipedia-webcam",
+    "label": "Trojan Room coffee pot — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Trojan_Room_coffee_pot",
+    "publisher": "Wikipedia",
+    "notes": "Sources diverge on the 1991 local video feed vs. the 1993 web-connected version."
+  },
+  {
+    "id": "src-wikipedia-yahoo",
+    "label": "Yahoo! — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Yahoo!",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-lycos",
+    "label": "Lycos — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Lycos",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-altavista",
+    "label": "AltaVista — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/AltaVista",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-google",
+    "label": "Google — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Google",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-msn-messenger",
+    "label": "MSN Messenger — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Windows_Live_Messenger",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-napster",
+    "label": "Napster — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Napster",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-wikipedia",
+    "label": "Wikipedia (project history) — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/History_of_Wikipedia",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-facebook",
+    "label": "Facebook — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Facebook",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-youtube",
+    "label": "YouTube — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/YouTube",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-me-at-the-zoo",
+    "label": "\"Me at the zoo\" — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Me_at_the_zoo",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-gmail",
+    "label": "Gmail — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Gmail",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-skype",
+    "label": "Skype — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Skype",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-myspace",
+    "label": "Myspace — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Myspace",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-twitter",
+    "label": "Twitter (X) — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Twitter",
+    "publisher": "Wikipedia"
+  }
+]

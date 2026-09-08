@@ -1,0 +1,15 @@
+{
+  "id": "1985",
+  "label": "1985 — Minitel",
+  "dateStart": "1985-01-01",
+  "dateEnd": "1985-12-31",
+  "machine": {
+    "id": "minitel-1b",
+    "resolution": { "width": 320, "height": 240 },
+    "bootSequence": "minitel-boot",
+    "theme": "minitel-videotex"
+  },
+  "apps": ["minitel"],
+  "network": { "web": false, "minitel": true, "bbs": false, "messenger": false },
+  "timelineTags": ["minitel", "telecom", "france"]
+}
