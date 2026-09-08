@@ -1,0 +1,35 @@
+{
+  "id": "page-yahoo-1998-search",
+  "websiteId": "yahoo-com",
+  "snapshotId": "snap-yahoo-1998",
+  "path": "/search",
+  "title": "Yahoo! — résultats",
+  "style": "portal",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Yahoo! — résultats de la recherche"
+    },
+    {
+      "type": "search-form",
+      "action": "/search",
+      "paramName": "p",
+      "buttonLabel": "Chercher"
+    },
+    {
+      "type": "search-results",
+      "paramName": "p",
+      "template": "Sites correspondant à « {query} » :"
+    },
+    {
+      "type": "links",
+      "items": [
+        {
+          "label": "Retour à l'annuaire",
+          "href": "/"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "page-geocities-1998-modem",
+  "websiteId": "geocities-com",
+  "snapshotId": "snap-geocities-1998",
+  "path": "/SiliconValley/Lab/modem-56k",
+  "title": "La page de Julien — tout sur le modem 56k",
+  "style": "gray",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "Tout sur le modem 56k"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bienvenue sur ma page perso ! Je m'appelle Julien, j'ai 17 ans et je vous explique comment brancher et régler un modem 56k pour surfer plus vite."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Les normes"
+    },
+    {
+      "type": "list",
+      "items": [
+        "K56flex et X2 : deux normes incompatibles jusqu'en 1998",
+        "V.90 : la norme unifiée adoptée en 1998",
+        "En pratique : 40 à 50 kbit/s en réception, 33,6 kbit/s en émission"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Conseils"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Décrochez le téléphone pour vérifier que la ligne est libre",
+        "Désactivez le signal d'appel avant de composer",
+        "Une image de 100 Ko met environ 20 secondes à s'afficher"
+      ]
+    },
+    {
+      "type": "links",
+      "items": [
+        {
+          "label": "Retour au quartier SiliconValley",
+          "href": "/"
+        }
+      ]
+    },
+    {
+      "type": "notice",
+      "text": "Page personnelle fictive, dans l'esprit des pages GeoCities de 1998. Compteur : 000 001 337 visiteurs."
+    }
+  ]
+}

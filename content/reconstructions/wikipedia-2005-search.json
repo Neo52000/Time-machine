@@ -1,26 +1,26 @@
 {
-  "id": "page-google-1998-search",
-  "websiteId": "google-com",
-  "snapshotId": "snap-google-1998",
+  "id": "page-wikipedia-2005-search",
+  "websiteId": "wikipedia-org",
+  "snapshotId": "snap-wikipedia-2005",
   "path": "/search",
-  "title": "Google — résultats",
+  "title": "Wikipédia — recherche",
   "style": "plain",
   "blocks": [
     {
       "type": "heading",
       "level": 2,
-      "text": "Google — résultats"
+      "text": "Résultats de la recherche"
     },
     {
       "type": "search-form",
       "action": "/search",
-      "paramName": "q",
-      "buttonLabel": "Recherche Google"
+      "paramName": "search",
+      "buttonLabel": "Rechercher"
     },
     {
       "type": "search-results",
-      "paramName": "q",
-      "template": "Résultats pour « {query} »."
+      "paramName": "search",
+      "template": "Pages du Time Web pour « {query} » :"
     },
     {
       "type": "links",

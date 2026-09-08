@@ -1,11 +1,16 @@
 {
   "id": "page-info-cern-ch-1991-home",
   "websiteId": "info-cern-ch",
+  "snapshotId": "snap-info-cern-ch-1991",
   "path": "/",
   "title": "World Wide Web",
   "style": "plain",
   "blocks": [
-    { "type": "heading", "level": 1, "text": "World Wide Web" },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "World Wide Web"
+    },
     {
       "type": "paragraph",
       "text": "Le WorldWideWeb (W3) est une initiative de recherche d'information hypermédia à grande échelle visant à donner un accès universel à un vaste univers de documents."

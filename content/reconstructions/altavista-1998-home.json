@@ -1,11 +1,16 @@
 {
   "id": "page-altavista-1998-home",
   "websiteId": "altavista-com",
+  "snapshotId": "snap-altavista-1998",
   "path": "/",
   "title": "AltaVista : recherche",
   "style": "plain",
   "blocks": [
-    { "type": "heading", "level": 1, "text": "AltaVista" },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "AltaVista"
+    },
     {
       "type": "paragraph",
       "text": "Le moteur de recherche le plus rapide du Web. Plus de 100 millions de pages indexées."
@@ -21,27 +26,55 @@
       "type": "notice",
       "text": "Astuce : utilisez + devant un mot obligatoire, - devant un mot à exclure, et des guillemets pour une expression exacte."
     },
-    { "type": "divider" },
+    {
+      "type": "divider"
+    },
     {
       "type": "links",
       "title": "Catégories",
       "layout": "columns",
       "items": [
-        { "label": "Actualités", "href": "/cgi-bin/query?q=actualit%C3%A9s" },
-        { "label": "Informatique", "href": "/cgi-bin/query?q=informatique" },
-        { "label": "Musique", "href": "/cgi-bin/query?q=musique" },
-        { "label": "Sciences", "href": "/cgi-bin/query?q=sciences" },
-        { "label": "Sport", "href": "/cgi-bin/query?q=sport" },
-        { "label": "Voyages", "href": "/cgi-bin/query?q=voyages" }
+        {
+          "label": "Actualités",
+          "href": "/cgi-bin/query?q=actualit%C3%A9s"
+        },
+        {
+          "label": "Informatique",
+          "href": "/cgi-bin/query?q=informatique"
+        },
+        {
+          "label": "Musique",
+          "href": "/cgi-bin/query?q=musique"
+        },
+        {
+          "label": "Sciences",
+          "href": "/cgi-bin/query?q=sciences"
+        },
+        {
+          "label": "Sport",
+          "href": "/cgi-bin/query?q=sport"
+        },
+        {
+          "label": "Voyages",
+          "href": "/cgi-bin/query?q=voyages"
+        }
       ]
     },
-    { "type": "divider" },
+    {
+      "type": "divider"
+    },
     {
       "type": "links",
       "title": "Ailleurs sur le Web",
       "items": [
-        { "label": "Yahoo! — l'annuaire", "href": "http://www.yahoo.com/" },
-        { "label": "GeoCities — pages personnelles", "href": "http://www.geocities.com/" }
+        {
+          "label": "Yahoo! — l'annuaire",
+          "href": "http://www.yahoo.com/"
+        },
+        {
+          "label": "GeoCities — pages personnelles",
+          "href": "http://www.geocities.com/"
+        }
       ]
     },
     {

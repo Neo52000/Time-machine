@@ -66,6 +66,10 @@ anything. Links inside a page are resolved relative to the page's URL and
 go back through the engine, so a link to a site that does not exist yet
 lands on a temporal 404.
 
+When a reconstruction carries a `search-results` block, the browser runs
+Time Search (`docs/time-search.md`) for the block's query parameter and
+renders the hits inside the page.
+
 Reconstructions are **original, era-inspired** pages (`rightsStatus:
 "original"`, source `src-timemachine-reconstruction`): layout and copy are
 ours; no brand chrome, logo or artwork is reproduced.
@@ -90,9 +94,11 @@ the forward entries.
 1. Add a `HistoricalWebsite` to `content/websites/websites.json` with sourced
    `availableFrom` (`needsResearch: true` if not confirmed to the day) and
    `relatedEventIds` when an event documents it.
-2. Optionally add a `ReconstructedPage` JSON in `content/reconstructions/`
-   (path `/` for the home page), register it in
-   `packages/browser-engine/src/content.ts`, and add a
-   `HistoricalSnapshot` of type `reconstruction` pointing to it.
+2. Optionally add a `HistoricalSnapshot` of type `reconstruction` (one per
+   site _version_, dated by `capturedAt`) whose `contentRef` is the home
+   page id, then the `ReconstructedPage` JSONs in `content/reconstructions/`
+   (path `/` for the home page, `snapshotId` = that snapshot) and register
+   them in `packages/browser-engine/src/content.ts`. The browser serves only
+   the pages of the version selected for the machine's date.
 3. Run `pnpm --filter @time-machine/browser-engine test`: the catalogue test
    fails on any dangling reference or unknown-rights snapshot.

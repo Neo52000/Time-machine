@@ -204,8 +204,57 @@ const fsMinimal = (root: string): VirtualFileSystem => ({
   contents: {},
 });
 
+/** Seed disk for the 2005 machine. */
+const fs2005: VirtualFileSystem = {
+  root: "C:",
+  files: [
+    { id: "root", path: "/", name: "C:", type: DIRECTORY_TYPE },
+    { id: "docs", path: "/Mes Documents", name: "Mes Documents", type: DIRECTORY_TYPE },
+    { id: "music", path: "/Mes Documents/Ma Musique", name: "Ma Musique", type: DIRECTORY_TYPE },
+    { id: "videos", path: "/Mes Documents/Mes Vidéos", name: "Mes Vidéos", type: DIRECTORY_TYPE },
+    { id: "programs", path: "/Program Files", name: "Program Files", type: DIRECTORY_TYPE },
+    {
+      id: "readme",
+      path: "/Mes Documents/LISEZMOI.txt",
+      name: "LISEZMOI.txt",
+      type: "text/plain",
+      size: 420,
+      contentRef: "readme-2005",
+      modifiedAt: "2005-01-01T09:41:00Z",
+    },
+    {
+      id: "favoris",
+      path: "/Mes Documents/favoris.txt",
+      name: "favoris.txt",
+      type: "text/plain",
+      size: 160,
+      contentRef: "favoris-2005",
+      modifiedAt: "2005-06-01T18:40:00Z",
+    },
+  ],
+  contents: {
+    "readme-2005": [
+      "Bienvenue sur votre machine de 2005.",
+      "",
+      "Connexion ADSL permanente, écran plat 1024x768, et un Web qui devient",
+      "social : blogs, messagerie instantanée, partage de vidéos.",
+      "",
+      "Time Browser n'affiche que ce qui existait fin 2005.",
+    ].join("\n"),
+    "favoris-2005": [
+      "Mes sites favoris",
+      "-----------------",
+      "http://www.google.com/",
+      "http://www.wikipedia.org/",
+      "http://www.youtube.com/",
+      "http://www.myspace.com/",
+    ].join("\n"),
+  },
+};
+
 const fileSystemsByMachine: Record<string, VirtualFileSystem> = {
   "pc-1998": fs1998,
+  "pc-2005": fs2005,
 };
 
 /** Filesystem for a machine id; unknown machines get an empty disk. */

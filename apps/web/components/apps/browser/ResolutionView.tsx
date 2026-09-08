@@ -3,13 +3,14 @@
 import type { ReactNode } from "react";
 import type { HistoricalUrlResolution, TimeWebCatalog } from "@time-machine/browser-engine";
 import type { EraManifest } from "@time-machine/content-schema";
-import { ReconstructedPageView } from "./ReconstructedPage";
+import { ReconstructedPageView, type SearchResultsData } from "./ReconstructedPage";
 
 interface Props {
   resolution: HistoricalUrlResolution;
   catalog: TimeWebCatalog;
   era: EraManifest;
   selectedDate: string;
+  searchResults?: SearchResultsData;
   onNavigate: (href: string) => void;
 }
 
@@ -19,7 +20,14 @@ function frDate(iso: string): string {
 }
 
 /** Content pane of the Time Browser: one view per resolution type. */
-export function ResolutionView({ resolution, catalog, era, selectedDate, onNavigate }: Props) {
+export function ResolutionView({
+  resolution,
+  catalog,
+  era,
+  selectedDate,
+  searchResults,
+  onNavigate,
+}: Props) {
   switch (resolution.type) {
     case "reconstruction": {
       const page = catalog.getPage(resolution.pageId);
@@ -31,7 +39,12 @@ export function ResolutionView({ resolution, catalog, era, selectedDate, onNavig
         );
       }
       return (
-        <ReconstructedPageView page={page} query={resolution.url.query} onNavigate={onNavigate} />
+        <ReconstructedPageView
+          page={page}
+          query={resolution.url.query}
+          searchResults={searchResults}
+          onNavigate={onNavigate}
+        />
       );
     }
     case "snapshot": {

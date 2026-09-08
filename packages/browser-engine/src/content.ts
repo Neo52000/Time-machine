@@ -11,6 +11,16 @@ import googleHome from "../../../content/reconstructions/google-1998-home.json";
 import googleSearch from "../../../content/reconstructions/google-1998-search.json";
 import geocitiesHome from "../../../content/reconstructions/geocities-1998-home.json";
 import cernHome from "../../../content/reconstructions/info-cern-ch-1991-home.json";
+import yahooSearch from "../../../content/reconstructions/yahoo-1998-search.json";
+import hotmailHome from "../../../content/reconstructions/hotmail-1998-home.json";
+import exciteHome from "../../../content/reconstructions/excite-1998-home.json";
+import exciteSearch from "../../../content/reconstructions/excite-1998-search.json";
+import geocitiesModem from "../../../content/reconstructions/geocities-1998-modem.json";
+import wikipediaHome from "../../../content/reconstructions/wikipedia-2005-home.json";
+import wikipediaSearch from "../../../content/reconstructions/wikipedia-2005-search.json";
+import youtubeHome from "../../../content/reconstructions/youtube-2005-home.json";
+import youtubeResults from "../../../content/reconstructions/youtube-2005-results.json";
+import google2005Home from "../../../content/reconstructions/google-2005-home.json";
 
 /**
  * Validated at module load so malformed or dangling content fails the
@@ -27,6 +37,16 @@ export const timeWebCatalog = createTimeWebCatalog({
     googleSearch,
     geocitiesHome,
     cernHome,
+    yahooSearch,
+    hotmailHome,
+    exciteHome,
+    exciteSearch,
+    geocitiesModem,
+    wikipediaHome,
+    wikipediaSearch,
+    youtubeHome,
+    youtubeResults,
+    google2005Home,
   ],
   events,
   sources,

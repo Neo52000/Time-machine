@@ -49,6 +49,12 @@ export const PageBlockSchema = z.discriminatedUnion("type", [
 export const ReconstructedPageSchema = z.object({
   id: z.string(),
   websiteId: z.string(),
+  /**
+   * The reconstruction snapshot (site version) this page belongs to. A site
+   * can have several versions over time; the browser only serves the pages
+   * of the version selected for the machine's date.
+   */
+  snapshotId: z.string(),
   /** Path this page answers to, "/" for the home page. */
   path: z.string(),
   title: z.string(),

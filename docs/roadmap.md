@@ -22,9 +22,14 @@ implement → test → validate → commit.
       Time Browser renders declarative reconstructions (AltaVista, Yahoo!,
       Google beta, GeoCities, info.cern.ch) and temporal 404s with the
       explaining event.
-- [ ] **Phase 5 — Time Web**: historical sites, snapshots, temporal
-      routing.
-- [ ] **Phase 6 — Time Search**: search index, date-filtered search UI.
+- [x] **Phase 5 — Time Web**: 14 documented sites, 12 original
+      reconstructions (1998: AltaVista, Yahoo!, Google, GeoCities + a
+      personal page, Hotmail, Excite, info.cern.ch; 2005: Google, Wikipédia,
+      YouTube), temporal routing, 2005 virtual disk and favourites.
+- [x] **Phase 6 — Time Search**: `packages/search-engine` — inverted index
+      derived from the catalogue, +/-/"phrase" syntax, explainable ranking,
+      hard temporal filter, per-era providers; results rendered inside the
+      reconstructed search pages and navigable through the engine.
 - [ ] **Phase 7 — 1985 / Minitel**: engine, services, UI.
 - [ ] **Phase 8 — 2005**: theme, messenger, video experience, browser.
 - [ ] **Phase 9 — Admin**: events/sources/assets CRUD, rights review queue.
@@ -33,19 +38,20 @@ implement → test → validate → commit.
 
 ## Recommended next step
 
-Phase 5/6 together: Time Web content + Time Search. The browser already
-resolves any site in the catalogue, so Phase 5 is mostly content (more
-`HistoricalWebsite` / `ReconstructedPage` records, screenshot/document
-snapshots with qualified rights). Phase 6 plugs a date-filtered index
-(`SearchDocument` + `isAvailableAt`) into the `search-results` block that
-AltaVista's and Google's reconstructions already render.
+Phase 7 — 1985 / Minitel: `packages/minitel-engine` (videotex 40×25 text
+grid, page tree keyed by 3615 codes, keyboard navigation: Sommaire, Guide,
+Envoi, Retour), replacing the generic desktop placeholder that 1985 boots
+into today. Phase 8 (2005 messenger + media player) can follow with the
+2005 disk and reconstructions already in place.
 
 Known gaps carried forward:
 
-- Reconstructions cover home + search pages only; other in-site links land
-  on the home page or a `page-unknown` 404.
-- No screenshot/document snapshots yet (step 2 of the flow is exercised by
-  tests only).
+- Reconstructions cover home + search pages (plus one personal page);
+  other in-site links land on the home page or a `page-unknown` 404.
+- No screenshot/document snapshots yet (step 2 of the resolution flow is
+  exercised by unit tests only).
+- The search index is rebuilt from the catalogue at load time; a
+  persisted index (Supabase, Phase 9+) is not needed at this scale.
 
 - 1985 renders the generic desktop at 320×240 with a Minitel placeholder;
   Phase 7 replaces it with the videotex UI.

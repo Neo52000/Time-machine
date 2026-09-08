@@ -17,6 +17,7 @@
     "@time-machine/content-schema": "workspace:*",
     "@time-machine/desktop-engine": "workspace:*",
     "@time-machine/era-engine": "workspace:*",
+    "@time-machine/search-engine": "workspace:*",
     "@time-machine/timeline-engine": "workspace:*",
     "@time-machine/window-manager": "workspace:*",
     "next": "^15.1.3",

@@ -1,0 +1,47 @@
+{
+  "id": "page-google-2005-home",
+  "websiteId": "google-com",
+  "snapshotId": "snap-google-2005",
+  "path": "/",
+  "title": "Google",
+  "style": "plain",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "Google"
+    },
+    {
+      "type": "links",
+      "layout": "columns",
+      "items": [
+        {
+          "label": "Web",
+          "href": "/"
+        },
+        {
+          "label": "Images",
+          "href": "/search?q=images"
+        },
+        {
+          "label": "Groupes",
+          "href": "/search?q=groupes"
+        },
+        {
+          "label": "Actualités",
+          "href": "/search?q=actualit%C3%A9s"
+        }
+      ]
+    },
+    {
+      "type": "search-form",
+      "action": "/search",
+      "paramName": "q",
+      "buttonLabel": "Recherche Google"
+    },
+    {
+      "type": "notice",
+      "text": "Plusieurs milliards de pages indexées. Reconstitution originale ; aucun logo ni charte d'origine reproduits."
+    }
+  ]
+}

@@ -52,5 +52,50 @@
     "contentRef": "page-geocities-1998-home",
     "sourceIds": ["src-wikipedia-geocities", "src-timemachine-reconstruction"],
     "rightsStatus": "original"
+  },
+  {
+    "id": "snap-hotmail-1998",
+    "websiteId": "hotmail-com",
+    "capturedAt": "1998-01-01",
+    "type": "reconstruction",
+    "contentRef": "page-hotmail-1998-home",
+    "sourceIds": ["src-wikipedia-hotmail", "src-timemachine-reconstruction"],
+    "rightsStatus": "original"
+  },
+  {
+    "id": "snap-excite-1998",
+    "websiteId": "excite-com",
+    "capturedAt": "1998-01-01",
+    "type": "reconstruction",
+    "contentRef": "page-excite-1998-home",
+    "sourceIds": ["src-wikipedia-excite", "src-timemachine-reconstruction"],
+    "rightsStatus": "original"
+  },
+  {
+    "id": "snap-wikipedia-2005",
+    "websiteId": "wikipedia-org",
+    "capturedAt": "2005-01-01",
+    "type": "reconstruction",
+    "contentRef": "page-wikipedia-2005-home",
+    "sourceIds": ["src-wikipedia-wikipedia", "src-timemachine-reconstruction"],
+    "rightsStatus": "original"
+  },
+  {
+    "id": "snap-youtube-2005",
+    "websiteId": "youtube-com",
+    "capturedAt": "2005-04-23",
+    "type": "reconstruction",
+    "contentRef": "page-youtube-2005-home",
+    "sourceIds": ["src-wikipedia-youtube", "src-timemachine-reconstruction"],
+    "rightsStatus": "original"
+  },
+  {
+    "id": "snap-google-2005",
+    "websiteId": "google-com",
+    "capturedAt": "2005-01-01",
+    "type": "reconstruction",
+    "contentRef": "page-google-2005-home",
+    "sourceIds": ["src-wikipedia-google", "src-timemachine-reconstruction"],
+    "rightsStatus": "original"
   }
 ]
