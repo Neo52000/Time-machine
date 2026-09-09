@@ -1,0 +1,37 @@
+[
+  {
+    "id": "c1",
+    "videoId": "meatthezoo",
+    "author": "webuser42",
+    "date": "24/04/2005",
+    "text": "Simple mais ca va devenir culte, vous verrez."
+  },
+  {
+    "id": "c2",
+    "videoId": "meatthezoo",
+    "author": "elephant_fan",
+    "date": "25/04/2005",
+    "text": "Les oreilles, ils ont vraiment de grandes oreilles !"
+  },
+  {
+    "id": "c3",
+    "videoId": "hamster-skate",
+    "author": "rongeur_addict",
+    "date": "06/01/2005",
+    "text": "Il gere mieux que moi en skate"
+  },
+  {
+    "id": "c4",
+    "videoId": "vlog-webcam-jour1",
+    "author": "voisin_curieux",
+    "date": "11/01/2005",
+    "text": "Le chat vole la vedette, avoue"
+  },
+  {
+    "id": "c5",
+    "videoId": "chute-velo",
+    "author": "spectateur",
+    "date": "13/01/2005",
+    "text": "La deuxieme chute m'a achevee"
+  }
+]

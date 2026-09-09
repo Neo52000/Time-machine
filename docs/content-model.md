@@ -16,6 +16,8 @@ package should redefine these shapes.
 | `DesktopWindow`                                                      | `src/desktop.ts`        | window-manager                                                                |
 | `VirtualFile`                                                        | `src/filesystem.ts`     | desktop-engine virtual disk                                                   |
 | `MinitelKiosk` / `MinitelService` / `MinitelPage` / `MinitelDataset` | `src/minitel.ts`        | minitel-engine, `content/minitel/` (fictional seed)                           |
+| `MessengerContact` / `MessengerConversation` / `PresenceEvent`       | `src/messenger.ts`      | messenger-engine, `content/messenger/` (fictional seed)                       |
+| `VideoClip` / `VideoComment`                                         | `src/media.ts`          | media-engine, `content/media/` (original reconstruction + fictional clips)    |
 | `NarrativeTrigger` / `NarrativeCondition` / `NarrativeAction`        | `src/narrative.ts`      | Narrative Engine (contracts only, not wired up)                               |
 
 ## Events

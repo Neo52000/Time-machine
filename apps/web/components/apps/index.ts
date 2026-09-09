@@ -2,6 +2,8 @@ import type { ComponentType } from "react";
 import { BrowserApp } from "./BrowserApp";
 import { FileManagerApp } from "./FileManagerApp";
 import { MailApp } from "./MailApp";
+import { MediaPlayerApp } from "./MediaPlayerApp";
+import { MessengerApp } from "./MessengerApp";
 import { MinitelApp } from "./MinitelApp";
 import { NotepadApp } from "./NotepadApp";
 import { PlaceholderApp } from "./PlaceholderApp";
@@ -20,6 +22,8 @@ const components: Record<string, ComponentType<AppProps>> = {
   terminal: TerminalApp,
   mail: MailApp,
   minitel: MinitelApp,
+  messenger: MessengerApp,
+  "media-player": MediaPlayerApp,
 };
 
 export function getAppComponent(appId: string): ComponentType<AppProps> {

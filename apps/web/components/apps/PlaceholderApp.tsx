@@ -2,10 +2,7 @@
 
 import type { AppProps } from "./types";
 
-const PHASE_BY_APP: Record<string, string> = {
-  messenger: "Phase 8 — 2005",
-  "media-player": "Phase 8 — 2005",
-};
+const PHASE_BY_APP: Record<string, string> = {};
 
 export function PlaceholderApp({ app, era }: AppProps) {
   const phase = PHASE_BY_APP[app.id];

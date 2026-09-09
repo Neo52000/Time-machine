@@ -1,0 +1,56 @@
+[
+  {
+    "id": "meatthezoo",
+    "title": "Me at the zoo",
+    "uploader": "jawed",
+    "uploadDate": "2005-04-23",
+    "durationSeconds": 19,
+    "description": "Reconstruction originale de la toute premiere video mise en ligne sur YouTube : un jeune homme devant l'enclos des elephants.",
+    "category": ["histoire", "web"],
+    "viewsAtLaunch": 40,
+    "visual": "zoo",
+    "relatedEventId": "first-youtube-video",
+    "sourceIds": ["src-wikipedia-me-at-the-zoo", "src-timemachine-video-reconstruction"],
+    "rightsStatus": "original",
+    "needsResearch": true
+  },
+  {
+    "id": "hamster-skate",
+    "title": "Mon hamster fait du skateboard",
+    "uploader": "ptit_nico",
+    "uploadDate": "2005-01-01",
+    "durationSeconds": 24,
+    "description": "Un hamster pousse une planche miniature dans un couloir. Filme au camescope numerique.",
+    "category": ["animaux", "humour"],
+    "viewsAtLaunch": 12,
+    "visual": "skate",
+    "sourceIds": ["src-timemachine-video-reconstruction"],
+    "rightsStatus": "original"
+  },
+  {
+    "id": "vlog-webcam-jour1",
+    "title": "Vlog webcam - jour 1",
+    "uploader": "claire_webcam",
+    "uploadDate": "2005-01-02",
+    "durationSeconds": 41,
+    "description": "Premier journal filme a la webcam : presentation de la chambre et du chat.",
+    "category": ["vlog", "quotidien"],
+    "viewsAtLaunch": 7,
+    "visual": "webcam",
+    "sourceIds": ["src-timemachine-video-reconstruction"],
+    "rightsStatus": "original"
+  },
+  {
+    "id": "chute-velo",
+    "title": "Chute de velo (compilation)",
+    "uploader": "sport_extreme_du_dimanche",
+    "uploadDate": "2005-01-03",
+    "durationSeconds": 33,
+    "description": "Trois chutes de velo filmees dans un parc, montees bout a bout avec une musique libre.",
+    "category": ["sport", "humour"],
+    "viewsAtLaunch": 21,
+    "visual": "bicycle",
+    "sourceIds": ["src-timemachine-video-reconstruction"],
+    "rightsStatus": "original"
+  }
+]

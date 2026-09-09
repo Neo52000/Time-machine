@@ -36,22 +36,31 @@ implement → test → validate → commit.
       fictional services (3611 annuaire, 3614 BAL, 3615 DEMO/TEMPS/FUTUR),
       full-screen Minitel replacing the generic desktop via the theme's
       `shell: "terminal"`.
-- [ ] **Phase 8 — 2005**: theme, messenger, video experience, browser.
+- [x] **Phase 8 — 2005**: `packages/messenger-engine` (scripted
+      conversations, background presence, data-only — no chatbot) and
+      `packages/media-engine` (video library gated by upload date, pure
+      player, original placeholder animations — never real footage);
+      Messenger and the media player are real windowed apps on the 2005
+      desktop.
 - [ ] **Phase 9 — Admin**: events/sources/assets CRUD, rights review queue.
 - [ ] **Phase 10 — Polish**: animations, audio, analytics, accessibility,
       performance.
 
 ## Recommended next step
 
-Phase 8 — 2005: messenger (contacts, presence, a scripted conversation
-driven by data) and media player (the video experience around
-`first-youtube-video`), both as windowed apps on the 2005 desktop whose
-disk, browser and search are already in place.
+Phase 9 — Admin: CRUD for events/sources/assets and the rights review
+queue (`rightsStatus: "unknown"` must never be publishable, per
+`docs/rights-policy.md`). The content model, referential-integrity checks
+and `needsResearch` flags built across phases 1-8 are exactly what that
+queue will surface.
 
 Known gaps carried forward:
 
 - Minitel: no graphic (mosaic) characters and no double-height text; the
   screen is text-only. Sound (modem handshake) is Phase 10.
+- Messenger: one scripted conversation per contact, no group chats, no
+  file transfer (period-accurate but out of scope for the MVP).
+- Media player: four clips, one library; no upload flow, no search.
 
 - Reconstructions cover home + search pages (plus one personal page);
   other in-site links land on the home page or a `page-unknown` 404.
@@ -60,8 +69,4 @@ Known gaps carried forward:
 - The search index is rebuilt from the catalogue at load time; a
   persisted index (Supabase, Phase 9+) is not needed at this scale.
 
-- 1985 renders the generic desktop at 320×240 with a Minitel placeholder;
-  Phase 7 replaces it with the videotex UI.
-- 2005 uses the `silver-flatscreen-2005` theme tokens but `messenger` and
-  `media-player` are placeholders until Phase 8.
 - The virtual disk is read-only (notepad edits are not persisted).
