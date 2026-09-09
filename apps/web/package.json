@@ -12,6 +12,7 @@
     "clean": "rm -rf .next .turbo"
   },
   "dependencies": {
+    "@time-machine/admin-engine": "workspace:*",
     "@time-machine/apps-runtime": "workspace:*",
     "@time-machine/browser-engine": "workspace:*",
     "@time-machine/content-schema": "workspace:*",
