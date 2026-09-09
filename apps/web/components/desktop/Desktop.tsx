@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   builtinApps,
@@ -77,16 +78,17 @@ export function Desktop({ era }: { era: EraManifest }) {
   useEffect(() => {
     const stage = stageRef.current;
     if (!stage) return;
+    const maxScale = theme.shell === "terminal" ? 3 : 1;
     const fit = () => {
       const { width, height } = stage.getBoundingClientRect();
-      setScale(Math.min(1, width / viewport.width, height / viewport.height));
+      setScale(Math.min(maxScale, width / viewport.width, height / viewport.height));
     };
     fit();
     const observer = new ResizeObserver(fit);
     observer.observe(stage);
     return () => observer.disconnect();
     // `booted` matters: the stage only exists once the boot screen is gone.
-  }, [viewport.width, viewport.height, booted]);
+  }, [viewport.width, viewport.height, booted, theme.shell]);
 
   const onBootDone = useCallback(() => setBooted(true), []);
 
@@ -104,6 +106,46 @@ export function Desktop({ era }: { era: EraManifest }) {
 
   if (!booted) {
     return <BootScreen sequence={bootSequence} onDone={onBootDone} />;
+  }
+
+  // Terminal shell: no windows, the machine *is* its first application.
+  if (theme.shell === "terminal") {
+    const app = apps[0];
+    const AppComponent = app ? getAppComponent(app.id) : undefined;
+    return (
+      <div ref={stageRef} className="tm-stage">
+        <div
+          className={`tm-desktop-root tm-style-${theme.windowStyle}${theme.crt ? " tm-crt" : ""}`}
+          data-testid="desktop"
+          data-theme={theme.id}
+          data-shell="terminal"
+          style={{
+            width: viewport.width,
+            height: viewport.height,
+            transform: `scale(${scale})`,
+            ...theme.tokens,
+          }}
+        >
+          {app && AppComponent ? (
+            <AppComponent
+              windowId="terminal"
+              app={app}
+              era={era}
+              fs={fs}
+              clock={clock}
+              payload={{}}
+              openApp={openAppById}
+              closeSelf={() => undefined}
+            />
+          ) : (
+            <p className="p-4 text-sm">Aucune application disponible pour cette machine.</p>
+          )}
+        </div>
+        <Link href="/" className="tm-stage-exit" data-testid="stage-exit">
+          ← Timeline
+        </Link>
+      </div>
+    );
   }
 
   return (

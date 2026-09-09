@@ -53,15 +53,20 @@ Homepage ("WHEN DO YOU WANT TO GO?")
   → Time Search inside the reconstructed search engines
       · +mot / -mot / "expression" syntax, results filtered at the machine's
         date: Napster is unfindable in 1998, YouTube is findable in 2005
+  → 1985 boots into a Minitel, not a desktop
+      · dial 3611 / 3614 / 3615, type a service code, navigate with the
+        nine function keys (on screen or on your keyboard), hang up
+      · fictional services (3615 DEMO, TEMPS, 3614 BAL, an electronic
+        directory) with simulated 1200/75 baud latency
 ```
 
 1985 (Minitel), 1998 (early Web desktop), and 2005 (social web + video) each
 load their own `EraManifest` (`eras/<id>/manifest.json`) — nothing is
-hard-coded per era in the app code. Themes, boot sequences, disks and app
+hard-coded per era in the app code. Themes, shells, boot sequences, disks and app
 lists are all resolved from manifest keys.
 
-Not yet implemented: Minitel UI, messenger / media player, admin app,
-Supabase backend. See
+Not yet implemented: messenger / media player (2005), admin app, Supabase
+backend. See
 `docs/roadmap.md`.
 
 ## Monorepo layout
@@ -77,6 +82,7 @@ packages/
   apps-runtime/       App registry + per-era resolution
   browser-engine/     Time Web catalogue + resolveHistoricalUrl + history
   search-engine/      Dated search index derived from the catalogue
+  minitel-engine/     Videotex screen, session state machine, kiosks/services as data
   timeline-engine/    Event date/category filtering, sorting, search
 eras/                 EraManifest JSON, one folder per era
 content/

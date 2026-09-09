@@ -8,3 +8,4 @@ export * from "./website";
 export * from "./search";
 export * from "./narrative";
 export * from "./reconstruction";
+export * from "./minitel";

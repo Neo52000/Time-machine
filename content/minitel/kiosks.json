@@ -1,0 +1,27 @@
+[
+  {
+    "code": "3611",
+    "name": "Annuaire electronique",
+    "notice": "Annuaire electronique des abonnes au telephone. Les trois premieres minutes sont gratuites.",
+    "directServiceId": "annuaire",
+    "availableFrom": "1983-01-01",
+    "sourceIds": ["src-wikipedia-minitel"],
+    "needsResearch": true
+  },
+  {
+    "code": "3614",
+    "name": "Teletel 2",
+    "notice": "Kiosque Teletel 2. Services professionnels et messageries. Communication facturee a la duree.",
+    "availableFrom": "1984-01-01",
+    "sourceIds": ["src-wikipedia-teletel"],
+    "needsResearch": true
+  },
+  {
+    "code": "3615",
+    "name": "Teletel 3",
+    "notice": "Kiosque Teletel 3. Services grand public. Communication facturee a la duree.",
+    "availableFrom": "1985-01-01",
+    "sourceIds": ["src-wikipedia-teletel"],
+    "needsResearch": true
+  }
+]

@@ -1,0 +1,84 @@
+[
+  {
+    "id": "bal-home",
+    "serviceId": "bal",
+    "title": "Sommaire",
+    "blocks": [
+      {
+        "type": "text",
+        "lines": ["BOITE AUX LETTRES"],
+        "color": "cyan",
+        "align": "center",
+        "inverse": true
+      },
+      { "type": "blank" },
+      { "type": "text", "lines": ["Messagerie fictive. Vous avez 2 messages."] },
+      { "type": "blank" },
+      {
+        "type": "menu",
+        "items": [
+          {
+            "key": "1",
+            "label": "Lire les messages",
+            "action": { "type": "goto", "pageId": "bal-lire" }
+          },
+          {
+            "key": "2",
+            "label": "Ecrire un message",
+            "action": { "type": "goto", "pageId": "bal-ecrire" }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bal-lire",
+    "serviceId": "bal",
+    "title": "Messages",
+    "blocks": [
+      { "type": "text", "lines": ["VOS MESSAGES"], "color": "cyan", "inverse": true },
+      { "type": "blank" },
+      { "type": "text", "lines": ["De TIMEMACHINE, le 01/01/85"], "color": "yellow" },
+      {
+        "type": "text",
+        "lines": [
+          "Bienvenue sur la messagerie. Ici, pas d'images : que du texte, a 75 bauds en emission."
+        ]
+      },
+      { "type": "blank" },
+      { "type": "text", "lines": ["De PTT, le 01/01/85"], "color": "yellow" },
+      {
+        "type": "text",
+        "lines": ["N'oubliez pas de raccrocher avec CONNEXION/FIN : la communication est facturee."]
+      }
+    ]
+  },
+  {
+    "id": "bal-ecrire",
+    "serviceId": "bal",
+    "title": "Ecrire",
+    "blocks": [
+      { "type": "text", "lines": ["ECRIRE UN MESSAGE"], "color": "cyan", "inverse": true },
+      { "type": "blank" },
+      { "type": "text", "lines": ["Tapez votre message (30 caracteres max) puis ENVOI."] },
+      { "type": "blank" },
+      {
+        "type": "input",
+        "label": "Message",
+        "name": "message",
+        "maxLength": 30,
+        "action": { "type": "echo", "pageId": "bal-envoye" }
+      }
+    ]
+  },
+  {
+    "id": "bal-envoye",
+    "serviceId": "bal",
+    "title": "Envoye",
+    "blocks": [
+      { "type": "text", "lines": ["MESSAGE ENVOYE"], "color": "cyan", "inverse": true },
+      { "type": "blank" },
+      { "type": "text", "lines": ["Votre message a ete depose dans la boite fictive :"] }
+    ]
+  }
+]

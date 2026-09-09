@@ -4,18 +4,19 @@ All shared data contracts live in `packages/content-schema` as Zod schemas
 (runtime-validated) with inferred TypeScript types. Nothing outside this
 package should redefine these shapes.
 
-| Type                                                          | File                    | Used by                                                                       |
-| ------------------------------------------------------------- | ----------------------- | ----------------------------------------------------------------------------- |
-| `EraManifest`                                                 | `src/era.ts`            | era-engine                                                                    |
-| `HistoricalEvent`                                             | `src/event.ts`          | timeline-engine, `content/events/*.json`                                      |
-| `SourceReference`                                             | `src/source.ts`         | any content citing provenance                                                 |
-| `RightsStatus`                                                | `src/rights.ts`         | `HistoricalSnapshot`, admin rights review                                     |
-| `HistoricalWebsite` / `HistoricalSnapshot`                    | `src/website.ts`        | browser-engine catalogue, `content/websites`, `content/snapshots`             |
-| `ReconstructedPage` / `PageBlock`                             | `src/reconstruction.ts` | browser-engine, `content/reconstructions/*.json` (declarative pages, no HTML) |
-| `SearchDocument` + `isAvailableAt`                            | `src/search.ts`         | Time Search Engine (Phase 6, not yet implemented)                             |
-| `DesktopWindow`                                               | `src/desktop.ts`        | window-manager                                                                |
-| `VirtualFile`                                                 | `src/filesystem.ts`     | desktop-engine virtual disk                                                   |
-| `NarrativeTrigger` / `NarrativeCondition` / `NarrativeAction` | `src/narrative.ts`      | Narrative Engine (contracts only, not wired up)                               |
+| Type                                                                 | File                    | Used by                                                                       |
+| -------------------------------------------------------------------- | ----------------------- | ----------------------------------------------------------------------------- |
+| `EraManifest`                                                        | `src/era.ts`            | era-engine                                                                    |
+| `HistoricalEvent`                                                    | `src/event.ts`          | timeline-engine, `content/events/*.json`                                      |
+| `SourceReference`                                                    | `src/source.ts`         | any content citing provenance                                                 |
+| `RightsStatus`                                                       | `src/rights.ts`         | `HistoricalSnapshot`, admin rights review                                     |
+| `HistoricalWebsite` / `HistoricalSnapshot`                           | `src/website.ts`        | browser-engine catalogue, `content/websites`, `content/snapshots`             |
+| `ReconstructedPage` / `PageBlock`                                    | `src/reconstruction.ts` | browser-engine, `content/reconstructions/*.json` (declarative pages, no HTML) |
+| `SearchDocument` + `isAvailableAt`                                   | `src/search.ts`         | Time Search Engine (Phase 6, not yet implemented)                             |
+| `DesktopWindow`                                                      | `src/desktop.ts`        | window-manager                                                                |
+| `VirtualFile`                                                        | `src/filesystem.ts`     | desktop-engine virtual disk                                                   |
+| `MinitelKiosk` / `MinitelService` / `MinitelPage` / `MinitelDataset` | `src/minitel.ts`        | minitel-engine, `content/minitel/` (fictional seed)                           |
+| `NarrativeTrigger` / `NarrativeCondition` / `NarrativeAction`        | `src/narrative.ts`      | Narrative Engine (contracts only, not wired up)                               |
 
 ## Events
 

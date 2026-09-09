@@ -1,0 +1,88 @@
+/* Minitel 1B: 40×25 text grid on a black tube, function keys below.
+   Sized for the 320×240 machine resolution; the stage scales it up. */
+.mt-root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  color: #e6e6e6;
+  font-family: "Courier New", "Lucida Console", monospace;
+}
+.mt-screen {
+  flex: none;
+  width: 320px;
+  height: 200px;
+  padding: 0;
+  outline: none;
+  white-space: pre;
+  font-size: 8px;
+  line-height: 8px;
+  letter-spacing: 0;
+  overflow: hidden;
+}
+.mt-screen:focus-visible {
+  box-shadow: inset 0 0 0 1px #e6e6e6;
+}
+.mt-row {
+  height: 8px;
+  width: 320px;
+  overflow: hidden;
+}
+.mt-white {
+  color: #e6e6e6;
+}
+.mt-yellow {
+  color: #f2e94e;
+}
+.mt-cyan {
+  color: #5fe6e6;
+}
+.mt-green {
+  color: #58e05a;
+}
+.mt-magenta {
+  color: #e05ae0;
+}
+.mt-red {
+  color: #f25c4e;
+}
+.mt-blue {
+  color: #6a8cff;
+}
+.mt-black {
+  color: #000;
+}
+.mt-inverse {
+  background: #e6e6e6;
+  color: #000;
+}
+.mt-inverse.mt-cyan {
+  background: #5fe6e6;
+}
+.mt-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  padding: 3px;
+  height: 40px;
+  background: #3a3a3a;
+}
+.mt-key {
+  font:
+    6px "Courier New",
+    monospace;
+  letter-spacing: 0;
+  color: #eee;
+  background: #555;
+  border: 1px solid #222;
+  border-radius: 2px;
+  padding: 0;
+  cursor: pointer;
+}
+.mt-key:hover {
+  background: #6a6a6a;
+}
+.mt-key:active {
+  background: #333;
+}
