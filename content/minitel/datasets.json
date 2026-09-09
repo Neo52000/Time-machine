@@ -1,0 +1,17 @@
+[
+  {
+    "id": "abonnes",
+    "fictional": true,
+    "sourceIds": ["src-timemachine-minitel-fiction"],
+    "rows": [
+      { "nom": "DUPONT Marie", "adresse": "12 rue des Lilas, PARIS 11", "tel": "43 55 12 34" },
+      { "nom": "DUPONT Robert", "adresse": "4 av. de la Gare, LYON 3", "tel": "78 62 90 01" },
+      { "nom": "DURAND Jacques", "adresse": "27 bd Victor Hugo, NANTES", "tel": "40 47 22 18" },
+      { "nom": "MARTIN Helene", "adresse": "8 place du Marche, RENNES", "tel": "99 30 45 67" },
+      { "nom": "MARTIN Paul", "adresse": "3 rue Pasteur, CHAUMONT", "tel": "25 03 11 22" },
+      { "nom": "PETIT Sophie", "adresse": "19 rue du Port, MARSEILLE 2", "tel": "91 90 33 44" },
+      { "nom": "BERNARD Luc", "adresse": "2 chemin des Vignes, DIJON", "tel": "80 66 55 12" },
+      { "nom": "GARAGE DU CENTRE", "adresse": "41 av. Jean Jaures, CHAUMONT", "tel": "25 32 40 40" }
+    ]
+  }
+]

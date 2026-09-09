@@ -1,0 +1,65 @@
+[
+  {
+    "id": "annuaire",
+    "kioskCode": "3611",
+    "mnemonic": "ANNUAIRE",
+    "title": "Annuaire electronique",
+    "description": "Recherche d'abonnes par nom. Les fiches sont fictives.",
+    "fictional": true,
+    "homePageId": "annuaire-home",
+    "guidePageId": "annuaire-guide",
+    "availableFrom": "1983-01-01",
+    "sourceIds": ["src-wikipedia-minitel", "src-timemachine-minitel-fiction"],
+    "rightsStatus": "original",
+    "needsResearch": true
+  },
+  {
+    "id": "demo",
+    "kioskCode": "3615",
+    "mnemonic": "DEMO",
+    "title": "Guide Time Machine",
+    "description": "Service de demonstration : decouvrir le Minitel et la navigation.",
+    "fictional": true,
+    "homePageId": "demo-home",
+    "guidePageId": "demo-guide",
+    "availableFrom": "1985-01-01",
+    "sourceIds": ["src-timemachine-minitel-fiction"],
+    "rightsStatus": "original"
+  },
+  {
+    "id": "temps",
+    "kioskCode": "3615",
+    "mnemonic": "TEMPS",
+    "title": "Le temps qu'il fait",
+    "description": "Previsions meteo fictives par region.",
+    "fictional": true,
+    "homePageId": "temps-home",
+    "availableFrom": "1985-01-01",
+    "sourceIds": ["src-timemachine-minitel-fiction"],
+    "rightsStatus": "original"
+  },
+  {
+    "id": "bal",
+    "kioskCode": "3614",
+    "mnemonic": "BAL",
+    "title": "Boite aux lettres",
+    "description": "Messagerie fictive : lire et ecrire des messages.",
+    "fictional": true,
+    "homePageId": "bal-home",
+    "availableFrom": "1985-01-01",
+    "sourceIds": ["src-timemachine-minitel-fiction"],
+    "rightsStatus": "original"
+  },
+  {
+    "id": "futur",
+    "kioskCode": "3615",
+    "mnemonic": "FUTUR",
+    "title": "Service du futur",
+    "description": "N'ouvre qu'en 1990 : sert a montrer le filtre temporel.",
+    "fictional": true,
+    "homePageId": "futur-home",
+    "availableFrom": "1990-01-01",
+    "sourceIds": ["src-timemachine-minitel-fiction"],
+    "rightsStatus": "original"
+  }
+]

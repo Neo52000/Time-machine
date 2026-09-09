@@ -15,6 +15,11 @@ export interface DesktopTheme {
   windowStyle: "bevel" | "flat" | "text";
   /** Simulated CRT scanline overlay. */
   crt: boolean;
+  /**
+   * "desktop": windows, icons and a taskbar. "terminal": the machine runs its
+   * first app full-screen (a Minitel has no desktop), scaled up to fit.
+   */
+  shell: "desktop" | "terminal";
 }
 
 const themes: Record<string, DesktopTheme> = {
@@ -24,6 +29,7 @@ const themes: Record<string, DesktopTheme> = {
     startLabel: "Démarrer",
     windowStyle: "bevel",
     crt: true,
+    shell: "desktop",
     tokens: {
       "--tm-desktop": "#008080",
       "--tm-surface": "#c0c0c0",
@@ -50,6 +56,7 @@ const themes: Record<string, DesktopTheme> = {
     startLabel: "démarrer",
     windowStyle: "flat",
     crt: false,
+    shell: "desktop",
     tokens: {
       "--tm-desktop": "#2f6fd0",
       "--tm-surface": "#ece9d8",
@@ -76,6 +83,7 @@ const themes: Record<string, DesktopTheme> = {
     startLabel: "Sommaire",
     windowStyle: "text",
     crt: true,
+    shell: "terminal",
     tokens: {
       "--tm-desktop": "#000000",
       "--tm-surface": "#000000",

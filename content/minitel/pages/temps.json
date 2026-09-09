@@ -1,0 +1,96 @@
+[
+  {
+    "id": "temps-home",
+    "serviceId": "temps",
+    "title": "Regions",
+    "blocks": [
+      {
+        "type": "text",
+        "lines": ["LE TEMPS QU'IL FAIT"],
+        "color": "cyan",
+        "align": "center",
+        "inverse": true
+      },
+      { "type": "blank" },
+      { "type": "text", "lines": ["Previsions fictives pour demain."] },
+      { "type": "blank" },
+      {
+        "type": "menu",
+        "items": [
+          {
+            "key": "1",
+            "label": "Nord et Bassin parisien",
+            "action": { "type": "goto", "pageId": "temps-nord" }
+          },
+          {
+            "key": "2",
+            "label": "Ouest et Bretagne",
+            "action": { "type": "goto", "pageId": "temps-ouest" }
+          },
+          {
+            "key": "3",
+            "label": "Sud et Mediterranee",
+            "action": { "type": "goto", "pageId": "temps-sud" }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "temps-nord",
+    "serviceId": "temps",
+    "title": "Nord",
+    "blocks": [
+      { "type": "text", "lines": ["NORD ET BASSIN PARISIEN"], "color": "cyan", "inverse": true },
+      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": [
+          "Ciel couvert le matin, eclaircies l'apres-midi. Vent faible de nord-est.",
+          "",
+          "Temperatures : 2 a 7 degres."
+        ]
+      },
+      { "type": "blank" },
+      { "type": "text", "lines": ["RETOUR: regions"], "color": "green" }
+    ]
+  },
+  {
+    "id": "temps-ouest",
+    "serviceId": "temps",
+    "title": "Ouest",
+    "blocks": [
+      { "type": "text", "lines": ["OUEST ET BRETAGNE"], "color": "cyan", "inverse": true },
+      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": [
+          "Pluies passageres, vent d'ouest soutenu sur les cotes.",
+          "",
+          "Temperatures : 5 a 10 degres."
+        ]
+      },
+      { "type": "blank" },
+      { "type": "text", "lines": ["RETOUR: regions"], "color": "green" }
+    ]
+  },
+  {
+    "id": "temps-sud",
+    "serviceId": "temps",
+    "title": "Sud",
+    "blocks": [
+      { "type": "text", "lines": ["SUD ET MEDITERRANEE"], "color": "cyan", "inverse": true },
+      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": [
+          "Soleil, mistral moderé dans la vallee du Rhone.",
+          "",
+          "Temperatures : 6 a 13 degres."
+        ]
+      },
+      { "type": "blank" },
+      { "type": "text", "lines": ["RETOUR: regions"], "color": "green" }
+    ]
+  }
+]

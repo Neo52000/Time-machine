@@ -2,6 +2,7 @@ import type { ComponentType } from "react";
 import { BrowserApp } from "./BrowserApp";
 import { FileManagerApp } from "./FileManagerApp";
 import { MailApp } from "./MailApp";
+import { MinitelApp } from "./MinitelApp";
 import { NotepadApp } from "./NotepadApp";
 import { PlaceholderApp } from "./PlaceholderApp";
 import { TerminalApp } from "./TerminalApp";
@@ -18,6 +19,7 @@ const components: Record<string, ComponentType<AppProps>> = {
   notepad: NotepadApp,
   terminal: TerminalApp,
   mail: MailApp,
+  minitel: MinitelApp,
 };
 
 export function getAppComponent(appId: string): ComponentType<AppProps> {

@@ -47,6 +47,9 @@ importers:
       '@time-machine/era-engine':
         specifier: workspace:*
         version: link:../../packages/era-engine
+      '@time-machine/minitel-engine':
+        specifier: workspace:*
+        version: link:../../packages/minitel-engine
       '@time-machine/search-engine':
         specifier: workspace:*
         version: link:../../packages/search-engine
@@ -150,6 +153,19 @@ importers:
         version: 2.1.9(@types/node@22.20.1)
 
   packages/era-engine:
+    dependencies:
+      '@time-machine/content-schema':
+        specifier: workspace:*
+        version: link:../content-schema
+    devDependencies:
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@22.20.1)
+
+  packages/minitel-engine:
     dependencies:
       '@time-machine/content-schema':
         specifier: workspace:*

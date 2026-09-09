@@ -157,5 +157,18 @@
     "url": "https://en.wikipedia.org/wiki/Excite",
     "publisher": "Wikipedia",
     "notes": "Portal launched in 1995; exact day to confirm."
+  },
+  {
+    "id": "src-wikipedia-teletel",
+    "label": "Télétel — Wikipédia",
+    "url": "https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9tel",
+    "publisher": "Wikipedia",
+    "notes": "Kiosque Télétel, codes d'accès 3613/3614/3615 ; dates d'ouverture par palier à confirmer."
+  },
+  {
+    "id": "src-timemachine-minitel-fiction",
+    "label": "Time Machine — service Minitel fictif",
+    "publisher": "Time Machine",
+    "notes": "Service et contenu inventés pour la démonstration, dans l'esprit des services vidéotex de 1985. Aucune marque ni contenu historique reproduits."
   }
 ]

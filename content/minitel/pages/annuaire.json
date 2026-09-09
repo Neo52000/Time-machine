@@ -1,0 +1,54 @@
+[
+  {
+    "id": "annuaire-home",
+    "serviceId": "annuaire",
+    "title": "Recherche",
+    "blocks": [
+      {
+        "type": "text",
+        "lines": ["ANNUAIRE ELECTRONIQUE"],
+        "color": "cyan",
+        "align": "center",
+        "inverse": true
+      },
+      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": [
+          "Tapez le nom de l'abonne (ou son debut) puis ENVOI. Exemples : DUPONT, MARTIN, GARAGE."
+        ]
+      },
+      { "type": "blank" },
+      { "type": "text", "lines": ["Les fiches sont fictives."], "color": "green" },
+      { "type": "blank" },
+      {
+        "type": "input",
+        "label": "Nom",
+        "name": "nom",
+        "maxLength": 20,
+        "action": {
+          "type": "lookup",
+          "dataset": "abonnes",
+          "field": "nom",
+          "resultsTitle": "Reponses",
+          "columns": ["nom", "adresse", "tel"]
+        }
+      }
+    ]
+  },
+  {
+    "id": "annuaire-guide",
+    "serviceId": "annuaire",
+    "title": "Guide",
+    "blocks": [
+      { "type": "text", "lines": ["AIDE ANNUAIRE"], "color": "cyan", "inverse": true },
+      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": [
+          "Saisissez les premieres lettres du nom. La recherche ignore accents et majuscules. RETOUR revient a la recherche."
+        ]
+      }
+    ]
+  }
+]

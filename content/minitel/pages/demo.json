@@ -1,0 +1,184 @@
+[
+  {
+    "id": "demo-home",
+    "serviceId": "demo",
+    "title": "Sommaire",
+    "blocks": [
+      {
+        "type": "text",
+        "lines": ["GUIDE TIME MACHINE"],
+        "color": "cyan",
+        "align": "center",
+        "inverse": true
+      },
+      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": ["Bienvenue sur 3615 DEMO, un service invente pour decouvrir le Minitel de 1985."]
+      },
+      { "type": "blank" },
+      {
+        "type": "menu",
+        "items": [
+          {
+            "key": "1",
+            "label": "Qu'est-ce que le Minitel ?",
+            "action": { "type": "goto", "pageId": "demo-minitel" }
+          },
+          {
+            "key": "2",
+            "label": "Naviguer avec les touches",
+            "action": { "type": "goto", "pageId": "demo-touches" }
+          },
+          {
+            "key": "3",
+            "label": "Les services disponibles",
+            "action": { "type": "goto", "pageId": "demo-services" }
+          },
+          {
+            "key": "4",
+            "label": "Chronologie",
+            "action": { "type": "goto", "pageId": "demo-chrono" }
+          }
+        ]
+      },
+      { "type": "blank" },
+      { "type": "text", "lines": ["Tapez le numero du choix puis ENVOI."], "color": "green" }
+    ]
+  },
+  {
+    "id": "demo-minitel",
+    "serviceId": "demo",
+    "title": "Le Minitel",
+    "blocks": [
+      { "type": "text", "lines": ["QU'EST-CE QUE LE MINITEL ?"], "color": "cyan", "inverse": true },
+      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": [
+          "Un terminal distribue gratuitement par les PTT, branche sur la ligne telephonique.",
+          "",
+          "Il affiche 40 colonnes sur 25 lignes en mode texte, avec huit couleurs et des caracteres graphiques.",
+          "",
+          "La liaison est asymetrique : 1200 bauds en reception, 75 bauds en emission. Chaque page met une a deux secondes a s'afficher.",
+          "",
+          "Les services sont atteints par un numero (3611, 3614, 3615) puis un code, et factures a la duree sur la note de telephone."
+        ]
+      },
+      { "type": "blank" },
+      { "type": "text", "lines": ["SOMMAIRE: accueil   RETOUR: page precedente"], "color": "green" }
+    ]
+  },
+  {
+    "id": "demo-touches",
+    "serviceId": "demo",
+    "title": "Les touches",
+    "blocks": [
+      { "type": "text", "lines": ["NAVIGUER AVEC LES TOUCHES"], "color": "cyan", "inverse": true },
+      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": [
+          "ENVOI       valider une saisie ou un choix",
+          "SOMMAIRE    revenir a l'accueil du service",
+          "RETOUR      page precedente",
+          "SUITE       page suivante",
+          "REPETITION  reafficher la page",
+          "GUIDE       aide du service",
+          "ANNULATION  effacer la saisie",
+          "CORRECTION  effacer le dernier caractere",
+          "CONNEXION/FIN  se connecter ou raccrocher"
+        ],
+        "color": "yellow"
+      },
+      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": [
+          "Sur votre clavier : Entree = ENVOI, Echap = ANNULATION, Retour arriere = CORRECTION, Debut = SOMMAIRE, Page prec./suiv. = RETOUR/SUITE, F1 = GUIDE, Fin = CONNEXION/FIN."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "demo-services",
+    "serviceId": "demo",
+    "title": "Services",
+    "blocks": [
+      { "type": "text", "lines": ["LES SERVICES DISPONIBLES"], "color": "cyan", "inverse": true },
+      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": [
+          "3611          Annuaire electronique",
+          "3614 BAL      Boite aux lettres",
+          "3615 DEMO     Ce guide",
+          "3615 TEMPS    Le temps qu'il fait",
+          "3615 FUTUR    (ouvre en 1990)"
+        ],
+        "color": "yellow"
+      },
+      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": [
+          "Tous ces services sont inventes pour Time Machine. Pour en essayer un autre : CONNEXION/FIN puis composez le numero."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "demo-chrono",
+    "serviceId": "demo",
+    "title": "Chronologie",
+    "blocks": [
+      { "type": "text", "lines": ["CHRONOLOGIE DU MINITEL"], "color": "cyan", "inverse": true },
+      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": [
+          "1980  Experimentation en Ille-et-Vilaine",
+          "1983  Annuaire electronique (3611)",
+          "1984  Kiosque Teletel : les services payants",
+          "1985  Le Minitel entre dans les foyers",
+          "",
+          "Les dates precises sont a confirmer : voir la chronologie de Time Machine et docs/historical-sources.md."
+        ]
+      },
+      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": [
+          "Cette page est volontairement longue pour montrer la pagination : pressez SUITE."
+        ]
+      },
+      { "type": "blank", "rows": 6 },
+      { "type": "text", "lines": ["PAGE 2"], "color": "cyan", "inverse": true },
+      {
+        "type": "text",
+        "lines": ["Vous avez utilise SUITE. RETOUR revient a la page 1, puis a la page precedente."]
+      }
+    ]
+  },
+  {
+    "id": "demo-guide",
+    "serviceId": "demo",
+    "title": "Guide",
+    "blocks": [
+      { "type": "text", "lines": ["AIDE 3615 DEMO"], "color": "cyan", "inverse": true },
+      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": [
+          "Tapez un chiffre puis ENVOI pour choisir une rubrique. SOMMAIRE revient a l'accueil, CONNEXION/FIN raccroche."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "futur-home",
+    "serviceId": "futur",
+    "title": "Sommaire",
+    "blocks": [{ "type": "text", "lines": ["Ce service ouvre en 1990."] }]
+  }
+]

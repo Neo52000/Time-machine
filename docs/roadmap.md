@@ -30,7 +30,12 @@ implement → test → validate → commit.
       derived from the catalogue, +/-/"phrase" syntax, explainable ranking,
       hard temporal filter, per-era providers; results rendered inside the
       reconstructed search pages and navigable through the engine.
-- [ ] **Phase 7 — 1985 / Minitel**: engine, services, UI.
+- [x] **Phase 7 — 1985 / Minitel**: `packages/minitel-engine` (40×25
+      videotex layout, session state machine, nine function keys, data-driven
+      kiosks/services/pages/datasets, latency as data, temporal filter),
+      fictional services (3611 annuaire, 3614 BAL, 3615 DEMO/TEMPS/FUTUR),
+      full-screen Minitel replacing the generic desktop via the theme's
+      `shell: "terminal"`.
 - [ ] **Phase 8 — 2005**: theme, messenger, video experience, browser.
 - [ ] **Phase 9 — Admin**: events/sources/assets CRUD, rights review queue.
 - [ ] **Phase 10 — Polish**: animations, audio, analytics, accessibility,
@@ -38,13 +43,15 @@ implement → test → validate → commit.
 
 ## Recommended next step
 
-Phase 7 — 1985 / Minitel: `packages/minitel-engine` (videotex 40×25 text
-grid, page tree keyed by 3615 codes, keyboard navigation: Sommaire, Guide,
-Envoi, Retour), replacing the generic desktop placeholder that 1985 boots
-into today. Phase 8 (2005 messenger + media player) can follow with the
-2005 disk and reconstructions already in place.
+Phase 8 — 2005: messenger (contacts, presence, a scripted conversation
+driven by data) and media player (the video experience around
+`first-youtube-video`), both as windowed apps on the 2005 desktop whose
+disk, browser and search are already in place.
 
 Known gaps carried forward:
+
+- Minitel: no graphic (mosaic) characters and no double-height text; the
+  screen is text-only. Sound (modem handshake) is Phase 10.
 
 - Reconstructions cover home + search pages (plus one personal page);
   other in-site links land on the home page or a `page-unknown` 404.

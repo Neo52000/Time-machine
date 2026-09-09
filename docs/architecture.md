@@ -19,7 +19,7 @@ TIME MACHINE
 ├── Browser Engine      — packages/browser-engine  (implemented: URL normalisation, Time Web catalogue, 6-step resolution, history)
 ├── Time Web Engine     — browser-engine catalogue + content/websites|snapshots|reconstructions (14 sites, 12 pages)
 ├── Time Search Engine  — packages/search-engine  (implemented: catalogue-derived index, +/-/phrase syntax, temporal filter)
-├── Minitel Engine      — not yet implemented (Phase 7)
+├── Minitel Engine      — packages/minitel-engine  (implemented: videotex layout, session, kiosks/services as data)
 ├── Museum Engine       — not yet implemented
 ├── Content Engine      — content/ + content-schema (partial: seed data only)
 ├── Source / Rights     — content-schema RightsStatus/SourceReference types (partial)
@@ -44,6 +44,13 @@ apps/web homepage (Server Component)
           → Window × n        geometry from window-manager (Zustand store in lib/desktopStore.ts)
           → Taskbar           running windows, start menu, era clock (desktop-engine.createEraClock)
 ```
+
+## Shells
+
+`DesktopTheme.shell` decides what a machine shows after boot: `"desktop"`
+(windows, icons, taskbar — 1998, 2005) or `"terminal"` (the first app runs
+full-screen, scaled up — the 1985 Minitel). The same `AppProps` contract
+serves both, so an app never knows which shell hosts it.
 
 ## Desktop layering (Phase 3)
 
@@ -75,6 +82,7 @@ packages/
   timeline-engine/  Date-availability filtering, category filters, sorting, search
   browser-engine/   URL normalisation, Time Web catalogue, resolveHistoricalUrl, browser history
   search-engine/    Inverted index derived from the catalogue, query syntax, dated search, providers
+  minitel-engine/   Videotex 40×25 layout, session state machine, function keys, catalogue of kiosks/services
   window-manager/   Window state transitions (no React)
   desktop-engine/   Boot sequences, themes, virtual filesystem, era clock, mailbox seeds
   apps-runtime/     App definitions (window defaults, singleton, era restrictions) + registry
@@ -85,6 +93,7 @@ content/
   websites/         HistoricalWebsite seed data (Time Web)
   snapshots/        HistoricalSnapshot seed data (reconstruction / archive references)
   reconstructions/  ReconstructedPage JSON — declarative pages, no HTML
+  minitel/          Kiosks, services, pages and datasets for the Minitel (fictional seed)
 ```
 
 See `docs/era-format.md` and `docs/content-model.md` for the data contracts,
