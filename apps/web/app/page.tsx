@@ -14,6 +14,9 @@ export default function HomePage() {
         Sélectionnez une époque pour démarrer la machine correspondante et explorer les réseaux et
         services numériques disponibles à cette date.
       </p>
+      <a href="/admin" className="text-xs text-neutral-700 hover:text-neutral-400">
+        Admin
+      </a>
     </main>
   );
 }

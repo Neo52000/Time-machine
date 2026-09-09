@@ -15,9 +15,10 @@ type RightsStatus =
 
 ## Rule
 
-**Nothing with `rightsStatus: "unknown"` may be published.** This is a hard
-rule for the (future) admin app (Phase 9): its publish action must refuse
-any `HistoricalSnapshot` left at `"unknown"`.
+**Nothing with `rightsStatus: "unknown"` may be published.** This is
+enforced by the admin app (`docs/admin.md`, Phase 9): `publishItem` in
+`packages/admin-engine` refuses any snapshot, Minitel service or video clip
+left at `"unknown"`, and the rights review queue lists it as blocking.
 
 ## Guidance
 

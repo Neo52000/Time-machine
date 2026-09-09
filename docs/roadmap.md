@@ -42,20 +42,28 @@ implement → test → validate → commit.
       player, original placeholder animations — never real footage);
       Messenger and the media player are real windowed apps on the 2005
       desktop.
-- [ ] **Phase 9 — Admin**: events/sources/assets CRUD, rights review queue.
+- [x] **Phase 9 — Admin**: `packages/admin-engine` — draft CRUD
+      (create/update/delete) over events, sources, snapshots, Minitel
+      services and video clips, validated against the same
+      `content-schema` types as every engine; a rights review queue
+      (blocking `"unknown"`, review `"fair-use-review"`, research
+      `needsResearch`) and a publish gate that refuses `"unknown"` rights
+      (`docs/rights-policy.md`); `/admin` in `apps/web`.
 - [ ] **Phase 10 — Polish**: animations, audio, analytics, accessibility,
       performance.
 
 ## Recommended next step
 
-Phase 9 — Admin: CRUD for events/sources/assets and the rights review
-queue (`rightsStatus: "unknown"` must never be publishable, per
-`docs/rights-policy.md`). The content model, referential-integrity checks
-and `needsResearch` flags built across phases 1-8 are exactly what that
-queue will surface.
+Phase 10 — Polish: animations, audio (the Minitel modem handshake,
+notification sounds), accessibility (keyboard navigation across every app,
+reduced-motion coverage beyond the media player), analytics, and
+performance passes across the whole desktop/app stack.
 
 Known gaps carried forward:
 
+- Admin: the draft layer lives in `localStorage`, not a real backend —
+  "publishing" is a status flag, not a write to `content/**/*.json`. That
+  wiring is future work once a backend exists (see `docs/admin.md`).
 - Minitel: no graphic (mosaic) characters and no double-height text; the
   screen is text-only. Sound (modem handshake) is Phase 10.
 - Messenger: one scripted conversation per contact, no group chats, no

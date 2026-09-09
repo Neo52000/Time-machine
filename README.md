@@ -62,6 +62,9 @@ Homepage ("WHEN DO YOU WANT TO GO?")
       media player (video library locked by upload date, original
       placeholder animations — never real footage — around a reconstruction
       of the first YouTube video)
+  → /admin: draft CRUD over events/sources/snapshots/Minitel services/video
+      clips and a rights review queue that blocks publishing anything left
+      at rightsStatus "unknown"
 ```
 
 1985 (Minitel), 1998 (early Web desktop), and 2005 (social web + video) each
@@ -69,7 +72,9 @@ load their own `EraManifest` (`eras/<id>/manifest.json`) — nothing is
 hard-coded per era in the app code. Themes, shells, boot sequences, disks and app
 lists are all resolved from manifest keys.
 
-Not yet implemented: admin app, Supabase backend. See `docs/roadmap.md`.
+Not yet implemented: Supabase backend (the admin app's CRUD is a
+`localStorage` draft layer above the static content, see `docs/admin.md`).
+See `docs/roadmap.md`.
 
 ## Monorepo layout
 
@@ -87,6 +92,7 @@ packages/
   minitel-engine/     Videotex screen, session state machine, kiosks/services as data
   messenger-engine/   Scripted conversations, background presence (two-clock tick)
   media-engine/       Video library gated by upload date, pure playback state machine
+  admin-engine/       Draft CRUD, rights review queue, publish gate (no backend yet)
   timeline-engine/    Event date/category filtering, sorting, search
 eras/                 EraManifest JSON, one folder per era
 content/
