@@ -1,0 +1,240 @@
+/* A small 2005-style video site: library grid + player. All visuals are
+   original CSS animations, never a reproduction of real footage. */
+.mp-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  background: #fff;
+  color: #111;
+  font-family: "Trebuchet MS", "Segoe UI", Tahoma, Arial, sans-serif;
+  font-size: 13px;
+}
+.mp-library-header {
+  padding: 8px;
+  font-weight: bold;
+  background: #f2f2f2;
+  border-bottom: 1px solid #ddd;
+}
+.mp-library {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  padding: 10px;
+}
+.mp-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  overflow: hidden;
+}
+.mp-card:disabled {
+  cursor: default;
+  opacity: 0.75;
+}
+.mp-card-title {
+  padding: 0 6px;
+  font-weight: bold;
+  font-size: 12px;
+}
+.mp-card-meta {
+  padding: 0 6px 6px;
+  font-size: 11px;
+  color: #666;
+}
+.mp-thumb {
+  position: relative;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 22px;
+}
+.mp-thumb-zoo {
+  background: linear-gradient(180deg, #cfe8c8 0%, #a9d18e 60%, #7a5230 100%);
+}
+.mp-thumb-zoo::after {
+  content: "🐘";
+}
+.mp-thumb-skate {
+  background: linear-gradient(180deg, #d9e8f5 0%, #9fc4e0 100%);
+}
+.mp-thumb-skate::after {
+  content: "🛹";
+}
+.mp-thumb-webcam {
+  background: linear-gradient(180deg, #e8d9f5 0%, #b89fe0 100%);
+}
+.mp-thumb-webcam::after {
+  content: "🎥";
+}
+.mp-thumb-bicycle {
+  background: linear-gradient(180deg, #f5e8d9 0%, #e0b89f 100%);
+}
+.mp-thumb-bicycle::after {
+  content: "🚲";
+}
+.mp-lock {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  font-size: 20px;
+}
+
+.mp-toolbar {
+  padding: 6px 8px;
+  border-bottom: 1px solid #ddd;
+}
+.mp-back {
+  border: none;
+  background: transparent;
+  color: #2a4b8d;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}
+.mp-screen {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+}
+.mp-visual {
+  position: absolute;
+  inset: 0;
+}
+.mp-screen[data-visual="zoo"] .mp-visual {
+  background: linear-gradient(180deg, #cfe8c8 0%, #a9d18e 55%, #7a5230 100%);
+  animation: mp-sway 3s ease-in-out infinite;
+}
+.mp-screen[data-visual="skate"] .mp-visual {
+  background: linear-gradient(180deg, #d9e8f5 0%, #9fc4e0 100%);
+  animation: mp-roll 2s linear infinite;
+}
+.mp-screen[data-visual="webcam"] .mp-visual {
+  background: linear-gradient(180deg, #e8d9f5 0%, #b89fe0 100%);
+  animation: mp-pulse 2.4s ease-in-out infinite;
+}
+.mp-screen[data-visual="bicycle"] .mp-visual {
+  background: linear-gradient(180deg, #f5e8d9 0%, #e0b89f 100%);
+  animation: mp-roll 1.6s linear infinite;
+}
+@keyframes mp-sway {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.08);
+  }
+}
+@keyframes mp-roll {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 0;
+  }
+}
+@keyframes mp-pulse {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mp-visual {
+    animation: none !important;
+  }
+}
+.mp-overlay {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  padding: 2px 8px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+}
+.mp-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  background: #222;
+}
+.mp-play {
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  width: 24px;
+}
+.mp-scrubber {
+  flex: 1;
+}
+.mp-time {
+  color: #ddd;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.mp-progress-track {
+  height: 3px;
+  background: #444;
+}
+.mp-progress-fill {
+  height: 100%;
+  background: #d8342a;
+}
+.mp-meta {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+.mp-title {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+.mp-sub {
+  margin: 0 0 8px;
+  color: #666;
+  font-size: 12px;
+}
+.mp-description {
+  margin: 0;
+}
+.mp-comments {
+  padding: 10px;
+}
+.mp-comments-title {
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+.mp-comment {
+  margin-bottom: 8px;
+}
+.mp-comment-author {
+  font-weight: bold;
+}
+.mp-comment-date {
+  color: #888;
+  font-size: 11px;
+}
+.mp-comment-text {
+  margin: 2px 0 0;
+}

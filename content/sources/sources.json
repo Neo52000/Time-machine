@@ -170,5 +170,11 @@
     "label": "Time Machine — service Minitel fictif",
     "publisher": "Time Machine",
     "notes": "Service et contenu inventés pour la démonstration, dans l'esprit des services vidéotex de 1985. Aucune marque ni contenu historique reproduits."
+  },
+  {
+    "id": "src-timemachine-video-reconstruction",
+    "label": "Time Machine — reconstruction vidéo originale",
+    "publisher": "Time Machine",
+    "notes": "Animation originale évoquant l'événement documenté (aucun extrait de la vidéo réelle n'est reproduit)."
   }
 ]

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "julie",
+    "name": "Julie B.",
+    "avatarInitial": "JB",
+    "status": "online",
+    "statusMessage": "de retour des cours"
+  },
+  { "id": "marc", "name": "Marc", "avatarInitial": "M", "status": "offline" },
+  {
+    "id": "famille",
+    "name": "PapaMaman",
+    "avatarInitial": "PM",
+    "status": "away",
+    "statusMessage": "au travail"
+  },
+  {
+    "id": "servicemsn",
+    "name": "Service Messenger",
+    "avatarInitial": "SM",
+    "status": "online",
+    "statusMessage": "assistance"
+  }
+]

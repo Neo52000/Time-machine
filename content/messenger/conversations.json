@@ -1,0 +1,70 @@
+[
+  {
+    "id": "conv-julie",
+    "contactId": "julie",
+    "messages": [
+      {
+        "id": "j1",
+        "from": "contact",
+        "text": "Salut ! T'es la ?",
+        "delayMs": 600,
+        "typingMs": 500
+      },
+      {
+        "id": "j2",
+        "from": "contact",
+        "text": "Ca va ? Ca fait un bail !",
+        "delayMs": 1800,
+        "typingMs": 900
+      },
+      {
+        "id": "j3",
+        "from": "contact",
+        "text": "T'as vu le nouveau site dont tout le monde parle, YouTube ?",
+        "delayMs": 2200,
+        "typingMs": 1400
+      },
+      {
+        "id": "j4",
+        "from": "contact",
+        "text": "On peut y mettre ses videos gratuitement, c'est dingue",
+        "delayMs": 2600,
+        "typingMs": 1600
+      },
+      {
+        "id": "j5",
+        "from": "contact",
+        "text": "Bon je file en cours, a plus tard :)",
+        "delayMs": 3000,
+        "typingMs": 700
+      }
+    ]
+  },
+  {
+    "id": "conv-servicemsn",
+    "contactId": "servicemsn",
+    "messages": [
+      {
+        "id": "s1",
+        "from": "contact",
+        "text": "Bienvenue sur Messenger !",
+        "delayMs": 400,
+        "typingMs": 300
+      },
+      {
+        "id": "s2",
+        "from": "contact",
+        "text": "Astuce : le petit rond a cote d'un contact indique sa presence.",
+        "delayMs": 1400,
+        "typingMs": 800
+      },
+      {
+        "id": "s3",
+        "from": "contact",
+        "text": "Ecrivez ci-dessous pour essayer.",
+        "delayMs": 1400,
+        "typingMs": 600
+      }
+    ]
+  }
+]

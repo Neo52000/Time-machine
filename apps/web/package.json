@@ -17,6 +17,8 @@
     "@time-machine/content-schema": "workspace:*",
     "@time-machine/desktop-engine": "workspace:*",
     "@time-machine/era-engine": "workspace:*",
+    "@time-machine/media-engine": "workspace:*",
+    "@time-machine/messenger-engine": "workspace:*",
     "@time-machine/minitel-engine": "workspace:*",
     "@time-machine/search-engine": "workspace:*",
     "@time-machine/timeline-engine": "workspace:*",

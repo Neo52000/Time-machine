@@ -58,6 +58,10 @@ Homepage ("WHEN DO YOU WANT TO GO?")
         nine function keys (on screen or on your keyboard), hang up
       · fictional services (3615 DEMO, TEMPS, 3614 BAL, an electronic
         directory) with simulated 1200/75 baud latency
+  → 2005: Messenger (scripted conversation, background presence) and a
+      media player (video library locked by upload date, original
+      placeholder animations — never real footage — around a reconstruction
+      of the first YouTube video)
 ```
 
 1985 (Minitel), 1998 (early Web desktop), and 2005 (social web + video) each
@@ -65,9 +69,7 @@ load their own `EraManifest` (`eras/<id>/manifest.json`) — nothing is
 hard-coded per era in the app code. Themes, shells, boot sequences, disks and app
 lists are all resolved from manifest keys.
 
-Not yet implemented: messenger / media player (2005), admin app, Supabase
-backend. See
-`docs/roadmap.md`.
+Not yet implemented: admin app, Supabase backend. See `docs/roadmap.md`.
 
 ## Monorepo layout
 
@@ -83,6 +85,8 @@ packages/
   browser-engine/     Time Web catalogue + resolveHistoricalUrl + history
   search-engine/      Dated search index derived from the catalogue
   minitel-engine/     Videotex screen, session state machine, kiosks/services as data
+  messenger-engine/   Scripted conversations, background presence (two-clock tick)
+  media-engine/       Video library gated by upload date, pure playback state machine
   timeline-engine/    Event date/category filtering, sorting, search
 eras/                 EraManifest JSON, one folder per era
 content/

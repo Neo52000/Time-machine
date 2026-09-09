@@ -49,4 +49,4 @@ export interface EraManifest {
 - **1985** — Minitel only (`network.minitel`, no web).
 - **1998** — desktop + browser + search + basic apps (browser, file-manager,
   notepad, terminal, mail).
-- **2005** — desktop + browser + messenger + media-player + search.
+- **2005** — desktop + browser + messenger + media-player + search, all implemented.

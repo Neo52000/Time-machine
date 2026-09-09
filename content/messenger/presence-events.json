@@ -1,0 +1,8 @@
+[
+  {
+    "contactId": "marc",
+    "afterMs": 5000,
+    "status": "online",
+    "statusMessage": "vient de se connecter"
+  }
+]

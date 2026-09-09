@@ -13,6 +13,8 @@ const nextConfig = {
     "@time-machine/browser-engine",
     "@time-machine/search-engine",
     "@time-machine/minitel-engine",
+    "@time-machine/messenger-engine",
+    "@time-machine/media-engine",
     "@time-machine/desktop-engine",
     "@time-machine/window-manager",
   ],

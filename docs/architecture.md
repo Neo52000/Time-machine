@@ -20,6 +20,8 @@ TIME MACHINE
 ├── Time Web Engine     — browser-engine catalogue + content/websites|snapshots|reconstructions (14 sites, 12 pages)
 ├── Time Search Engine  — packages/search-engine  (implemented: catalogue-derived index, +/-/phrase syntax, temporal filter)
 ├── Minitel Engine      — packages/minitel-engine  (implemented: videotex layout, session, kiosks/services as data)
+├── Messenger Engine    — packages/messenger-engine (implemented: scripted conversations, background presence, no chatbot)
+├── Media Engine        — packages/media-engine    (implemented: pure player, upload-date lock, original placeholder visuals)
 ├── Museum Engine       — not yet implemented
 ├── Content Engine      — content/ + content-schema (partial: seed data only)
 ├── Source / Rights     — content-schema RightsStatus/SourceReference types (partial)
@@ -83,6 +85,8 @@ packages/
   browser-engine/   URL normalisation, Time Web catalogue, resolveHistoricalUrl, browser history
   search-engine/    Inverted index derived from the catalogue, query syntax, dated search, providers
   minitel-engine/   Videotex 40×25 layout, session state machine, function keys, catalogue of kiosks/services
+  messenger-engine/ Contact catalogue, scripted conversations, background presence (two-clock tick)
+  media-engine/     Video catalogue, upload-date lock, view growth, pure playback state machine
   window-manager/   Window state transitions (no React)
   desktop-engine/   Boot sequences, themes, virtual filesystem, era clock, mailbox seeds
   apps-runtime/     App definitions (window defaults, singleton, era restrictions) + registry
@@ -94,6 +98,8 @@ content/
   snapshots/        HistoricalSnapshot seed data (reconstruction / archive references)
   reconstructions/  ReconstructedPage JSON — declarative pages, no HTML
   minitel/          Kiosks, services, pages and datasets for the Minitel (fictional seed)
+  messenger/        Contacts, scripted conversations, background presence events (fictional seed)
+  media/            Video clips (incl. an original "Me at the zoo" reconstruction) and comments
 ```
 
 See `docs/era-format.md` and `docs/content-model.md` for the data contracts,
