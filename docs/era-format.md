@@ -14,8 +14,22 @@ export interface EraManifest {
   machine: {
     id: string;
     resolution: { width: number; height: number };
-    bootSequence: string; // key resolved by the (future) boot experience
-    theme: string; // key resolved by the (future) theming layer
+    bootSequence: string; // key resolved by desktop-engine boot sequences
+    theme: string; // key resolved by desktop-engine themes (incl. the shell: desktop | terminal)
+    // Sound event → cue id in content/audio/cues.json; a missing event is silent.
+    sounds?: Partial<
+      Record<
+        | "boot"
+        | "window-open"
+        | "window-close"
+        | "notification"
+        | "dial"
+        | "connect"
+        | "disconnect"
+        | "error",
+        string
+      >
+    >;
   };
 
   apps: string[]; // app ids available in this era — not all apps exist in every era
@@ -43,6 +57,9 @@ export interface EraManifest {
    loads and validates.
 4. No component should ever import the JSON directly — always go through
    `getEra(id)` / `listEras()`.
+5. If the machine should make sounds, bind events in `machine.sounds` to
+   cues from `content/audio/cues.json` — `packages/audio-engine`'s tests
+   fail on a binding to an unknown cue (see `docs/polish.md`).
 
 ## Current eras (MVP)
 

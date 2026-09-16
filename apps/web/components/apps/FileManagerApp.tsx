@@ -78,6 +78,7 @@ export function FileManagerApp({ fs, payload, openApp }: AppProps) {
                   key={file.id}
                   data-testid={`fm-entry-${file.name}`}
                   className="cursor-default select-none"
+                  aria-selected={isSelected}
                   style={
                     isSelected
                       ? { background: "var(--tm-selection)", color: "var(--tm-title-text)" }
@@ -85,14 +86,25 @@ export function FileManagerApp({ fs, payload, openApp }: AppProps) {
                   }
                   onClick={() => setSelected(file.id)}
                   onDoubleClick={() => activate(file)}
-                  onKeyDown={(e) => e.key === "Enter" && activate(file)}
-                  tabIndex={0}
                 >
                   <td className="px-2 py-0.5">
-                    <span className="mr-1" aria-hidden>
-                      {isDirectory(file) ? "📁" : file.type === "text/plain" ? "📄" : "▪"}
-                    </span>
-                    {file.name}
+                    <button
+                      type="button"
+                      className="tm-file-entry"
+                      onFocus={() => setSelected(file.id)}
+                      onDoubleClick={() => activate(file)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          e.preventDefault();
+                          activate(file);
+                        }
+                      }}
+                    >
+                      <span className="mr-1" aria-hidden>
+                        {isDirectory(file) ? "📁" : file.type === "text/plain" ? "📄" : "▪"}
+                      </span>
+                      {file.name}
+                    </button>
                   </td>
                   <td className="px-2 py-0.5 text-right">{formatSize(file.size)}</td>
                   <td className="px-2 py-0.5">{typeLabel(file)}</td>

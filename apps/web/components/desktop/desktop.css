@@ -11,10 +11,15 @@
   justify-content: center;
 }
 
-.tm-stage-exit {
+.tm-stage-tools {
   position: absolute;
   top: 8px;
   right: 12px;
+  display: flex;
+  gap: 6px;
+  z-index: 20000;
+}
+.tm-stage-tool {
   padding: 2px 8px;
   color: #bbb;
   background: rgba(0, 0, 0, 0.7);
@@ -24,10 +29,15 @@
     12px ui-monospace,
     monospace;
   text-decoration: none;
-  z-index: 20000;
+  cursor: pointer;
 }
-.tm-stage-exit:hover {
+.tm-stage-tool:hover,
+.tm-stage-tool:focus-visible {
   color: #fff;
+  outline: 1px solid #fff;
+}
+.tm-stage-tool[aria-pressed="false"] {
+  opacity: 0.6;
 }
 .tm-desktop-root {
   position: relative;
@@ -161,6 +171,22 @@
   display: flex;
   flex-direction: column;
   padding: 3px;
+  animation: tm-window-in 120ms ease-out;
+  outline: none;
+}
+@keyframes tm-window-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.tm-titlebar:focus-visible {
+  outline: 2px solid var(--tm-title-text);
+  outline-offset: -2px;
 }
 .tm-window[hidden] {
   display: none;
@@ -270,11 +296,45 @@
 }
 .tm-tray {
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   padding: 1px 8px;
   line-height: 18px;
   box-shadow:
     inset 1px 1px var(--tm-surface-dark),
     inset -1px -1px var(--tm-surface-light);
+}
+.tm-tray-btn {
+  padding: 0 2px;
+  font: inherit;
+  line-height: 18px;
+  background: transparent;
+  color: var(--tm-text);
+  cursor: pointer;
+}
+.tm-tray-btn[aria-pressed="false"] {
+  opacity: 0.55;
+}
+.tm-tray-btn:focus-visible {
+  outline: 1px dotted var(--tm-text);
+}
+.tm-file-entry {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  padding: 0;
+  text-align: left;
+  cursor: default;
+}
+.tm-file-entry:focus-visible {
+  outline: 1px dotted currentColor;
+  outline-offset: 1px;
+}
+.tm-app-loading {
+  padding: 8px;
+  font-size: 11px;
+  color: var(--tm-text-muted);
 }
 .tm-start-menu {
   position: absolute;
@@ -283,6 +343,28 @@
   min-width: 190px;
   padding: 3px;
   z-index: 9100;
+  animation: tm-menu-in 100ms ease-out;
+  transform-origin: bottom left;
+}
+@keyframes tm-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.tm-start-menu-hint {
+  margin-top: 4px;
+  padding: 3px 8px 1px;
+  border-top: 1px solid var(--tm-surface-dark);
+  font-size: 9px;
+  line-height: 12px;
+  color: var(--tm-text-muted);
+  white-space: normal;
+  max-width: 220px;
 }
 .tm-start-menu-item {
   display: flex;

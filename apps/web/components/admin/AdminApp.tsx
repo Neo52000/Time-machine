@@ -12,6 +12,8 @@ import {
   type AdminItem,
   type RightsQueueEntry,
 } from "@time-machine/admin-engine";
+import { useAnalytics } from "@/lib/analytics/AnalyticsProvider";
+import { AnalyticsPanel } from "./AnalyticsPanel";
 
 const STORAGE_KEY = "time-machine-admin-state";
 
@@ -22,6 +24,8 @@ const KINDS: AdminCollectionKind[] = [
   "minitelServices",
   "videoClips",
 ];
+
+const TABS: (AdminCollectionKind | "queue" | "analytics")[] = ["queue", ...KINDS, "analytics"];
 
 const KIND_LABELS: Record<AdminCollectionKind, string> = {
   events: "Événements",
@@ -129,7 +133,8 @@ interface EditTarget {
 
 export function AdminApp({ initialState }: { initialState: AdminState }) {
   const [state, setState] = useState<AdminState>(initialState);
-  const [activeTab, setActiveTab] = useState<AdminCollectionKind | "queue">("queue");
+  const [activeTab, setActiveTab] = useState<AdminCollectionKind | "queue" | "analytics">("queue");
+  const { track } = useAnalytics();
   const [edit, setEdit] = useState<EditTarget | null>(null);
   const [editText, setEditText] = useState("");
   const [editErrors, setEditErrors] = useState<string[]>([]);
@@ -201,6 +206,7 @@ export function AdminApp({ initialState }: { initialState: AdminState }) {
       window.alert(result.errors.join("\n"));
       return;
     }
+    track("admin.published", { kind });
     setState(result.state);
   };
 
@@ -240,30 +246,56 @@ export function AdminApp({ initialState }: { initialState: AdminState }) {
         voir <code>docs/roadmap.md</code>). Les changements sont conservés dans ce navigateur.
       </p>
 
-      <nav className="mb-6 flex flex-wrap gap-2" data-testid="admin-tabs">
-        <button
-          type="button"
-          onClick={() => setActiveTab("queue")}
-          data-testid="admin-tab-queue"
-          className={`rounded px-3 py-1.5 ${activeTab === "queue" ? "bg-white text-black" : "bg-neutral-800 text-neutral-300"}`}
-        >
-          File de révision des droits{queue.length > 0 ? ` (${queue.length})` : ""}
-        </button>
-        {KINDS.map((kind) => (
+      <div
+        className="mb-6 flex flex-wrap gap-2"
+        data-testid="admin-tabs"
+        role="tablist"
+        aria-label="Sections de l'admin"
+        onKeyDown={(e) => {
+          const step = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+          if (step === 0) return;
+          e.preventDefault();
+          const index = TABS.indexOf(activeTab);
+          const next = TABS[(index + step + TABS.length) % TABS.length]!;
+          setActiveTab(next);
+          document.getElementById(`admin-tab-${next}`)?.focus();
+        }}
+      >
+        {TABS.map((tab) => (
           <button
-            key={kind}
+            key={tab}
+            id={`admin-tab-${tab}`}
             type="button"
-            onClick={() => setActiveTab(kind)}
-            data-testid={`admin-tab-${kind}`}
-            className={`rounded px-3 py-1.5 ${activeTab === kind ? "bg-white text-black" : "bg-neutral-800 text-neutral-300"}`}
+            role="tab"
+            aria-selected={activeTab === tab}
+            aria-controls={`admin-panel-${tab}`}
+            tabIndex={activeTab === tab ? 0 : -1}
+            onClick={() => setActiveTab(tab)}
+            data-testid={`admin-tab-${tab}`}
+            className={`rounded px-3 py-1.5 ${activeTab === tab ? "bg-white text-black" : "bg-neutral-800 text-neutral-300"}`}
           >
-            {KIND_LABELS[kind]}
+            {tab === "queue"
+              ? `File de révision des droits${queue.length > 0 ? ` (${queue.length})` : ""}`
+              : tab === "analytics"
+                ? "Mesures"
+                : KIND_LABELS[tab]}
           </button>
         ))}
-      </nav>
+      </div>
+
+      {activeTab === "analytics" && (
+        <div role="tabpanel" id="admin-panel-analytics" aria-labelledby="admin-tab-analytics">
+          <AnalyticsPanel />
+        </div>
+      )}
 
       {activeTab === "queue" && (
-        <section data-testid="admin-queue">
+        <section
+          data-testid="admin-queue"
+          role="tabpanel"
+          id="admin-panel-queue"
+          aria-labelledby="admin-tab-queue"
+        >
           {queue.length === 0 ? (
             <p className="text-neutral-500">
               Rien à réviser : aucun droit inconnu, aucune recherche en attente.
@@ -307,7 +339,13 @@ export function AdminApp({ initialState }: { initialState: AdminState }) {
       {KINDS.map(
         (kind) =>
           activeTab === kind && (
-            <section key={kind} data-testid={`admin-table-${kind}`}>
+            <section
+              key={kind}
+              data-testid={`admin-table-${kind}`}
+              role="tabpanel"
+              id={`admin-panel-${kind}`}
+              aria-labelledby={`admin-tab-${kind}`}
+            >
               <div className="mb-3 flex justify-end">
                 <button
                   type="button"

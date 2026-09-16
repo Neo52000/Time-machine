@@ -33,3 +33,7 @@ left at `"unknown"`, and the rights review queue lists it as blocking.
 - When in doubt about a specific asset's rights, default to
   `"fair-use-review"` or `"reference-only"`, never `"unknown"` left
   unresolved indefinitely, and never a guessed `"public-domain"`.
+- **Sounds are never sampled.** Every cue in `content/audio/cues.json` is a
+  synthesis description with `rightsStatus: "original"`;
+  `packages/audio-engine` refuses any other status, so a recorded boot chime
+  or modem cannot enter the catalogue (see `docs/polish.md`).

@@ -19,6 +19,8 @@ package should redefine these shapes.
 | `MessengerContact` / `MessengerConversation` / `PresenceEvent`       | `src/messenger.ts`      | messenger-engine, `content/messenger/` (fictional seed)                       |
 | `VideoClip` / `VideoComment`                                         | `src/media.ts`          | media-engine, `content/media/` (original reconstruction + fictional clips)    |
 | `NarrativeTrigger` / `NarrativeCondition` / `NarrativeAction`        | `src/narrative.ts`      | Narrative Engine (contracts only, not wired up)                               |
+| `SoundCue` / `CueSegment` / `SoundEvent`                             | `src/audio.ts`          | audio-engine, `content/audio/cues.json`, `EraManifest.machine.sounds`         |
+| `AnalyticsEvent` / `AnalyticsEventName`                              | `src/analytics.ts`      | analytics-engine (closed event list, scalar props only)                       |
 
 `packages/admin-engine` (`docs/admin.md`) adds no new schema — it CRUDs
 `HistoricalEvent`, `SourceReference`, `HistoricalSnapshot`, `MinitelService`
