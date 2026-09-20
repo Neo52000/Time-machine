@@ -13,6 +13,7 @@ import {
   tick,
   type PlayerState,
 } from "@time-machine/media-engine";
+import { useAnalytics } from "@/lib/analytics/AnalyticsProvider";
 import type { AppProps } from "./types";
 import "./media-player.css";
 
@@ -49,6 +50,7 @@ export function MediaPlayerApp({ clock }: AppProps) {
   const [player, setPlayer] = useState<PlayerState | null>(null);
   const rafRef = useRef<number | null>(null);
   const lastRef = useRef<number>(0);
+  const { track } = useAnalytics();
 
   const selected = selectedId ? catalog.getVideo(selectedId) : undefined;
   const entry = selectedId ? library.find((e) => e.clip.id === selectedId) : undefined;
@@ -78,6 +80,7 @@ export function MediaPlayerApp({ clock }: AppProps) {
 
   if (selected && player && entry?.unlocked) {
     const progress = player.durationMs > 0 ? player.positionMs / player.durationMs : 0;
+    const playing = player.status === "playing";
     return (
       <div className="mp-root">
         <div className="mp-toolbar">
@@ -99,11 +102,14 @@ export function MediaPlayerApp({ clock }: AppProps) {
             type="button"
             className="mp-play"
             data-testid="media-playpause"
-            onClick={() =>
-              setPlayer((p) => (p ? (p.status === "playing" ? pause(p) : play(p)) : p))
-            }
+            aria-label={playing ? "Pause" : "Lecture"}
+            aria-pressed={playing}
+            onClick={() => {
+              if (!playing) track("media.played", { clipId: selected.id });
+              setPlayer((p) => (p ? (p.status === "playing" ? pause(p) : play(p)) : p));
+            }}
           >
-            {player.status === "playing" ? "⏸" : "▶"}
+            <span aria-hidden>{playing ? "⏸" : "▶"}</span>
           </button>
           <input
             type="range"
@@ -115,7 +121,7 @@ export function MediaPlayerApp({ clock }: AppProps) {
             data-testid="media-scrubber"
             aria-label="Position de lecture"
           />
-          <span className="mp-time" data-testid="media-time">
+          <span className="mp-time" data-testid="media-time" aria-live="off">
             {formatTime(player.positionMs)} / {formatTime(player.durationMs)}
           </span>
         </div>
@@ -147,7 +153,7 @@ export function MediaPlayerApp({ clock }: AppProps) {
   return (
     <div className="mp-root">
       <div className="mp-library-header">Vidéos ({frDate(selectedDate)})</div>
-      <div className="mp-library" data-testid="media-library">
+      <div className="mp-library" data-testid="media-library" role="list" aria-label="Vidéos">
         {library.map(({ clip, unlocked, views }) => (
           <button
             key={clip.id}

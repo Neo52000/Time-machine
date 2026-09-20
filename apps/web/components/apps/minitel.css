@@ -24,6 +24,19 @@
 .mt-screen:focus-visible {
   box-shadow: inset 0 0 0 1px #e6e6e6;
 }
+/* The tube "breathes" while the modem negotiates, and settles once connected. */
+.mt-root[data-phase="dialing"] .mt-screen,
+.mt-root[data-phase="loading"] .mt-screen {
+  animation: mt-carrier 700ms steps(2, end) infinite;
+}
+@keyframes mt-carrier {
+  from {
+    filter: brightness(1);
+  }
+  to {
+    filter: brightness(0.82);
+  }
+}
 .mt-row {
   height: 8px;
   width: 320px;

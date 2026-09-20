@@ -13,6 +13,8 @@ import {
   type FunctionKey,
   type SessionState,
 } from "@time-machine/minitel-engine";
+import { useAudio } from "@/lib/audio/AudioProvider";
+import { useAnalytics } from "@/lib/analytics/AnalyticsProvider";
 import type { AppProps } from "./types";
 import "./minitel.css";
 
@@ -47,6 +49,22 @@ const KEYBOARD: Record<string, FunctionKey> = {
   End: "CONNEXION_FIN",
 };
 
+/** What a screen reader hears about the session, since the videotex grid itself is noise. */
+function describe(session: SessionState): string {
+  switch (session.phase) {
+    case "idle":
+      return session.message ?? "Minitel prêt. Composez un code kiosque puis Connexion.";
+    case "dialing":
+      return `Connexion au ${session.kioskCode ?? ""} en cours`;
+    case "loading":
+      return "Chargement de la page";
+    case "kiosk":
+      return `Connecté au kiosque ${session.kioskCode ?? ""}.${session.message ? ` ${session.message}` : ""}`;
+    case "service":
+      return `Service ${session.location?.serviceId ?? ""}.${session.message ? ` ${session.message}` : ""}`;
+  }
+}
+
 /**
  * Minitel 1B — the whole machine. The engine owns the session; this
  * component only feeds keys, honours the latency it asks for, and paints
@@ -57,6 +75,8 @@ export function MinitelApp({ clock }: AppProps) {
   const connectedSince = useRef<number | null>(null);
   const screenRef = useRef<HTMLDivElement>(null);
   const catalog = minitelCatalog;
+  const audio = useAudio();
+  const { track } = useAnalytics();
 
   // Honour the engine's requested latency, then complete the transition.
   useEffect(() => {
@@ -73,6 +93,39 @@ export function MinitelApp({ clock }: AppProps) {
       connectedSince.current = null;
     }
   }, [session.phase]);
+
+  // The phase machine drives the sound: dial tone while dialing, carrier on
+  // connection, a drop when hanging up. The engine stays timer- and audio-free.
+  const previousPhase = useRef(session.phase);
+  useEffect(() => {
+    const previous = previousPhase.current;
+    previousPhase.current = session.phase;
+    if (session.phase === previous) return;
+    if (session.phase === "dialing") {
+      audio.play("dial");
+    } else if (
+      previous === "dialing" &&
+      (session.phase === "kiosk" || session.phase === "service")
+    ) {
+      audio.play("connect");
+      track("minitel.connected", {
+        kiosk: session.kioskCode ?? "",
+        service: session.location?.serviceId ?? "",
+      });
+    } else if (session.phase === "idle") {
+      audio.play("disconnect");
+    }
+  }, [session.phase, session.kioskCode, session.location?.serviceId, audio, track]);
+
+  // A refused input shows a message: sound it, except the hang-up summary.
+  const previousMessage = useRef(session.message);
+  useEffect(() => {
+    const previous = previousMessage.current;
+    previousMessage.current = session.message;
+    if (session.message && session.message !== previous && session.phase !== "idle") {
+      audio.play("error");
+    }
+  }, [session.message, session.phase, audio]);
 
   const press = useCallback(
     (key: FunctionKey) => {
@@ -118,6 +171,7 @@ export function MinitelApp({ clock }: AppProps) {
         tabIndex={0}
         role="application"
         aria-label="Écran Minitel"
+        aria-describedby="mt-status"
         onKeyDown={onKeyDown}
         onClick={() => screenRef.current?.focus()}
         data-testid="minitel-screen"
@@ -132,6 +186,9 @@ export function MinitelApp({ clock }: AppProps) {
           </div>
         ))}
       </div>
+      <div id="mt-status" className="sr-only" aria-live="polite" data-testid="minitel-status">
+        {describe(session)}
+      </div>
       <div className="mt-keypad" role="toolbar" aria-label="Touches de fonction">
         {KEYS.map((k) => (
           <button
@@ -140,6 +197,7 @@ export function MinitelApp({ clock }: AppProps) {
             className="mt-key"
             data-testid={`mt-key-${k.key}`}
             title={`${k.label} (${k.hint})`}
+            aria-label={`${k.label} — touche ${k.hint}`}
             onClick={() => press(k.key)}
           >
             {k.label}

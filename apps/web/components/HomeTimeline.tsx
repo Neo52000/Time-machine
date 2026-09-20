@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { EraManifest } from "@time-machine/content-schema";
+import { useAnalytics } from "@/lib/analytics/AnalyticsProvider";
 
 const TIMELINE_START_YEAR = 1980;
 const TIMELINE_END_YEAR = new Date().getFullYear();
@@ -19,10 +20,15 @@ function positionPercent(year: number): number {
 
 export function HomeTimeline({ eras }: { eras: EraManifest[] }) {
   const [hoveredEraId, setHoveredEraId] = useState<string | null>(null);
+  const { track } = useAnalytics();
 
   return (
     <div className="w-full max-w-4xl px-4">
-      <div className="relative mt-16 h-px w-full bg-neutral-700">
+      <div
+        className="relative mt-16 h-px w-full bg-neutral-700"
+        role="navigation"
+        aria-label="Choix de l'époque"
+      >
         {DECADE_MARKS.map((year) => (
           <div
             key={year}
@@ -47,8 +53,9 @@ export function HomeTimeline({ eras }: { eras: EraManifest[] }) {
               onMouseLeave={() => setHoveredEraId(null)}
               onFocus={() => setHoveredEraId(era.id)}
               onBlur={() => setHoveredEraId(null)}
+              onClick={() => track("era.selected", { eraId: era.id })}
               data-testid={`era-marker-${era.id}`}
-              className="absolute top-0 flex -translate-x-1/2 -translate-y-full flex-col items-center pb-3 focus:outline-none"
+              className="absolute top-0 flex -translate-x-1/2 -translate-y-full flex-col items-center rounded-sm pb-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               style={{ left: `${positionPercent(year)}%` }}
             >
               <span

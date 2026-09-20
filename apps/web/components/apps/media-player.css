@@ -201,6 +201,7 @@
 .mp-progress-fill {
   height: 100%;
   background: #d8342a;
+  transition: width 120ms linear;
 }
 .mp-meta {
   padding: 10px;

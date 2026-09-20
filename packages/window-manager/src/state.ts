@@ -224,6 +224,19 @@ export function toggleWindow(state: WindowManagerState, id: string): WindowManag
   return focusWindow(state, id);
 }
 
+/**
+ * Keyboard window switching: walks the taskbar order from the active window
+ * (minimized ones included — they are restored on arrival, like Alt+Tab).
+ */
+export function cycleWindow(state: WindowManagerState, direction: 1 | -1): WindowManagerState {
+  const windows = taskbarWindows(state);
+  if (windows.length === 0) return state;
+  const current = windows.findIndex((w) => w.id === state.activeWindowId);
+  const start = current === -1 ? (direction === 1 ? -1 : windows.length) : current;
+  const next = windows[(start + direction + windows.length) % windows.length];
+  return next ? focusWindow(state, next.id) : state;
+}
+
 export function maximizeWindow(state: WindowManagerState, id: string): WindowManagerState {
   const target = getWindow(state, id);
   if (!target || target.maximized) return state;

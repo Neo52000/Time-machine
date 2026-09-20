@@ -32,7 +32,7 @@ pnpm build               # production build of apps/web
 pnpm test:e2e            # Playwright end-to-end tests (starts the app itself)
 ```
 
-## What works today (Phases 0–3)
+## What works today (Phases 0–10)
 
 ```text
 Homepage ("WHEN DO YOU WANT TO GO?")
@@ -62,6 +62,14 @@ Homepage ("WHEN DO YOU WANT TO GO?")
       media player (video library locked by upload date, original
       placeholder animations — never real footage — around a reconstruction
       of the first YouTube video)
+  → /admin: draft CRUD over events/sources/snapshots/Minitel services/video
+      clips and a rights review queue that blocks publishing anything left
+      at rightsStatus "unknown"; a Mesures tab showing the local analytics
+  → polish: synthesised era sounds (modem handshake, carrier, window
+      clicks, incoming-message chime — original, never sampled, mutable),
+      keyboard-only desktop (Ctrl+Alt+→/←/M/X/Enter/S, focusable title
+      bars, real menus), live regions, reduced-motion support, opt-in
+      analytics kept in the browser
 ```
 
 1985 (Minitel), 1998 (early Web desktop), and 2005 (social web + video) each
@@ -69,7 +77,9 @@ load their own `EraManifest` (`eras/<id>/manifest.json`) — nothing is
 hard-coded per era in the app code. Themes, shells, boot sequences, disks and app
 lists are all resolved from manifest keys.
 
-Not yet implemented: admin app, Supabase backend. See `docs/roadmap.md`.
+Not yet implemented: Supabase backend (the admin app's CRUD is a
+`localStorage` draft layer above the static content, see `docs/admin.md`).
+See `docs/roadmap.md`.
 
 ## Monorepo layout
 
@@ -87,6 +97,9 @@ packages/
   minitel-engine/     Videotex screen, session state machine, kiosks/services as data
   messenger-engine/   Scripted conversations, background presence (two-clock tick)
   media-engine/       Video library gated by upload date, pure playback state machine
+  admin-engine/       Draft CRUD, rights review queue, publish gate (no backend yet)
+  audio-engine/       Synthesised sound cues as data, per-era bindings, pure scheduling
+  analytics-engine/   Consent-gated, PII-refusing event queue (local sink only)
   timeline-engine/    Event date/category filtering, sorting, search
 eras/                 EraManifest JSON, one folder per era
 content/
@@ -106,3 +119,5 @@ docs/                 Architecture & content model documentation
 - No invented historical facts: unsourced or uncertain dates carry
   `needsResearch: true` instead of a guess (see `docs/historical-sources.md`).
 - `RightsStatus: "unknown"` may never be published (see `docs/rights-policy.md`).
+- Sounds are synthesised from `content/audio/cues.json`, never sampled; analytics
+  are opt-in and never leave the browser (see `docs/polish.md`).

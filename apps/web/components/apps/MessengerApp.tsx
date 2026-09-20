@@ -11,6 +11,8 @@ import {
   tick,
   type SessionState,
 } from "@time-machine/messenger-engine";
+import { useAudio } from "@/lib/audio/AudioProvider";
+import { useAnalytics } from "@/lib/analytics/AnalyticsProvider";
 import type { AppProps } from "./types";
 import "./messenger.css";
 
@@ -27,17 +29,35 @@ const STATUS_LABEL: Record<ContactStatus, string> = {
  * 2005-style instant messenger. Contacts and their scripted conversation
  * are pure data (@time-machine/messenger-engine); this component only
  * owns the real timer, calling `tick` every TICK_MS so messages, typing
- * indicators and background presence changes reveal themselves.
+ * indicators and background presence changes reveal themselves. The timer
+ * pauses while the tab is hidden — nothing to show, nothing to compute.
  */
 export function MessengerApp(_props: AppProps) {
   const catalog = messengerCatalog;
   const [session, setSession] = useState<SessionState>(() => createSession(catalog));
   const [input, setInput] = useState("");
   const logRef = useRef<HTMLDivElement>(null);
+  const audio = useAudio();
+  const { track } = useAnalytics();
 
   useEffect(() => {
-    const id = setInterval(() => setSession((s) => tick(s, catalog, TICK_MS)), TICK_MS);
-    return () => clearInterval(id);
+    let id: number | undefined;
+    const start = () => {
+      if (id !== undefined) return;
+      id = window.setInterval(() => setSession((s) => tick(s, catalog, TICK_MS)), TICK_MS);
+    };
+    const stop = () => {
+      if (id === undefined) return;
+      window.clearInterval(id);
+      id = undefined;
+    };
+    const onVisibility = () => (document.hidden ? stop() : start());
+    onVisibility();
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => {
+      stop();
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
   }, [catalog]);
 
   const activeConversation = session.activeConversationId
@@ -71,6 +91,16 @@ export function MessengerApp(_props: AppProps) {
     logRef.current?.scrollTo({ top: logRef.current.scrollHeight });
   }, [timeline.length, runtime?.contactTyping]);
 
+  // A message that *arrives* (not one we sent) rings the notification.
+  const lastFrom = timeline.at(-1)?.from;
+  const previousLength = useRef(timeline.length);
+  useEffect(() => {
+    if (timeline.length > previousLength.current && lastFrom === "contact") {
+      audio.play("notification");
+    }
+    previousLength.current = timeline.length;
+  }, [timeline.length, lastFrom, audio]);
+
   const openChat = useCallback(
     (contactId: string) => {
       const conversation = catalog.getConversation(
@@ -86,12 +116,18 @@ export function MessengerApp(_props: AppProps) {
     e.preventDefault();
     if (!activeConversation) return;
     setSession((s) => sendMessage(s, activeConversation.id, input));
+    track("messenger.sent", { conversationId: activeConversation.id });
     setInput("");
   }
 
   return (
     <div className="msn-root">
-      <div className="msn-contacts" data-testid="messenger-contacts">
+      <div
+        className="msn-contacts"
+        data-testid="messenger-contacts"
+        role="list"
+        aria-label="Contacts"
+      >
         <div className="msn-panel-title">Contacts</div>
         {catalog.contacts.map((contact) => {
           const state = contactOf(catalog, contact.id, session);
@@ -110,7 +146,7 @@ export function MessengerApp(_props: AppProps) {
               <span className="msn-avatar">{contact.avatarInitial}</span>
               <span className="msn-contact-info">
                 <span className="msn-contact-name">{contact.name}</span>
-                <span className="msn-contact-status">
+                <span className="msn-contact-status" aria-live="polite">
                   {STATUS_LABEL[state.status]}
                   {state.statusMessage ? ` — ${state.statusMessage}` : ""}
                 </span>
@@ -127,7 +163,15 @@ export function MessengerApp(_props: AppProps) {
               <span className={`msn-dot msn-dot-${activeContact.status}`} aria-hidden />
               {activeContact.name}
             </div>
-            <div className="msn-log" ref={logRef} data-testid="messenger-log">
+            <div
+              className="msn-log"
+              ref={logRef}
+              data-testid="messenger-log"
+              role="log"
+              aria-live="polite"
+              aria-relevant="additions"
+              aria-label={`Conversation avec ${activeContact.name}`}
+            >
               {timeline.map((m) => (
                 <div
                   key={m.key}
@@ -142,7 +186,8 @@ export function MessengerApp(_props: AppProps) {
               ))}
               {runtime?.contactTyping && (
                 <div className="msn-typing" data-testid="messenger-typing">
-                  {activeContact.name} est en train d&apos;écrire…
+                  {activeContact.name} est en train d&apos;écrire
+                  <span className="msn-dots" aria-hidden />
                 </div>
               )}
             </div>

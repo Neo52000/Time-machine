@@ -14,11 +14,14 @@ import {
   getBootSequence,
   getDesktopTheme,
   getFileSystem,
+  matchShortcut,
 } from "@time-machine/desktop-engine";
 import { orderedWindows, taskbarWindows } from "@time-machine/window-manager";
 import { getAppComponent } from "@/components/apps";
 import { useShallow } from "zustand/react/shallow";
 import { useDesktopStore, type WindowPayload } from "@/lib/desktopStore";
+import { AudioProvider, useAudio } from "@/lib/audio/AudioProvider";
+import { useAnalytics } from "@/lib/analytics/AnalyticsProvider";
 import { BootScreen } from "./BootScreen";
 import { DesktopIcons } from "./DesktopIcons";
 import { Taskbar } from "./Taskbar";
@@ -26,6 +29,27 @@ import { Window } from "./Window";
 import "./desktop.css";
 
 const registry = createAppRegistry(builtinApps);
+const EMPTY_PAYLOAD: WindowPayload = {};
+const noop = () => undefined;
+
+/** Stable definitions for windows whose app id is unknown to the registry. */
+const fallbackApps = new Map<string, AppDefinition>();
+function appFor(win: { appId: string; title: string; width: number; height: number }) {
+  const known = registry.get(win.appId);
+  if (known) return known;
+  let fallback = fallbackApps.get(win.appId);
+  if (!fallback) {
+    fallback = {
+      id: win.appId,
+      title: win.title,
+      icon: "▪",
+      defaultSize: { width: win.width, height: win.height },
+      singleton: false,
+    };
+    fallbackApps.set(win.appId, fallback);
+  }
+  return fallback;
+}
 
 /**
  * The machine screen: rendered at the era's native resolution and scaled
@@ -33,6 +57,14 @@ const registry = createAppRegistry(builtinApps);
  * across devices and the era's constraints stay visible.
  */
 export function Desktop({ era }: { era: EraManifest }) {
+  return (
+    <AudioProvider machine={era.machine}>
+      <DesktopStage era={era} />
+    </AudioProvider>
+  );
+}
+
+function DesktopStage({ era }: { era: EraManifest }) {
   const viewport = era.machine.resolution;
   const theme = useMemo(() => getDesktopTheme(era.machine.theme), [era.machine.theme]);
   const bootSequence = useMemo(
@@ -42,10 +74,13 @@ export function Desktop({ era }: { era: EraManifest }) {
   const fs = useMemo(() => getFileSystem(era.machine.id), [era.machine.id]);
   const { apps, missing } = useMemo(() => resolveEraApps(registry, era), [era]);
   const clock = useMemo(() => createEraClock(era.dateStart), [era.dateStart]);
+  const audio = useAudio();
+  const { track } = useAnalytics();
 
   const [booted, setBooted] = useState(false);
   const [scale, setScale] = useState(1);
   const stageRef = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   const wm = useDesktopStore((s) => s.wm);
   const payloads = useDesktopStore((s) => s.payloads);
@@ -55,12 +90,10 @@ export function Desktop({ era }: { era: EraManifest }) {
       reset: s.reset,
       open: s.open,
       close: s.close,
-      focus: s.focus,
       minimize: s.minimize,
       toggleMaximize: s.toggleMaximize,
       toggleFromTaskbar: s.toggleFromTaskbar,
-      move: s.move,
-      resize: s.resize,
+      cycle: s.cycle,
       setStartMenuOpen: s.setStartMenuOpen,
     })),
   );
@@ -90,18 +123,78 @@ export function Desktop({ era }: { era: EraManifest }) {
     // `booted` matters: the stage only exists once the boot screen is gone.
   }, [viewport.width, viewport.height, booted, theme.shell]);
 
-  const onBootDone = useCallback(() => setBooted(true), []);
+  // Window open/close sounds live here, not in the windows, so every path
+  // (icons, start menu, shortcuts, closeSelf) sounds the same.
+  const windowCount = wm.windows.length;
+  const previousCount = useRef(windowCount);
+  useEffect(() => {
+    if (windowCount > previousCount.current) audio.play("window-open");
+    else if (windowCount < previousCount.current) audio.play("window-close");
+    previousCount.current = windowCount;
+  }, [windowCount, audio]);
+
+  // When the last window goes, keyboard focus must land somewhere useful.
+  useEffect(() => {
+    if (wm.activeWindowId === null && booted && document.activeElement === document.body) {
+      rootRef.current?.focus({ preventScroll: true });
+    }
+  }, [wm.activeWindowId, booted]);
+
+  useEffect(() => {
+    if (!booted || theme.shell !== "desktop") return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      const command = matchShortcut(e);
+      if (!command) return;
+      e.preventDefault();
+      const { wm: current, startMenuOpen: menuOpen } = useDesktopStore.getState();
+      const active = current.activeWindowId;
+      switch (command) {
+        case "cycle-next":
+          actions.cycle(1);
+          break;
+        case "cycle-prev":
+          actions.cycle(-1);
+          break;
+        case "close-active":
+          if (active) actions.close(active);
+          break;
+        case "minimize-active":
+          if (active) actions.minimize(active);
+          break;
+        case "toggle-maximize-active":
+          if (active) actions.toggleMaximize(active);
+          break;
+        case "toggle-start-menu":
+          actions.setStartMenuOpen(!menuOpen);
+          break;
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [booted, theme.shell, actions]);
+
+  const onBootDone = useCallback(
+    (skipped: boolean) => {
+      setBooted(true);
+      audio.play("boot");
+      track("boot.completed", { eraId: era.id, skipped });
+    },
+    [audio, track, era.id],
+  );
 
   const openApp = useCallback(
-    (app: AppDefinition, payload?: WindowPayload) => actions.open(app, payload),
-    [actions],
+    (app: AppDefinition, payload?: WindowPayload) => {
+      track("app.opened", { eraId: era.id, appId: app.id });
+      return actions.open(app, payload);
+    },
+    [actions, track, era.id],
   );
   const openAppById = useCallback(
     (appId: string, payload?: WindowPayload) => {
       const app = apps.find((a) => a.id === appId) ?? registry.get(appId);
-      if (app) actions.open(app, payload);
+      if (app) openApp(app, payload);
     },
-    [actions, apps],
+    [apps, openApp],
   );
 
   if (!booted) {
@@ -119,6 +212,7 @@ export function Desktop({ era }: { era: EraManifest }) {
           data-testid="desktop"
           data-theme={theme.id}
           data-shell="terminal"
+          data-audio-enabled={audio.prefs.enabled}
           style={{
             width: viewport.width,
             height: viewport.height,
@@ -133,17 +227,32 @@ export function Desktop({ era }: { era: EraManifest }) {
               era={era}
               fs={fs}
               clock={clock}
-              payload={{}}
+              payload={EMPTY_PAYLOAD}
               openApp={openAppById}
-              closeSelf={() => undefined}
+              closeSelf={noop}
             />
           ) : (
             <p className="p-4 text-sm">Aucune application disponible pour cette machine.</p>
           )}
         </div>
-        <Link href="/" className="tm-stage-exit" data-testid="stage-exit">
-          ← Timeline
-        </Link>
+        <div className="tm-stage-tools">
+          <button
+            type="button"
+            className="tm-stage-tool"
+            aria-pressed={audio.prefs.enabled}
+            aria-label={audio.prefs.enabled ? "Couper le son" : "Activer le son"}
+            data-testid="audio-toggle"
+            onClick={() => {
+              audio.toggle();
+              track("audio.toggled", { enabled: !audio.prefs.enabled });
+            }}
+          >
+            {audio.prefs.enabled ? "🔊" : "🔇"}
+          </button>
+          <Link href="/" className="tm-stage-tool" data-testid="stage-exit">
+            ← Timeline
+          </Link>
+        </div>
       </div>
     );
   }
@@ -151,9 +260,11 @@ export function Desktop({ era }: { era: EraManifest }) {
   return (
     <div ref={stageRef} className="tm-stage">
       <div
+        ref={rootRef}
         className={`tm-desktop-root tm-style-${theme.windowStyle}${theme.crt ? " tm-crt" : ""}`}
         data-testid="desktop"
         data-theme={theme.id}
+        data-audio-enabled={audio.prefs.enabled}
         style={{
           width: viewport.width,
           height: viewport.height,
@@ -168,43 +279,21 @@ export function Desktop({ era }: { era: EraManifest }) {
       >
         <DesktopIcons apps={apps} onOpen={openApp} />
 
-        {orderedWindows(wm).map((win) => {
-          const app = registry.get(win.appId) ?? {
-            id: win.appId,
-            title: win.title,
-            icon: "▪",
-            defaultSize: { width: win.width, height: win.height },
-            singleton: false,
-          };
-          const AppComponent = getAppComponent(win.appId);
-          return (
-            <Window
-              key={win.id}
-              window={win}
-              viewport={viewport}
-              scale={scale}
-              active={wm.activeWindowId === win.id}
-              icon={app.icon}
-              onFocus={() => actions.focus(win.id)}
-              onClose={() => actions.close(win.id)}
-              onMinimize={() => actions.minimize(win.id)}
-              onToggleMaximize={() => actions.toggleMaximize(win.id)}
-              onMove={(x, y) => actions.move(win.id, x, y)}
-              onResize={(w, h) => actions.resize(win.id, w, h)}
-            >
-              <AppComponent
-                windowId={win.id}
-                app={app}
-                era={era}
-                fs={fs}
-                clock={clock}
-                payload={payloads[win.id] ?? {}}
-                openApp={openAppById}
-                closeSelf={() => actions.close(win.id)}
-              />
-            </Window>
-          );
-        })}
+        {orderedWindows(wm).map((win) => (
+          <Window
+            key={win.id}
+            win={win}
+            viewport={viewport}
+            scale={scale}
+            active={wm.activeWindowId === win.id}
+            app={appFor(win)}
+            era={era}
+            fs={fs}
+            clock={clock}
+            payload={payloads[win.id] ?? EMPTY_PAYLOAD}
+            openApp={openAppById}
+          />
+        ))}
 
         <Taskbar
           theme={theme}

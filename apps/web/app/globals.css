@@ -24,7 +24,18 @@ body {
   animation: loading-bar 1.8s linear forwards;
 }
 
+/* Reduced motion: every animation and transition in the app collapses to
+   an instant change. Simulated latencies (Minitel dial, message reveal)
+   are content, not motion, and are left alone on purpose. */
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
   .loading-bar {
     animation: none;
     width: 100%;
