@@ -47,10 +47,23 @@ export interface TimeWebCatalog {
 
 export function createTimeWebCatalog(data: TimeWebData): TimeWebCatalog {
   const websites = data.websites.map((w) => HistoricalWebsiteSchema.parse(w));
-  const snapshots = data.snapshots.map((s) => HistoricalSnapshotSchema.parse(s));
-  const pages = data.pages.map((p) => ReconstructedPageSchema.parse(p));
-  const events = data.events.map((e) => HistoricalEventSchema.parse(e));
+  // Draft (unpublished) events/snapshots — and reconstruction pages that belong to a
+  // draft snapshot — are excluded before referential-integrity checks run, so a draft
+  // never needs to satisfy them yet and never leaks into the live catalogue.
+  const snapshots = data.snapshots
+    .map((s) => HistoricalSnapshotSchema.parse(s))
+    .filter((s) => s.published);
+  const publishedSnapshotIds = new Set(snapshots.map((s) => s.id));
+  const pages = data.pages
+    .map((p) => ReconstructedPageSchema.parse(p))
+    .filter((p) => publishedSnapshotIds.has(p.snapshotId));
+  const allEvents = data.events.map((e) => HistoricalEventSchema.parse(e));
+  const events = allEvents.filter((e) => e.published);
   const sources = data.sources.map((s) => SourceReferenceSchema.parse(s));
+  // A website may reference a draft event before it's published — that's not a
+  // dangling reference, so validate against every parsed event id, not just the
+  // published ones. `catalog.getEvent` still only ever returns published events.
+  const knownEventIds = new Set(allEvents.map((e) => e.id));
 
   const byId = <T extends { id: string }>(items: T[], kind: string) => {
     const map = new Map<string, T>();
@@ -71,7 +84,11 @@ export function createTimeWebCatalog(data: TimeWebData): TimeWebCatalog {
   };
   for (const w of websites) {
     for (const id of w.sourceIds) assertRef(sourceById, id, "source", `website ${w.id}`);
-    for (const id of w.relatedEventIds ?? []) assertRef(eventById, id, "event", `website ${w.id}`);
+    for (const id of w.relatedEventIds ?? []) {
+      if (!knownEventIds.has(id)) {
+        throw new Error(`website ${w.id} references unknown event "${id}"`);
+      }
+    }
   }
   for (const s of snapshots) {
     assertRef(websiteById, s.websiteId, "website", `snapshot ${s.id}`);

@@ -12,7 +12,8 @@ package should redefine these shapes.
 | `RightsStatus`                                                       | `src/rights.ts`         | `HistoricalSnapshot`, admin rights review                                     |
 | `HistoricalWebsite` / `HistoricalSnapshot`                           | `src/website.ts`        | browser-engine catalogue, `content/websites`, `content/snapshots`             |
 | `ReconstructedPage` / `PageBlock`                                    | `src/reconstruction.ts` | browser-engine, `content/reconstructions/*.json` (declarative pages, no HTML) |
-| `SearchDocument` + `isAvailableAt`                                   | `src/search.ts`         | Time Search Engine (Phase 6, not yet implemented)                             |
+| `SearchDocument` + `isAvailableAt`                                   | `src/search.ts`         | search-engine                                                                 |
+| `ContentStatus` + `contentStatus` / `blockingReason`                 | `src/status.ts`         | apps/admin's four-state review queue and publish gate                         |
 | `DesktopWindow`                                                      | `src/desktop.ts`        | window-manager                                                                |
 | `VirtualFile`                                                        | `src/filesystem.ts`     | desktop-engine virtual disk                                                   |
 | `MinitelKiosk` / `MinitelService` / `MinitelPage` / `MinitelDataset` | `src/minitel.ts`        | minitel-engine, `content/minitel/` (fictional seed)                           |
@@ -57,11 +58,28 @@ MVP.
 `needsResearch: true`, at least one `sourceIds` entry, and referential
 integrity checked at load time.
 
+## Draft vs. published
+
+`HistoricalEvent`, `HistoricalWebsite` and `HistoricalSnapshot` all carry a
+`published: boolean` field (default `true`, so every pre-existing seed
+record stays live unchanged). `apps/admin` is the only writer that sets it
+`false` (a draft in progress). `packages/browser-engine`'s catalogue
+excludes unpublished events and snapshots — and any reconstruction page
+that belongs to an unpublished snapshot — before its referential-integrity
+checks run, so a draft never needs to satisfy them yet (see
+`docs/browser-engine.md`). A website's own `published` flag is editorial
+only (not filtered by the catalogue): its real visibility already comes
+from `availableFrom`/`availableUntil` and whether it has any published
+snapshot.
+
 ## Rights
 
 `RightsStatus` is `"original" | "public-domain" | "licensed" |
 "permission-granted" | "fair-use-review" | "reference-only" | "unknown"`
 (`original` = era-inspired page authored by this project). See
+`docs/rights-policy.md` and `docs/admin.md` — `apps/admin` refuses to save
+anything as published while its rights status is `"unknown"` or it's still
+flagged `needsResearch`.
 `docs/rights-policy.md` — the admin (`docs/admin.md`, Phase 9) refuses to
 publish anything left as `"unknown"`, and its rights review queue surfaces
 every `"fair-use-review"` asset and every `needsResearch` record.

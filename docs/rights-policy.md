@@ -15,6 +15,20 @@ type RightsStatus =
 
 ## Rule
 
+**Nothing with `rightsStatus: "unknown"` may be published**, and — same
+gate — an event or website flagged `needsResearch: true` may not be
+published either. This is enforced in code, not just documentation:
+`apps/admin/lib/collections.ts` attaches a publish guard (built on
+`blockingReason` from `packages/content-schema/src/status.ts`) to the
+events, websites and snapshots collections, and `upsertRecord`
+(`apps/admin/lib/contentStore.ts`) rejects the write with a
+`RightsViolationError` before anything touches disk. See `docs/admin.md`.
+
+Seed events written before the `published` field existed and already carry
+`needsResearch: true` while defaulting to `published: true` (grandfathered
+in — see `docs/admin.md`'s "why per-record, not whole-file" note). The
+guard only blocks a _new_ attempt to set `published: true` on a blocked
+record; it does not retroactively unpublish content the admin didn't touch.
 **Nothing with `rightsStatus: "unknown"` may be published.** This is
 enforced by the admin app (`docs/admin.md`, Phase 9): `publishItem` in
 `packages/admin-engine` refuses any snapshot, Minitel service or video clip

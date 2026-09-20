@@ -12,6 +12,7 @@ const events: HistoricalEvent[] = [
     category: ["search", "web"],
     importance: 5,
     sourceIds: ["src-google"],
+    published: true,
   },
   {
     id: "napster",
@@ -21,6 +22,7 @@ const events: HistoricalEvent[] = [
     category: ["web", "culture"],
     importance: 4,
     sourceIds: ["src-napster"],
+    published: true,
   },
   {
     id: "yahoo",
@@ -30,6 +32,7 @@ const events: HistoricalEvent[] = [
     category: ["web", "search"],
     importance: 3,
     sourceIds: ["src-yahoo"],
+    published: true,
   },
 ];
 

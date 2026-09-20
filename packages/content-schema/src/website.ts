@@ -14,6 +14,8 @@ export const HistoricalWebsiteSchema = z.object({
   relatedEventIds: z.array(z.string()).optional(),
   /** Set when availableFrom/availableUntil are not confirmed to the day. */
   needsResearch: z.boolean().optional(),
+  /** Gates visibility to consuming engines. Defaults true so existing seed data stays live untouched. */
+  published: z.boolean().default(true),
 });
 
 export const SnapshotTypeSchema = z.enum(["reconstruction", "archive", "screenshot", "document"]);
@@ -26,6 +28,8 @@ export const HistoricalSnapshotSchema = z.object({
   contentRef: z.string(),
   sourceIds: z.array(z.string()),
   rightsStatus: RightsStatusSchema,
+  /** Gates visibility to consuming engines. Defaults true so existing seed data stays live untouched. */
+  published: z.boolean().default(true),
 });
 
 export type HistoricalWebsite = z.infer<typeof HistoricalWebsiteSchema>;

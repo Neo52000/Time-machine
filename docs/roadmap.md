@@ -40,8 +40,21 @@ implement → test → validate → commit.
       conversations, background presence, data-only — no chatbot) and
       `packages/media-engine` (video library gated by upload date, pure
       player, original placeholder animations — never real footage);
-      Messenger and the media player are real windowed apps on the 2005
-      desktop.
+      Messenger and the media player are real windowed apps on the 200      desktop.
+- [x] **Phase 9 — Admin**: `apps/admin` — CRUD for events, websites,
+      snapshots and sources, reading and writing the same `content/*.json`
+      files the live app reads (no database introduced; see
+      `docs/admin.md`). The four-state review queue (`contentStatus()` in
+      `packages/content-schema`) and the rights/research publish gate are
+      enforced in code for the first time, in `apps/admin/lib/contentStore.ts`.
+- [ ] **Phase 10 — Polish**: animations, audio, analytics, accessibility,
+      performance.
+
+## Recommended next step
+
+Phase 10 — Polish: animations, audio, analytics, accessibility, and
+performance passes across the whole product. No new engine is needed —
+this phase makes the existing nine engines feel finished.
 - [x] **Phase 9 — Admin**: `packages/admin-engine` — draft CRUD
       (create/update/delete) over events, sources, snapshots, Minitel
       services and video clips, validated against the same
@@ -87,7 +100,12 @@ Known gaps carried forward:
   other in-site links land on the home page or a `page-unknown` 404.
 - No screenshot/document snapshots yet (step 2 of the resolution flow is
   exercised by unit tests only).
-- The search index is rebuilt from the catalogue at load time; a
-  persisted index (Supabase, Phase 9+) is not needed at this scale.
+- The search index is rebuilt from the catalogue at load time; a database
+  was deliberately not introduced for Phase 9 — see `docs/admin.md` for
+  why the JSON-file approach still holds at this scale, and what would
+  force a reconsideration.
+- `apps/admin` has no authentication and writes directly to the repo's
+  `content/*.json` files — it's a local/private tool, not something to
+  expose on the public internet as-is (`docs/admin.md`).
 
 - The virtual disk is read-only (notepad edits are not persisted).
