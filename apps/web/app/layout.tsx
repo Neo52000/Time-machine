@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { AnalyticsProvider } from "@/lib/analytics/AnalyticsProvider";
+import { ConsentBanner } from "@/components/ConsentBanner";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -10,7 +12,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
-      <body className="min-h-screen antialiased">{children}</body>
+      <body className="min-h-screen antialiased">
+        <AnalyticsProvider>
+          {children}
+          <ConsentBanner />
+        </AnalyticsProvider>
+      </body>
     </html>
   );
 }

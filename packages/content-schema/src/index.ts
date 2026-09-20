@@ -12,3 +12,5 @@ export * from "./minitel";
 export * from "./messenger";
 export * from "./media";
 export * from "./status";
+export * from "./audio";
+export * from "./analytics";

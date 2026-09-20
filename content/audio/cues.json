@@ -1,0 +1,138 @@
+[
+  {
+    "id": "modem-handshake-v23",
+    "title": "Négociation modem 1200/75 bauds",
+    "description": "Tonalité d'invitation à numéroter, quatre chiffres, retour d'appel, tonalité de réponse puis alternance des porteuses 1300/2100 Hz d'une liaison V.23. Synthèse originale, aucun enregistrement.",
+    "rightsStatus": "original",
+    "segments": [
+      { "at": 0, "durationMs": 350, "wave": "sine", "frequency": 440, "gain": 0.25 },
+      { "at": 400, "durationMs": 70, "wave": "sine", "frequency": 697, "gain": 0.16 },
+      { "at": 400, "durationMs": 70, "wave": "sine", "frequency": 1477, "gain": 0.16 },
+      { "at": 510, "durationMs": 70, "wave": "sine", "frequency": 770, "gain": 0.16 },
+      { "at": 510, "durationMs": 70, "wave": "sine", "frequency": 1477, "gain": 0.16 },
+      { "at": 620, "durationMs": 70, "wave": "sine", "frequency": 697, "gain": 0.16 },
+      { "at": 620, "durationMs": 70, "wave": "sine", "frequency": 1209, "gain": 0.16 },
+      { "at": 730, "durationMs": 70, "wave": "sine", "frequency": 770, "gain": 0.16 },
+      { "at": 730, "durationMs": 70, "wave": "sine", "frequency": 1336, "gain": 0.16 },
+      { "at": 900, "durationMs": 450, "wave": "sine", "frequency": 440, "gain": 0.14 },
+      { "at": 1400, "durationMs": 250, "wave": "sine", "frequency": 2100, "gain": 0.2 },
+      { "at": 1400, "durationMs": 800, "wave": "noise", "gain": 0.04 },
+      { "at": 1650, "durationMs": 55, "wave": "square", "frequency": 1300, "gain": 0.1 },
+      { "at": 1705, "durationMs": 55, "wave": "square", "frequency": 2100, "gain": 0.1 },
+      { "at": 1760, "durationMs": 55, "wave": "square", "frequency": 1300, "gain": 0.1 },
+      { "at": 1815, "durationMs": 55, "wave": "square", "frequency": 2100, "gain": 0.1 },
+      { "at": 1870, "durationMs": 55, "wave": "square", "frequency": 1300, "gain": 0.1 },
+      { "at": 1925, "durationMs": 55, "wave": "square", "frequency": 2100, "gain": 0.1 },
+      { "at": 1980, "durationMs": 55, "wave": "square", "frequency": 1300, "gain": 0.1 },
+      { "at": 2035, "durationMs": 55, "wave": "square", "frequency": 2100, "gain": 0.1 },
+      { "at": 2090, "durationMs": 55, "wave": "square", "frequency": 1300, "gain": 0.1 },
+      { "at": 2145, "durationMs": 55, "wave": "square", "frequency": 2100, "gain": 0.1 }
+    ]
+  },
+  {
+    "id": "minitel-carrier",
+    "title": "Porteuse établie",
+    "description": "Bref 1300 Hz quand la connexion Minitel aboutit.",
+    "rightsStatus": "original",
+    "segments": [{ "at": 0, "durationMs": 180, "wave": "sine", "frequency": 1300, "gain": 0.2 }]
+  },
+  {
+    "id": "minitel-hangup",
+    "title": "Fin de connexion",
+    "description": "Glissando descendant de la porteuse vers le silence.",
+    "rightsStatus": "original",
+    "segments": [
+      {
+        "at": 0,
+        "durationMs": 260,
+        "wave": "sine",
+        "frequency": 1300,
+        "frequencyTo": 300,
+        "gain": 0.2
+      }
+    ]
+  },
+  {
+    "id": "minitel-error",
+    "title": "Erreur Minitel",
+    "description": "Deux impulsions graves signalant une saisie refusée.",
+    "rightsStatus": "original",
+    "segments": [
+      { "at": 0, "durationMs": 90, "wave": "square", "frequency": 220, "gain": 0.14 },
+      { "at": 140, "durationMs": 90, "wave": "square", "frequency": 220, "gain": 0.14 }
+    ]
+  },
+  {
+    "id": "minitel-power",
+    "title": "Mise sous tension",
+    "description": "Impulsion grave de dégauss et souffle bref à l'allumage du tube.",
+    "rightsStatus": "original",
+    "segments": [
+      {
+        "at": 0,
+        "durationMs": 220,
+        "wave": "sine",
+        "frequency": 120,
+        "frequencyTo": 55,
+        "gain": 0.22
+      },
+      { "at": 0, "durationMs": 80, "wave": "noise", "gain": 0.05 }
+    ]
+  },
+  {
+    "id": "pc-post-beep",
+    "title": "Bip POST",
+    "description": "Le bip carré 1 kHz d'un haut-parleur interne au démarrage — générique, sans marque.",
+    "rightsStatus": "original",
+    "segments": [{ "at": 0, "durationMs": 140, "wave": "square", "frequency": 1000, "gain": 0.14 }]
+  },
+  {
+    "id": "pc-chime-2005",
+    "title": "Carillon 2005",
+    "description": "Arpège triangle original de trois notes à l'ouverture de session.",
+    "rightsStatus": "original",
+    "segments": [
+      { "at": 0, "durationMs": 130, "wave": "triangle", "frequency": 523.25, "gain": 0.14 },
+      { "at": 130, "durationMs": 130, "wave": "triangle", "frequency": 659.25, "gain": 0.14 },
+      { "at": 260, "durationMs": 220, "wave": "triangle", "frequency": 783.99, "gain": 0.14 }
+    ]
+  },
+  {
+    "id": "pc-window-open",
+    "title": "Ouverture de fenêtre",
+    "description": "Deux clics ascendants très courts.",
+    "rightsStatus": "original",
+    "segments": [
+      { "at": 0, "durationMs": 40, "wave": "sine", "frequency": 660, "gain": 0.12 },
+      { "at": 45, "durationMs": 40, "wave": "sine", "frequency": 880, "gain": 0.12 }
+    ]
+  },
+  {
+    "id": "pc-window-close",
+    "title": "Fermeture de fenêtre",
+    "description": "Deux clics descendants très courts.",
+    "rightsStatus": "original",
+    "segments": [
+      { "at": 0, "durationMs": 40, "wave": "sine", "frequency": 880, "gain": 0.12 },
+      { "at": 45, "durationMs": 40, "wave": "sine", "frequency": 660, "gain": 0.12 }
+    ]
+  },
+  {
+    "id": "pc-error",
+    "title": "Erreur",
+    "description": "Note grave carrée unique.",
+    "rightsStatus": "original",
+    "segments": [{ "at": 0, "durationMs": 120, "wave": "square", "frequency": 196, "gain": 0.14 }]
+  },
+  {
+    "id": "im-nudge",
+    "title": "Nouveau message",
+    "description": "Trois notes sinus ascendantes pour un message entrant.",
+    "rightsStatus": "original",
+    "segments": [
+      { "at": 0, "durationMs": 90, "wave": "sine", "frequency": 783.99, "gain": 0.16 },
+      { "at": 100, "durationMs": 90, "wave": "sine", "frequency": 987.77, "gain": 0.16 },
+      { "at": 200, "durationMs": 140, "wave": "sine", "frequency": 1318.51, "gain": 0.16 }
+    ]
+  }
+]

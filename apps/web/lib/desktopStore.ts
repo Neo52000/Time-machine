@@ -5,6 +5,7 @@ import type { AppDefinition } from "@time-machine/apps-runtime";
 import {
   closeWindow,
   createWindowManagerState,
+  cycleWindow,
   focusWindow,
   minimizeWindow,
   moveWindow,
@@ -33,6 +34,7 @@ interface DesktopStore {
   minimize: (id: string) => void;
   toggleMaximize: (id: string) => void;
   toggleFromTaskbar: (id: string) => void;
+  cycle: (direction: 1 | -1) => void;
   move: (id: string, x: number, y: number) => void;
   resize: (id: string, width: number, height: number) => void;
   setStartMenuOpen: (open: boolean) => void;
@@ -77,6 +79,7 @@ export const useDesktopStore = create<DesktopStore>((set, get) => ({
   minimize: (id) => set((s) => ({ wm: minimizeWindow(s.wm, id) })),
   toggleMaximize: (id) => set((s) => ({ wm: toggleMaximize(s.wm, id) })),
   toggleFromTaskbar: (id) => set((s) => ({ wm: toggleWindow(s.wm, id), startMenuOpen: false })),
+  cycle: (direction) => set((s) => ({ wm: cycleWindow(s.wm, direction), startMenuOpen: false })),
   move: (id, x, y) => set((s) => ({ wm: moveWindow(s.wm, id, x, y) })),
   resize: (id, width, height) => set((s) => ({ wm: resizeWindow(s.wm, id, width, height) })),
   setStartMenuOpen: (open) => set({ startMenuOpen: open }),

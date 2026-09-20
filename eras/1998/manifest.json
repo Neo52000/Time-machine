@@ -7,7 +7,13 @@
     "id": "pc-1998",
     "resolution": { "width": 800, "height": 600 },
     "bootSequence": "pc-1998-boot",
-    "theme": "beige-crt-1998"
+    "theme": "beige-crt-1998",
+    "sounds": {
+      "boot": "pc-post-beep",
+      "window-open": "pc-window-open",
+      "window-close": "pc-window-close",
+      "error": "pc-error"
+    }
   },
   "apps": ["browser", "file-manager", "notepad", "terminal", "mail"],
   "network": { "web": true, "minitel": false, "bbs": true, "messenger": false },

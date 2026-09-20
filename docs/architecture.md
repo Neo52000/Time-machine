@@ -24,7 +24,10 @@ TIME MACHINE
 ├── Media Engine        — packages/media-engine    (implemented: pure player, upload-date lock, original placeholder visuals)
 ├── Museum Engine       — not yet implemented
 ├── Content Engine      — content/ + content-schema (partial: seed data only)
-├── Source / Rights     — content-schema RightsStatus/SourceReference types (partial)
+├── Source / Rights     — content-schema RightsStatus/SourceReference types + admin-engine rights queue
+├── Admin               — packages/admin-engine + apps/web `/admin` (implemented: draft CRUD, rights review queue, publish gate)
+├── Audio               — packages/audio-engine   (implemented: synthesised cues as data, per-era bindings, pure scheduling)
+├── Analytics           — packages/analytics-engine (implemented: consent-gated, PII-refusing event queue; local sink only)
 └── Narrative Engine    — type contracts only (packages/content-schema/src/narrative.ts)
 ```
 
@@ -87,8 +90,11 @@ packages/
   minitel-engine/   Videotex 40×25 layout, session state machine, function keys, catalogue of kiosks/services
   messenger-engine/ Contact catalogue, scripted conversations, background presence (two-clock tick)
   media-engine/     Video catalogue, upload-date lock, view growth, pure playback state machine
-  window-manager/   Window state transitions (no React)
-  desktop-engine/   Boot sequences, themes, virtual filesystem, era clock, mailbox seeds
+  admin-engine/     Draft CRUD over events/sources/snapshots/minitel services/video clips, rights review queue, publish gate
+  audio-engine/     Sound cue catalogue (synthesised, original-only), per-era resolution, pure scheduling, preferences
+  analytics-engine/ Consent-gated event queue (buffer → grant/deny), PII guard, flush batches, summaries
+  window-manager/   Window state transitions incl. keyboard cycling (no React)
+  desktop-engine/   Boot sequences, themes, virtual filesystem, era clock, mailbox seeds, desktop keyboard shortcuts
   apps-runtime/     App definitions (window defaults, singleton, era restrictions) + registry
 eras/               EraManifest JSON per era (1985, 1998, 2005)
 content/
@@ -100,7 +106,8 @@ content/
   minitel/          Kiosks, services, pages and datasets for the Minitel (fictional seed)
   messenger/        Contacts, scripted conversations, background presence events (fictional seed)
   media/            Video clips (incl. an original "Me at the zoo" reconstruction) and comments
+  audio/            Sound cues as tone/noise segments — synthesised, never sampled
 ```
 
 See `docs/era-format.md` and `docs/content-model.md` for the data contracts,
-and `docs/roadmap.md` for what's next.
+`docs/admin.md` for the admin app, and `docs/roadmap.md` for what's next.

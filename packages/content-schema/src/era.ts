@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { SoundEventSchema } from "./audio";
 
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Expected an ISO date string (YYYY-MM-DD)");
 
@@ -10,6 +11,8 @@ export const EraMachineSchema = z.object({
   }),
   bootSequence: z.string(),
   theme: z.string(),
+  /** Sound event → cue id (see `content/audio/cues.json`). Missing = silent. */
+  sounds: z.record(SoundEventSchema, z.string().min(1)).optional(),
 });
 
 export const EraNetworkSchema = z.object({

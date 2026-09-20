@@ -7,7 +7,14 @@
     "id": "minitel-1b",
     "resolution": { "width": 320, "height": 240 },
     "bootSequence": "minitel-boot",
-    "theme": "minitel-videotex"
+    "theme": "minitel-videotex",
+    "sounds": {
+      "boot": "minitel-power",
+      "dial": "modem-handshake-v23",
+      "connect": "minitel-carrier",
+      "disconnect": "minitel-hangup",
+      "error": "minitel-error"
+    }
   },
   "apps": ["minitel"],
   "network": { "web": false, "minitel": true, "bbs": false, "messenger": false },

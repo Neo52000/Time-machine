@@ -40,8 +40,7 @@ implement → test → validate → commit.
       conversations, background presence, data-only — no chatbot) and
       `packages/media-engine` (video library gated by upload date, pure
       player, original placeholder animations — never real footage);
-      Messenger and the media player are real windowed apps on the 2005
-      desktop.
+      Messenger and the media player are real windowed apps on the 200      desktop.
 - [x] **Phase 9 — Admin**: `apps/admin` — CRUD for events, websites,
       snapshots and sources, reading and writing the same `content/*.json`
       files the live app reads (no database introduced; see
@@ -56,11 +55,43 @@ implement → test → validate → commit.
 Phase 10 — Polish: animations, audio, analytics, accessibility, and
 performance passes across the whole product. No new engine is needed —
 this phase makes the existing nine engines feel finished.
+- [x] **Phase 9 — Admin**: `packages/admin-engine` — draft CRUD
+      (create/update/delete) over events, sources, snapshots, Minitel
+      services and video clips, validated against the same
+      `content-schema` types as every engine; a rights review queue
+      (blocking `"unknown"`, review `"fair-use-review"`, research
+      `needsResearch`) and a publish gate that refuses `"unknown"` rights
+      (`docs/rights-policy.md`); `/admin` in `apps/web`.
+- [x] **Phase 10 — Polish** (`docs/polish.md`): `packages/audio-engine`
+      (synthesised, original-only sound cues as data, bound per era in the
+      manifest — modem handshake, carrier, notifications, window clicks) and
+      `packages/analytics-engine` (opt-in, PII-refusing, local-only event
+      queue with consent); keyboard-only desktop (window cycling, shortcuts,
+      focusable title bars, real menus), ARIA roles and live regions across
+      the apps, global reduced-motion coverage; short animations; per-app
+      code splitting, memoised windows and idle-timer pausing.
+
+## Recommended next step
+
+The MVP phases are complete. Candidates, in order of leverage:
+
+1. **Backend (Supabase)**: persist the admin's drafts and publish to
+   `content/**/*.json`; give analytics a real collector behind the same
+   consent gate.
+2. **Content depth**: primary sources replacing the Wikipedia placeholders,
+   screenshot/document snapshots (resolution step 2), more reconstructed
+   pages per site.
+3. **Museum / Narrative engines**: still type contracts only.
 
 Known gaps carried forward:
 
+- Admin: the draft layer lives in `localStorage`, not a real backend —
+  "publishing" is a status flag, not a write to `content/**/*.json`. That
+  wiring is future work once a backend exists (see `docs/admin.md`).
+- Analytics: the only sink is the visitor's own browser; nothing is
+  collected centrally yet (see `docs/polish.md`).
 - Minitel: no graphic (mosaic) characters and no double-height text; the
-  screen is text-only. Sound (modem handshake) is Phase 10.
+  screen is text-only.
 - Messenger: one scripted conversation per contact, no group chats, no
   file transfer (period-accurate but out of scope for the MVP).
 - Media player: four clips, one library; no upload flow, no search.

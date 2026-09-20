@@ -29,6 +29,10 @@ Seed events written before the `published` field existed and already carry
 in — see `docs/admin.md`'s "why per-record, not whole-file" note). The
 guard only blocks a _new_ attempt to set `published: true` on a blocked
 record; it does not retroactively unpublish content the admin didn't touch.
+**Nothing with `rightsStatus: "unknown"` may be published.** This is
+enforced by the admin app (`docs/admin.md`, Phase 9): `publishItem` in
+`packages/admin-engine` refuses any snapshot, Minitel service or video clip
+left at `"unknown"`, and the rights review queue lists it as blocking.
 
 ## Guidance
 
@@ -43,3 +47,7 @@ record; it does not retroactively unpublish content the admin didn't touch.
 - When in doubt about a specific asset's rights, default to
   `"fair-use-review"` or `"reference-only"`, never `"unknown"` left
   unresolved indefinitely, and never a guessed `"public-domain"`.
+- **Sounds are never sampled.** Every cue in `content/audio/cues.json` is a
+  synthesis description with `rightsStatus: "original"`;
+  `packages/audio-engine` refuses any other status, so a recorded boot chime
+  or modem cannot enter the catalogue (see `docs/polish.md`).

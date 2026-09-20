@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 import {
   canGoBack,
   canGoForward,
@@ -17,6 +17,8 @@ import {
 } from "@time-machine/browser-engine";
 import { eraNow, readTextFile } from "@time-machine/desktop-engine";
 import { getSearchProvider, search, timeSearchIndex } from "@time-machine/search-engine";
+import { useAudio } from "@/lib/audio/AudioProvider";
+import { useAnalytics } from "@/lib/analytics/AnalyticsProvider";
 import type { SearchResultsData } from "./browser/ReconstructedPage";
 import { ResolutionView } from "./browser/ResolutionView";
 import type { AppProps } from "./types";
@@ -73,6 +75,25 @@ export function BrowserApp({ era, fs, clock, payload }: AppProps) {
       response: search(timeSearchIndex, { query, selectedDate, limit: provider.resultsPerPage }),
     };
   }, [resolution, selectedDate, provider]);
+
+  const audio = useAudio();
+  const { track } = useAnalytics();
+
+  // Each resolution is a measurable outcome; a temporal 404 also sounds like one.
+  useEffect(() => {
+    if (!resolution) return;
+    track("browser.resolved", { eraId: era.id, type: resolution.type });
+    if (resolution.type === "not-found") audio.play("error");
+  }, [resolution, era.id, track, audio]);
+
+  useEffect(() => {
+    if (!searchResults) return;
+    track("search.performed", {
+      eraId: era.id,
+      provider: searchResults.provider.id,
+      results: searchResults.response.total,
+    });
+  }, [searchResults, era.id, track]);
 
   /** Go to an absolute address (address bar, favourites, home). */
   function navigate(target: string) {

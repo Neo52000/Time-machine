@@ -20,6 +20,13 @@ package should redefine these shapes.
 | `MessengerContact` / `MessengerConversation` / `PresenceEvent`       | `src/messenger.ts`      | messenger-engine, `content/messenger/` (fictional seed)                       |
 | `VideoClip` / `VideoComment`                                         | `src/media.ts`          | media-engine, `content/media/` (original reconstruction + fictional clips)    |
 | `NarrativeTrigger` / `NarrativeCondition` / `NarrativeAction`        | `src/narrative.ts`      | Narrative Engine (contracts only, not wired up)                               |
+| `SoundCue` / `CueSegment` / `SoundEvent`                             | `src/audio.ts`          | audio-engine, `content/audio/cues.json`, `EraManifest.machine.sounds`         |
+| `AnalyticsEvent` / `AnalyticsEventName`                              | `src/analytics.ts`      | analytics-engine (closed event list, scalar props only)                       |
+
+`packages/admin-engine` (`docs/admin.md`) adds no new schema — it CRUDs
+`HistoricalEvent`, `SourceReference`, `HistoricalSnapshot`, `MinitelService`
+and `VideoClip` directly against these same Zod definitions, as a draft
+layer above the static content until a real backend exists.
 
 ## Events
 
@@ -73,3 +80,6 @@ snapshot.
 `docs/rights-policy.md` and `docs/admin.md` — `apps/admin` refuses to save
 anything as published while its rights status is `"unknown"` or it's still
 flagged `needsResearch`.
+`docs/rights-policy.md` — the admin (`docs/admin.md`, Phase 9) refuses to
+publish anything left as `"unknown"`, and its rights review queue surfaces
+every `"fair-use-review"` asset and every `needsResearch` record.
