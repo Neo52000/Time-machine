@@ -42,17 +42,20 @@ implement → test → validate → commit.
       player, original placeholder animations — never real footage);
       Messenger and the media player are real windowed apps on the 2005
       desktop.
-- [ ] **Phase 9 — Admin**: events/sources/assets CRUD, rights review queue.
+- [x] **Phase 9 — Admin**: `apps/admin` — CRUD for events, websites,
+      snapshots and sources, reading and writing the same `content/*.json`
+      files the live app reads (no database introduced; see
+      `docs/admin.md`). The four-state review queue (`contentStatus()` in
+      `packages/content-schema`) and the rights/research publish gate are
+      enforced in code for the first time, in `apps/admin/lib/contentStore.ts`.
 - [ ] **Phase 10 — Polish**: animations, audio, analytics, accessibility,
       performance.
 
 ## Recommended next step
 
-Phase 9 — Admin: CRUD for events/sources/assets and the rights review
-queue (`rightsStatus: "unknown"` must never be publishable, per
-`docs/rights-policy.md`). The content model, referential-integrity checks
-and `needsResearch` flags built across phases 1-8 are exactly what that
-queue will surface.
+Phase 10 — Polish: animations, audio, analytics, accessibility, and
+performance passes across the whole product. No new engine is needed —
+this phase makes the existing nine engines feel finished.
 
 Known gaps carried forward:
 
@@ -66,7 +69,12 @@ Known gaps carried forward:
   other in-site links land on the home page or a `page-unknown` 404.
 - No screenshot/document snapshots yet (step 2 of the resolution flow is
   exercised by unit tests only).
-- The search index is rebuilt from the catalogue at load time; a
-  persisted index (Supabase, Phase 9+) is not needed at this scale.
+- The search index is rebuilt from the catalogue at load time; a database
+  was deliberately not introduced for Phase 9 — see `docs/admin.md` for
+  why the JSON-file approach still holds at this scale, and what would
+  force a reconsideration.
+- `apps/admin` has no authentication and writes directly to the repo's
+  `content/*.json` files — it's a local/private tool, not something to
+  expose on the public internet as-is (`docs/admin.md`).
 
 - The virtual disk is read-only (notepad edits are not persisted).

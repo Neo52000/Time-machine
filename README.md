@@ -19,7 +19,7 @@ GitHub Actions.
 ```bash
 corepack enable          # ensures the pinned pnpm version is used
 pnpm install
-pnpm dev                 # starts apps/web on http://localhost:3000
+pnpm dev                 # starts every app in parallel: apps/web on :3000, apps/admin on :3001
 ```
 
 Other commands:
@@ -28,11 +28,11 @@ Other commands:
 pnpm lint                # ESLint across the workspace
 pnpm typecheck           # TypeScript, strict mode, across the workspace
 pnpm test                # Vitest unit tests (every package)
-pnpm build               # production build of apps/web
+pnpm build               # production build of every app
 pnpm test:e2e            # Playwright end-to-end tests (starts the app itself)
 ```
 
-## What works today (Phases 0–3)
+## What works today (Phases 0–9)
 
 ```text
 Homepage ("WHEN DO YOU WANT TO GO?")
@@ -69,13 +69,20 @@ load their own `EraManifest` (`eras/<id>/manifest.json`) — nothing is
 hard-coded per era in the app code. Themes, shells, boot sequences, disks and app
 lists are all resolved from manifest keys.
 
-Not yet implemented: admin app, Supabase backend. See `docs/roadmap.md`.
+`apps/admin` (Phase 9, `http://localhost:3001`) is a local content-editing
+tool: CRUD for events/websites/snapshots/sources, a four-state review queue,
+and the actual enforcement of "nothing with unknown rights or unresolved
+research gets published" — see `docs/admin.md`.
+
+Not yet implemented: analytics, accessibility/performance polish (Phase 10).
+See `docs/roadmap.md`.
 
 ## Monorepo layout
 
 ```text
 apps/
   web/                Next.js app — homepage, era loading/desktop routes
+  admin/              Next.js app — content CRUD + rights review (docs/admin.md)
 packages/
   content-schema/     Zod schemas + TS types shared by every engine
   era-engine/         Era manifest loading, validation, registry
@@ -92,8 +99,15 @@ eras/                 EraManifest JSON, one folder per era
 content/
   events/             HistoricalEvent seed data
   sources/            SourceReference seed data
+  websites/           HistoricalWebsite seed data (Time Web)
+  snapshots/          HistoricalSnapshot seed data (reconstruction/archive refs)
+  reconstructions/    ReconstructedPage JSON — declarative pages, no HTML
+  minitel/            Kiosks, services, pages, datasets (fictional seed)
+  messenger/          Contacts, scripted conversations, presence events (fictional seed)
+  media/              Video clips and comments (fictional + one original reconstruction)
+  assets/             Files imported through apps/admin
 tests/
-  e2e/                Playwright specs
+  e2e/                Playwright specs (tests/e2e/admin/ targets apps/admin)
 docs/                 Architecture & content model documentation
 ```
 
@@ -105,4 +119,6 @@ docs/                 Architecture & content model documentation
   from `eras/<id>/manifest.json` via `@time-machine/era-engine`.
 - No invented historical facts: unsourced or uncertain dates carry
   `needsResearch: true` instead of a guess (see `docs/historical-sources.md`).
-- `RightsStatus: "unknown"` may never be published (see `docs/rights-policy.md`).
+- `RightsStatus: "unknown"` may never be published, and neither may
+  `needsResearch: true` content — enforced in `apps/admin`, not just
+  documented (see `docs/rights-policy.md`, `docs/admin.md`).

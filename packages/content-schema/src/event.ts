@@ -19,6 +19,8 @@ export const HistoricalEventSchema = z.object({
   sourceIds: z.array(z.string()),
   assetIds: z.array(z.string()).optional(),
   needsResearch: z.boolean().optional(),
+  /** Gates visibility to consuming engines. Defaults true so existing seed data stays live untouched. */
+  published: z.boolean().default(true),
 });
 
 export type EventImportance = z.infer<typeof EventImportanceSchema>;

@@ -97,6 +97,25 @@ describe("seed catalogue", () => {
     ).toThrow(/must belong to a reconstruction snapshot/);
   });
 
+  it("excludes a draft (unpublished) event or snapshot, and that snapshot's pages", () => {
+    const catalog = createTimeWebCatalog({
+      websites: timeWebCatalog.websites,
+      snapshots: timeWebCatalog.snapshots.map((s) =>
+        s.id === "snap-altavista-1998" ? { ...s, published: false } : s,
+      ),
+      pages: timeWebCatalog.pages,
+      events: timeWebCatalog.events.map((e) =>
+        e.id === "napster-launch" ? { ...e, published: false } : e,
+      ),
+      sources: timeWebCatalog.sources,
+    });
+    expect(catalog.getSnapshot("snap-altavista-1998")).toBeUndefined();
+    expect(catalog.getEvent("napster-launch")).toBeUndefined();
+    for (const page of catalog.pages) {
+      expect(page.snapshotId).not.toBe("snap-altavista-1998");
+    }
+  });
+
   it("rejects dangling references", () => {
     expect(() =>
       createTimeWebCatalog({
