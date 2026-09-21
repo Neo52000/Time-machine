@@ -200,17 +200,11 @@ test.describe("analytics", () => {
     await expect(page.locator('[data-testid="window"][data-app-id="notepad"]')).toBeVisible();
 
     // A full navigation flushes the queue into the browser's local sink.
-    await page.goto("/admin");
-    await page.getByTestId("admin-tab-analytics").click();
+    await page.goto("/analytics");
     await expect(page.getByTestId("analytics-consent")).toHaveText("accordé");
     await expect(page.getByTestId("analytics-count-era.selected")).toContainText("1");
     await expect(page.getByTestId("analytics-count-boot.completed")).toBeVisible();
     await expect(page.getByTestId("analytics-count-app.opened")).toBeVisible();
-
-    // Tabs are a real tablist: arrows move the selection.
-    await page.getByTestId("admin-tab-analytics").focus();
-    await page.keyboard.press("ArrowRight");
-    await expect(page.getByTestId("admin-tab-queue")).toHaveAttribute("aria-selected", "true");
 
     await page.goto("/");
     await expect(page.getByTestId("consent-banner")).toHaveCount(0);
@@ -223,8 +217,7 @@ test.describe("analytics", () => {
     await page.waitForURL(/\/era\/1998\/desktop/, { timeout: 5_000 });
     await page.getByTestId("boot-screen").click();
 
-    await page.goto("/admin");
-    await page.getByTestId("admin-tab-analytics").click();
+    await page.goto("/analytics");
     await expect(page.getByTestId("analytics-consent")).toHaveText("refusé");
     await expect(page.getByTestId("analytics-empty")).toBeVisible();
   });

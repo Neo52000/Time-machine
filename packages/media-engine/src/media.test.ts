@@ -29,6 +29,20 @@ describe("catalogue", () => {
       }),
     ).toThrow(/unknown rights/);
   });
+
+  it("excludes a draft (unpublished) video, and comments on it", () => {
+    const catalog = createMediaCatalog({
+      videos: cat.videos.map((v) =>
+        v.id === "meatthezoo" ? { ...v, published: false, rightsStatus: "unknown" } : v,
+      ),
+      comments: cat.comments,
+    });
+    expect(catalog.getVideo("meatthezoo")).toBeUndefined();
+    expect(catalog.commentsOf("meatthezoo")).toEqual([]);
+    for (const comment of catalog.comments) {
+      expect(comment.videoId).not.toBe("meatthezoo");
+    }
+  });
 });
 
 describe("library temporal lock", () => {

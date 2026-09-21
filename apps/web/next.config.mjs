@@ -6,7 +6,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: [
-    "@time-machine/admin-engine",
     "@time-machine/audio-engine",
     "@time-machine/analytics-engine",
     "@time-machine/content-schema",

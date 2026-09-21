@@ -19,8 +19,15 @@ export interface MediaCatalog {
 
 /** Validates every record and checks referential integrity (fail fast). */
 export function createMediaCatalog(data: MediaData): MediaCatalog {
-  const videos = data.videos.map((v) => VideoClipSchema.parse(v));
-  const comments = data.comments.map((c) => VideoCommentSchema.parse(c));
+  // Draft (unpublished) videos — and comments on one — are excluded before
+  // referential-integrity checks run, so a draft never needs to satisfy them yet.
+  const allVideos = data.videos.map((v) => VideoClipSchema.parse(v));
+  const videos = allVideos.filter((v) => v.published);
+  // A comment may reference a draft video before it's published — that's not a
+  // dangling reference, so validate against every parsed video id, not just the
+  // published ones. `catalog.commentsOf` still only ever returns published-video comments.
+  const knownVideoIds = new Set(allVideos.map((v) => v.id));
+  const allComments = data.comments.map((c) => VideoCommentSchema.parse(c));
 
   const videoById = new Map<string, VideoClip>();
   for (const v of videos) {
@@ -30,11 +37,12 @@ export function createMediaCatalog(data: MediaData): MediaCatalog {
       throw new Error(`video ${v.id} cannot be published with unknown rights`);
     }
   }
-  for (const c of comments) {
-    if (!videoById.has(c.videoId)) {
+  for (const c of allComments) {
+    if (!knownVideoIds.has(c.videoId)) {
       throw new Error(`comment ${c.id} references unknown video "${c.videoId}"`);
     }
   }
+  const comments = allComments.filter((c) => videoById.has(c.videoId));
 
   return {
     videos,

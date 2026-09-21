@@ -45,8 +45,15 @@ function actionsOf(page: MinitelPage): MinitelAction[] {
 /** Validates every record and checks referential integrity (fail fast). */
 export function createMinitelCatalog(data: MinitelData): MinitelCatalog {
   const kiosks = data.kiosks.map((k) => MinitelKioskSchema.parse(k));
-  const services = data.services.map((s) => MinitelServiceSchema.parse(s));
-  const pages = data.pages.map((p) => MinitelPageSchema.parse(p));
+  // Draft (unpublished) services — and pages that belong to one — are excluded before
+  // referential-integrity checks run, so a draft never needs to satisfy them yet.
+  const services = data.services
+    .map((s) => MinitelServiceSchema.parse(s))
+    .filter((s) => s.published);
+  const publishedServiceIds = new Set(services.map((s) => s.id));
+  const pages = data.pages
+    .map((p) => MinitelPageSchema.parse(p))
+    .filter((p) => publishedServiceIds.has(p.serviceId));
   const datasets = data.datasets.map((d) => MinitelDatasetSchema.parse(d));
   const sources = data.sources.map((s) => SourceReferenceSchema.parse(s));
 

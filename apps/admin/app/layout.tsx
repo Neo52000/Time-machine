@@ -12,6 +12,8 @@ const NAV_LINKS = [
   { href: "/websites", label: "Websites" },
   { href: "/snapshots", label: "Snapshots" },
   { href: "/sources", label: "Sources" },
+  { href: "/minitel-services", label: "Minitel services" },
+  { href: "/video-clips", label: "Video clips" },
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

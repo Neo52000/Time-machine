@@ -13,7 +13,7 @@ package should redefine these shapes.
 | `HistoricalWebsite` / `HistoricalSnapshot`                           | `src/website.ts`        | browser-engine catalogue, `content/websites`, `content/snapshots`             |
 | `ReconstructedPage` / `PageBlock`                                    | `src/reconstruction.ts` | browser-engine, `content/reconstructions/*.json` (declarative pages, no HTML) |
 | `SearchDocument` + `isAvailableAt`                                   | `src/search.ts`         | search-engine                                                                 |
-| `ContentStatus` + `contentStatus` / `blockingReason`                 | `src/status.ts`         | apps/admin's four-state review queue and publish gate                         |
+| `ContentStatus` + `contentStatus` / `blockingReason`                 | `src/status.ts`         | `apps/admin`'s four-state review queue and publish gate                       |
 | `DesktopWindow`                                                      | `src/desktop.ts`        | window-manager                                                                |
 | `VirtualFile`                                                        | `src/filesystem.ts`     | desktop-engine virtual disk                                                   |
 | `MinitelKiosk` / `MinitelService` / `MinitelPage` / `MinitelDataset` | `src/minitel.ts`        | minitel-engine, `content/minitel/` (fictional seed)                           |
@@ -23,10 +23,11 @@ package should redefine these shapes.
 | `SoundCue` / `CueSegment` / `SoundEvent`                             | `src/audio.ts`          | audio-engine, `content/audio/cues.json`, `EraManifest.machine.sounds`         |
 | `AnalyticsEvent` / `AnalyticsEventName`                              | `src/analytics.ts`      | analytics-engine (closed event list, scalar props only)                       |
 
-`packages/admin-engine` (`docs/admin.md`) adds no new schema — it CRUDs
-`HistoricalEvent`, `SourceReference`, `HistoricalSnapshot`, `MinitelService`
-and `VideoClip` directly against these same Zod definitions, as a draft
-layer above the static content until a real backend exists.
+`apps/admin` (`docs/admin.md`) adds no new schema — it CRUDs `HistoricalEvent`,
+`HistoricalWebsite`, `HistoricalSnapshot`, `SourceReference`,
+`MinitelService` and `VideoClip` directly against these same Zod
+definitions, reading and writing the same `content/**/*.json` files the
+live app reads until a real backend is worth the cost (see `docs/admin.md`).
 
 ## Events
 
@@ -60,17 +61,19 @@ integrity checked at load time.
 
 ## Draft vs. published
 
-`HistoricalEvent`, `HistoricalWebsite` and `HistoricalSnapshot` all carry a
-`published: boolean` field (default `true`, so every pre-existing seed
-record stays live unchanged). `apps/admin` is the only writer that sets it
-`false` (a draft in progress). `packages/browser-engine`'s catalogue
-excludes unpublished events and snapshots — and any reconstruction page
-that belongs to an unpublished snapshot — before its referential-integrity
-checks run, so a draft never needs to satisfy them yet (see
-`docs/browser-engine.md`). A website's own `published` flag is editorial
-only (not filtered by the catalogue): its real visibility already comes
-from `availableFrom`/`availableUntil` and whether it has any published
-snapshot.
+`HistoricalEvent`, `HistoricalWebsite`, `HistoricalSnapshot`,
+`MinitelService` and `VideoClip` all carry a `published: boolean` field
+(default `true`, so every pre-existing seed record stays live unchanged).
+`apps/admin` is the only writer that sets it `false` (a draft in progress).
+`packages/browser-engine`'s catalogue excludes unpublished events and
+snapshots — and any reconstruction page that belongs to an unpublished
+snapshot — before its referential-integrity checks run; `packages/minitel-engine`
+and `packages/media-engine` do the same for unpublished Minitel services
+(and their pages) and video clips (and their comments) — so a draft never
+needs to satisfy those checks yet (see `docs/browser-engine.md`). A
+website's own `published` flag is editorial only (not filtered by the
+catalogue): its real visibility already comes from
+`availableFrom`/`availableUntil` and whether it has any published snapshot.
 
 ## Rights
 
@@ -79,7 +82,4 @@ snapshot.
 (`original` = era-inspired page authored by this project). See
 `docs/rights-policy.md` and `docs/admin.md` — `apps/admin` refuses to save
 anything as published while its rights status is `"unknown"` or it's still
-flagged `needsResearch`.
-`docs/rights-policy.md` — the admin (`docs/admin.md`, Phase 9) refuses to
-publish anything left as `"unknown"`, and its rights review queue surfaces
-every `"fair-use-review"` asset and every `needsResearch` record.
+flagged `needsResearch`, across all six collections it manages.

@@ -2,7 +2,12 @@ import { mkdtemp, mkdir, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import type { HistoricalEvent, HistoricalSnapshot } from "@time-machine/content-schema";
+import type {
+  HistoricalEvent,
+  HistoricalSnapshot,
+  MinitelService,
+  VideoClip,
+} from "@time-machine/content-schema";
 import {
   deleteRecord,
   getRecord,
@@ -10,7 +15,12 @@ import {
   RightsViolationError,
   upsertRecord,
 } from "./contentStore";
-import { eventsCollection, snapshotsCollection } from "./collections";
+import {
+  eventsCollection,
+  minitelServicesCollection,
+  snapshotsCollection,
+  videoClipsCollection,
+} from "./collections";
 
 const sampleEvent: HistoricalEvent = {
   id: "ev-1",
@@ -34,12 +44,43 @@ const sampleSnapshot: HistoricalSnapshot = {
   published: true,
 };
 
+const sampleMinitelService: MinitelService = {
+  id: "svc-1",
+  kioskCode: "3615",
+  mnemonic: "DEMO",
+  title: "Sample service",
+  description: "A sample minitel service for tests.",
+  fictional: true,
+  homePageId: "svc-1-home",
+  availableFrom: "1985-01-01",
+  sourceIds: [],
+  rightsStatus: "original",
+  published: true,
+};
+
+const sampleVideoClip: VideoClip = {
+  id: "clip-1",
+  title: "Sample clip",
+  uploader: "tester",
+  uploadDate: "2005-01-01",
+  durationSeconds: 20,
+  description: "A sample video clip for tests.",
+  category: ["test"],
+  viewsAtLaunch: 0,
+  visual: "zoo",
+  sourceIds: [],
+  rightsStatus: "original",
+  published: true,
+};
+
 let root: string;
 
 beforeEach(async () => {
   root = await mkdtemp(path.join(tmpdir(), "time-machine-admin-"));
   await mkdir(path.join(root, "events"), { recursive: true });
   await mkdir(path.join(root, "snapshots"), { recursive: true });
+  await mkdir(path.join(root, "minitel"), { recursive: true });
+  await mkdir(path.join(root, "media"), { recursive: true });
   await writeFile(
     path.join(root, "events", "events.json"),
     `${JSON.stringify([sampleEvent], null, 2)}\n`,
@@ -47,6 +88,14 @@ beforeEach(async () => {
   await writeFile(
     path.join(root, "snapshots", "snapshots.json"),
     `${JSON.stringify([sampleSnapshot], null, 2)}\n`,
+  );
+  await writeFile(
+    path.join(root, "minitel", "services.json"),
+    `${JSON.stringify([sampleMinitelService], null, 2)}\n`,
+  );
+  await writeFile(
+    path.join(root, "media", "videos.json"),
+    `${JSON.stringify([sampleVideoClip], null, 2)}\n`,
   );
 });
 
@@ -148,5 +197,19 @@ describe("rights policy enforcement — the whole point of this phase", () => {
 
     const all = await readCollection(eventsCollection, root);
     expect(all.map((e) => e.id).sort()).toEqual(["ev-1", "ev-legacy", "ev-new"]);
+  });
+
+  it("refuses to publish a video clip with unknown rights", async () => {
+    const bad: VideoClip = { ...sampleVideoClip, id: "clip-2", rightsStatus: "unknown" };
+    await expect(upsertRecord(videoClipsCollection, bad, root)).rejects.toThrow(
+      RightsViolationError,
+    );
+  });
+
+  it("refuses to publish a minitel service still flagged needsResearch", async () => {
+    const bad: MinitelService = { ...sampleMinitelService, id: "svc-2", needsResearch: true };
+    await expect(upsertRecord(minitelServicesCollection, bad, root)).rejects.toThrow(
+      RightsViolationError,
+    );
   });
 });

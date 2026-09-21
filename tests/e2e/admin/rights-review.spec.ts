@@ -72,3 +72,49 @@ test("refuses to publish a snapshot with unknown rights status", async ({ page }
   await expect(page).toHaveURL("/snapshots/new");
   await expect(page.locator(".error-banner")).toContainText(/rights status is "unknown"/i);
 });
+
+test("creates a minitel service draft and lists it", async ({ page }) => {
+  await page.goto("/minitel-services/new");
+
+  await page.getByTestId("field-id").fill("e2e-test-minitel-service");
+  await page.getByTestId("field-kiosk-code").fill("3615");
+  await page.getByTestId("field-mnemonic").fill("E2E");
+  await page.getByTestId("field-title").fill("E2E Test Service");
+  await page.getByTestId("field-description").fill("Created by the admin e2e test.");
+  await page.getByTestId("field-home-page-id").fill("e2e-home");
+  await page.getByTestId("field-available-from").fill("1985-01-01");
+
+  await page.getByRole("button", { name: "Save" }).click();
+  await page.waitForURL("/minitel-services");
+
+  await expect(page.getByTestId("minitel-service-row-e2e-test-minitel-service")).toBeVisible();
+
+  page.once("dialog", (dialog) => dialog.accept());
+  await page
+    .getByTestId("minitel-service-row-e2e-test-minitel-service")
+    .getByRole("button", { name: "Delete" })
+    .click();
+  await expect(page.getByTestId("minitel-service-row-e2e-test-minitel-service")).toHaveCount(0);
+});
+
+test("creates a video clip draft and lists it", async ({ page }) => {
+  await page.goto("/video-clips/new");
+
+  await page.getByTestId("field-id").fill("e2e-test-video-clip");
+  await page.getByTestId("field-title").fill("E2E Test Clip");
+  await page.getByTestId("field-uploader").fill("e2e");
+  await page.getByTestId("field-upload-date").fill("2005-01-01");
+  await page.getByTestId("field-description").fill("Created by the admin e2e test.");
+
+  await page.getByRole("button", { name: "Save" }).click();
+  await page.waitForURL("/video-clips");
+
+  await expect(page.getByTestId("video-clip-row-e2e-test-video-clip")).toBeVisible();
+
+  page.once("dialog", (dialog) => dialog.accept());
+  await page
+    .getByTestId("video-clip-row-e2e-test-video-clip")
+    .getByRole("button", { name: "Delete" })
+    .click();
+  await expect(page.getByTestId("video-clip-row-e2e-test-video-clip")).toHaveCount(0);
+});

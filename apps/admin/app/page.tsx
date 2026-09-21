@@ -1,8 +1,10 @@
 import Link from "next/link";
 import {
   eventsCollection,
+  minitelServicesCollection,
   snapshotsCollection,
   sourcesCollection,
+  videoClipsCollection,
   websitesCollection,
 } from "@/lib/collections";
 import { readCollection } from "@/lib/contentStore";
@@ -10,11 +12,13 @@ import { countByStatus } from "@/lib/statusCounts";
 import { StatusCountsView } from "@/components/StatusCountsView";
 
 export default async function DashboardPage() {
-  const [events, websites, snapshots, sources] = await Promise.all([
+  const [events, websites, snapshots, sources, minitelServices, videoClips] = await Promise.all([
     readCollection(eventsCollection),
     readCollection(websitesCollection),
     readCollection(snapshotsCollection),
     readCollection(sourcesCollection),
+    readCollection(minitelServicesCollection),
+    readCollection(videoClipsCollection),
   ]);
 
   const websitesNeedingResearch = websites.filter((w) => w.needsResearch).length;
@@ -64,6 +68,26 @@ export default async function DashboardPage() {
             Manage
           </Link>
         </div>
+      </div>
+
+      <div className="card">
+        <div className="toolbar">
+          <h2>Minitel services ({minitelServices.length})</h2>
+          <Link className="button" href="/minitel-services">
+            Manage
+          </Link>
+        </div>
+        <StatusCountsView counts={countByStatus(minitelServices)} />
+      </div>
+
+      <div className="card">
+        <div className="toolbar">
+          <h2>Video clips ({videoClips.length})</h2>
+          <Link className="button" href="/video-clips">
+            Manage
+          </Link>
+        </div>
+        <StatusCountsView counts={countByStatus(videoClips)} />
       </div>
     </div>
   );
