@@ -26,6 +26,8 @@ export const VideoClipSchema = z.object({
   sourceIds: z.array(z.string()),
   rightsStatus: RightsStatusSchema,
   needsResearch: z.boolean().optional(),
+  /** Draft gate for apps/admin — defaults true so every existing seed record stays live. */
+  published: z.boolean().default(true),
 });
 
 export const VideoCommentSchema = z.object({

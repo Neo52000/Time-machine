@@ -32,7 +32,6 @@ pnpm build               # production build of every app
 pnpm test:e2e            # Playwright end-to-end tests (starts the app itself)
 ```
 
-## What works today (Phases 0–9)
 ## What works today (Phases 0–10)
 
 ```text
@@ -63,9 +62,13 @@ Homepage ("WHEN DO YOU WANT TO GO?")
       media player (video library locked by upload date, original
       placeholder animations — never real footage — around a reconstruction
       of the first YouTube video)
-  → /admin: draft CRUD over events/sources/snapshots/Minitel services/video
-      clips and a rights review queue that blocks publishing anything left
-      at rightsStatus "unknown"; a Mesures tab showing the local analytics
+  → apps/admin (http://localhost:3001): CRUD over events/websites/snapshots/
+      sources/Minitel services/video clips, writing straight to
+      content/**/*.json, with a rights/research publish gate that blocks
+      anything left at rightsStatus "unknown" or needsResearch — see
+      docs/admin.md
+  → /analytics (apps/web): the local, opt-in analytics buffer — consent,
+      counts per event, last 30 events
   → polish: synthesised era sounds (modem handshake, carrier, window
       clicks, incoming-message chime — original, never sampled, mutable),
       keyboard-only desktop (Ctrl+Alt+→/←/M/X/Enter/S, focusable title
@@ -78,15 +81,9 @@ load their own `EraManifest` (`eras/<id>/manifest.json`) — nothing is
 hard-coded per era in the app code. Themes, shells, boot sequences, disks and app
 lists are all resolved from manifest keys.
 
-`apps/admin` (Phase 9, `http://localhost:3001`) is a local content-editing
-tool: CRUD for events/websites/snapshots/sources, a four-state review queue,
-and the actual enforcement of "nothing with unknown rights or unresolved
-research gets published" — see `docs/admin.md`.
-
-Not yet implemented: analytics, accessibility/performance polish (Phase 10).
-Not yet implemented: Supabase backend (the admin app's CRUD is a
-`localStorage` draft layer above the static content, see `docs/admin.md`).
-See `docs/roadmap.md`.
+Not yet implemented: a real backend (`apps/admin` writes directly to
+`content/**/*.json` on disk — no database, no auth, no multi-editor support;
+see `docs/admin.md`). See `docs/roadmap.md`.
 
 ## Monorepo layout
 
@@ -105,7 +102,6 @@ packages/
   minitel-engine/     Videotex screen, session state machine, kiosks/services as data
   messenger-engine/   Scripted conversations, background presence (two-clock tick)
   media-engine/       Video library gated by upload date, pure playback state machine
-  admin-engine/       Draft CRUD, rights review queue, publish gate (no backend yet)
   audio-engine/       Synthesised sound cues as data, per-era bindings, pure scheduling
   analytics-engine/   Consent-gated, PII-refusing event queue (local sink only)
   timeline-engine/    Event date/category filtering, sorting, search
@@ -136,6 +132,5 @@ docs/                 Architecture & content model documentation
 - `RightsStatus: "unknown"` may never be published, and neither may
   `needsResearch: true` content — enforced in `apps/admin`, not just
   documented (see `docs/rights-policy.md`, `docs/admin.md`).
-- `RightsStatus: "unknown"` may never be published (see `docs/rights-policy.md`).
 - Sounds are synthesised from `content/audio/cues.json`, never sampled; analytics
   are opt-in and never leave the browser (see `docs/polish.md`).

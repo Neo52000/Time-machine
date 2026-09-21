@@ -1,9 +1,9 @@
 # Admin (Phase 9)
 
 `apps/admin` is a small, local/private Next.js app for editors: CRUD over
-events, websites, snapshots and sources, a four-state review queue, and the
-first place that actually _enforces_ `docs/rights-policy.md` instead of
-just documenting it.
+events, websites, snapshots, sources, Minitel services and video clips, a
+four-state review queue, and the first place that actually _enforces_
+`docs/rights-policy.md` instead of just documenting it.
 
 ## Why JSON files, not a database
 
@@ -13,15 +13,36 @@ importing `content/**/*.json` and validating it with the Zod schemas in
 `docs/browser-engine.md`). `docs/roadmap.md` flagged, after Phase 6, that a
 persisted search index "is not needed at this scale" — the same reasoning
 applies to Phase 9: introducing Supabase now would mean standing up a
-database _and_ rewriting `browser-engine`/`search-engine` to query it
-instead of importing JSON, to manage a content set of a few dozen records.
-`apps/admin` instead reads and writes the exact same files, through the
-exact same schemas, so there is exactly one source of truth and no sync
-step between "what the admin says" and "what the site shows."
+database _and_ rewriting `browser-engine`/`minitel-engine`/`media-engine`/
+`search-engine` to query it instead of importing JSON, to manage a content
+set of a few dozen records. `apps/admin` instead reads and writes the exact
+same files, through the exact same schemas, so there is exactly one source
+of truth and no sync step between "what the admin says" and "what the site
+shows."
 
 This stops making sense once content volume, concurrent editors, or an
 access-control requirement shows up — none of which exists yet. Revisit
 then, not preemptively.
+
+## Scope
+
+Six collections, each backed by its `content-schema` Zod schema:
+
+| Collection         | Schema                     | File                               | Carries `rightsStatus` | Carries `needsResearch` |
+| ------------------ | -------------------------- | ---------------------------------- | ---------------------- | ----------------------- |
+| `events`           | `HistoricalEventSchema`    | `content/events/events.json`       | no                     | yes                     |
+| `websites`         | `HistoricalWebsiteSchema`  | `content/websites/websites.json`   | no                     | yes                     |
+| `snapshots`        | `HistoricalSnapshotSchema` | `content/snapshots/snapshots.json` | yes                    | no                      |
+| `sources`          | `SourceReferenceSchema`    | `content/sources/sources.json`     | no                     | no                      |
+| `minitel-services` | `MinitelServiceSchema`     | `content/minitel/services.json`    | yes                    | yes                     |
+| `video-clips`      | `VideoClipSchema`          | `content/media/videos.json`        | yes                    | yes                     |
+
+Websites carry `published` as an editorial flag but the browser-engine
+catalogue doesn't filter on it (see `docs/content-model.md`). Minitel
+kiosks/pages/datasets, messenger contacts/conversations and video comments
+are out of scope for direct CRUD — they don't carry `rightsStatus`
+themselves, and adding every content shape to the admin at once would
+outgrow what's actually needed to unblock the rights review workflow.
 
 ## Architecture
 
@@ -34,8 +55,9 @@ apps/admin/
     contentStore.ts    readCollection / writeCollection / getRecord /
                        upsertRecord / deleteRecord — generic over any
                        { id: string }[] JSON file + its Zod schema
-    collections.ts     the four CollectionConfig values (events, websites,
-                       snapshots, sources) and their publish guards
+    collections.ts     the six CollectionConfig values (events, websites,
+                       snapshots, sources, minitel-services, video-clips)
+                       and their publish guards
     apiHandlers.ts     collectionRoute() / recordRoute() factories —
                        GET/POST/GET/PUT/DELETE, shared by every API route
   app/
@@ -74,9 +96,13 @@ function eventPublishGuard(record: HistoricalEvent): string | null {
 }
 ```
 
-`upsertRecord` runs the guard **only on the record being written**, then
-throws `RightsViolationError` (surfaced to the editor as a 422 with the
-reason, rendered as the form's error banner) before anything touches disk.
+The same shape backs `minitelServicePublishGuard` and `videoClipPublishGuard`
+now that `MinitelServiceSchema` and `VideoClipSchema` also carry `published`
+(added alongside these two collections — see "Draft vs. published" in
+`docs/content-model.md`). `upsertRecord` runs the guard **only on the record
+being written**, then throws `RightsViolationError` (surfaced to the editor
+as a 422 with the reason, rendered as the form's error banner) before
+anything touches disk.
 
 ### Why per-record, not whole-file
 
@@ -115,116 +141,22 @@ pnpm --filter @time-machine/admin dev     # http://localhost:3001
 
 `apps/web` and `apps/admin` are independent Next.js apps and can run at
 the same time (ports 3000 and 3001).
-# Admin
-
-Route `/admin` (`apps/web/app/admin/page.tsx`), backed by `packages/admin-engine`.
-
-## Principle
-
-There is no backend yet (see `docs/roadmap.md`): content is static JSON
-compiled into the app. The admin is a **draft layer above that catalogue** —
-create, edit, delete and "publish" operate on an in-browser state, seeded
-from the real `content/**/*.json` at load time and persisted to
-`localStorage` for convenience across reloads. It does not write back to the
-repository; turning a draft into real content is still a manual step
-(export the JSON, commit it) until a real backend exists.
-
-This mirrors the discipline used everywhere else in the project: a pure,
-framework-free "engine" (`packages/admin-engine`, fully unit-tested, no
-timers/IO) plus a thin React component (`apps/web/components/admin/AdminApp.tsx`)
-that owns the only side effects (`localStorage`, `window.confirm`/`alert`).
-
-## Scope
-
-Five collections, each backed by its `content-schema` Zod schema — nothing
-new was added to `content-schema` for this phase:
-
-| Collection        | Schema                     | Carries `rightsStatus` | Carries `needsResearch` |
-| ----------------- | -------------------------- | ---------------------- | ----------------------- |
-| `events`          | `HistoricalEventSchema`    | no                     | yes                     |
-| `sources`         | `SourceReferenceSchema`    | no                     | no                      |
-| `snapshots`       | `HistoricalSnapshotSchema` | yes                    | no                      |
-| `minitelServices` | `MinitelServiceSchema`     | yes                    | yes                     |
-| `videoClips`      | `VideoClipSchema`          | yes                    | yes                     |
-
-Websites, Minitel kiosks/pages/datasets, messenger contacts/conversations
-and media comments are out of scope for CRUD in this phase — they don't
-carry `rightsStatus` (except through the collections above) and adding
-every content shape to the admin at once would outgrow what's actually
-needed to unblock the rights review workflow.
-
-## Store (`packages/admin-engine/src/store.ts`)
-
-```ts
-type ItemStatus = "published" | "draft" | "modified";
-interface AdminItem<T> {
-  data: T;
-  status: ItemStatus;
-}
-interface AdminState {
-  events: Record<string, AdminItem<HistoricalEvent>>;
-  sources: Record<string, AdminItem<SourceReference>>;
-  snapshots: Record<string, AdminItem<HistoricalSnapshot>>;
-  minitelServices: Record<string, AdminItem<MinitelService>>;
-  videoClips: Record<string, AdminItem<VideoClip>>;
-}
-```
-
-- `createAdminState(seed)` — validates every seeded record (fail fast, same
-  as every other catalog) and marks it `"published"`.
-- `createItem(state, kind, data)` — Zod-validates `data`, rejects a
-  duplicate id, checks every `sourceIds` entry resolves to a known source;
-  adds it as `"draft"`.
-- `updateItem(state, kind, id, patch)` — merges `patch` into the existing
-  record, re-validates the result, re-checks `sourceIds`; a `"published"`
-  item becomes `"modified"`, a `"draft"` stays `"draft"`. Changing an item's
-  id is rejected (create a new item instead).
-- `deleteItem(state, kind, id)` — removes the record; deleting a source
-  still referenced by another item (in any collection) is refused, listing
-  what references it.
-- `publishItem(state, kind, id)` — the rights gate: refuses when the record
-  carries `rightsStatus: "unknown"` or when a `sourceIds` entry no longer
-  resolves; otherwise marks the item `"published"`.
-
-Every mutation returns `{ ok: true, state }` or `{ ok: false, errors:
-string[] }` — never throws — so the UI can show validation errors inline
-instead of crashing.
-
-## Rights review queue (`packages/admin-engine/src/rights-queue.ts`)
-
-`buildRightsQueue(state)` scans every collection and flags:
-
-- **blocking** — `rightsStatus: "unknown"` (the hard rule from
-  `docs/rights-policy.md`: this can never be published);
-- **review** — `rightsStatus: "fair-use-review"`;
-- **research** — `needsResearch: true` on any collection, when not already
-  blocking.
-
-Entries are sorted blocking → review → research. This is what makes the
-`needsResearch` flags scattered across phases 1–8 (e.g. the Minitel
-`annuaire` service's opening hours, "Me at the zoo"'s exact view count)
-actionable instead of just documentation.
-
-## UI (`apps/web/components/admin/AdminApp.tsx`)
-
-- A tab per collection plus the rights review queue.
-- Each row shows its status/rights/needsResearch badges and
-  Modifier/Publier/Supprimer actions; "Corriger" on a queue entry jumps to
-  that record's edit form.
-- Create and edit both go through a JSON textarea validated by the same
-  engine functions the tests use — there is no per-field form generator
-  (out of scope; the schemas already are the source of truth for shape).
 
 ## Adding a new collection to the admin
 
-1. It must already be a `content-schema` schema.
-2. Add it to `AdminCollectionKind`/`SCHEMAS`/`ALL_KINDS` in
-   `packages/admin-engine/src/store.ts`, and to `ASSET_KINDS` if it carries
-   `rightsStatus`.
-3. Seed it in `packages/admin-engine/src/content.ts` from its
-   `content/**/*.json` file.
-4. Add it to `KINDS`/`KIND_LABELS`/`NEW_TEMPLATES`/`describeItem` in
-   `AdminApp.tsx`.
-5. Add a unit test in `packages/admin-engine/src/admin.test.ts` covering at
-   least create/update/delete/publish and, if it carries `rightsStatus` or
-   `needsResearch`, the rights queue.
+1. It must already be a `content-schema` schema; if it needs a draft state,
+   add `published: z.boolean().default(true)` to it and teach its catalog
+   (if it has one) to filter unpublished records before referential-integrity
+   checks — mirror `browser-engine/src/catalog.ts`'s pattern.
+2. Add a `CollectionConfig` entry (file path, schema, optional publish guard
+   built on `blockingReason`) to `apps/admin/lib/collections.ts`.
+3. Add `app/api/<collection>/route.ts` and `[id]/route.ts` via the
+   `collectionRoute`/`recordRoute` factories in `apps/admin/lib/apiHandlers.ts`.
+4. Add a `<X>Form.tsx` component built from `apps/admin/components/fields.tsx`
+   primitives, and `app/<collection>/{page.tsx, new/page.tsx, [id]/page.tsx}`
+   mirroring an existing collection.
+5. Add it to the nav in `app/layout.tsx` and a status-count card in
+   `app/page.tsx`.
+6. Add a couple of cases to `apps/admin/lib/contentStore.test.ts` (a rights
+   or research block, if applicable) and one e2e smoke test in
+   `tests/e2e/admin/rights-review.spec.ts`.

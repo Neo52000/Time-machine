@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import sources from "../../../content/sources/sources.json";
 import { createMinitelCatalog } from "./catalog";
 import { minitelCatalog } from "./content";
 import { BODY_ROWS, layoutPage } from "./layout";
@@ -68,6 +69,22 @@ describe("catalogue", () => {
         sources: [],
       }),
     ).toThrow(/unknown source|links outside its service/);
+  });
+
+  it("excludes a draft (unpublished) service, and that service's pages", () => {
+    const catalog = createMinitelCatalog({
+      kiosks: cat.kiosks,
+      services: cat.services.map((s) =>
+        s.id === "demo" ? { ...s, published: false, rightsStatus: "unknown" } : s,
+      ),
+      pages: cat.pages,
+      datasets: cat.datasets,
+      sources,
+    });
+    expect(catalog.getService("demo")).toBeUndefined();
+    for (const page of catalog.pages) {
+      expect(page.serviceId).not.toBe("demo");
+    }
   });
 });
 

@@ -24,8 +24,8 @@ TIME MACHINE
 ├── Media Engine        — packages/media-engine    (implemented: pure player, upload-date lock, original placeholder visuals)
 ├── Museum Engine       — not yet implemented
 ├── Content Engine      — content/ + content-schema (partial: seed data only)
-├── Source / Rights     — content-schema RightsStatus/SourceReference types + admin-engine rights queue
-├── Admin               — packages/admin-engine + apps/web `/admin` (implemented: draft CRUD, rights review queue, publish gate)
+├── Source / Rights     — content-schema RightsStatus/SourceReference types + apps/admin's publish gate
+├── Admin               — apps/admin (implemented: CRUD over 6 collections, four-state review status, rights/research publish gate)
 ├── Audio               — packages/audio-engine   (implemented: synthesised cues as data, per-era bindings, pure scheduling)
 ├── Analytics           — packages/analytics-engine (implemented: consent-gated, PII-refusing event queue; local sink only)
 └── Narrative Engine    — type contracts only (packages/content-schema/src/narrative.ts)
@@ -81,6 +81,8 @@ same virtual disk is consistent across the file manager, notepad and terminal.
 ```text
 apps/
   web/          Next.js app (App Router, TS, Tailwind)
+  admin/        Next.js app (App Router, TS) — CRUD over content/**/*.json,
+                see docs/admin.md
 packages/
   content-schema/   Zod schemas + inferred TS types shared by every engine
   era-engine/       Era manifest loading & validation
@@ -90,7 +92,6 @@ packages/
   minitel-engine/   Videotex 40×25 layout, session state machine, function keys, catalogue of kiosks/services
   messenger-engine/ Contact catalogue, scripted conversations, background presence (two-clock tick)
   media-engine/     Video catalogue, upload-date lock, view growth, pure playback state machine
-  admin-engine/     Draft CRUD over events/sources/snapshots/minitel services/video clips, rights review queue, publish gate
   audio-engine/     Sound cue catalogue (synthesised, original-only), per-era resolution, pure scheduling, preferences
   analytics-engine/ Consent-gated event queue (buffer → grant/deny), PII guard, flush batches, summaries
   window-manager/   Window state transitions incl. keyboard cycling (no React)

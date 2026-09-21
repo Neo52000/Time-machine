@@ -3,7 +3,8 @@
 Packages: `packages/audio-engine`, `packages/analytics-engine`, plus additions
 to `window-manager` (`cycleWindow`) and `desktop-engine` (`shortcuts.ts`).
 UI: `apps/web/lib/audio`, `apps/web/lib/analytics`, `apps/web/lib/useReducedMotion.ts`,
-`components/desktop/*`, `components/ConsentBanner.tsx`, `components/admin/AnalyticsPanel.tsx`.
+`components/desktop/*`, `components/ConsentBanner.tsx`, `components/AnalyticsPanel.tsx`
+(standalone `/analytics` page).
 
 Same discipline as every other phase: what can be pure is a tested engine
 package; the UI owns the side effects (Web Audio, `localStorage`, timers,
@@ -94,7 +95,7 @@ count so icons, menu, shortcuts and `closeSelf` all sound alike), `MinitelApp`
   Minitel exposes a visually hidden status (`minitel-status`) describing the
   phase, kiosk/service and messages, since the videotex grid itself is noise
   to a screen reader; the media player's play button carries a label and
-  `aria-pressed`. Admin tabs are a `tablist` with arrow navigation.
+  `aria-pressed`.
 - **Reduced motion**: a global rule in `globals.css` collapses every
   animation/transition; `useReducedMotion` additionally shortens the loading
   screen (400 ms) and shows the whole boot sequence at once (1.2 s hold).
@@ -139,10 +140,11 @@ Events: `era.selected`, `boot.completed { skipped }`, `app.opened`,
 
 `AnalyticsProvider` (root layout) owns the state and drains it every 3 s and
 on `pagehide`. `useAnalytics().track(name, props)` is called at the points
-above. The admin's **Mesures** tab (`AnalyticsPanel`) shows consent, counts
-per event, the last 30 events, and lets the owner revoke consent or clear
-the buffer. Swapping the local sink for a real collector is a one-line
-change in `drain` once a backend exists.
+above. The standalone **`/analytics`** page (`AnalyticsPanel`, linked as
+"Mesures" from the homepage) shows consent, counts per event, the last 30
+events, and lets the owner revoke consent or clear the buffer. Swapping the
+local sink for a real collector is a one-line change in `drain` once a
+backend exists.
 
 ## Performance
 
@@ -165,5 +167,5 @@ change in `drain` once a backend exists.
 - `tests/e2e/polish.spec.ts`: keyboard-only window management and start
   menu; reduced-motion loading/boot; the modem handshake and mute
   persistence observed through `tm:audio`; 1998 window sounds; consent
-  accept/decline paths ending in the admin's Mesures tab; live regions and
-  the keyboard-operable file manager.
+  accept/decline paths ending on the standalone `/analytics` page; live
+  regions and the keyboard-operable file manager.
