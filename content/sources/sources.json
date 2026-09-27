@@ -196,5 +196,128 @@
     "label": "Time Machine — configuration machine représentative",
     "publisher": "Time Machine",
     "notes": "Configuration type composée pour le projet (processeur décrit de façon générique, système « Time Machine OS » fictif). Elle évoque l'équipement d'un foyer de l'époque sans reproduire un modèle commercial précis."
+  },
+  {
+    "id": "src-wikipedia-ibm-pc",
+    "label": "IBM Personal Computer — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/IBM_Personal_Computer",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-flag-day",
+    "label": "Flag day (computing) — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Flag_day_(computing)",
+    "publisher": "Wikipedia",
+    "notes": "Bascule de l'ARPANET vers TCP/IP le 1er janvier 1983."
+  },
+  {
+    "id": "src-wikipedia-macintosh",
+    "label": "Macintosh 128K — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Macintosh_128K",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-symbolics-com",
+    "label": "Symbolics — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Symbolics",
+    "publisher": "Wikipedia",
+    "notes": "symbolics.com, premier nom de domaine en .com enregistré le 15 mars 1985."
+  },
+  {
+    "id": "src-wikipedia-morris-worm",
+    "label": "Morris worm — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Morris_worm",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-w3-www-proposal",
+    "label": "Information Management: A Proposal — W3C",
+    "url": "https://www.w3.org/History/1989/proposal.html",
+    "publisher": "W3C",
+    "notes": "Proposition datée « March 1989, May 1990 » ; le jour (12 mars) est la date commémorée, à confirmer sur le document original."
+  },
+  {
+    "id": "src-wikipedia-arpanet",
+    "label": "ARPANET — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/ARPANET",
+    "publisher": "Wikipedia",
+    "notes": "Démantèlement en 1990 ; jour exact à confirmer."
+  },
+  {
+    "id": "src-wikipedia-linux",
+    "label": "History of Linux — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/History_of_Linux",
+    "publisher": "Wikipedia",
+    "notes": "Annonce de Linus Torvalds sur comp.os.minix le 25 août 1991."
+  },
+  {
+    "id": "src-cern-www-public-domain",
+    "label": "Licensing the Web — CERN",
+    "url": "https://home.cern/science/computing/birth-web/licensing-web",
+    "publisher": "CERN",
+    "notes": "Le CERN place le logiciel du WWW dans le domaine public le 30 avril 1993."
+  },
+  {
+    "id": "src-wikipedia-mosaic",
+    "label": "Mosaic (web browser) — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Mosaic_(web_browser)",
+    "publisher": "Wikipedia",
+    "notes": "Date de la version 1.0 à confirmer."
+  },
+  {
+    "id": "src-wikipedia-netscape-navigator",
+    "label": "Netscape Navigator — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Netscape_Navigator",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-windows-95",
+    "label": "Windows 95 — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Windows_95",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-ebay",
+    "label": "eBay — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/EBay",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-dotcom-bubble",
+    "label": "Dot-com bubble — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Dot-com_bubble",
+    "publisher": "Wikipedia",
+    "notes": "Pic de l'indice NASDAQ Composite le 10 mars 2000."
+  },
+  {
+    "id": "src-wikipedia-ipod",
+    "label": "IPod — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/IPod",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-iphone",
+    "label": "iPhone (1st generation) — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/IPhone_(1st_generation)",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-htc-dream",
+    "label": "HTC Dream — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/HTC_Dream",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-minitel-shutdown",
+    "label": "Minitel — Wikipédia (fin du service)",
+    "url": "https://fr.wikipedia.org/wiki/Minitel",
+    "publisher": "Wikipedia",
+    "notes": "Arrêt du service Minitel le 30 juin 2012."
+  },
+  {
+    "id": "src-wikipedia-chatgpt",
+    "label": "ChatGPT — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/ChatGPT",
+    "publisher": "Wikipedia"
   }
 ]

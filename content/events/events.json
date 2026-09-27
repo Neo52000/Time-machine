@@ -11,6 +11,71 @@
     "needsResearch": true
   },
   {
+    "id": "ibm-pc-launch",
+    "date": "1981-08-12",
+    "title": "Lancement de l'IBM PC",
+    "summary": "IBM commercialise son Personal Computer (modèle 5150), dont l'architecture ouverte devient la référence des « compatibles PC ».",
+    "category": ["hardware", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-ibm-pc"]
+  },
+  {
+    "id": "arpanet-tcpip",
+    "date": "1983-01-01",
+    "title": "L'ARPANET passe à TCP/IP",
+    "summary": "Le réseau ARPANET abandonne NCP et bascule en une journée sur TCP/IP, la pile de protocoles qui fonde l'Internet.",
+    "category": ["network", "world"],
+    "importance": 5,
+    "sourceIds": ["src-wikipedia-flag-day"]
+  },
+  {
+    "id": "macintosh-launch",
+    "date": "1984-01-24",
+    "title": "Sortie du Macintosh",
+    "summary": "Apple lance le Macintosh, qui popularise l'interface graphique et la souris auprès du grand public.",
+    "category": ["hardware", "software", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-macintosh"]
+  },
+  {
+    "id": "first-com-domain",
+    "date": "1985-03-15",
+    "title": "Premier nom de domaine en .com",
+    "summary": "symbolics.com est le premier nom de domaine enregistré en .com.",
+    "category": ["network", "web", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-symbolics-com"]
+  },
+  {
+    "id": "morris-worm",
+    "date": "1988-11-02",
+    "title": "Le ver Morris",
+    "summary": "Un ver informatique se propage sur l'Internet naissant et paralyse une part importante des machines connectées ; c'est l'une des premières attaques à grande échelle.",
+    "category": ["security", "network", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-morris-worm"]
+  },
+  {
+    "id": "www-proposal",
+    "date": "1989-03-12",
+    "title": "Proposition du World Wide Web",
+    "summary": "Tim Berners-Lee soumet au CERN « Information Management: A Proposal », le document fondateur du Web.",
+    "category": ["web", "world"],
+    "importance": 5,
+    "sourceIds": ["src-w3-www-proposal"],
+    "needsResearch": true
+  },
+  {
+    "id": "arpanet-decommissioned",
+    "date": "1990-02-28",
+    "title": "Fin de l'ARPANET",
+    "summary": "L'ARPANET, ancêtre de l'Internet, est démantelé ; ses fonctions sont reprises par les réseaux qui forment l'Internet.",
+    "category": ["network", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-arpanet"],
+    "needsResearch": true
+  },
+  {
     "id": "first-web-server",
     "date": "1990-12-25",
     "title": "Premier serveur Web",
@@ -30,6 +95,15 @@
     "sourceIds": ["src-wikipedia-first-website"]
   },
   {
+    "id": "linux-announced",
+    "date": "1991-08-25",
+    "title": "Annonce de Linux",
+    "summary": "Linus Torvalds annonce sur Usenet le noyau de système d'exploitation libre qui deviendra Linux.",
+    "category": ["software", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-linux"]
+  },
+  {
     "id": "first-webcam",
     "date": "1991-11-01",
     "title": "Première webcam",
@@ -38,6 +112,25 @@
     "importance": 2,
     "sourceIds": ["src-wikipedia-webcam"],
     "needsResearch": true
+  },
+  {
+    "id": "mosaic-release",
+    "date": "1993-04-22",
+    "title": "Sortie du navigateur Mosaic",
+    "summary": "Le NCSA publie Mosaic, navigateur graphique qui affiche images et texte dans la même page et fait décoller le Web.",
+    "category": ["web", "software", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-mosaic"],
+    "needsResearch": true
+  },
+  {
+    "id": "www-public-domain",
+    "date": "1993-04-30",
+    "title": "Le Web entre dans le domaine public",
+    "summary": "Le CERN met le logiciel du World Wide Web à disposition de tous, sans redevance.",
+    "category": ["web", "world"],
+    "importance": 5,
+    "sourceIds": ["src-cern-www-public-domain"]
   },
   {
     "id": "yahoo-founded",
@@ -60,6 +153,42 @@
     "needsResearch": true
   },
   {
+    "id": "netscape-navigator",
+    "date": "1994-12-15",
+    "title": "Netscape Navigator 1.0",
+    "summary": "Netscape publie la version 1.0 de son navigateur, qui domine rapidement le marché.",
+    "category": ["web", "software", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-netscape-navigator"]
+  },
+  {
+    "id": "amazon-launch",
+    "date": "1995-07-16",
+    "title": "Ouverture d'Amazon.com",
+    "summary": "Amazon.com ouvre en ligne comme librairie.",
+    "category": ["web", "commerce", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-amazon"]
+  },
+  {
+    "id": "windows-95-release",
+    "date": "1995-08-24",
+    "title": "Sortie de Windows 95",
+    "summary": "Microsoft lance Windows 95, qui fait entrer le menu Démarrer, la barre des tâches et l'accès à Internet dans les foyers.",
+    "category": ["software", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-windows-95"]
+  },
+  {
+    "id": "ebay-founded",
+    "date": "1995-09-03",
+    "title": "Création d'eBay",
+    "summary": "Pierre Omidyar lance AuctionWeb, site d'enchères en ligne qui deviendra eBay.",
+    "category": ["web", "commerce", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-ebay"]
+  },
+  {
     "id": "altavista-launch",
     "date": "1995-12-15",
     "title": "Lancement d'AltaVista",
@@ -69,6 +198,15 @@
     "sourceIds": ["src-wikipedia-altavista"]
   },
   {
+    "id": "hotmail-launch",
+    "date": "1996-07-04",
+    "title": "Lancement de Hotmail",
+    "summary": "Hotmail ouvre l'un des premiers services de courrier électronique gratuits accessibles depuis un navigateur.",
+    "category": ["web", "messaging", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-hotmail"]
+  },
+  {
     "id": "google-founded",
     "date": "1998-09-04",
     "title": "Fondation de Google",
@@ -76,16 +214,6 @@
     "category": ["search", "web", "world"],
     "importance": 5,
     "sourceIds": ["src-wikipedia-google"]
-  },
-  {
-    "id": "msn-messenger-launch",
-    "date": "1999-07-22",
-    "title": "Lancement de MSN Messenger",
-    "summary": "Microsoft lance MSN Messenger Service, sa messagerie instantanée grand public.",
-    "category": ["messaging", "software", "world"],
-    "importance": 3,
-    "sourceIds": ["src-wikipedia-msn-messenger"],
-    "needsResearch": true
   },
   {
     "id": "napster-launch",
@@ -98,6 +226,25 @@
     "needsResearch": true
   },
   {
+    "id": "msn-messenger-launch",
+    "date": "1999-07-22",
+    "title": "Lancement de MSN Messenger",
+    "summary": "Microsoft lance MSN Messenger Service, sa messagerie instantanée grand public.",
+    "category": ["messaging", "software", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-msn-messenger"],
+    "needsResearch": true
+  },
+  {
+    "id": "dotcom-peak",
+    "date": "2000-03-10",
+    "title": "Pic de la bulle Internet",
+    "summary": "L'indice NASDAQ Composite atteint son sommet avant l'éclatement de la bulle des « dot-com ».",
+    "category": ["economy", "web", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-dotcom-bubble"]
+  },
+  {
     "id": "wikipedia-launch",
     "date": "2001-01-15",
     "title": "Lancement de Wikipedia",
@@ -105,6 +252,35 @@
     "category": ["culture", "web", "world"],
     "importance": 5,
     "sourceIds": ["src-wikipedia-wikipedia"]
+  },
+  {
+    "id": "ipod-announced",
+    "date": "2001-10-23",
+    "title": "Présentation de l'iPod",
+    "summary": "Apple présente l'iPod, baladeur numérique qui accompagne l'essor de la musique téléchargée.",
+    "category": ["hardware", "culture", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-ipod"]
+  },
+  {
+    "id": "myspace-launch",
+    "date": "2003-08-01",
+    "title": "Lancement de Myspace",
+    "summary": "Myspace ouvre ses portes et devient l'un des premiers réseaux sociaux grand public.",
+    "category": ["social", "web", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-myspace"],
+    "needsResearch": true
+  },
+  {
+    "id": "skype-launch",
+    "date": "2003-08-29",
+    "title": "Lancement de Skype",
+    "summary": "Niklas Zennström et Janus Friis lancent Skype, logiciel de voix et messagerie sur IP.",
+    "category": ["messaging", "software", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-skype"],
+    "needsResearch": true
   },
   {
     "id": "facebook-launch",
@@ -123,26 +299,6 @@
     "category": ["software", "web", "world"],
     "importance": 4,
     "sourceIds": ["src-wikipedia-gmail"]
-  },
-  {
-    "id": "skype-launch",
-    "date": "2003-08-29",
-    "title": "Lancement de Skype",
-    "summary": "Niklas Zennström et Janus Friis lancent Skype, logiciel de voix et messagerie sur IP.",
-    "category": ["messaging", "software", "world"],
-    "importance": 3,
-    "sourceIds": ["src-wikipedia-skype"],
-    "needsResearch": true
-  },
-  {
-    "id": "myspace-launch",
-    "date": "2003-08-01",
-    "title": "Lancement de Myspace",
-    "summary": "Myspace ouvre ses portes et devient l'un des premiers réseaux sociaux grand public.",
-    "category": ["social", "web", "world"],
-    "importance": 3,
-    "sourceIds": ["src-wikipedia-myspace"],
-    "needsResearch": true
   },
   {
     "id": "youtube-founded",
@@ -172,5 +328,41 @@
     "importance": 4,
     "sourceIds": ["src-wikipedia-twitter"],
     "needsResearch": true
+  },
+  {
+    "id": "iphone-announced",
+    "date": "2007-01-09",
+    "title": "Présentation de l'iPhone",
+    "summary": "Apple présente l'iPhone : le Web complet tient désormais dans la poche.",
+    "category": ["hardware", "mobile", "world"],
+    "importance": 5,
+    "sourceIds": ["src-wikipedia-iphone"]
+  },
+  {
+    "id": "android-htc-dream",
+    "date": "2008-09-23",
+    "title": "Premier téléphone Android",
+    "summary": "Le HTC Dream (T-Mobile G1), premier smartphone sous Android, est annoncé.",
+    "category": ["hardware", "mobile", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-htc-dream"]
+  },
+  {
+    "id": "minitel-shutdown",
+    "date": "2012-06-30",
+    "title": "Fin du Minitel",
+    "summary": "Le service Minitel est définitivement arrêté en France, trente ans après son déploiement.",
+    "category": ["minitel", "telecom", "france"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-minitel-shutdown"]
+  },
+  {
+    "id": "chatgpt-release",
+    "date": "2022-11-30",
+    "title": "Lancement de ChatGPT",
+    "summary": "OpenAI ouvre au public ChatGPT, agent conversationnel qui popularise l'IA générative.",
+    "category": ["ai", "software", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-chatgpt"]
   }
 ]

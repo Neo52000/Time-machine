@@ -36,7 +36,10 @@ pnpm test:e2e            # Playwright end-to-end tests (starts the app itself)
 
 ```text
 Homepage ("WHEN DO YOU WANT TO GO?")
-  → horizontal timeline with 1985 / 1998 / 2005 era markers
+  → vertical timeline, one column at any width (phone to wide screen):
+      39 sourced dates from 1980 to today, the 1985 / 1998 / 2005 machines as
+      stations in the stream, decade jumps, category filters, sources per
+      event and "à vérifier" on anything unconfirmed
   → select an era
   → loading screen
   → boot sequence (BIOS-style, data-driven, click to skip)

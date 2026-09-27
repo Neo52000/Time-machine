@@ -35,7 +35,17 @@ live app reads until a real backend is worth the cost (see `docs/admin.md`).
 `content/events/events.json` holds the MVP seed events (§19 of the master
 prompt): Minitel launch, first website/server/webcam, Yahoo!, Lycos,
 AltaVista, Google, MSN Messenger, Napster, Wikipedia, Facebook, Gmail,
-Skype, Myspace, YouTube + first video, Twitter.
+Skype, Myspace, YouTube + first video, Twitter — extended with 21 more
+dated milestones (IBM PC, ARPANET → TCP/IP, Macintosh, first .com, Morris
+worm, WWW proposal, end of ARPANET, Linux, Mosaic, WWW in the public domain,
+Netscape, Amazon, Windows 95, eBay, Hotmail, dot-com peak, iPod, iPhone,
+first Android phone, end of the Minitel, ChatGPT). Each cites a source;
+dates not confirmed to the day carry `needsResearch: true`.
+
+The homepage renders them as a vertical timeline built by
+`buildVerticalTimeline` / `filterTimeline` / `listCategories`
+(`packages/timeline-engine/src/vertical.ts`): one chronological stream
+grouped by year, eras placed at their start date as playable stations.
 
 Rules:
 
