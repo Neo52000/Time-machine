@@ -28,21 +28,34 @@ Eras bind moments to cues in their manifest (`machine.sounds`, see
 `dial`, `connect`, `disconnect`, `error`. A missing binding means silence —
 the 1998 machine has no `notification`, the Minitel has no windows.
 
-| Cue                    | Used by             | What it is                                                          |
-| ---------------------- | ------------------- | ------------------------------------------------------------------- |
-| `modem-handshake-v23`  | 1985 `dial`         | dial tone, four DTMF digits, ringback, 2100 Hz answer, 1300/2100 Hz |
-| `minitel-carrier`      | 1985 `connect`      | short 1300 Hz                                                       |
-| `minitel-hangup`       | 1985 `disconnect`   | 1300 → 300 Hz glide                                                 |
-| `minitel-error`        | 1985 `error`        | two low square pulses                                               |
-| `minitel-power`        | 1985 `boot`         | degauss thump + noise burst                                         |
-| `pc-post-beep`         | 1998 `boot`         | 1 kHz square, 140 ms                                                |
-| `pc-chime-2005`        | 2005 `boot`         | three-note triangle arpeggio                                        |
-| `pc-window-open/close` | 1998 & 2005         | two 40 ms sine clicks, up / down                                    |
-| `pc-error`             | 1998 & 2005 `error` | one low square note (temporal 404)                                  |
-| `im-nudge`             | 2005 `notification` | three ascending sine notes (incoming message)                       |
+| Cue                    | Used by             | What it is                                                                                                                                                             |
+| ---------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `modem-handshake-v23`  | 1985 `dial`         | 440 Hz dial tone, DTMF 3615, ringback, 2100 Hz server answer, line hiss                                                                                                |
+| `minitel-carrier`      | 1985 `connect`      | V.23 whistle: 1300 Hz forward carrier + 390 Hz return carrier, hiss                                                                                                    |
+| `modem-dialup-v90`     | 1998 `dial`         | 56k RTC handshake, ~9 s: dial tone, fictional number, ringback, ANSam 2100 Hz with phase-reversal dips, V.8 FSK bursts, line-probing chords, training whistle and hiss |
+| `minitel-hangup`       | 1985 `disconnect`   | 1300 → 300 Hz glide                                                                                                                                                    |
+| `minitel-error`        | 1985 `error`        | two low square pulses                                                                                                                                                  |
+| `minitel-power`        | 1985 `boot`         | degauss thump + noise burst                                                                                                                                            |
+| `pc-post-beep`         | 1998 `boot`         | 1 kHz square, 140 ms                                                                                                                                                   |
+| `pc-chime-2005`        | 2005 `boot`         | three-note triangle arpeggio                                                                                                                                           |
+| `pc-window-open/close` | 1998 & 2005         | two 40 ms sine clicks, up / down                                                                                                                                       |
+| `pc-error`             | 1998 & 2005 `error` | one low square note (temporal 404)                                                                                                                                     |
+| `im-nudge`             | 2005 `notification` | three ascending sine notes (incoming message)                                                                                                                          |
 
-The handshake lasts exactly 2200 ms — the Minitel engine's `dialMs` — so it
+The Minitel handshake lasts exactly 2200 ms — the Minitel engine's `dialMs` — so it
 ends as the kiosk appears (`audio.test.ts` pins this).
+
+A segment may carry `bandpassHz`: the adapter routes it through a band-pass
+filter (Q 1.4), which turns white noise into the narrow hiss of a phone line
+or a modem's training sequence. Still pure synthesis — no sample anywhere.
+
+**Dial-up connection (1998).** The machine's link comes from its Computer
+Engine profile. On a `dial-up` link, the Time Browser's first real address
+plays the era's `dial` cue and the connection (`useNetworkConnection`, state
+in the desktop store) reads _Numérotation…_ for the cue's duration, then
+_Connecté — modem 56 kbit/s_; it then stays up for the whole session, so the
+modem never redials. Pages never wait for the handshake. A `broadband` link
+(2005) is online at once, silently.
 
 ### Engine (`packages/audio-engine`)
 
@@ -72,7 +85,8 @@ it — `segments: 0` proves the mute works.
 Where sounds fire: `Desktop` (boot, window open/close by watching the window
 count so icons, menu, shortcuts and `closeSelf` all sound alike), `MinitelApp`
 (phase transitions: dial → connect / disconnect, plus a refused input),
-`MessengerApp` (a message that _arrives_), `BrowserApp` (temporal 404).
+`MessengerApp` (a message that _arrives_), `BrowserApp` (temporal 404, and the
+modem `dial` on a dial-up machine's first connection).
 
 ## Accessibility
 

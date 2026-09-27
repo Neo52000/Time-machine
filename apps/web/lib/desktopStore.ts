@@ -21,10 +21,20 @@ import {
 /** Free-form data handed to an app when its window opens (e.g. a file to show). */
 export type WindowPayload = Record<string, unknown>;
 
+/**
+ * The machine's link to the network, shared by every app of the session: a
+ * dial-up modem dials once, then stays connected until the machine is left.
+ */
+export type NetworkConnection =
+  | { phase: "offline" }
+  | { phase: "dialing"; /** Epoch ms when the handshake ends. */ until: number }
+  | { phase: "online" };
+
 interface DesktopStore {
   wm: WindowManagerState;
   payloads: Record<string, WindowPayload>;
   startMenuOpen: boolean;
+  connection: NetworkConnection;
 
   reset: (viewport: Viewport) => void;
   setViewport: (viewport: Viewport) => void;
@@ -38,6 +48,7 @@ interface DesktopStore {
   move: (id: string, x: number, y: number) => void;
   resize: (id: string, width: number, height: number) => void;
   setStartMenuOpen: (open: boolean) => void;
+  setConnection: (connection: NetworkConnection) => void;
 }
 
 const DEFAULT_VIEWPORT: Viewport = { width: 800, height: 600 };
@@ -46,9 +57,15 @@ export const useDesktopStore = create<DesktopStore>((set, get) => ({
   wm: createWindowManagerState(DEFAULT_VIEWPORT),
   payloads: {},
   startMenuOpen: false,
+  connection: { phase: "offline" },
 
   reset: (viewport) =>
-    set({ wm: createWindowManagerState(viewport), payloads: {}, startMenuOpen: false }),
+    set({
+      wm: createWindowManagerState(viewport),
+      payloads: {},
+      startMenuOpen: false,
+      connection: { phase: "offline" },
+    }),
 
   setViewport: (viewport) => set((s) => ({ wm: setViewport(s.wm, viewport) })),
 
@@ -83,4 +100,5 @@ export const useDesktopStore = create<DesktopStore>((set, get) => ({
   move: (id, x, y) => set((s) => ({ wm: moveWindow(s.wm, id, x, y) })),
   resize: (id, width, height) => set((s) => ({ wm: resizeWindow(s.wm, id, width, height) })),
   setStartMenuOpen: (open) => set({ startMenuOpen: open }),
+  setConnection: (connection) => set({ connection }),
 }));

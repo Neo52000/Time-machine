@@ -8,6 +8,7 @@ export interface ScheduledSegment {
   wave: Waveform;
   frequency?: number;
   frequencyTo?: number;
+  bandpassHz?: number;
   /** Final gain after the user's volume preference. */
   gain: number;
 }
@@ -34,6 +35,7 @@ export function scheduleCue(
       wave: s.wave,
       frequency: s.frequency,
       frequencyTo: s.frequencyTo,
+      bandpassHz: s.bandpassHz,
       gain: s.gain * prefs.volume,
     }))
     .sort((a, b) => a.startMs - b.startMs);

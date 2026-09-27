@@ -2,39 +2,123 @@
   {
     "id": "modem-handshake-v23",
     "title": "Négociation modem 1200/75 bauds",
-    "description": "Tonalité d'invitation à numéroter, quatre chiffres, retour d'appel, tonalité de réponse puis alternance des porteuses 1300/2100 Hz d'une liaison V.23. Synthèse originale, aucun enregistrement.",
+    "description": "Tonalité d'invitation à numéroter (440 Hz), 3615 en fréquences vocales, une sonnerie de retour d'appel, puis la tonalité de réponse du serveur à 2 100 Hz sur un souffle de ligne. Tient dans les 2,2 s de numérotation. Synthèse originale, aucun enregistrement.",
     "rightsStatus": "original",
     "segments": [
-      { "at": 0, "durationMs": 350, "wave": "sine", "frequency": 440, "gain": 0.25 },
-      { "at": 400, "durationMs": 70, "wave": "sine", "frequency": 697, "gain": 0.16 },
-      { "at": 400, "durationMs": 70, "wave": "sine", "frequency": 1477, "gain": 0.16 },
-      { "at": 510, "durationMs": 70, "wave": "sine", "frequency": 770, "gain": 0.16 },
-      { "at": 510, "durationMs": 70, "wave": "sine", "frequency": 1477, "gain": 0.16 },
-      { "at": 620, "durationMs": 70, "wave": "sine", "frequency": 697, "gain": 0.16 },
-      { "at": 620, "durationMs": 70, "wave": "sine", "frequency": 1209, "gain": 0.16 },
-      { "at": 730, "durationMs": 70, "wave": "sine", "frequency": 770, "gain": 0.16 },
-      { "at": 730, "durationMs": 70, "wave": "sine", "frequency": 1336, "gain": 0.16 },
-      { "at": 900, "durationMs": 450, "wave": "sine", "frequency": 440, "gain": 0.14 },
-      { "at": 1400, "durationMs": 250, "wave": "sine", "frequency": 2100, "gain": 0.2 },
-      { "at": 1400, "durationMs": 800, "wave": "noise", "gain": 0.04 },
-      { "at": 1650, "durationMs": 55, "wave": "square", "frequency": 1300, "gain": 0.1 },
-      { "at": 1705, "durationMs": 55, "wave": "square", "frequency": 2100, "gain": 0.1 },
-      { "at": 1760, "durationMs": 55, "wave": "square", "frequency": 1300, "gain": 0.1 },
-      { "at": 1815, "durationMs": 55, "wave": "square", "frequency": 2100, "gain": 0.1 },
-      { "at": 1870, "durationMs": 55, "wave": "square", "frequency": 1300, "gain": 0.1 },
-      { "at": 1925, "durationMs": 55, "wave": "square", "frequency": 2100, "gain": 0.1 },
-      { "at": 1980, "durationMs": 55, "wave": "square", "frequency": 1300, "gain": 0.1 },
-      { "at": 2035, "durationMs": 55, "wave": "square", "frequency": 2100, "gain": 0.1 },
-      { "at": 2090, "durationMs": 55, "wave": "square", "frequency": 1300, "gain": 0.1 },
-      { "at": 2145, "durationMs": 55, "wave": "square", "frequency": 2100, "gain": 0.1 }
+      {
+        "at": 0,
+        "durationMs": 480,
+        "wave": "sine",
+        "frequency": 440,
+        "gain": 0.18
+      },
+      {
+        "at": 0,
+        "durationMs": 2200,
+        "wave": "noise",
+        "gain": 0.012,
+        "bandpassHz": 1400
+      },
+      {
+        "at": 540,
+        "durationMs": 70,
+        "wave": "sine",
+        "frequency": 697,
+        "gain": 0.14
+      },
+      {
+        "at": 540,
+        "durationMs": 70,
+        "wave": "sine",
+        "frequency": 1477,
+        "gain": 0.14
+      },
+      {
+        "at": 665,
+        "durationMs": 70,
+        "wave": "sine",
+        "frequency": 770,
+        "gain": 0.14
+      },
+      {
+        "at": 665,
+        "durationMs": 70,
+        "wave": "sine",
+        "frequency": 1477,
+        "gain": 0.14
+      },
+      {
+        "at": 790,
+        "durationMs": 70,
+        "wave": "sine",
+        "frequency": 697,
+        "gain": 0.14
+      },
+      {
+        "at": 790,
+        "durationMs": 70,
+        "wave": "sine",
+        "frequency": 1209,
+        "gain": 0.14
+      },
+      {
+        "at": 915,
+        "durationMs": 70,
+        "wave": "sine",
+        "frequency": 770,
+        "gain": 0.14
+      },
+      {
+        "at": 915,
+        "durationMs": 70,
+        "wave": "sine",
+        "frequency": 1336,
+        "gain": 0.14
+      },
+      {
+        "at": 1100,
+        "durationMs": 520,
+        "wave": "sine",
+        "frequency": 440,
+        "gain": 0.14
+      },
+      {
+        "at": 1680,
+        "durationMs": 520,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.18
+      }
     ]
   },
   {
     "id": "minitel-carrier",
     "title": "Porteuse établie",
-    "description": "Bref 1300 Hz quand la connexion Minitel aboutit.",
+    "description": "Le sifflement de la liaison V.23 : porteuse 1 300 Hz du serveur, rejointe par la voie retour 390 Hz du terminal, sur le souffle de la ligne. Synthèse originale.",
     "rightsStatus": "original",
-    "segments": [{ "at": 0, "durationMs": 180, "wave": "sine", "frequency": 1300, "gain": 0.2 }]
+    "segments": [
+      {
+        "at": 0,
+        "durationMs": 1400,
+        "wave": "sine",
+        "frequency": 1300,
+        "gain": 0.16
+      },
+      {
+        "at": 250,
+        "durationMs": 1150,
+        "wave": "sine",
+        "frequency": 390,
+        "gain": 0.07
+      },
+      {
+        "at": 0,
+        "durationMs": 1400,
+        "wave": "noise",
+        "gain": 0.015,
+        "bandpassHz": 1300
+      }
+    ]
   },
   {
     "id": "minitel-hangup",
@@ -58,8 +142,20 @@
     "description": "Deux impulsions graves signalant une saisie refusée.",
     "rightsStatus": "original",
     "segments": [
-      { "at": 0, "durationMs": 90, "wave": "square", "frequency": 220, "gain": 0.14 },
-      { "at": 140, "durationMs": 90, "wave": "square", "frequency": 220, "gain": 0.14 }
+      {
+        "at": 0,
+        "durationMs": 90,
+        "wave": "square",
+        "frequency": 220,
+        "gain": 0.14
+      },
+      {
+        "at": 140,
+        "durationMs": 90,
+        "wave": "square",
+        "frequency": 220,
+        "gain": 0.14
+      }
     ]
   },
   {
@@ -76,7 +172,12 @@
         "frequencyTo": 55,
         "gain": 0.22
       },
-      { "at": 0, "durationMs": 80, "wave": "noise", "gain": 0.05 }
+      {
+        "at": 0,
+        "durationMs": 80,
+        "wave": "noise",
+        "gain": 0.05
+      }
     ]
   },
   {
@@ -84,7 +185,15 @@
     "title": "Bip POST",
     "description": "Le bip carré 1 kHz d'un haut-parleur interne au démarrage — générique, sans marque.",
     "rightsStatus": "original",
-    "segments": [{ "at": 0, "durationMs": 140, "wave": "square", "frequency": 1000, "gain": 0.14 }]
+    "segments": [
+      {
+        "at": 0,
+        "durationMs": 140,
+        "wave": "square",
+        "frequency": 1000,
+        "gain": 0.14
+      }
+    ]
   },
   {
     "id": "pc-chime-2005",
@@ -92,9 +201,27 @@
     "description": "Arpège triangle original de trois notes à l'ouverture de session.",
     "rightsStatus": "original",
     "segments": [
-      { "at": 0, "durationMs": 130, "wave": "triangle", "frequency": 523.25, "gain": 0.14 },
-      { "at": 130, "durationMs": 130, "wave": "triangle", "frequency": 659.25, "gain": 0.14 },
-      { "at": 260, "durationMs": 220, "wave": "triangle", "frequency": 783.99, "gain": 0.14 }
+      {
+        "at": 0,
+        "durationMs": 130,
+        "wave": "triangle",
+        "frequency": 523.25,
+        "gain": 0.14
+      },
+      {
+        "at": 130,
+        "durationMs": 130,
+        "wave": "triangle",
+        "frequency": 659.25,
+        "gain": 0.14
+      },
+      {
+        "at": 260,
+        "durationMs": 220,
+        "wave": "triangle",
+        "frequency": 783.99,
+        "gain": 0.14
+      }
     ]
   },
   {
@@ -103,8 +230,20 @@
     "description": "Deux clics ascendants très courts.",
     "rightsStatus": "original",
     "segments": [
-      { "at": 0, "durationMs": 40, "wave": "sine", "frequency": 660, "gain": 0.12 },
-      { "at": 45, "durationMs": 40, "wave": "sine", "frequency": 880, "gain": 0.12 }
+      {
+        "at": 0,
+        "durationMs": 40,
+        "wave": "sine",
+        "frequency": 660,
+        "gain": 0.12
+      },
+      {
+        "at": 45,
+        "durationMs": 40,
+        "wave": "sine",
+        "frequency": 880,
+        "gain": 0.12
+      }
     ]
   },
   {
@@ -113,8 +252,20 @@
     "description": "Deux clics descendants très courts.",
     "rightsStatus": "original",
     "segments": [
-      { "at": 0, "durationMs": 40, "wave": "sine", "frequency": 880, "gain": 0.12 },
-      { "at": 45, "durationMs": 40, "wave": "sine", "frequency": 660, "gain": 0.12 }
+      {
+        "at": 0,
+        "durationMs": 40,
+        "wave": "sine",
+        "frequency": 880,
+        "gain": 0.12
+      },
+      {
+        "at": 45,
+        "durationMs": 40,
+        "wave": "sine",
+        "frequency": 660,
+        "gain": 0.12
+      }
     ]
   },
   {
@@ -122,7 +273,15 @@
     "title": "Erreur",
     "description": "Note grave carrée unique.",
     "rightsStatus": "original",
-    "segments": [{ "at": 0, "durationMs": 120, "wave": "square", "frequency": 196, "gain": 0.14 }]
+    "segments": [
+      {
+        "at": 0,
+        "durationMs": 120,
+        "wave": "square",
+        "frequency": 196,
+        "gain": 0.14
+      }
+    ]
   },
   {
     "id": "im-nudge",
@@ -130,9 +289,751 @@
     "description": "Trois notes sinus ascendantes pour un message entrant.",
     "rightsStatus": "original",
     "segments": [
-      { "at": 0, "durationMs": 90, "wave": "sine", "frequency": 783.99, "gain": 0.16 },
-      { "at": 100, "durationMs": 90, "wave": "sine", "frequency": 987.77, "gain": 0.16 },
-      { "at": 200, "durationMs": 140, "wave": "sine", "frequency": 1318.51, "gain": 0.16 }
+      {
+        "at": 0,
+        "durationMs": 90,
+        "wave": "sine",
+        "frequency": 783.99,
+        "gain": 0.16
+      },
+      {
+        "at": 100,
+        "durationMs": 90,
+        "wave": "sine",
+        "frequency": 987.77,
+        "gain": 0.16
+      },
+      {
+        "at": 200,
+        "durationMs": 140,
+        "wave": "sine",
+        "frequency": 1318.51,
+        "gain": 0.16
+      }
     ]
+  },
+  {
+    "id": "modem-dialup-v90",
+    "title": "Connexion modem 56k (RTC)",
+    "description": "Numérotation d'un numéro d'accès fictif, sonnerie, tonalité de réponse modulée avec ses inversions de phase, négociation V.8, sondage de ligne, sifflement d'égalisation puis souffle d'entraînement jusqu'à la coupure du haut-parleur. Évoque une connexion V.90 sur le réseau téléphonique ; synthèse originale, aucun enregistrement.",
+    "segments": [
+      {
+        "at": 0,
+        "durationMs": 900,
+        "wave": "sine",
+        "frequency": 440,
+        "gain": 0.18
+      },
+      {
+        "at": 0,
+        "durationMs": 9400,
+        "wave": "noise",
+        "gain": 0.01,
+        "bandpassHz": 1400
+      },
+      {
+        "at": 1000,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 941,
+        "gain": 0.14
+      },
+      {
+        "at": 1000,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1336,
+        "gain": 0.14
+      },
+      {
+        "at": 1130,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 852,
+        "gain": 0.14
+      },
+      {
+        "at": 1130,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1336,
+        "gain": 0.14
+      },
+      {
+        "at": 1260,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 770,
+        "gain": 0.14
+      },
+      {
+        "at": 1260,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1477,
+        "gain": 0.14
+      },
+      {
+        "at": 1390,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 941,
+        "gain": 0.14
+      },
+      {
+        "at": 1390,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1336,
+        "gain": 0.14
+      },
+      {
+        "at": 1520,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 697,
+        "gain": 0.14
+      },
+      {
+        "at": 1520,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1209,
+        "gain": 0.14
+      },
+      {
+        "at": 1650,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 697,
+        "gain": 0.14
+      },
+      {
+        "at": 1650,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1336,
+        "gain": 0.14
+      },
+      {
+        "at": 1780,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 697,
+        "gain": 0.14
+      },
+      {
+        "at": 1780,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1477,
+        "gain": 0.14
+      },
+      {
+        "at": 1910,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 770,
+        "gain": 0.14
+      },
+      {
+        "at": 1910,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1209,
+        "gain": 0.14
+      },
+      {
+        "at": 2040,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 770,
+        "gain": 0.14
+      },
+      {
+        "at": 2040,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1336,
+        "gain": 0.14
+      },
+      {
+        "at": 2170,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 770,
+        "gain": 0.14
+      },
+      {
+        "at": 2170,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1477,
+        "gain": 0.14
+      },
+      {
+        "at": 2450,
+        "durationMs": 1000,
+        "wave": "sine",
+        "frequency": 440,
+        "gain": 0.14
+      },
+      {
+        "at": 3550,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.03
+      },
+      {
+        "at": 3583,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 3616,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.17
+      },
+      {
+        "at": 3649,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 3682,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.17
+      },
+      {
+        "at": 3715,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 3748,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.17
+      },
+      {
+        "at": 3781,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 3814,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.17
+      },
+      {
+        "at": 3847,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 3880,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.17
+      },
+      {
+        "at": 3913,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 3946,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.17
+      },
+      {
+        "at": 3979,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 4012,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.03
+      },
+      {
+        "at": 4045,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 4078,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.17
+      },
+      {
+        "at": 4111,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 4144,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.17
+      },
+      {
+        "at": 4177,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 4210,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.17
+      },
+      {
+        "at": 4243,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 4276,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.17
+      },
+      {
+        "at": 4309,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 4342,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.17
+      },
+      {
+        "at": 4375,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 4408,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.17
+      },
+      {
+        "at": 4441,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 4474,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.03
+      },
+      {
+        "at": 4507,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 4540,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.17
+      },
+      {
+        "at": 4573,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 4606,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.17
+      },
+      {
+        "at": 4639,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 4672,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.17
+      },
+      {
+        "at": 4705,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 4738,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.17
+      },
+      {
+        "at": 4771,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 4804,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.17
+      },
+      {
+        "at": 4837,
+        "durationMs": 33,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.1
+      },
+      {
+        "at": 4870,
+        "durationMs": 28,
+        "wave": "square",
+        "frequency": 1650,
+        "gain": 0.06
+      },
+      {
+        "at": 4898,
+        "durationMs": 28,
+        "wave": "square",
+        "frequency": 1850,
+        "gain": 0.06
+      },
+      {
+        "at": 4926,
+        "durationMs": 28,
+        "wave": "square",
+        "frequency": 1650,
+        "gain": 0.06
+      },
+      {
+        "at": 4954,
+        "durationMs": 28,
+        "wave": "square",
+        "frequency": 1850,
+        "gain": 0.06
+      },
+      {
+        "at": 4982,
+        "durationMs": 28,
+        "wave": "square",
+        "frequency": 1650,
+        "gain": 0.06
+      },
+      {
+        "at": 5010,
+        "durationMs": 28,
+        "wave": "square",
+        "frequency": 1850,
+        "gain": 0.06
+      },
+      {
+        "at": 5038,
+        "durationMs": 28,
+        "wave": "square",
+        "frequency": 1650,
+        "gain": 0.06
+      },
+      {
+        "at": 5066,
+        "durationMs": 28,
+        "wave": "square",
+        "frequency": 1180,
+        "gain": 0.06
+      },
+      {
+        "at": 5094,
+        "durationMs": 28,
+        "wave": "square",
+        "frequency": 980,
+        "gain": 0.06
+      },
+      {
+        "at": 5122,
+        "durationMs": 28,
+        "wave": "square",
+        "frequency": 1180,
+        "gain": 0.06
+      },
+      {
+        "at": 5150,
+        "durationMs": 28,
+        "wave": "square",
+        "frequency": 980,
+        "gain": 0.06
+      },
+      {
+        "at": 5178,
+        "durationMs": 28,
+        "wave": "square",
+        "frequency": 1180,
+        "gain": 0.06
+      },
+      {
+        "at": 5206,
+        "durationMs": 28,
+        "wave": "square",
+        "frequency": 980,
+        "gain": 0.06
+      },
+      {
+        "at": 5234,
+        "durationMs": 28,
+        "wave": "square",
+        "frequency": 1180,
+        "gain": 0.06
+      },
+      {
+        "at": 5322,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 450,
+        "gain": 0.025
+      },
+      {
+        "at": 5322,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 750,
+        "gain": 0.025
+      },
+      {
+        "at": 5322,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 1050,
+        "gain": 0.025
+      },
+      {
+        "at": 5322,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 1350,
+        "gain": 0.025
+      },
+      {
+        "at": 5322,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 1650,
+        "gain": 0.025
+      },
+      {
+        "at": 5322,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 1950,
+        "gain": 0.025
+      },
+      {
+        "at": 5322,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 2250,
+        "gain": 0.025
+      },
+      {
+        "at": 5322,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 2550,
+        "gain": 0.025
+      },
+      {
+        "at": 5322,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 2850,
+        "gain": 0.025
+      },
+      {
+        "at": 5322,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 3150,
+        "gain": 0.025
+      },
+      {
+        "at": 5642,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 450,
+        "gain": 0.025
+      },
+      {
+        "at": 5642,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 750,
+        "gain": 0.025
+      },
+      {
+        "at": 5642,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 1050,
+        "gain": 0.025
+      },
+      {
+        "at": 5642,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 1350,
+        "gain": 0.025
+      },
+      {
+        "at": 5642,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 1650,
+        "gain": 0.025
+      },
+      {
+        "at": 5642,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 1950,
+        "gain": 0.025
+      },
+      {
+        "at": 5642,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 2250,
+        "gain": 0.025
+      },
+      {
+        "at": 5642,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 2550,
+        "gain": 0.025
+      },
+      {
+        "at": 5642,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 2850,
+        "gain": 0.025
+      },
+      {
+        "at": 5642,
+        "durationMs": 170,
+        "wave": "sine",
+        "frequency": 3150,
+        "gain": 0.025
+      },
+      {
+        "at": 5962,
+        "durationMs": 450,
+        "wave": "sine",
+        "frequency": 2400,
+        "gain": 0.1
+      },
+      {
+        "at": 6412,
+        "durationMs": 300,
+        "wave": "sawtooth",
+        "frequency": 1800,
+        "frequencyTo": 1000,
+        "gain": 0.04
+      },
+      {
+        "at": 6712,
+        "durationMs": 1500,
+        "wave": "noise",
+        "gain": 0.12,
+        "bandpassHz": 1800
+      },
+      {
+        "at": 6912,
+        "durationMs": 900,
+        "wave": "sine",
+        "frequency": 1650,
+        "frequencyTo": 1850,
+        "gain": 0.03
+      },
+      {
+        "at": 8212,
+        "durationMs": 800,
+        "wave": "noise",
+        "gain": 0.16,
+        "bandpassHz": 2200
+      }
+    ],
+    "rightsStatus": "original"
   }
 ]

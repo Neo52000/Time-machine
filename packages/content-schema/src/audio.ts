@@ -20,6 +20,11 @@ export const CueSegmentSchema = z.object({
   frequencyTo: z.number().positive().optional(),
   /** Peak gain, 0..1, before the user's volume preference is applied. */
   gain: z.number().min(0).max(1),
+  /**
+   * Optional band-pass centre frequency (Hz). Turns white noise into the
+   * narrow hiss of a telephone line or a modem training sequence.
+   */
+  bandpassHz: z.number().positive().optional(),
 });
 
 export const SoundCueSchema = z.object({

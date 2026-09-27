@@ -51,6 +51,8 @@ export function useAudio(): AudioApi {
 
 const ATTACK_S = 0.005;
 const RELEASE_S = 0.008;
+/** Wide enough to keep a hiss, narrow enough to sound like a phone line. */
+const BANDPASS_Q = 1.4;
 
 let noiseBuffer: AudioBuffer | null = null;
 function getNoiseBuffer(ctx: AudioContext): AudioBuffer {
@@ -88,7 +90,17 @@ function renderSegment(ctx: AudioContext, segment: ScheduledSegment, originS: nu
     }
     source = osc;
   }
-  source.connect(gain);
+  if (segment.bandpassHz !== undefined) {
+    const filter = ctx.createBiquadFilter();
+    filter.type = "bandpass";
+    filter.frequency.setValueAtTime(segment.bandpassHz, start);
+    filter.Q.setValueAtTime(BANDPASS_Q, start);
+    source.connect(filter);
+    filter.connect(gain);
+    source.addEventListener("ended", () => filter.disconnect());
+  } else {
+    source.connect(gain);
+  }
   source.start(start);
   source.stop(end + RELEASE_S);
   source.addEventListener("ended", () => {
