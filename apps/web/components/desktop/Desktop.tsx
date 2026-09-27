@@ -322,6 +322,7 @@ function DesktopStage({ era }: { era: EraManifest }) {
         ))}
 
         <Taskbar
+          era={era}
           theme={theme}
           clock={clock}
           apps={apps}

@@ -13,7 +13,8 @@
       "window-open": "pc-window-open",
       "window-close": "pc-window-close",
       "error": "pc-error",
-      "dial": "modem-dialup-v90"
+      "dial": "modem-dialup-v90",
+      "disconnect": "modem-hangup"
     }
   },
   "apps": ["browser", "file-manager", "notepad", "terminal", "mail"],

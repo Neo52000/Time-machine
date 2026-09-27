@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { getMailbox } from "@time-machine/desktop-engine";
+import { useNetworkConnection } from "@/lib/useNetworkConnection";
 import type { AppProps } from "./types";
 
 export function MailApp({ era }: AppProps) {
@@ -11,6 +12,8 @@ export function MailApp({ era }: AppProps) {
     () => new Set(mailbox.messages[0] ? [mailbox.messages[0].id] : []),
   );
   const selected = mailbox.messages.find((m) => m.id === selectedId);
+  const { connection, connect } = useNetworkConnection(era);
+  const [fetched, setFetched] = useState(false);
 
   function select(id: string) {
     setSelectedId(id);
@@ -24,6 +27,24 @@ export function MailApp({ era }: AppProps) {
         <span className="text-[var(--tm-text-muted)]">
           — {mailbox.messages.length - readIds.size} non lu(s)
         </span>
+        <button
+          type="button"
+          className="tm-btn ml-auto"
+          data-testid="mail-fetch"
+          onClick={() => {
+            connect(); // a dial-up machine has to call its provider first
+            setFetched(true);
+          }}
+        >
+          Relever le courrier
+        </button>
+        {fetched && (
+          <span role="status" data-testid="mail-status">
+            {connection.phase === "dialing"
+              ? "Connexion au serveur de courrier…"
+              : "Aucun nouveau message."}
+          </span>
+        )}
       </div>
       <div className="flex min-h-0 flex-1">
         <ul

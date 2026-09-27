@@ -32,6 +32,7 @@ the 1998 machine has no `notification`, the Minitel has no windows.
 | ---------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `modem-handshake-v23`  | 1985 `dial`         | 440 Hz dial tone, DTMF 3615, ringback, 2100 Hz server answer, line hiss                                                                                                |
 | `minitel-carrier`      | 1985 `connect`      | V.23 whistle: 1300 Hz forward carrier + 390 Hz return carrier, hiss                                                                                                    |
+| `modem-hangup`         | 1998 `disconnect`   | relay click, then a short fading band-passed hiss                                                                                                                      |
 | `modem-dialup-v90`     | 1998 `dial`         | 56k RTC handshake, ~9 s: dial tone, fictional number, ringback, ANSam 2100 Hz with phase-reversal dips, V.8 FSK bursts, line-probing chords, training whistle and hiss |
 | `minitel-hangup`       | 1985 `disconnect`   | 1300 → 300 Hz glide                                                                                                                                                    |
 | `minitel-error`        | 1985 `error`        | two low square pulses                                                                                                                                                  |
@@ -53,9 +54,13 @@ or a modem's training sequence. Still pure synthesis — no sample anywhere.
 Engine profile. On a `dial-up` link, the Time Browser's first real address
 plays the era's `dial` cue and the connection (`useNetworkConnection`, state
 in the desktop store) reads _Numérotation…_ for the cue's duration, then
-_Connecté — modem 56 kbit/s_; it then stays up for the whole session, so the
-modem never redials. Pages never wait for the handshake. A `broadband` link
-(2005) is online at once, silently.
+_Connecté — modem 56 kbit/s_; it then stays up until the user hangs up, so
+the modem never redials on its own. The mail client's _Relever le courrier_
+also dials when the line is down. A modem icon in the taskbar tray shows the
+link (🔌 / 📞 / 🌐): clicking it dials by hand, or hangs up — `stopAll()`
+cuts a handshake still playing, then the `disconnect` cue (`modem-hangup`,
+relay click + fading hiss) plays. Pages never wait for the handshake. A
+`broadband` link (2005) is online at once, silently, with no tray icon.
 
 ### Engine (`packages/audio-engine`)
 

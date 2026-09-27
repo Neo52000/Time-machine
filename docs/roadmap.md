@@ -71,7 +71,7 @@ implement → test → validate → commit.
 - [x] **Phase 12 — Vertical timeline**: the homepage timeline is a single
       vertical column (readable from a phone to a wide screen) grouped by
       year, with the playable eras as stations, decade jumps, category
-      filters and per-event sources; 21 more sourced events (1981 → 2022).
+      filters and per-event sources; 37 more sourced events (1981 → 2022).
 
 ## Recommended next step
 

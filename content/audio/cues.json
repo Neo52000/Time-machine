@@ -1035,5 +1035,34 @@
       }
     ],
     "rightsStatus": "original"
+  },
+  {
+    "id": "modem-hangup",
+    "title": "Raccrochage du modem",
+    "description": "Le claquement du relais qui libère la ligne, puis un bref souffle qui s'éteint. Synthèse originale, aucun enregistrement.",
+    "segments": [
+      {
+        "at": 0,
+        "durationMs": 25,
+        "wave": "square",
+        "frequency": 90,
+        "gain": 0.2
+      },
+      {
+        "at": 0,
+        "durationMs": 60,
+        "wave": "noise",
+        "gain": 0.08,
+        "bandpassHz": 1800
+      },
+      {
+        "at": 60,
+        "durationMs": 180,
+        "wave": "noise",
+        "gain": 0.03,
+        "bandpassHz": 1400
+      }
+    ],
+    "rightsStatus": "original"
   }
 ]

@@ -33,6 +33,15 @@ export function useNetworkConnection(era: EraManifest) {
     );
   }, [link?.kind, era.machine, audio, setConnection]);
 
+  /** Frees the phone line; the next network use dials again. */
+  const hangUp = useCallback(() => {
+    if (link?.kind !== "dial-up") return;
+    if (useDesktopStore.getState().connection.phase === "offline") return;
+    audio.stopAll(); // hanging up mid-handshake cuts the modem
+    audio.play("disconnect");
+    setConnection({ phase: "offline" });
+  }, [link?.kind, audio, setConnection]);
+
   // Survives the browser window closing mid-handshake: whoever mounts next finishes it.
   useEffect(() => {
     if (connection.phase !== "dialing") return;
@@ -47,5 +56,5 @@ export function useNetworkConnection(era: EraManifest) {
     return () => window.clearTimeout(id);
   }, [connection, setConnection]);
 
-  return { connection, connect, link };
+  return { connection, connect, hangUp, link };
 }

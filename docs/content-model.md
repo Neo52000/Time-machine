@@ -39,7 +39,10 @@ Skype, Myspace, YouTube + first video, Twitter — extended with 21 more
 dated milestones (IBM PC, ARPANET → TCP/IP, Macintosh, first .com, Morris
 worm, WWW proposal, end of ARPANET, Linux, Mosaic, WWW in the public domain,
 Netscape, Amazon, Windows 95, eBay, Hotmail, dot-com peak, iPod, iPhone,
-first Android phone, end of the Minitel, ChatGPT). Each cites a source;
+first Android phone, end of the Minitel, ChatGPT), then 16 more (Plan informatique pour tous, Amiga, Windows 1.0,
+IRC, ICQ, 802.11, BitTorrent, Firefox 1.0, YouTube bought by Google,
+Netflix streaming, Chrome, the Bitcoin white paper, Instagram, World IPv6
+Launch, the 2013 surveillance disclosures, GDPR). Each cites a source;
 dates not confirmed to the day carry `needsResearch: true`.
 
 The homepage renders them as a vertical timeline built by

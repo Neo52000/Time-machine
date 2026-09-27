@@ -38,6 +38,16 @@
     "sourceIds": ["src-wikipedia-macintosh"]
   },
   {
+    "id": "plan-informatique-pour-tous",
+    "date": "1985-01-25",
+    "title": "Plan informatique pour tous",
+    "summary": "Le gouvernement français lance un plan d'équipement des écoles en micro-ordinateurs et de formation des enseignants à l'informatique.",
+    "category": ["hardware", "education", "france"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-plan-ipt"],
+    "needsResearch": true
+  },
+  {
     "id": "first-com-domain",
     "date": "1985-03-15",
     "title": "Premier nom de domaine en .com",
@@ -45,6 +55,34 @@
     "category": ["network", "web", "world"],
     "importance": 3,
     "sourceIds": ["src-wikipedia-symbolics-com"]
+  },
+  {
+    "id": "amiga-launch",
+    "date": "1985-07-23",
+    "title": "Présentation de l'Amiga",
+    "summary": "Commodore présente l'Amiga 1000, micro-ordinateur multitâche aux capacités graphiques et sonores très en avance.",
+    "category": ["hardware", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-amiga-1000"]
+  },
+  {
+    "id": "windows-1-release",
+    "date": "1985-11-20",
+    "title": "Sortie de Windows 1.0",
+    "summary": "Microsoft commercialise Windows 1.0, première interface graphique fenêtrée pour MS-DOS.",
+    "category": ["software", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-windows-1"]
+  },
+  {
+    "id": "irc-created",
+    "date": "1988-08-01",
+    "title": "Naissance d'IRC",
+    "summary": "Jarkko Oikarinen crée Internet Relay Chat, l'un des premiers systèmes de discussion en direct sur Internet.",
+    "category": ["messaging", "network", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-irc"],
+    "needsResearch": true
   },
   {
     "id": "morris-worm",
@@ -207,6 +245,26 @@
     "sourceIds": ["src-wikipedia-hotmail"]
   },
   {
+    "id": "icq-launch",
+    "date": "1996-11-15",
+    "title": "Lancement d'ICQ",
+    "summary": "ICQ popularise la messagerie instantanée avec liste de contacts et présence en ligne.",
+    "category": ["messaging", "software", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-icq"],
+    "needsResearch": true
+  },
+  {
+    "id": "wifi-80211",
+    "date": "1997-06-26",
+    "title": "Première norme Wi-Fi",
+    "summary": "L'IEEE publie la norme 802.11, base des réseaux locaux sans fil.",
+    "category": ["network", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-ieee-80211"],
+    "needsResearch": true
+  },
+  {
     "id": "google-founded",
     "date": "1998-09-04",
     "title": "Fondation de Google",
@@ -252,6 +310,16 @@
     "category": ["culture", "web", "world"],
     "importance": 5,
     "sourceIds": ["src-wikipedia-wikipedia"]
+  },
+  {
+    "id": "bittorrent-release",
+    "date": "2001-07-02",
+    "title": "Annonce de BitTorrent",
+    "summary": "Bram Cohen annonce BitTorrent, protocole d'échange pair-à-pair qui répartit le téléchargement entre tous les participants.",
+    "category": ["network", "culture", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-bittorrent"],
+    "needsResearch": true
   },
   {
     "id": "ipod-announced",
@@ -301,6 +369,15 @@
     "sourceIds": ["src-wikipedia-gmail"]
   },
   {
+    "id": "firefox-1",
+    "date": "2004-11-09",
+    "title": "Firefox 1.0",
+    "summary": "La fondation Mozilla publie Firefox 1.0, navigateur libre qui relance la concurrence face à Internet Explorer.",
+    "category": ["web", "software", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-firefox"]
+  },
+  {
     "id": "youtube-founded",
     "date": "2005-02-14",
     "title": "Fondation de YouTube",
@@ -330,6 +407,15 @@
     "needsResearch": true
   },
   {
+    "id": "youtube-acquired",
+    "date": "2006-10-09",
+    "title": "Google rachète YouTube",
+    "summary": "Google annonce le rachat de YouTube, un an et demi après la mise en ligne du site.",
+    "category": ["video", "economy", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-youtube-google"]
+  },
+  {
     "id": "iphone-announced",
     "date": "2007-01-09",
     "title": "Présentation de l'iPhone",
@@ -337,6 +423,25 @@
     "category": ["hardware", "mobile", "world"],
     "importance": 5,
     "sourceIds": ["src-wikipedia-iphone"]
+  },
+  {
+    "id": "netflix-streaming",
+    "date": "2007-01-16",
+    "title": "Netflix passe au streaming",
+    "summary": "Netflix, jusque-là loueur de DVD par courrier, lance le visionnage de films directement en ligne.",
+    "category": ["video", "web", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-netflix"],
+    "needsResearch": true
+  },
+  {
+    "id": "chrome-release",
+    "date": "2008-09-02",
+    "title": "Sortie de Google Chrome",
+    "summary": "Google publie son navigateur Chrome, qui isole chaque onglet dans un processus séparé.",
+    "category": ["web", "software", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-chrome"]
   },
   {
     "id": "android-htc-dream",
@@ -348,6 +453,33 @@
     "sourceIds": ["src-wikipedia-htc-dream"]
   },
   {
+    "id": "bitcoin-whitepaper",
+    "date": "2008-10-31",
+    "title": "Livre blanc du Bitcoin",
+    "summary": "Un auteur sous le pseudonyme Satoshi Nakamoto publie le livre blanc décrivant Bitcoin, monnaie électronique pair-à-pair.",
+    "category": ["economy", "network", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-bitcoin-whitepaper"]
+  },
+  {
+    "id": "instagram-launch",
+    "date": "2010-10-06",
+    "title": "Lancement d'Instagram",
+    "summary": "Instagram sort sur iPhone : partage de photos carrées retouchées par filtres, pensé pour le mobile.",
+    "category": ["social", "mobile", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-instagram"]
+  },
+  {
+    "id": "ipv6-launch",
+    "date": "2012-06-06",
+    "title": "World IPv6 Launch",
+    "summary": "Grands sites et fournisseurs d'accès activent IPv6 de façon permanente, pour dépasser la pénurie d'adresses IPv4.",
+    "category": ["network", "world"],
+    "importance": 2,
+    "sourceIds": ["src-wikipedia-ipv6-launch"]
+  },
+  {
     "id": "minitel-shutdown",
     "date": "2012-06-30",
     "title": "Fin du Minitel",
@@ -355,6 +487,24 @@
     "category": ["minitel", "telecom", "france"],
     "importance": 4,
     "sourceIds": ["src-wikipedia-minitel-shutdown"]
+  },
+  {
+    "id": "snowden-disclosures",
+    "date": "2013-06-05",
+    "title": "Révélations sur la surveillance de masse",
+    "summary": "Les premiers articles tirés des documents d'Edward Snowden révèlent l'ampleur de la surveillance d'Internet par des agences de renseignement.",
+    "category": ["security", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-global-surveillance"]
+  },
+  {
+    "id": "gdpr-applies",
+    "date": "2018-05-25",
+    "title": "Entrée en application du RGPD",
+    "summary": "Le Règlement général sur la protection des données s'applique dans toute l'Union européenne.",
+    "category": ["security", "law", "france"],
+    "importance": 4,
+    "sourceIds": ["src-eurlex-gdpr"]
   },
   {
     "id": "chatgpt-release",

@@ -319,5 +319,110 @@
     "label": "ChatGPT — Wikipedia",
     "url": "https://en.wikipedia.org/wiki/ChatGPT",
     "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-plan-ipt",
+    "label": "Plan informatique pour tous — Wikipédia",
+    "url": "https://fr.wikipedia.org/wiki/Plan_informatique_pour_tous",
+    "publisher": "Wikipedia",
+    "notes": "Annonce en janvier 1985 ; jour exact à confirmer."
+  },
+  {
+    "id": "src-wikipedia-amiga-1000",
+    "label": "Amiga 1000 — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Amiga_1000",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-windows-1",
+    "label": "Windows 1.0 — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Windows_1.0",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-irc",
+    "label": "Internet Relay Chat — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Internet_Relay_Chat",
+    "publisher": "Wikipedia",
+    "notes": "Créé en août 1988 ; jour exact à confirmer."
+  },
+  {
+    "id": "src-wikipedia-icq",
+    "label": "ICQ — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/ICQ",
+    "publisher": "Wikipedia",
+    "notes": "Lancé en novembre 1996 ; jour exact à confirmer."
+  },
+  {
+    "id": "src-wikipedia-ieee-80211",
+    "label": "IEEE 802.11 — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/IEEE_802.11",
+    "publisher": "Wikipedia",
+    "notes": "Première version de la norme publiée en 1997 ; jour exact à confirmer."
+  },
+  {
+    "id": "src-wikipedia-bittorrent",
+    "label": "BitTorrent — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/BitTorrent",
+    "publisher": "Wikipedia",
+    "notes": "Première version annoncée par Bram Cohen en juillet 2001 ; jour exact à confirmer."
+  },
+  {
+    "id": "src-wikipedia-firefox",
+    "label": "Firefox version history — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Firefox_version_history",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-youtube-google",
+    "label": "YouTube — Wikipedia (rachat par Google)",
+    "url": "https://en.wikipedia.org/wiki/YouTube",
+    "publisher": "Wikipedia",
+    "notes": "Rachat annoncé le 9 octobre 2006."
+  },
+  {
+    "id": "src-wikipedia-netflix",
+    "label": "Netflix — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Netflix",
+    "publisher": "Wikipedia",
+    "notes": "Lancement du visionnage en ligne en janvier 2007 ; jour exact à confirmer."
+  },
+  {
+    "id": "src-wikipedia-chrome",
+    "label": "Google Chrome — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Google_Chrome",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-bitcoin-whitepaper",
+    "label": "Bitcoin — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Bitcoin",
+    "publisher": "Wikipedia",
+    "notes": "Livre blanc publié le 31 octobre 2008."
+  },
+  {
+    "id": "src-wikipedia-instagram",
+    "label": "Instagram — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Instagram",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-ipv6-launch",
+    "label": "World IPv6 Day and World IPv6 Launch Day — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/World_IPv6_Day_and_World_IPv6_Launch_Day",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-global-surveillance",
+    "label": "Global surveillance disclosures (2013–present) — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Global_surveillance_disclosures_(2013%E2%80%93present)",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-eurlex-gdpr",
+    "label": "Règlement (UE) 2016/679 (RGPD) — EUR-Lex",
+    "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+    "publisher": "Office des publications de l'Union européenne",
+    "notes": "Applicable à partir du 25 mai 2018 (article 99)."
   }
 ]

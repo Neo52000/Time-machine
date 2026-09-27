@@ -216,6 +216,32 @@ test.describe("audio", () => {
     expect((await audioLog(page)).filter((e) => e.event === "dial")).toHaveLength(1);
   });
 
+  test("1998 tray: hang up mid-handshake, and the mail client redials", async ({ page }) => {
+    await captureAudio(page);
+    await page.goto("/era/1998/desktop");
+    await page.getByTestId("boot-screen").click();
+    const tray = page.getByTestId("tray-modem");
+    await expect(tray).toHaveAttribute("data-phase", "offline");
+
+    // Dial by hand from the tray, then hang up before the handshake ends.
+    await tray.click();
+    await expect(tray).toHaveAttribute("data-phase", "dialing");
+    await tray.click();
+    await expect(tray).toHaveAttribute("data-phase", "offline");
+    await expect
+      .poll(() => audioLog(page))
+      .toContainEqual({ event: "disconnect", cueId: "modem-hangup", segments: 3 });
+
+    // Checking mail needs the line: the modem dials again.
+    await page.getByTestId("app-mail").dblclick();
+    await page.getByTestId("mail-fetch").click();
+    await expect(tray).toHaveAttribute("data-phase", "dialing");
+    await expect(page.getByTestId("mail-status")).toContainText("Connexion au serveur");
+    await expect(tray).toHaveAttribute("data-phase", "online", { timeout: 15_000 });
+    await expect(page.getByTestId("mail-status")).toContainText("Aucun nouveau message");
+    expect((await audioLog(page)).filter((e) => e.event === "dial")).toHaveLength(2);
+  });
+
   test("2005 broadband is online without a modem handshake", async ({ page }) => {
     await captureAudio(page);
     await page.goto("/era/2005/desktop");
@@ -225,6 +251,7 @@ test.describe("audio", () => {
     await page.getByTestId("browser-go").click();
     await expect(page.getByTestId("browser-link")).toHaveAttribute("data-phase", "online");
     await expect(page.getByTestId("browser-link")).toContainText("ADSL");
+    await expect(page.getByTestId("tray-modem")).toHaveCount(0);
     expect((await audioLog(page)).some((e) => e.event === "dial")).toBe(false);
   });
 });

@@ -28,6 +28,8 @@ const CATEGORY_LABELS: Record<string, string> = {
   telecom: "Télécoms",
   france: "France",
   ai: "IA",
+  education: "Éducation",
+  law: "Droit",
   world: "Monde",
 };
 
