@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { readTextFile } from "@time-machine/desktop-engine";
+import { useNarrative } from "@/lib/narrative/NarrativeProvider";
 import type { AppProps } from "./types";
 
 export function NotepadApp({ fs, payload }: AppProps) {
@@ -10,6 +11,11 @@ export function NotepadApp({ fs, payload }: AppProps) {
   const [text, setText] = useState(initial);
   const [wrap, setWrap] = useState(true);
   const dirty = text !== initial;
+  const { emit } = useNarrative();
+
+  useEffect(() => {
+    if (path) emit("file.opened", { path, name: path.slice(path.lastIndexOf("/") + 1) });
+  }, [path, emit]);
 
   return (
     <div className="flex h-full flex-col">

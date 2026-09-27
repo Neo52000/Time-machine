@@ -410,3 +410,52 @@
     animation: none;
   }
 }
+
+/* Narrative Engine notifications: tray balloons above every window and the taskbar. */
+.tm-toasts {
+  position: absolute;
+  bottom: 40px;
+  right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 260px;
+  z-index: 9500;
+  pointer-events: none;
+}
+/* Clicks go through a balloon to whatever is under it; only its close button is live. */
+.tm-toast {
+  pointer-events: none;
+  padding: 6px 8px;
+  font-size: 12px;
+  color: var(--tm-text);
+  animation: tm-toast-in 160ms ease-out;
+}
+.tm-toast p {
+  margin-top: 2px;
+}
+.tm-toast-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.tm-toast-close {
+  pointer-events: auto;
+  line-height: 1;
+  padding: 0 2px;
+}
+@keyframes tm-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tm-toast {
+    animation: none;
+  }
+}
+[data-shell="terminal"] .tm-toasts {
+  bottom: auto;
+  top: 8px;
+}

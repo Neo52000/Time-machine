@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { bootDurationMs, bootTimeline, getBootSequence } from "./boot";
 import { createEraClock, eraNow, formatEraDate, formatEraTime } from "./clock";
 import {
+  addTextFile,
   getFileSystem,
   joinPath,
   listDirectory,
@@ -72,6 +73,19 @@ describe("virtual filesystem", () => {
     expect(readTextFile(fs, "/Mes Documents/LISEZMOI.txt")).toContain("1998");
     expect(readTextFile(fs, "/Mes Documents")).toBeUndefined();
     expect(readTextFile(fs, "/nope.txt")).toBeUndefined();
+  });
+
+  it("adds a text file without mutating the seed disk or overwriting files", () => {
+    const next = addTextFile(fs, { path: "/Mes Documents/Carnet.txt", content: "été" });
+    expect(readTextFile(next, "/Mes Documents/Carnet.txt")).toBe("été");
+    expect(listDirectory(next, "/Mes Documents").map((f) => f.name)).toContain("Carnet.txt");
+    expect(next.files.find((f) => f.name === "Carnet.txt")?.size).toBe(5); // UTF-8 bytes: é is 2 bytes
+    expect(readTextFile(fs, "/Mes Documents/Carnet.txt")).toBeUndefined();
+    const original = readTextFile(fs, "/Mes Documents/LISEZMOI.txt");
+    const same = addTextFile(fs, { path: "/Mes Documents/LISEZMOI.txt", content: "x" });
+    expect(same).toBe(fs);
+    expect(readTextFile(same, "/Mes Documents/LISEZMOI.txt")).toBe(original);
+    expect(() => addTextFile(fs, { path: "/Nowhere/a.txt", content: "" })).toThrow(/parent/);
   });
 
   it("unknown machines get an empty disk", () => {

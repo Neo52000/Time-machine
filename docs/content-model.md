@@ -4,24 +4,25 @@ All shared data contracts live in `packages/content-schema` as Zod schemas
 (runtime-validated) with inferred TypeScript types. Nothing outside this
 package should redefine these shapes.
 
-| Type                                                                 | File                    | Used by                                                                       |
-| -------------------------------------------------------------------- | ----------------------- | ----------------------------------------------------------------------------- |
-| `EraManifest`                                                        | `src/era.ts`            | era-engine                                                                    |
-| `HistoricalEvent`                                                    | `src/event.ts`          | timeline-engine, `content/events/*.json`                                      |
-| `SourceReference`                                                    | `src/source.ts`         | any content citing provenance                                                 |
-| `RightsStatus`                                                       | `src/rights.ts`         | `HistoricalSnapshot`, admin rights review                                     |
-| `HistoricalWebsite` / `HistoricalSnapshot`                           | `src/website.ts`        | browser-engine catalogue, `content/websites`, `content/snapshots`             |
-| `ReconstructedPage` / `PageBlock`                                    | `src/reconstruction.ts` | browser-engine, `content/reconstructions/*.json` (declarative pages, no HTML) |
-| `SearchDocument` + `isAvailableAt`                                   | `src/search.ts`         | search-engine                                                                 |
-| `ContentStatus` + `contentStatus` / `blockingReason`                 | `src/status.ts`         | `apps/admin`'s four-state review queue and publish gate                       |
-| `DesktopWindow`                                                      | `src/desktop.ts`        | window-manager                                                                |
-| `VirtualFile`                                                        | `src/filesystem.ts`     | desktop-engine virtual disk                                                   |
-| `MinitelKiosk` / `MinitelService` / `MinitelPage` / `MinitelDataset` | `src/minitel.ts`        | minitel-engine, `content/minitel/` (fictional seed)                           |
-| `MessengerContact` / `MessengerConversation` / `PresenceEvent`       | `src/messenger.ts`      | messenger-engine, `content/messenger/` (fictional seed)                       |
-| `VideoClip` / `VideoComment`                                         | `src/media.ts`          | media-engine, `content/media/` (original reconstruction + fictional clips)    |
-| `NarrativeTrigger` / `NarrativeCondition` / `NarrativeAction`        | `src/narrative.ts`      | Narrative Engine (contracts only, not wired up)                               |
-| `SoundCue` / `CueSegment` / `SoundEvent`                             | `src/audio.ts`          | audio-engine, `content/audio/cues.json`, `EraManifest.machine.sounds`         |
-| `AnalyticsEvent` / `AnalyticsEventName`                              | `src/analytics.ts`      | analytics-engine (closed event list, scalar props only)                       |
+| Type                                                                 | File                    | Used by                                                                        |
+| -------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------ |
+| `EraManifest`                                                        | `src/era.ts`            | era-engine                                                                     |
+| `HistoricalEvent`                                                    | `src/event.ts`          | timeline-engine, `content/events/*.json`                                       |
+| `SourceReference`                                                    | `src/source.ts`         | any content citing provenance                                                  |
+| `RightsStatus`                                                       | `src/rights.ts`         | `HistoricalSnapshot`, admin rights review                                      |
+| `HistoricalWebsite` / `HistoricalSnapshot`                           | `src/website.ts`        | browser-engine catalogue, `content/websites`, `content/snapshots`              |
+| `ReconstructedPage` / `PageBlock`                                    | `src/reconstruction.ts` | browser-engine, `content/reconstructions/*.json` (declarative pages, no HTML)  |
+| `SearchDocument` + `isAvailableAt`                                   | `src/search.ts`         | search-engine                                                                  |
+| `ContentStatus` + `contentStatus` / `blockingReason`                 | `src/status.ts`         | `apps/admin`'s four-state review queue and publish gate                        |
+| `DesktopWindow`                                                      | `src/desktop.ts`        | window-manager                                                                 |
+| `VirtualFile`                                                        | `src/filesystem.ts`     | desktop-engine virtual disk                                                    |
+| `MinitelKiosk` / `MinitelService` / `MinitelPage` / `MinitelDataset` | `src/minitel.ts`        | minitel-engine, `content/minitel/` (fictional seed)                            |
+| `MessengerContact` / `MessengerConversation` / `PresenceEvent`       | `src/messenger.ts`      | messenger-engine, `content/messenger/` (fictional seed)                        |
+| `VideoClip` / `VideoComment`                                         | `src/media.ts`          | media-engine, `content/media/` (original reconstruction + fictional clips)     |
+| `NarrativeTrigger` / `NarrativeCondition` / `NarrativeAction`        | `src/narrative.ts`      | narrative-engine, `content/narrative/triggers.json` (docs/narrative-engine.md) |
+| `MachineProfile` / `NetworkLink`                                     | `src/computer.ts`       | computer-engine, `content/machines/machines.json` (docs/computer-engine.md)    |
+| `SoundCue` / `CueSegment` / `SoundEvent`                             | `src/audio.ts`          | audio-engine, `content/audio/cues.json`, `EraManifest.machine.sounds`          |
+| `AnalyticsEvent` / `AnalyticsEventName`                              | `src/analytics.ts`      | analytics-engine (closed event list, scalar props only)                        |
 
 `apps/admin` (`docs/admin.md`) adds no new schema — it CRUDs `HistoricalEvent`,
 `HistoricalWebsite`, `HistoricalSnapshot`, `SourceReference`,

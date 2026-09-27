@@ -59,9 +59,18 @@ implement → test → validate → commit.
       global reduced-motion coverage; short animations; per-app code
       splitting, memoised windows and idle-timer pausing.
 
+- [x] **Phase 11 — Remaining engines**: `packages/computer-engine`
+      (machine profiles as sourced data, link timing shown in the Time
+      Browser, `VER`/`MEM`/`SYSINFO` in the terminal — `docs/computer-engine.md`),
+      `packages/narrative-engine` (data-driven triggers in
+      `content/narrative/`, pure dispatch, tray notifications and story files
+      on the virtual disk — `docs/narrative-engine.md`) and
+      `packages/museum-engine` (`/museum`, one sourced gallery per era —
+      `docs/museum-engine.md`). Every engine of the architecture now exists.
+
 ## Recommended next step
 
-The MVP phases are complete. Candidates, in order of leverage:
+Every engine in `docs/architecture.md` is implemented. Candidates, in order of leverage:
 
 1. **Backend (Supabase)**: give `apps/admin` real multi-editor persistence
    (currently direct filesystem writes to `content/**/*.json` — see
@@ -70,7 +79,9 @@ The MVP phases are complete. Candidates, in order of leverage:
 2. **Content depth**: primary sources replacing the Wikipedia placeholders,
    screenshot/document snapshots (resolution step 2), more reconstructed
    pages per site.
-3. **Museum / Narrative engines**: still type contracts only.
+3. **Narrative depth**: emit `event.viewed` / `time.changed` and perform
+   `unlock.site`, `send.message`, `change.desktop`, `unlock.era` — the
+   contracts exist; the catalogue refuses them until the runtime does.
 
 ## Known gaps carried forward
 
@@ -96,4 +107,8 @@ The MVP phases are complete. Candidates, in order of leverage:
 - `apps/admin` has no authentication and writes directly to the repo's
   `content/*.json` files — it's a local/private tool, not something to
   expose on the public internet as-is (`docs/admin.md`).
-- The virtual disk is read-only (notepad edits are not persisted).
+- The virtual disk is read-only for the user (notepad edits are not
+  persisted); only narrative `create.file` actions add files, for the
+  current session.
+- Machine profiles are representative configurations; the 2005 ADSL speed
+  is flagged `needsResearch` until a primary source confirms it.

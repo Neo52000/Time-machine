@@ -10,11 +10,13 @@ import {
 } from "@time-machine/apps-runtime";
 import type { EraManifest } from "@time-machine/content-schema";
 import {
+  addTextFile,
   createEraClock,
   getBootSequence,
   getDesktopTheme,
   getFileSystem,
   matchShortcut,
+  type VirtualFileSystem,
 } from "@time-machine/desktop-engine";
 import { orderedWindows, taskbarWindows } from "@time-machine/window-manager";
 import { getAppComponent } from "@/components/apps";
@@ -22,8 +24,14 @@ import { useShallow } from "zustand/react/shallow";
 import { useDesktopStore, type WindowPayload } from "@/lib/desktopStore";
 import { AudioProvider, useAudio } from "@/lib/audio/AudioProvider";
 import { useAnalytics } from "@/lib/analytics/AnalyticsProvider";
+import {
+  NarrativeProvider,
+  useNarrative,
+  type CreatedFile,
+} from "@/lib/narrative/NarrativeProvider";
 import { BootScreen } from "./BootScreen";
 import { DesktopIcons } from "./DesktopIcons";
+import { NarrativeToasts } from "./NarrativeToasts";
 import { Taskbar } from "./Taskbar";
 import { Window } from "./Window";
 import "./desktop.css";
@@ -59,9 +67,23 @@ function appFor(win: { appId: string; title: string; width: number; height: numb
 export function Desktop({ era }: { era: EraManifest }) {
   return (
     <AudioProvider machine={era.machine}>
-      <DesktopStage era={era} />
+      <NarrativeProvider key={era.id} eraId={era.id}>
+        <DesktopStage era={era} />
+      </NarrativeProvider>
     </AudioProvider>
   );
+}
+
+/** The seed disk plus whatever the story created; a bad path is reported, never fatal. */
+function withCreatedFiles(fs: VirtualFileSystem, created: CreatedFile[]): VirtualFileSystem {
+  return created.reduce((disk, file) => {
+    try {
+      return addTextFile(disk, file);
+    } catch (error) {
+      console.warn(`[narrative] ${(error as Error).message}`);
+      return disk;
+    }
+  }, fs);
 }
 
 function DesktopStage({ era }: { era: EraManifest }) {
@@ -71,7 +93,9 @@ function DesktopStage({ era }: { era: EraManifest }) {
     () => getBootSequence(era.machine.bootSequence),
     [era.machine.bootSequence],
   );
-  const fs = useMemo(() => getFileSystem(era.machine.id), [era.machine.id]);
+  const baseFs = useMemo(() => getFileSystem(era.machine.id), [era.machine.id]);
+  const { emit, createdFiles } = useNarrative();
+  const fs = useMemo(() => withCreatedFiles(baseFs, createdFiles), [baseFs, createdFiles]);
   const { apps, missing } = useMemo(() => resolveEraApps(registry, era), [era]);
   const clock = useMemo(() => createEraClock(era.dateStart), [era.dateStart]);
   const audio = useAudio();
@@ -178,8 +202,9 @@ function DesktopStage({ era }: { era: EraManifest }) {
       setBooted(true);
       audio.play("boot");
       track("boot.completed", { eraId: era.id, skipped });
+      emit("era.loaded", { eraId: era.id });
     },
-    [audio, track, era.id],
+    [audio, track, emit, era.id],
   );
 
   const openApp = useCallback(
@@ -234,6 +259,7 @@ function DesktopStage({ era }: { era: EraManifest }) {
           ) : (
             <p className="p-4 text-sm">Aucune application disponible pour cette machine.</p>
           )}
+          <NarrativeToasts />
         </div>
         <div className="tm-stage-tools">
           <button
@@ -307,6 +333,8 @@ function DesktopStage({ era }: { era: EraManifest }) {
           onOpenApp={openApp}
           onToggleWindow={actions.toggleFromTaskbar}
         />
+
+        <NarrativeToasts />
       </div>
     </div>
   );

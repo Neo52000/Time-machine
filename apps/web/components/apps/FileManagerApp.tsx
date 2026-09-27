@@ -85,6 +85,8 @@ export function FileManagerApp({ fs, payload, openApp }: AppProps) {
                       : undefined
                   }
                   onClick={() => setSelected(file.id)}
+                  // The only double-click handler: one on the name button too would
+                  // bubble here and open the file twice.
                   onDoubleClick={() => activate(file)}
                 >
                   <td className="px-2 py-0.5">
@@ -92,7 +94,6 @@ export function FileManagerApp({ fs, payload, openApp }: AppProps) {
                       type="button"
                       className="tm-file-entry"
                       onFocus={() => setSelected(file.id)}
-                      onDoubleClick={() => activate(file)}
                       onKeyDown={(e) => {
                         if (e.key === "Enter") {
                           e.preventDefault();

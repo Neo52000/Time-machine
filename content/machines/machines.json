@@ -1,0 +1,56 @@
+[
+  {
+    "id": "minitel-1b",
+    "label": "Terminal Minitel",
+    "kind": "terminal",
+    "os": "Terminal vidéotex (pas de système d'exploitation utilisateur)",
+    "display": "Écran texte 40 colonnes × 25 lignes",
+    "network": {
+      "kind": "videotex",
+      "label": "modem 1200/75 bauds (V.23)",
+      "downstreamBps": 1200,
+      "upstreamBps": 75,
+      "latencyMs": 0
+    },
+    "sourceIds": ["src-wikipedia-minitel", "src-timemachine-machine-profile"],
+    "notes": "La latence de chaque page est simulée par le Minitel Engine ; ce profil ne décrit que le terminal et sa liaison."
+  },
+  {
+    "id": "pc-1998",
+    "label": "PC familial de 1998",
+    "kind": "personal-computer",
+    "cpu": { "label": "Processeur x86", "clockMHz": 266 },
+    "memoryKb": 32768,
+    "storageKb": 4194304,
+    "os": "Time Machine OS 98",
+    "display": "Moniteur cathodique 800 × 600",
+    "network": {
+      "kind": "dial-up",
+      "label": "modem 56 kbit/s",
+      "downstreamBps": 56000,
+      "upstreamBps": 33600,
+      "latencyMs": 150
+    },
+    "sourceIds": ["src-wikipedia-v90", "src-timemachine-machine-profile"]
+  },
+  {
+    "id": "pc-2005",
+    "label": "PC familial de 2005",
+    "kind": "personal-computer",
+    "cpu": { "label": "Processeur x86", "clockMHz": 3000 },
+    "memoryKb": 524288,
+    "storageKb": 83886080,
+    "os": "Time Machine OS 2005",
+    "display": "Écran plat 1024 × 768",
+    "network": {
+      "kind": "broadband",
+      "label": "ADSL 2 Mbit/s",
+      "downstreamBps": 2048000,
+      "upstreamBps": 256000,
+      "latencyMs": 40
+    },
+    "sourceIds": ["src-wikipedia-adsl-fr", "src-timemachine-machine-profile"],
+    "needsResearch": true,
+    "notes": "Débit ADSL représentatif d'un foyer français en 2005, à confirmer par une source primaire."
+  }
+]

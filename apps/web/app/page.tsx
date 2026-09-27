@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { listEras } from "@time-machine/era-engine";
 import { HomeTimeline } from "@/components/HomeTimeline";
 
@@ -14,9 +15,18 @@ export default function HomePage() {
         Sélectionnez une époque pour démarrer la machine correspondante et explorer les réseaux et
         services numériques disponibles à cette date.
       </p>
-      <a href="/analytics" className="text-xs text-neutral-700 hover:text-neutral-400">
-        Mesures
-      </a>
+      <nav className="flex gap-6 text-xs">
+        <Link
+          href="/museum"
+          className="text-neutral-500 hover:text-neutral-300"
+          data-testid="home-museum"
+        >
+          Musée
+        </Link>
+        <a href="/analytics" className="text-neutral-700 hover:text-neutral-400">
+          Mesures
+        </a>
+      </nav>
     </main>
   );
 }
