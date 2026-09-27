@@ -81,6 +81,9 @@ importers:
       '@time-machine/browser-engine':
         specifier: workspace:*
         version: link:../../packages/browser-engine
+      '@time-machine/computer-engine':
+        specifier: workspace:*
+        version: link:../../packages/computer-engine
       '@time-machine/content-schema':
         specifier: workspace:*
         version: link:../../packages/content-schema
@@ -99,6 +102,12 @@ importers:
       '@time-machine/minitel-engine':
         specifier: workspace:*
         version: link:../../packages/minitel-engine
+      '@time-machine/museum-engine':
+        specifier: workspace:*
+        version: link:../../packages/museum-engine
+      '@time-machine/narrative-engine':
+        specifier: workspace:*
+        version: link:../../packages/narrative-engine
       '@time-machine/search-engine':
         specifier: workspace:*
         version: link:../../packages/search-engine
@@ -201,6 +210,22 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9(@types/node@22.20.1)
 
+  packages/computer-engine:
+    dependencies:
+      '@time-machine/content-schema':
+        specifier: workspace:*
+        version: link:../content-schema
+    devDependencies:
+      '@time-machine/era-engine':
+        specifier: workspace:*
+        version: link:../era-engine
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@22.20.1)
+
   packages/content-schema:
     dependencies:
       zod:
@@ -272,6 +297,44 @@ importers:
         specifier: workspace:*
         version: link:../content-schema
     devDependencies:
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@22.20.1)
+
+  packages/museum-engine:
+    dependencies:
+      '@time-machine/browser-engine':
+        specifier: workspace:*
+        version: link:../browser-engine
+      '@time-machine/computer-engine':
+        specifier: workspace:*
+        version: link:../computer-engine
+      '@time-machine/content-schema':
+        specifier: workspace:*
+        version: link:../content-schema
+      '@time-machine/era-engine':
+        specifier: workspace:*
+        version: link:../era-engine
+    devDependencies:
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@22.20.1)
+
+  packages/narrative-engine:
+    dependencies:
+      '@time-machine/content-schema':
+        specifier: workspace:*
+        version: link:../content-schema
+    devDependencies:
+      '@time-machine/era-engine':
+        specifier: workspace:*
+        version: link:../era-engine
       typescript:
         specifier: ^5.7.2
         version: 5.9.3

@@ -13,6 +13,7 @@ import {
 } from "@time-machine/messenger-engine";
 import { useAudio } from "@/lib/audio/AudioProvider";
 import { useAnalytics } from "@/lib/analytics/AnalyticsProvider";
+import { useNarrative } from "@/lib/narrative/NarrativeProvider";
 import type { AppProps } from "./types";
 import "./messenger.css";
 
@@ -39,6 +40,7 @@ export function MessengerApp(_props: AppProps) {
   const logRef = useRef<HTMLDivElement>(null);
   const audio = useAudio();
   const { track } = useAnalytics();
+  const { emit } = useNarrative();
 
   useEffect(() => {
     let id: number | undefined;
@@ -93,13 +95,15 @@ export function MessengerApp(_props: AppProps) {
 
   // A message that *arrives* (not one we sent) rings the notification.
   const lastFrom = timeline.at(-1)?.from;
+  const activeContactId = activeConversation?.contactId;
   const previousLength = useRef(timeline.length);
   useEffect(() => {
     if (timeline.length > previousLength.current && lastFrom === "contact") {
       audio.play("notification");
+      if (activeContactId) emit("message.received", { contactId: activeContactId });
     }
     previousLength.current = timeline.length;
-  }, [timeline.length, lastFrom, audio]);
+  }, [timeline.length, lastFrom, audio, emit, activeContactId]);
 
   const openChat = useCallback(
     (contactId: string) => {

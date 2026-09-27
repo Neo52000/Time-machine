@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
+import { describeMachine, formatKilobytes, machineCatalog } from "@time-machine/computer-engine";
 import {
   createEraClock,
   eraNow,
@@ -14,6 +15,7 @@ import {
   parentPath,
   readTextFile,
 } from "@time-machine/desktop-engine";
+import { useNarrative } from "@/lib/narrative/NarrativeProvider";
 import type { AppProps } from "./types";
 
 function dosPath(root: string, path: string): string {
@@ -33,6 +35,8 @@ export function TerminalApp({ era, fs, closeSelf }: AppProps) {
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const clockRef = useRef(createEraClock(era.dateStart));
+  const machine = machineCatalog.getMachine(era.machine.id);
+  const { emit } = useNarrative();
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ block: "end" });
@@ -52,6 +56,8 @@ export function TerminalApp({ era, fs, closeSelf }: AppProps) {
           "  TYPE / CAT <f>  Affiche un fichier texte",
           "  DATE, TIME      Date et heure de la machine",
           "  VER             Version du système",
+          "  MEM             Mémoire installée",
+          "  SYSINFO         Configuration de la machine",
           "  ECHO <texte>    Affiche le texte",
           "  CLS             Efface l'écran",
           "  EXIT            Ferme l'invite",
@@ -91,14 +97,27 @@ export function TerminalApp({ era, fs, closeSelf }: AppProps) {
         if (!arg) return ["Syntaxe : TYPE <fichier>"];
         const target = arg.startsWith("/") ? arg : joinPath(cwd, arg);
         const content = readTextFile(fs, target);
-        return content === undefined ? ["Fichier introuvable."] : content.split("\n");
+        if (content === undefined) return ["Fichier introuvable."];
+        const path = normalizePath(target);
+        emit("file.opened", { path, name: path.slice(path.lastIndexOf("/") + 1) });
+        return content.split("\n");
       }
       case "date":
         return [`La date actuelle est : ${formatEraDate(eraNow(clockRef.current))}`];
       case "time":
         return [`L'heure actuelle est : ${formatEraTime(eraNow(clockRef.current))}`];
       case "ver":
-        return [`Time Machine OS — machine ${era.machine.id}, ${era.label}`];
+        return [
+          `${machine?.os ?? "Time Machine OS"} — ${machine?.label ?? era.machine.id}, ${era.label}`,
+        ];
+      case "mem":
+        return machine?.memoryKb
+          ? [`Mémoire totale : ${formatKilobytes(machine.memoryKb)}`]
+          : ["Information mémoire indisponible."];
+      case "sysinfo":
+        return machine
+          ? describeMachine(machine).map(([label, value]) => `${label.padEnd(12)}: ${value}`)
+          : ["Configuration inconnue."];
       case "echo":
         return [arg];
       case "cls":

@@ -12,7 +12,7 @@ TIME MACHINE
 │
 ├── Timeline Engine     — packages/timeline-engine  (implemented: filtering/search)
 ├── Era Engine          — packages/era-engine        (implemented: manifest loader/registry)
-├── Computer Engine     — not yet implemented
+├── Computer Engine     — packages/computer-engine  (implemented: machine profiles as data, link timing model, formatting)
 ├── Desktop Engine      — packages/desktop-engine  (implemented: boot sequences, themes, virtual disk, era clock, mailbox)
 ├── Window Manager      — packages/window-manager  (implemented: pure state transitions, z-order, cascade, clamping)
 ├── Application Runtime — packages/apps-runtime    (implemented: app registry + per-era resolution)
@@ -22,13 +22,13 @@ TIME MACHINE
 ├── Minitel Engine      — packages/minitel-engine  (implemented: videotex layout, session, kiosks/services as data)
 ├── Messenger Engine    — packages/messenger-engine (implemented: scripted conversations, background presence, no chatbot)
 ├── Media Engine        — packages/media-engine    (implemented: pure player, upload-date lock, original placeholder visuals)
-├── Museum Engine       — not yet implemented
+├── Museum Engine       — packages/museum-engine    (implemented: one sourced gallery per era, derived from the catalogues)
 ├── Content Engine      — content/ + content-schema (partial: seed data only)
 ├── Source / Rights     — content-schema RightsStatus/SourceReference types + apps/admin's publish gate
 ├── Admin               — apps/admin (implemented: CRUD over 6 collections, four-state review status, rights/research publish gate)
 ├── Audio               — packages/audio-engine   (implemented: synthesised cues as data, per-era bindings, pure scheduling)
 ├── Analytics           — packages/analytics-engine (implemented: consent-gated, PII-refusing event queue; local sink only)
-└── Narrative Engine    — type contracts only (packages/content-schema/src/narrative.ts)
+└── Narrative Engine    — packages/narrative-engine (implemented: data-driven triggers, pure dispatch, fail-fast catalogue)
 ```
 
 ## Current data flow (first vertical slice)
@@ -97,6 +97,9 @@ packages/
   window-manager/   Window state transitions incl. keyboard cycling (no React)
   desktop-engine/   Boot sequences, themes, virtual filesystem, era clock, mailbox seeds, desktop keyboard shortcuts
   apps-runtime/     App definitions (window defaults, singleton, era restrictions) + registry
+  computer-engine/  Machine profiles (CPU, memory, disk, display, network link) + transfer-time model
+  narrative-engine/ Trigger catalogue (validated against what the runtime emits/performs) + pure dispatch
+  museum-engine/    Per-era galleries derived from eras, events, websites, machines and sources
 eras/               EraManifest JSON per era (1985, 1998, 2005)
 content/
   events/           HistoricalEvent seed data
@@ -108,7 +111,11 @@ content/
   messenger/        Contacts, scripted conversations, background presence events (fictional seed)
   media/            Video clips (incl. an original "Me at the zoo" reconstruction) and comments
   audio/            Sound cues as tone/noise segments — synthesised, never sampled
+  machines/         Machine profiles (representative configurations, sourced)
+  narrative/        Narrative triggers (meta, fictional story beats)
 ```
 
 See `docs/era-format.md` and `docs/content-model.md` for the data contracts,
-`docs/admin.md` for the admin app, and `docs/roadmap.md` for what's next.
+`docs/admin.md` for the admin app, `docs/computer-engine.md`,
+`docs/narrative-engine.md` and `docs/museum-engine.md` for the last three
+engines, and `docs/roadmap.md` for what's next.

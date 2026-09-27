@@ -32,7 +32,7 @@ pnpm build               # production build of every app
 pnpm test:e2e            # Playwright end-to-end tests (starts the app itself)
 ```
 
-## What works today (Phases 0–10)
+## What works today (Phases 0–11)
 
 ```text
 Homepage ("WHEN DO YOU WANT TO GO?")
@@ -74,6 +74,14 @@ Homepage ("WHEN DO YOU WANT TO GO?")
       keyboard-only desktop (Ctrl+Alt+→/←/M/X/Enter/S, focusable title
       bars, real menus), live regions, reduced-motion support, opt-in
       analytics kept in the browser
+  → machines with a profile (Computer Engine): SYSINFO / MEM in the terminal,
+      page load time on the era's link in the Time Browser status bar
+      (modem 56 kbit/s in 1998, ADSL in 2005)
+  → a data-driven story (Narrative Engine): tray notifications, a temporal
+      404 explained, a travel log written to Mes Documents once you have
+      browsed, searched and opened a file
+  → /museum: one gallery per era — its machine, its events, the sites then
+      online — every label sourced, uncertain ones marked "à vérifier"
 ```
 
 1985 (Minitel), 1998 (early Web desktop), and 2005 (social web + video) each
@@ -105,6 +113,9 @@ packages/
   audio-engine/       Synthesised sound cues as data, per-era bindings, pure scheduling
   analytics-engine/   Consent-gated, PII-refusing event queue (local sink only)
   timeline-engine/    Event date/category filtering, sorting, search
+  computer-engine/    Machine profiles as data, link timing model
+  narrative-engine/   Data-driven story triggers, pure dispatch
+  museum-engine/      Per-era galleries derived from sourced content
 eras/                 EraManifest JSON, one folder per era
 content/
   events/             HistoricalEvent seed data
@@ -115,6 +126,8 @@ content/
   minitel/            Kiosks, services, pages, datasets (fictional seed)
   messenger/          Contacts, scripted conversations, presence events (fictional seed)
   media/              Video clips and comments (fictional + one original reconstruction)
+  machines/           Machine profiles (representative, sourced)
+  narrative/          Narrative triggers (meta, fictional story beats)
   assets/             Files imported through apps/admin
 tests/
   e2e/                Playwright specs (tests/e2e/admin/ targets apps/admin)

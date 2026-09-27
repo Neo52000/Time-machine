@@ -15,6 +15,7 @@ import {
 } from "@time-machine/minitel-engine";
 import { useAudio } from "@/lib/audio/AudioProvider";
 import { useAnalytics } from "@/lib/analytics/AnalyticsProvider";
+import { useNarrative } from "@/lib/narrative/NarrativeProvider";
 import type { AppProps } from "./types";
 import "./minitel.css";
 
@@ -77,6 +78,14 @@ export function MinitelApp({ clock }: AppProps) {
   const catalog = minitelCatalog;
   const audio = useAudio();
   const { track } = useAnalytics();
+  const { emit } = useNarrative();
+
+  // Every newly opened service is a story beat, whether reached by dialing or from a kiosk.
+  const serviceId = session.location?.serviceId;
+  const kioskCode = session.kioskCode;
+  useEffect(() => {
+    if (serviceId) emit("service.opened", { kiosk: kioskCode ?? "", service: serviceId });
+  }, [serviceId, kioskCode, emit]);
 
   // Honour the engine's requested latency, then complete the transition.
   useEffect(() => {

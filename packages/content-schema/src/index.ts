@@ -1,6 +1,7 @@
 export * from "./rights";
 export * from "./source";
 export * from "./era";
+export * from "./computer";
 export * from "./event";
 export * from "./desktop";
 export * from "./filesystem";

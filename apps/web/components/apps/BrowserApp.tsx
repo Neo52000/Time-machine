@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import {
   canGoBack,
   canGoForward,
@@ -15,10 +15,17 @@ import {
   resolveLink,
   timeWebCatalog,
 } from "@time-machine/browser-engine";
+import {
+  estimatePayloadBytes,
+  formatDuration,
+  machineCatalog,
+  transferTimeMs,
+} from "@time-machine/computer-engine";
 import { eraNow, readTextFile } from "@time-machine/desktop-engine";
 import { getSearchProvider, search, timeSearchIndex } from "@time-machine/search-engine";
 import { useAudio } from "@/lib/audio/AudioProvider";
 import { useAnalytics } from "@/lib/analytics/AnalyticsProvider";
+import { useNarrative } from "@/lib/narrative/NarrativeProvider";
 import type { SearchResultsData } from "./browser/ReconstructedPage";
 import { ResolutionView } from "./browser/ResolutionView";
 import type { AppProps } from "./types";
@@ -62,30 +69,55 @@ export function BrowserApp({ era, fs, clock, payload }: AppProps) {
     [url, selectedDate],
   );
 
+  const page =
+    resolution?.type === "reconstruction" ? timeWebCatalog.getPage(resolution.pageId) : undefined;
+
   // Time Search runs only for reconstructed pages that carry a `search-results`
   // block, with the query parameter that block declares, at the machine's date.
-  const searchResults = useMemo<SearchResultsData | undefined>(() => {
+  const searchQuery = useMemo(() => {
     if (resolution?.type !== "reconstruction") return undefined;
-    const page = timeWebCatalog.getPage(resolution.pageId);
     const block = page?.blocks.find((b) => b.type === "search-results");
-    if (!block) return undefined;
-    const query = resolution.url.query[block.paramName] ?? "";
+    return block ? (resolution.url.query[block.paramName] ?? "") : undefined;
+  }, [resolution, page]);
+
+  const searchResults = useMemo<SearchResultsData | undefined>(() => {
+    if (searchQuery === undefined) return undefined;
+    const query = searchQuery;
     return {
       provider,
       response: search(timeSearchIndex, { query, selectedDate, limit: provider.resultsPerPage }),
     };
-  }, [resolution, selectedDate, provider]);
+  }, [searchQuery, selectedDate, provider]);
+
+  // Computer Engine: how long this page would have taken over the machine's link.
+  const machine = machineCatalog.getMachine(era.machine.id);
+  const loadTime = useMemo(
+    () =>
+      page && machine ? transferTimeMs(estimatePayloadBytes(page), machine.network) : undefined,
+    [page, machine],
+  );
 
   const audio = useAudio();
   const { track } = useAnalytics();
+  const { emit } = useNarrative();
 
   // Each resolution is a measurable outcome; a temporal 404 also sounds like one.
+  // The ref keeps the story from hearing the same visit twice (effects may re-run).
+  const lastVisited = useRef<typeof resolution>(undefined);
   useEffect(() => {
     if (!resolution) return;
     track("browser.resolved", { eraId: era.id, type: resolution.type });
     if (resolution.type === "not-found") audio.play("error");
-  }, [resolution, era.id, track, audio]);
+    if (lastVisited.current === resolution) return;
+    lastVisited.current = resolution;
+    emit("site.visited", {
+      domain: resolution.url?.domain ?? "",
+      type: resolution.type,
+      reason: resolution.type === "not-found" ? resolution.reason : "",
+    });
+  }, [resolution, era.id, track, audio, emit]);
 
+  const lastSearched = useRef<typeof searchResults>(undefined);
   useEffect(() => {
     if (!searchResults) return;
     track("search.performed", {
@@ -93,7 +125,14 @@ export function BrowserApp({ era, fs, clock, payload }: AppProps) {
       provider: searchResults.provider.id,
       results: searchResults.response.total,
     });
-  }, [searchResults, era.id, track]);
+    if (lastSearched.current === searchResults || !searchQuery?.trim()) return;
+    lastSearched.current = searchResults;
+    emit("search.executed", {
+      query: searchQuery.trim(),
+      results: searchResults.response.total,
+      provider: searchResults.provider.id,
+    });
+  }, [searchResults, searchQuery, era.id, track, emit]);
 
   /** Go to an absolute address (address bar, favourites, home). */
   function navigate(target: string) {
@@ -136,9 +175,14 @@ export function BrowserApp({ era, fs, clock, payload }: AppProps) {
     if (!resolution) return "Terminé";
     switch (resolution.type) {
       case "reconstruction":
-        return searchResults
-          ? `${provider.label} — ${searchResults.response.total} résultat(s) au ${selectedDate}`
-          : `Reconstitution — ${resolution.url.hostname}`;
+        return (
+          (searchResults
+            ? `${provider.label} — ${searchResults.response.total} résultat(s) au ${selectedDate}`
+            : `Reconstitution — ${resolution.url.hostname}`) +
+          (loadTime !== undefined && machine
+            ? ` — chargée en ${formatDuration(loadTime)} (${machine.network.label})`
+            : "")
+        );
       case "archive":
         return "Archive documentaire référencée";
       case "snapshot":
@@ -214,7 +258,11 @@ export function BrowserApp({ era, fs, clock, payload }: AppProps) {
             <h1 className="tw-heading">Time Browser</h1>
             <p className="tw-paragraph">
               {era.label}. Vous êtes connecté au réseau de {era.dateStart.slice(0, 4)}
-              {era.network.web ? " via un modem 56k." : ", mais le Web n'y est pas disponible."}
+              {era.network.web
+                ? machine
+                  ? ` via ${machine.network.label}.`
+                  : "."
+                : ", mais le Web n'y est pas disponible."}
             </p>
             <p className="tw-notice">
               Le Time Browser n&apos;affiche que ce qui existait à la date de la machine :

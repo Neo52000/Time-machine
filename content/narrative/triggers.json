@@ -1,0 +1,115 @@
+[
+  {
+    "id": "welcome-1998",
+    "eras": ["1998"],
+    "when": [{ "event": "era.loaded" }],
+    "actions": [
+      {
+        "type": "show.notification",
+        "payload": {
+          "title": "Bienvenue en 1998",
+          "body": "Votre PC est prêt. Dans le Time Browser, seuls les sites en ligne à la date de la machine répondent."
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "not-yet-online",
+    "eras": ["1998", "2005"],
+    "when": [{ "event": "site.visited", "match": { "reason": "not-yet-online" } }],
+    "actions": [
+      {
+        "type": "show.notification",
+        "payload": {
+          "title": "Pas encore en ligne",
+          "body": "{domain} n'existe pas encore à la date de cette machine. Choisissez une époque plus récente pour le visiter."
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "explorer-1998",
+    "eras": ["1998"],
+    "when": [
+      { "event": "site.visited" },
+      { "event": "search.executed" },
+      { "event": "file.opened" }
+    ],
+    "actions": [
+      { "type": "set.flag", "payload": { "flag": "explorer-1998" } },
+      {
+        "type": "create.file",
+        "payload": {
+          "path": "/Mes Documents/Carnet de voyage.txt",
+          "content": "CARNET DE VOYAGE — 1998\n\nVous avez visité un site, lancé une recherche et ouvert un document.\nLe Web de cette machine ne contient que ce qui existait à sa date :\nessayez la même recherche sur la machine de 2005 et comparez.\n"
+        }
+      },
+      {
+        "type": "show.notification",
+        "payload": {
+          "title": "Nouveau document",
+          "body": "« Carnet de voyage.txt » vient d'apparaître dans Mes Documents."
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "welcome-2005",
+    "eras": ["2005"],
+    "when": [{ "event": "era.loaded" }],
+    "actions": [
+      {
+        "type": "show.notification",
+        "payload": {
+          "title": "Bienvenue en 2005",
+          "body": "Connexion haut débit active. Messenger et le lecteur multimédia sont sur le bureau."
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "social-2005",
+    "eras": ["2005"],
+    "when": [
+      { "event": "message.received" },
+      { "event": "site.visited", "match": { "type": "reconstruction" } }
+    ],
+    "actions": [
+      {
+        "type": "create.file",
+        "payload": {
+          "path": "/Mes Documents/Carnet de voyage 2005.txt",
+          "content": "CARNET DE VOYAGE — 2005\n\nMessagerie instantanée et Web consultés depuis la même machine.\nComparez avec le modem de 1998 : la même page arrive bien plus vite.\n"
+        }
+      },
+      { "type": "play.sound", "payload": { "event": "notification" } },
+      {
+        "type": "show.notification",
+        "payload": {
+          "title": "Nouveau document",
+          "body": "« Carnet de voyage 2005.txt » vient d'apparaître dans Mes Documents."
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "minitel-first-service",
+    "eras": ["1985"],
+    "when": [{ "event": "service.opened" }],
+    "actions": [
+      {
+        "type": "show.notification",
+        "payload": {
+          "title": "Service ouvert",
+          "body": "Vous consultez {kiosk} {service}. La touche Connexion / Fin raccroche."
+        }
+      }
+    ],
+    "once": true
+  }
+]

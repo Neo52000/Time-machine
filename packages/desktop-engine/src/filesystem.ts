@@ -60,6 +60,39 @@ export function joinPath(base: string, name: string): string {
 
 export { normalizePath, parentPath };
 
+/**
+ * Returns a new disk with one more text file (the seed disk is never
+ * mutated). Used by the Narrative Engine's `create.file`: the parent
+ * directory must already exist, and an existing path is left untouched so a
+ * story can never overwrite the user's files.
+ */
+export function addTextFile(
+  fs: VirtualFileSystem,
+  file: { path: string; content: string; modifiedAt?: string },
+): VirtualFileSystem {
+  const path = normalizePath(file.path);
+  const parent = getFile(fs, parentPath(path));
+  if (!parent || !isDirectory(parent)) {
+    throw new Error(`Cannot create "${path}": parent directory does not exist`);
+  }
+  if (getFile(fs, path)) return fs;
+  const contentRef = `created:${path}`;
+  const created: VirtualFile = {
+    id: contentRef,
+    path,
+    name: path.slice(path.lastIndexOf("/") + 1),
+    type: "text/plain",
+    size: new TextEncoder().encode(file.content).length,
+    contentRef,
+    ...(file.modifiedAt ? { createdAt: file.modifiedAt, modifiedAt: file.modifiedAt } : {}),
+  };
+  return {
+    ...fs,
+    files: [...fs.files, created],
+    contents: { ...fs.contents, [contentRef]: file.content },
+  };
+}
+
 /** Seed disk for the 1998 machine. Content is fictional but period-accurate. */
 const fs1998: VirtualFileSystem = {
   root: "C:",

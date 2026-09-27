@@ -176,5 +176,25 @@
     "label": "Time Machine — reconstruction vidéo originale",
     "publisher": "Time Machine",
     "notes": "Animation originale évoquant l'événement documenté (aucun extrait de la vidéo réelle n'est reproduit)."
+  },
+  {
+    "id": "src-wikipedia-v90",
+    "label": "V.90 — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/V.90",
+    "publisher": "Wikipedia",
+    "notes": "Norme ITU-T des modems 56 kbit/s (voie montante 33,6 kbit/s), approuvée en 1998 ; précédée en 1997 par les procédés concurrents X2 et K56flex."
+  },
+  {
+    "id": "src-wikipedia-adsl-fr",
+    "label": "Asymmetric digital subscriber line — Wikipédia",
+    "url": "https://fr.wikipedia.org/wiki/Asymmetric_digital_subscriber_line",
+    "publisher": "Wikipedia",
+    "notes": "Débits ADSL grand public ; le débit « typique » d'un foyer français en 2005 reste à confirmer par une source primaire."
+  },
+  {
+    "id": "src-timemachine-machine-profile",
+    "label": "Time Machine — configuration machine représentative",
+    "publisher": "Time Machine",
+    "notes": "Configuration type composée pour le projet (processeur décrit de façon générique, système « Time Machine OS » fictif). Elle évoque l'équipement d'un foyer de l'époque sans reproduire un modèle commercial précis."
   }
 ]
