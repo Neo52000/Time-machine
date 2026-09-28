@@ -56,6 +56,14 @@ export const builtinApps: AppDefinition[] = [
     singleton: true,
   },
   {
+    id: "bbs",
+    title: "Terminal BBS",
+    icon: "☎",
+    defaultSize: { width: 600, height: 400 },
+    singleton: true,
+    eras: ["1992"],
+  },
+  {
     id: "minitel",
     title: "Minitel",
     icon: "▤",

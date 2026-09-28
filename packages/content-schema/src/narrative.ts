@@ -17,6 +17,7 @@ export const NarrativeEventTypeSchema = z.enum([
   "era.loaded",
   "event.viewed",
   "time.changed",
+  "media.played",
 ]);
 
 export const NarrativeActionTypeSchema = z.enum([
@@ -28,6 +29,7 @@ export const NarrativeActionTypeSchema = z.enum([
   "play.sound",
   "set.flag",
   "unlock.era",
+  "award.stamp",
 ]);
 
 /** Event data and match values are scalars only — nothing structured or personal. */
@@ -66,7 +68,8 @@ export const NarrativeActionSchema = z.discriminatedUnion("type", [
   }),
   z.object({
     type: z.literal("change.desktop"),
-    payload: z.object({ theme: z.string().min(1) }),
+    /** A new wallpaper colour for the rest of the session (the reward, not a theme swap). */
+    payload: z.object({ wallpaper: z.string().regex(/^#[0-9a-fA-F]{6}$/, "Expected #rrggbb") }),
   }),
   z.object({
     type: z.literal("play.sound"),
@@ -80,7 +83,26 @@ export const NarrativeActionSchema = z.discriminatedUnion("type", [
     type: z.literal("unlock.era"),
     payload: z.object({ eraId: z.string().min(1) }),
   }),
+  z.object({
+    type: z.literal("award.stamp"),
+    /** Stamps the visitor's passport (see `PassportStampSchema`); kept across visits. */
+    payload: z.object({ stampId: z.string().min(1) }),
+  }),
 ]);
+
+/**
+ * A passport stamp: a small achievement earned inside one era, collected on
+ * the visitor's own browser and shown on the homepage. Stamps are rewards
+ * for exploring, never historical claims.
+ */
+export const PassportStampSchema = z.object({
+  id: z.string().min(1),
+  eraId: z.string().min(1),
+  title: z.string().min(1),
+  /** How to earn it — shown once earned, and as a hint before. */
+  hint: z.string().min(1),
+  icon: z.string().min(1),
+});
 
 export const NarrativeTriggerSchema = z.object({
   id: z.string().min(1),
@@ -101,3 +123,4 @@ export type NarrativeScalar = z.infer<typeof NarrativeScalarSchema>;
 export type NarrativeCondition = z.infer<typeof NarrativeConditionSchema>;
 export type NarrativeAction = z.infer<typeof NarrativeActionSchema>;
 export type NarrativeTrigger = z.infer<typeof NarrativeTriggerSchema>;
+export type PassportStamp = z.infer<typeof PassportStampSchema>;

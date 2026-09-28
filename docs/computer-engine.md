@@ -10,11 +10,12 @@ The hardware and network link behind each era's machine.
 `EraManifest.machine.id` points at a profile id; a unit test fails if an era
 references a machine with no profile.
 
-| Profile      | Kind              | Link                       | Used by |
-| ------------ | ----------------- | -------------------------- | ------- |
-| `minitel-1b` | terminal          | modem 1200/75 bauds (V.23) | 1985    |
-| `pc-1998`    | personal-computer | modem 56 kbit/s            | 1998    |
-| `pc-2005`    | personal-computer | ADSL 2 Mbit/s (to confirm) | 2005    |
+| Profile      | Kind              | Link                         | Used by |
+| ------------ | ----------------- | ---------------------------- | ------- |
+| `minitel-1b` | terminal          | modem 1200/75 bauds (V.23)   | 1985    |
+| `pc-1992`    | personal-computer | modem 14 400 bit/s (V.32bis) | 1992    |
+| `pc-1998`    | personal-computer | modem 56 kbit/s              | 1998    |
+| `pc-2005`    | personal-computer | ADSL 2 Mbit/s (to confirm)   | 2005    |
 
 ## Honesty rules
 

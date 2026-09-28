@@ -5,7 +5,7 @@ import { getEra, getEraOrThrow, listEras } from "./registry";
 
 describe("era-engine manifests", () => {
   it("loads and validates all seed manifests", () => {
-    expect(eraManifests).toHaveLength(3);
+    expect(eraManifests).toHaveLength(4);
     for (const manifest of eraManifests) {
       expect(() => EraManifestSchema.parse(manifest)).not.toThrow();
     }
@@ -21,7 +21,7 @@ describe("era-engine registry", () => {
   it("lists eras sorted by dateStart", () => {
     const eras = listEras();
     const ids = eras.map((era) => era.id);
-    expect(ids).toEqual(["1985", "1998", "2005"]);
+    expect(ids).toEqual(["1985", "1992", "1998", "2005"]);
   });
 
   it("gets an era by id", () => {

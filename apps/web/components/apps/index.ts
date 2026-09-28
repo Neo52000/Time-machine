@@ -24,6 +24,7 @@ const components: Record<string, ComponentType<AppProps>> = {
   terminal: lazy(() => import("./TerminalApp").then((m) => ({ default: m.TerminalApp }))),
   mail: lazy(() => import("./MailApp").then((m) => ({ default: m.MailApp }))),
   minitel: lazy(() => import("./MinitelApp").then((m) => ({ default: m.MinitelApp }))),
+  bbs: lazy(() => import("./BbsApp").then((m) => ({ default: m.BbsApp }))),
   messenger: lazy(() => import("./MessengerApp").then((m) => ({ default: m.MessengerApp }))),
   "media-player": lazy(() =>
     import("./MediaPlayerApp").then((m) => ({ default: m.MediaPlayerApp })),

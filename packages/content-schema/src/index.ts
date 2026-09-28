@@ -10,6 +10,7 @@ export * from "./search";
 export * from "./narrative";
 export * from "./reconstruction";
 export * from "./minitel";
+export * from "./bbs";
 export * from "./messenger";
 export * from "./media";
 export * from "./status";

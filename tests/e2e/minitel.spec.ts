@@ -28,6 +28,9 @@ test("1985 boots straight into a Minitel: dial 3615, open DEMO, navigate, hang u
   await expect(minitel).toHaveAttribute("data-phase", "service", { timeout: 10_000 });
   await expect(screen).toContainText("3615 DEMO");
   await expect(screen).toContainText("GUIDE TIME MACHINE");
+  // The home page opens on a semi-graphic (mosaic) picture of a Minitel.
+  await expect(screen.locator('[data-mosaic="true"]').first()).toBeVisible();
+  await expect(screen.locator(".mt-px").first()).toBeVisible();
 
   await page.keyboard.type("2");
   await page.getByTestId("mt-key-ENVOI").click();

@@ -78,6 +78,9 @@ importers:
       '@time-machine/audio-engine':
         specifier: workspace:*
         version: link:../../packages/audio-engine
+      '@time-machine/bbs-engine':
+        specifier: workspace:*
+        version: link:../../packages/bbs-engine
       '@time-machine/browser-engine':
         specifier: workspace:*
         version: link:../../packages/browser-engine
@@ -185,6 +188,19 @@ importers:
         version: 2.1.9(@types/node@22.20.1)
 
   packages/audio-engine:
+    dependencies:
+      '@time-machine/content-schema':
+        specifier: workspace:*
+        version: link:../content-schema
+    devDependencies:
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@22.20.1)
+
+  packages/bbs-engine:
     dependencies:
       '@time-machine/content-schema':
         specifier: workspace:*
@@ -335,6 +351,9 @@ importers:
       '@time-machine/era-engine':
         specifier: workspace:*
         version: link:../era-engine
+      '@time-machine/messenger-engine':
+        specifier: workspace:*
+        version: link:../messenger-engine
       typescript:
         specifier: ^5.7.2
         version: 5.9.3

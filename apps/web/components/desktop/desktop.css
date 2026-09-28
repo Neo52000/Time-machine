@@ -455,7 +455,15 @@
     animation: none;
   }
 }
+/* The terminal shell is scaled up (×3 for the Minitel): keep balloons small and
+   over the keypad, never over the videotex screen. */
 [data-shell="terminal"] .tm-toasts {
-  bottom: auto;
-  top: 8px;
+  bottom: 2px;
+  right: 2px;
+  width: 120px;
+}
+[data-shell="terminal"] .tm-toast {
+  padding: 2px 3px;
+  font-size: 5px;
+  line-height: 6px;
 }

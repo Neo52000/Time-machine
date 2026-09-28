@@ -14,6 +14,7 @@ import {
   type PlayerState,
 } from "@time-machine/media-engine";
 import { useAnalytics } from "@/lib/analytics/AnalyticsProvider";
+import { useNarrative } from "@/lib/narrative/NarrativeProvider";
 import type { AppProps } from "./types";
 import "./media-player.css";
 
@@ -51,6 +52,7 @@ export function MediaPlayerApp({ clock }: AppProps) {
   const rafRef = useRef<number | null>(null);
   const lastRef = useRef<number>(0);
   const { track } = useAnalytics();
+  const { emit } = useNarrative();
 
   const selected = selectedId ? catalog.getVideo(selectedId) : undefined;
   const entry = selectedId ? library.find((e) => e.clip.id === selectedId) : undefined;
@@ -105,7 +107,10 @@ export function MediaPlayerApp({ clock }: AppProps) {
             aria-label={playing ? "Pause" : "Lecture"}
             aria-pressed={playing}
             onClick={() => {
-              if (!playing) track("media.played", { clipId: selected.id });
+              if (!playing) {
+                track("media.played", { clipId: selected.id });
+                emit("media.played", { clipId: selected.id });
+              }
               setPlayer((p) => (p ? (p.status === "playing" ? pause(p) : play(p)) : p));
             }}
           >

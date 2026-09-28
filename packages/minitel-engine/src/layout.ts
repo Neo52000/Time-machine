@@ -1,5 +1,15 @@
 import type { MinitelBlock, MinitelPage } from "@time-machine/content-schema";
-import { COLS, ROWS, center, fit, line, wrap, type Screen, type ScreenLine } from "./screen";
+import {
+  COLS,
+  ROWS,
+  center,
+  fit,
+  line,
+  mosaicRows,
+  wrap,
+  type Screen,
+  type ScreenLine,
+} from "./screen";
 
 /**
  * Lays a page out on the 40×25 grid. Row 0 is the status line (service +
@@ -35,6 +45,12 @@ function blockLines(block: MinitelBlock): ScreenLine[] {
     }
     case "blank":
       return Array.from({ length: block.rows ?? 1 }, () => line(""));
+    case "mosaic":
+      return mosaicRows(block.pixels).map((mosaic, i) => ({
+        ...line("", block.color ?? "white"),
+        mosaic,
+        ...(i === 0 ? { alt: block.alt } : {}),
+      }));
     case "rule":
       return [line("-".repeat(COLS), "blue")];
     case "menu":

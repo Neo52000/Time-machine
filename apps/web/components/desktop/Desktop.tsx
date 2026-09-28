@@ -94,7 +94,12 @@ function DesktopStage({ era }: { era: EraManifest }) {
     [era.machine.bootSequence],
   );
   const baseFs = useMemo(() => getFileSystem(era.machine.id), [era.machine.id]);
-  const { emit, createdFiles } = useNarrative();
+  const { emit, createdFiles, wallpaper } = useNarrative();
+  // A story reward can repaint the wallpaper; everything else stays the era theme.
+  const tokens = useMemo(
+    () => (wallpaper ? { ...theme.tokens, "--tm-desktop": wallpaper } : theme.tokens),
+    [theme.tokens, wallpaper],
+  );
   const fs = useMemo(() => withCreatedFiles(baseFs, createdFiles), [baseFs, createdFiles]);
   const { apps, missing } = useMemo(() => resolveEraApps(registry, era), [era]);
   const clock = useMemo(() => createEraClock(era.dateStart), [era.dateStart]);
@@ -242,7 +247,7 @@ function DesktopStage({ era }: { era: EraManifest }) {
             width: viewport.width,
             height: viewport.height,
             transform: `scale(${scale})`,
-            ...theme.tokens,
+            ...tokens,
           }}
         >
           {app && AppComponent ? (
@@ -290,12 +295,13 @@ function DesktopStage({ era }: { era: EraManifest }) {
         className={`tm-desktop-root tm-style-${theme.windowStyle}${theme.crt ? " tm-crt" : ""}`}
         data-testid="desktop"
         data-theme={theme.id}
+        data-wallpaper={wallpaper ?? undefined}
         data-audio-enabled={audio.prefs.enabled}
         style={{
           width: viewport.width,
           height: viewport.height,
           transform: `scale(${scale})`,
-          ...theme.tokens,
+          ...tokens,
         }}
         onPointerDown={(e) => {
           // Clicking the wallpaper deselects everything (start menu handled by Taskbar).

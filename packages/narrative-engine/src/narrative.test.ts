@@ -1,11 +1,16 @@
 import { describe, expect, it } from "vitest";
 import { listEras } from "@time-machine/era-engine";
+import { messengerCatalog } from "@time-machine/messenger-engine";
 import {
   createNarrativeCatalog,
   createNarrativeState,
   dispatch,
   interpolate,
   narrativeCatalog,
+  parsePassport,
+  passportProgress,
+  stampFlag,
+  stampPassport,
   type NarrativeEvent,
   type NarrativeState,
 } from "./index";
@@ -205,5 +210,92 @@ describe("dispatch", () => {
 
   it("interpolates only word keys", () => {
     expect(interpolate("{a}-{b c}", { a: 1 })).toBe("1-{b c}");
+  });
+});
+
+describe("passport", () => {
+  const stampDef = { id: "s1", eraId: "1998", title: "S", hint: "h", icon: "*" };
+  const awarding = {
+    id: "give",
+    eras: ["1998"],
+    when: [{ event: "era.loaded" }],
+    actions: [{ type: "award.stamp", payload: { stampId: "s1" } }],
+    once: true,
+  };
+
+  it("validates stamps against the triggers that award them", () => {
+    expect(
+      createNarrativeCatalog({ triggers: [awarding], stamps: [stampDef] }).getStamp("s1"),
+    ).toEqual(stampDef);
+    expect(() => createNarrativeCatalog({ triggers: [awarding], stamps: [] })).toThrow(
+      /unknown stamp/,
+    );
+    expect(() => createNarrativeCatalog({ triggers: [], stamps: [stampDef] })).toThrow(
+      /never awarded/,
+    );
+    expect(() =>
+      createNarrativeCatalog({ triggers: [{ ...awarding, eras: ["2005"] }], stamps: [stampDef] }),
+    ).toThrow(/outside era/);
+  });
+
+  it("parses stored passports tolerantly and keeps the first award", () => {
+    expect(parsePassport("nope")).toEqual({});
+    expect(parsePassport({ a: 1, b: "x", c: Number.NaN })).toEqual({ a: 1 });
+    expect(parsePassport({ a: 1, ghost: 2 }, new Set(["a"]))).toEqual({ a: 1 });
+    const once = stampPassport({}, "a", 10);
+    expect(stampPassport(once, "a", 20)).toBe(once);
+    expect(once).toEqual({ a: 10 });
+  });
+
+  it("groups progress by era in catalogue order", () => {
+    const stamps = [stampDef, { ...stampDef, id: "s2" }, { ...stampDef, id: "s3", eraId: "2005" }];
+    const progress = passportProgress(stamps, { s2: 5 });
+    expect(progress.map((p) => [p.eraId, p.earned.length, p.missing.length])).toEqual([
+      ["1998", 1, 1],
+      ["2005", 0, 1],
+    ]);
+  });
+
+  it("seeds a session with the flags of stamps already earned", () => {
+    const catalog = createNarrativeCatalog({
+      triggers: [
+        awarding,
+        {
+          id: "reward",
+          eras: ["1998"],
+          when: [{ event: "era.loaded" }],
+          requiresFlags: [stampFlag("s1")],
+          actions: [{ type: "change.desktop", payload: { wallpaper: "#123456" } }],
+          once: true,
+        },
+      ],
+      stamps: [stampDef],
+    });
+    // A returning visitor already holds s1: the reward fires on boot.
+    const result = dispatch(catalog.triggers, createNarrativeState([stampFlag("s1")]), {
+      type: "era.loaded",
+    });
+    expect(result.fired).toContain("reward");
+  });
+});
+
+describe("shipped story", () => {
+  it("only messages contacts that exist, and every era has stamps", () => {
+    const contactIds = new Set(messengerCatalog.contacts.map((c) => c.id));
+    for (const t of narrativeCatalog.triggers) {
+      for (const a of t.actions) {
+        if (a.type === "send.message") expect(contactIds, t.id).toContain(a.payload.contactId);
+      }
+    }
+    const erasWithStamps = new Set(narrativeCatalog.stamps.map((s) => s.eraId));
+    for (const era of listEras()) expect(erasWithStamps, era.id).toContain(era.id);
+  });
+
+  it("awarding a stamp sets its flag", () => {
+    const state = dispatch(narrativeCatalog.forEra("1998"), createNarrativeState(), {
+      type: "search.executed",
+      data: { query: "modem", results: 3, provider: "p" },
+    }).state;
+    expect(state.flags).toContain(stampFlag("w98-chercheur"));
   });
 });

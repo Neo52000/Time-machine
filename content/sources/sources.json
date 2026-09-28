@@ -424,5 +424,37 @@
     "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
     "publisher": "Office des publications de l'Union européenne",
     "notes": "Applicable à partir du 25 mai 2018 (article 99)."
+  },
+  {
+    "id": "src-timemachine-bbs-fiction",
+    "label": "Time Machine — BBS fictif",
+    "publisher": "Time Machine",
+    "notes": "Serveur, pseudonymes, messages et fichiers inventés pour la démonstration, dans l'esprit des BBS amateurs du début des années 1990. Aucun contenu ni nom de BBS réel reproduit."
+  },
+  {
+    "id": "src-wikipedia-bbs",
+    "label": "Bulletin board system — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Bulletin_board_system",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-v32",
+    "label": "V.32 — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/V.32",
+    "publisher": "Wikipedia",
+    "notes": "V.32bis (14 400 bit/s), norme ITU-T de 1991."
+  },
+  {
+    "id": "src-wikipedia-windows-31",
+    "label": "Windows 3.1 — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Windows_3.1",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-cernettes",
+    "label": "Les Horribles Cernettes — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Les_Horribles_Cernettes",
+    "publisher": "Wikipedia",
+    "notes": "Souvent citée comme la première photographie publiée sur le Web (juillet 1992) ; date et primauté à confirmer."
   }
 ]

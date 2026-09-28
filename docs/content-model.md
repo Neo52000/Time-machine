@@ -21,6 +21,8 @@ package should redefine these shapes.
 | `VideoClip` / `VideoComment`                                         | `src/media.ts`          | media-engine, `content/media/` (original reconstruction + fictional clips)     |
 | `NarrativeTrigger` / `NarrativeCondition` / `NarrativeAction`        | `src/narrative.ts`      | narrative-engine, `content/narrative/triggers.json` (docs/narrative-engine.md) |
 | `MachineProfile` / `NetworkLink`                                     | `src/computer.ts`       | computer-engine, `content/machines/machines.json` (docs/computer-engine.md)    |
+| `BbsBoard` / `BbsArea` / `BbsItem`                                   | `src/bbs.ts`            | bbs-engine, `content/bbs/boards.json` (fictional seed, docs/bbs-engine.md)     |
+| `PassportStamp`                                                      | `src/narrative.ts`      | narrative-engine, `content/narrative/stamps.json` (docs/narrative-engine.md)   |
 | `SoundCue` / `CueSegment` / `SoundEvent`                             | `src/audio.ts`          | audio-engine, `content/audio/cues.json`, `EraManifest.machine.sounds`          |
 | `AnalyticsEvent` / `AnalyticsEventName`                              | `src/analytics.ts`      | analytics-engine (closed event list, scalar props only)                        |
 

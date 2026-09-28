@@ -16,10 +16,34 @@
     "notes": "La latence de chaque page est simulée par le Minitel Engine ; ce profil ne décrit que le terminal et sa liaison."
   },
   {
+    "id": "pc-1992",
+    "label": "PC familial de 1992",
+    "kind": "personal-computer",
+    "cpu": {
+      "label": "Processeur x86",
+      "clockMHz": 33
+    },
+    "memoryKb": 4096,
+    "storageKb": 122880,
+    "os": "Time Machine OS 3",
+    "display": "Moniteur VGA 640 × 480, 16 couleurs",
+    "network": {
+      "kind": "dial-up",
+      "label": "modem 14 400 bit/s",
+      "downstreamBps": 14400,
+      "upstreamBps": 14400,
+      "latencyMs": 200
+    },
+    "sourceIds": ["src-wikipedia-v32", "src-timemachine-machine-profile"]
+  },
+  {
     "id": "pc-1998",
     "label": "PC familial de 1998",
     "kind": "personal-computer",
-    "cpu": { "label": "Processeur x86", "clockMHz": 266 },
+    "cpu": {
+      "label": "Processeur x86",
+      "clockMHz": 266
+    },
     "memoryKb": 32768,
     "storageKb": 4194304,
     "os": "Time Machine OS 98",
@@ -37,7 +61,10 @@
     "id": "pc-2005",
     "label": "PC familial de 2005",
     "kind": "personal-computer",
-    "cpu": { "label": "Processeur x86", "clockMHz": 3000 },
+    "cpu": {
+      "label": "Processeur x86",
+      "clockMHz": 3000
+    },
     "memoryKb": 524288,
     "storageKb": 83886080,
     "os": "Time Machine OS 2005",

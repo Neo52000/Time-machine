@@ -152,6 +152,35 @@
     "needsResearch": true
   },
   {
+    "id": "linux-gpl",
+    "date": "1992-02-01",
+    "title": "Linux passe sous licence GPL",
+    "summary": "La version 0.12 du noyau Linux adopte la licence publique générale GNU, qui garantit à chacun le droit de le modifier et de le redistribuer.",
+    "category": ["software", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-linux"],
+    "needsResearch": true
+  },
+  {
+    "id": "windows-31",
+    "date": "1992-04-06",
+    "title": "Sortie de Windows 3.1",
+    "summary": "Microsoft publie Windows 3.1, qui installe durablement l'interface graphique sur les PC grand public.",
+    "category": ["software", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-windows-31"]
+  },
+  {
+    "id": "first-web-photo",
+    "date": "1992-07-18",
+    "title": "Une des premières photos sur le Web",
+    "summary": "Une photo d'un groupe musical formé par des employées du CERN est mise en ligne ; elle est souvent citée comme la première image publiée sur le Web.",
+    "category": ["web", "culture", "world"],
+    "importance": 2,
+    "sourceIds": ["src-wikipedia-cernettes"],
+    "needsResearch": true
+  },
+  {
     "id": "mosaic-release",
     "date": "1993-04-22",
     "title": "Sortie du navigateur Mosaic",

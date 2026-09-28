@@ -2,7 +2,11 @@
   {
     "id": "welcome-1998",
     "eras": ["1998"],
-    "when": [{ "event": "era.loaded" }],
+    "when": [
+      {
+        "event": "era.loaded"
+      }
+    ],
     "actions": [
       {
         "type": "show.notification",
@@ -16,8 +20,15 @@
   },
   {
     "id": "not-yet-online",
-    "eras": ["1998", "2005"],
-    "when": [{ "event": "site.visited", "match": { "reason": "not-yet-online" } }],
+    "eras": ["1992", "1998", "2005"],
+    "when": [
+      {
+        "event": "site.visited",
+        "match": {
+          "reason": "not-yet-online"
+        }
+      }
+    ],
     "actions": [
       {
         "type": "show.notification",
@@ -33,12 +44,29 @@
     "id": "explorer-1998",
     "eras": ["1998"],
     "when": [
-      { "event": "site.visited" },
-      { "event": "search.executed" },
-      { "event": "file.opened" }
+      {
+        "event": "site.visited"
+      },
+      {
+        "event": "search.executed"
+      },
+      {
+        "event": "file.opened"
+      }
     ],
     "actions": [
-      { "type": "set.flag", "payload": { "flag": "explorer-1998" } },
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "w98-carnet"
+        }
+      },
+      {
+        "type": "set.flag",
+        "payload": {
+          "flag": "explorer-1998"
+        }
+      },
       {
         "type": "create.file",
         "payload": {
@@ -59,7 +87,11 @@
   {
     "id": "welcome-2005",
     "eras": ["2005"],
-    "when": [{ "event": "era.loaded" }],
+    "when": [
+      {
+        "event": "era.loaded"
+      }
+    ],
     "actions": [
       {
         "type": "show.notification",
@@ -75,10 +107,23 @@
     "id": "social-2005",
     "eras": ["2005"],
     "when": [
-      { "event": "message.received" },
-      { "event": "site.visited", "match": { "type": "reconstruction" } }
+      {
+        "event": "message.received"
+      },
+      {
+        "event": "site.visited",
+        "match": {
+          "type": "reconstruction"
+        }
+      }
     ],
     "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "w05-carnet"
+        }
+      },
       {
         "type": "create.file",
         "payload": {
@@ -86,7 +131,12 @@
           "content": "CARNET DE VOYAGE — 2005\n\nMessagerie instantanée et Web consultés depuis la même machine.\nComparez avec le modem de 1998 : la même page arrive bien plus vite.\n"
         }
       },
-      { "type": "play.sound", "payload": { "event": "notification" } },
+      {
+        "type": "play.sound",
+        "payload": {
+          "event": "notification"
+        }
+      },
       {
         "type": "show.notification",
         "payload": {
@@ -100,7 +150,11 @@
   {
     "id": "minitel-first-service",
     "eras": ["1985"],
-    "when": [{ "event": "service.opened" }],
+    "when": [
+      {
+        "event": "service.opened"
+      }
+    ],
     "actions": [
       {
         "type": "show.notification",
@@ -111,5 +165,496 @@
       }
     ],
     "once": true
+  },
+  {
+    "id": "stamp-m-premier-service",
+    "eras": ["1985"],
+    "when": [
+      {
+        "event": "service.opened"
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "m-premier-service"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-m-annuaire",
+    "eras": ["1985"],
+    "when": [
+      {
+        "event": "service.opened",
+        "match": {
+          "service": "annuaire"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "m-annuaire"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-m-bal",
+    "eras": ["1985"],
+    "when": [
+      {
+        "event": "service.opened",
+        "match": {
+          "service": "bal"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "m-bal"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-m-tour-kiosque",
+    "eras": ["1985"],
+    "when": [
+      {
+        "event": "service.opened",
+        "match": {
+          "service": "demo"
+        }
+      },
+      {
+        "event": "service.opened",
+        "match": {
+          "service": "temps"
+        }
+      },
+      {
+        "event": "service.opened",
+        "match": {
+          "service": "futur"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "m-tour-kiosque"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-w98-premiere-connexion",
+    "eras": ["1998"],
+    "when": [
+      {
+        "event": "site.visited"
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "w98-premiere-connexion"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-w98-trop-tot",
+    "eras": ["1998"],
+    "when": [
+      {
+        "event": "site.visited",
+        "match": {
+          "reason": "not-yet-online"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "w98-trop-tot"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-w98-chercheur",
+    "eras": ["1998"],
+    "when": [
+      {
+        "event": "search.executed"
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "w98-chercheur"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-w98-archeologue",
+    "eras": ["1998"],
+    "when": [
+      {
+        "event": "site.visited",
+        "match": {
+          "domain": "info.cern.ch"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "w98-archeologue"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "reward-1998",
+    "eras": ["1998"],
+    "when": [
+      {
+        "event": "era.loaded"
+      }
+    ],
+    "actions": [
+      {
+        "type": "change.desktop",
+        "payload": {
+          "wallpaper": "#3a2a6a"
+        }
+      },
+      {
+        "type": "show.notification",
+        "payload": {
+          "title": "Époque complétée",
+          "body": "Tous les tampons de 1998 sont à vous : fond d'écran « Voyageur » débloqué."
+        }
+      }
+    ],
+    "once": true,
+    "requiresFlags": [
+      "stamp:w98-premiere-connexion",
+      "stamp:w98-trop-tot",
+      "stamp:w98-chercheur",
+      "stamp:w98-archeologue",
+      "stamp:w98-carnet"
+    ]
+  },
+  {
+    "id": "stamp-w05-message",
+    "eras": ["2005"],
+    "when": [
+      {
+        "event": "message.received"
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "w05-message"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-w05-video",
+    "eras": ["2005"],
+    "when": [
+      {
+        "event": "media.played"
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "w05-video"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-w05-encyclo",
+    "eras": ["2005"],
+    "when": [
+      {
+        "event": "site.visited",
+        "match": {
+          "domain": "wikipedia.org"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "w05-encyclo"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "julie-wiki-tip",
+    "eras": ["2005"],
+    "when": [
+      {
+        "event": "site.visited",
+        "match": {
+          "domain": "wikipedia.org",
+          "type": "reconstruction"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "send.message",
+        "payload": {
+          "contactId": "julie",
+          "text": "Tu connais cette encyclopédie en ligne que tout le monde peut modifier ? J'y passe mes soirées !"
+        }
+      },
+      {
+        "type": "play.sound",
+        "payload": {
+          "event": "notification"
+        }
+      },
+      {
+        "type": "show.notification",
+        "payload": {
+          "title": "Nouveau message de Julie",
+          "body": "Ouvrez Messenger pour lire son message."
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "reward-2005",
+    "eras": ["2005"],
+    "when": [
+      {
+        "event": "era.loaded"
+      }
+    ],
+    "actions": [
+      {
+        "type": "change.desktop",
+        "payload": {
+          "wallpaper": "#1e7a4a"
+        }
+      },
+      {
+        "type": "show.notification",
+        "payload": {
+          "title": "Époque complétée",
+          "body": "Tous les tampons de 2005 sont à vous : fond d'écran « Prairie » débloqué."
+        }
+      }
+    ],
+    "once": true,
+    "requiresFlags": [
+      "stamp:w05-message",
+      "stamp:w05-video",
+      "stamp:w05-encyclo",
+      "stamp:w05-carnet"
+    ]
+  },
+  {
+    "id": "welcome-1992",
+    "eras": ["1992"],
+    "when": [
+      {
+        "event": "era.loaded"
+      }
+    ],
+    "actions": [
+      {
+        "type": "show.notification",
+        "payload": {
+          "title": "Bienvenue en 1992",
+          "body": "Le modem est prêt. Appelez un BBS avec « Terminal BBS », ou découvrez le tout jeune Web dans le Time Browser."
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-b92-premier-bbs",
+    "eras": ["1992"],
+    "when": [
+      {
+        "event": "service.opened",
+        "match": {
+          "kiosk": "bbs"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "b92-premier-bbs"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-b92-forum",
+    "eras": ["1992"],
+    "when": [
+      {
+        "event": "service.opened",
+        "match": {
+          "kiosk": "bbs-area",
+          "service": "messages"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "b92-forum"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-b92-telechargement",
+    "eras": ["1992"],
+    "when": [
+      {
+        "event": "service.opened",
+        "match": {
+          "kiosk": "bbs-download"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "b92-telechargement"
+        }
+      },
+      {
+        "type": "show.notification",
+        "payload": {
+          "title": "Fichier reçu",
+          "body": "{service} est arrivé dans C:\\BBS\\DOWNLOAD."
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-b92-web",
+    "eras": ["1992"],
+    "when": [
+      {
+        "event": "site.visited",
+        "match": {
+          "domain": "info.cern.ch"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "b92-web"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-b92-trop-tot",
+    "eras": ["1992"],
+    "when": [
+      {
+        "event": "site.visited",
+        "match": {
+          "reason": "not-yet-online"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "b92-trop-tot"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "reward-1992",
+    "eras": ["1992"],
+    "when": [
+      {
+        "event": "era.loaded"
+      }
+    ],
+    "actions": [
+      {
+        "type": "change.desktop",
+        "payload": {
+          "wallpaper": "#1f5f5f"
+        }
+      },
+      {
+        "type": "show.notification",
+        "payload": {
+          "title": "Époque complétée",
+          "body": "Tous les tampons de 1992 sont à vous : fond d'écran « Sarcelle » débloqué."
+        }
+      }
+    ],
+    "once": true,
+    "requiresFlags": [
+      "stamp:b92-premier-bbs",
+      "stamp:b92-forum",
+      "stamp:b92-telechargement",
+      "stamp:b92-web",
+      "stamp:b92-trop-tot"
+    ]
   }
 ]

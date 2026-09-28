@@ -4,6 +4,7 @@ import { timeWebCatalog } from "@time-machine/browser-engine";
 import { listEras } from "@time-machine/era-engine";
 import { buildVerticalTimeline, listCategories } from "@time-machine/timeline-engine";
 import { HomeTimeline } from "@/components/HomeTimeline";
+import { Passport } from "@/components/Passport";
 
 export default function HomePage() {
   const eras = listEras();
@@ -51,6 +52,7 @@ export default function HomePage() {
           </a>
         </nav>
       </header>
+      <Passport eras={eras} />
       <HomeTimeline
         years={years}
         categories={listCategories(events)}

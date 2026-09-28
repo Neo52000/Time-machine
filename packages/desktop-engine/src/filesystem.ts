@@ -190,8 +190,8 @@ const fs1998: VirtualFileSystem = {
     "readme-1998": [
       "Bienvenue sur votre machine de 1998.",
       "",
-      "Cette machine simule un PC grand public de l'époque : Pentium II, 64 Mo",
-      "de RAM, écran 800x600 et un modem 56k pour accéder au Web.",
+      "Cette machine simule un PC grand public de l'époque : processeur x86 à",
+      "266 MHz, 32 Mo de RAM, écran 800x600 et un modem 56k pour le Web.",
       "",
       "Applications disponibles :",
       "  - Time Browser : naviguez sur le Web tel qu'il existait en 1998",
@@ -285,7 +285,73 @@ const fs2005: VirtualFileSystem = {
   },
 };
 
+/** Seed disk for the 1992 machine: DOS names, a BBS phone book, a download folder. */
+const fs1992: VirtualFileSystem = {
+  root: "C:",
+  files: [
+    { id: "root", path: "/", name: "C:", type: DIRECTORY_TYPE },
+    { id: "docs", path: "/DOCS", name: "DOCS", type: DIRECTORY_TYPE },
+    { id: "bbs", path: "/BBS", name: "BBS", type: DIRECTORY_TYPE },
+    { id: "download", path: "/BBS/DOWNLOAD", name: "DOWNLOAD", type: DIRECTORY_TYPE },
+    {
+      id: "readme-1992",
+      path: "/DOCS/LISEZMOI.TXT",
+      name: "LISEZMOI.TXT",
+      type: "text/plain",
+      size: 540,
+      contentRef: "readme-1992",
+      modifiedAt: "1992-02-10T18:30:00Z",
+    },
+    {
+      id: "bbs-list",
+      path: "/BBS/ANNUAIRE.TXT",
+      name: "ANNUAIRE.TXT",
+      type: "text/plain",
+      size: 380,
+      contentRef: "bbs-list-1992",
+      modifiedAt: "1992-01-20T21:05:00Z",
+    },
+    {
+      id: "autoexec-1992",
+      path: "/AUTOEXEC.BAT",
+      name: "AUTOEXEC.BAT",
+      type: "text/plain",
+      size: 96,
+      contentRef: "autoexec-1992",
+    },
+  ],
+  contents: {
+    "readme-1992": [
+      "Bienvenue sur votre machine de 1992.",
+      "",
+      "Un PC familial : processeur x86 à 33 MHz, 4 Mo de mémoire, écran VGA",
+      "640x480 et un modem 14 400 bit/s branché sur la ligne téléphonique.",
+      "",
+      "Le modem sert surtout à appeler des BBS : des serveurs tenus par des",
+      "passionnés, avec forums, fichiers à télécharger et messagerie.",
+      "Lancez « Terminal BBS » et choisissez un serveur dans l'annuaire.",
+      "",
+      "Le Web existe déjà, mais il ne compte qu'une poignée de sites :",
+      "essayez info.cern.ch dans le Time Browser.",
+      "",
+      "Les BBS de cette machine sont fictifs.",
+    ].join("\n"),
+    "bbs-list-1992": [
+      "ANNUAIRE DES BBS (fictif)",
+      "-------------------------",
+      "LE GRENIER NUMERIQUE   forums, fichiers, messagerie",
+      "PIXEL CLUB             graphisme et images",
+      "LA PASSERELLE          informations et petites annonces",
+      "",
+      "Tarif : communication téléphonique normale, à la durée.",
+      "Pensez à raccrocher !",
+    ].join("\n"),
+    "autoexec-1992": ["@ECHO OFF", "PATH=C:\\TMDOS;C:\\BBS", "SET TEMP=C:\\TEMP"].join("\n"),
+  },
+};
+
 const fileSystemsByMachine: Record<string, VirtualFileSystem> = {
+  "pc-1992": fs1992,
   "pc-1998": fs1998,
   "pc-2005": fs2005,
 };
