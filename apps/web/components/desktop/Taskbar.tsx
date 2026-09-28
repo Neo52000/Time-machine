@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import type { AppDefinition } from "@time-machine/apps-runtime";
-import type { DesktopWindow } from "@time-machine/content-schema";
+import type { DesktopWindow, EraManifest } from "@time-machine/content-schema";
 import {
   eraNow,
   formatEraDate,
@@ -16,8 +16,10 @@ import {
 import { TASKBAR_HEIGHT } from "@time-machine/window-manager";
 import { useAudio } from "@/lib/audio/AudioProvider";
 import { useAnalytics } from "@/lib/analytics/AnalyticsProvider";
+import { useNetworkConnection } from "@/lib/useNetworkConnection";
 
 interface Props {
+  era: EraManifest;
   theme: DesktopTheme;
   clock: EraClock;
   apps: AppDefinition[];
@@ -191,6 +193,7 @@ export function Taskbar(props: Props) {
       </div>
 
       <div className="tm-tray text-xs">
+        <ModemTray era={props.era} />
         <button
           type="button"
           className="tm-tray-btn"
@@ -213,5 +216,31 @@ export function Taskbar(props: Props) {
         </span>
       </div>
     </div>
+  );
+}
+
+const MODEM_LABELS = {
+  offline: { icon: "🔌", label: "Hors ligne — cliquer pour se connecter" },
+  dialing: { icon: "📞", label: "Numérotation en cours — cliquer pour raccrocher" },
+  online: { icon: "🌐", label: "Connecté — cliquer pour raccrocher" },
+} as const;
+
+/** The dial-up link in the tray: connect by hand, or hang up to free the phone line. */
+function ModemTray({ era }: { era: EraManifest }) {
+  const { connection, connect, hangUp, link } = useNetworkConnection(era);
+  if (link?.kind !== "dial-up") return null;
+  const { icon, label } = MODEM_LABELS[connection.phase];
+  return (
+    <button
+      type="button"
+      className="tm-tray-btn"
+      aria-label={`${label} (${link.label})`}
+      title={`${label} (${link.label})`}
+      data-testid="tray-modem"
+      data-phase={connection.phase}
+      onClick={() => (connection.phase === "offline" ? connect() : hangUp())}
+    >
+      <span aria-hidden>{icon}</span>
+    </button>
   );
 }

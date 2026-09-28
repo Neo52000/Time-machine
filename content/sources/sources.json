@@ -196,5 +196,233 @@
     "label": "Time Machine — configuration machine représentative",
     "publisher": "Time Machine",
     "notes": "Configuration type composée pour le projet (processeur décrit de façon générique, système « Time Machine OS » fictif). Elle évoque l'équipement d'un foyer de l'époque sans reproduire un modèle commercial précis."
+  },
+  {
+    "id": "src-wikipedia-ibm-pc",
+    "label": "IBM Personal Computer — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/IBM_Personal_Computer",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-flag-day",
+    "label": "Flag day (computing) — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Flag_day_(computing)",
+    "publisher": "Wikipedia",
+    "notes": "Bascule de l'ARPANET vers TCP/IP le 1er janvier 1983."
+  },
+  {
+    "id": "src-wikipedia-macintosh",
+    "label": "Macintosh 128K — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Macintosh_128K",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-symbolics-com",
+    "label": "Symbolics — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Symbolics",
+    "publisher": "Wikipedia",
+    "notes": "symbolics.com, premier nom de domaine en .com enregistré le 15 mars 1985."
+  },
+  {
+    "id": "src-wikipedia-morris-worm",
+    "label": "Morris worm — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Morris_worm",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-w3-www-proposal",
+    "label": "Information Management: A Proposal — W3C",
+    "url": "https://www.w3.org/History/1989/proposal.html",
+    "publisher": "W3C",
+    "notes": "Proposition datée « March 1989, May 1990 » ; le jour (12 mars) est la date commémorée, à confirmer sur le document original."
+  },
+  {
+    "id": "src-wikipedia-arpanet",
+    "label": "ARPANET — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/ARPANET",
+    "publisher": "Wikipedia",
+    "notes": "Démantèlement en 1990 ; jour exact à confirmer."
+  },
+  {
+    "id": "src-wikipedia-linux",
+    "label": "History of Linux — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/History_of_Linux",
+    "publisher": "Wikipedia",
+    "notes": "Annonce de Linus Torvalds sur comp.os.minix le 25 août 1991."
+  },
+  {
+    "id": "src-cern-www-public-domain",
+    "label": "Licensing the Web — CERN",
+    "url": "https://home.cern/science/computing/birth-web/licensing-web",
+    "publisher": "CERN",
+    "notes": "Le CERN place le logiciel du WWW dans le domaine public le 30 avril 1993."
+  },
+  {
+    "id": "src-wikipedia-mosaic",
+    "label": "Mosaic (web browser) — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Mosaic_(web_browser)",
+    "publisher": "Wikipedia",
+    "notes": "Date de la version 1.0 à confirmer."
+  },
+  {
+    "id": "src-wikipedia-netscape-navigator",
+    "label": "Netscape Navigator — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Netscape_Navigator",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-windows-95",
+    "label": "Windows 95 — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Windows_95",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-ebay",
+    "label": "eBay — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/EBay",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-dotcom-bubble",
+    "label": "Dot-com bubble — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Dot-com_bubble",
+    "publisher": "Wikipedia",
+    "notes": "Pic de l'indice NASDAQ Composite le 10 mars 2000."
+  },
+  {
+    "id": "src-wikipedia-ipod",
+    "label": "IPod — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/IPod",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-iphone",
+    "label": "iPhone (1st generation) — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/IPhone_(1st_generation)",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-htc-dream",
+    "label": "HTC Dream — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/HTC_Dream",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-minitel-shutdown",
+    "label": "Minitel — Wikipédia (fin du service)",
+    "url": "https://fr.wikipedia.org/wiki/Minitel",
+    "publisher": "Wikipedia",
+    "notes": "Arrêt du service Minitel le 30 juin 2012."
+  },
+  {
+    "id": "src-wikipedia-chatgpt",
+    "label": "ChatGPT — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/ChatGPT",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-plan-ipt",
+    "label": "Plan informatique pour tous — Wikipédia",
+    "url": "https://fr.wikipedia.org/wiki/Plan_informatique_pour_tous",
+    "publisher": "Wikipedia",
+    "notes": "Annonce en janvier 1985 ; jour exact à confirmer."
+  },
+  {
+    "id": "src-wikipedia-amiga-1000",
+    "label": "Amiga 1000 — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Amiga_1000",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-windows-1",
+    "label": "Windows 1.0 — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Windows_1.0",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-irc",
+    "label": "Internet Relay Chat — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Internet_Relay_Chat",
+    "publisher": "Wikipedia",
+    "notes": "Créé en août 1988 ; jour exact à confirmer."
+  },
+  {
+    "id": "src-wikipedia-icq",
+    "label": "ICQ — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/ICQ",
+    "publisher": "Wikipedia",
+    "notes": "Lancé en novembre 1996 ; jour exact à confirmer."
+  },
+  {
+    "id": "src-wikipedia-ieee-80211",
+    "label": "IEEE 802.11 — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/IEEE_802.11",
+    "publisher": "Wikipedia",
+    "notes": "Première version de la norme publiée en 1997 ; jour exact à confirmer."
+  },
+  {
+    "id": "src-wikipedia-bittorrent",
+    "label": "BitTorrent — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/BitTorrent",
+    "publisher": "Wikipedia",
+    "notes": "Première version annoncée par Bram Cohen en juillet 2001 ; jour exact à confirmer."
+  },
+  {
+    "id": "src-wikipedia-firefox",
+    "label": "Firefox version history — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Firefox_version_history",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-youtube-google",
+    "label": "YouTube — Wikipedia (rachat par Google)",
+    "url": "https://en.wikipedia.org/wiki/YouTube",
+    "publisher": "Wikipedia",
+    "notes": "Rachat annoncé le 9 octobre 2006."
+  },
+  {
+    "id": "src-wikipedia-netflix",
+    "label": "Netflix — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Netflix",
+    "publisher": "Wikipedia",
+    "notes": "Lancement du visionnage en ligne en janvier 2007 ; jour exact à confirmer."
+  },
+  {
+    "id": "src-wikipedia-chrome",
+    "label": "Google Chrome — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Google_Chrome",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-bitcoin-whitepaper",
+    "label": "Bitcoin — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Bitcoin",
+    "publisher": "Wikipedia",
+    "notes": "Livre blanc publié le 31 octobre 2008."
+  },
+  {
+    "id": "src-wikipedia-instagram",
+    "label": "Instagram — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Instagram",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-ipv6-launch",
+    "label": "World IPv6 Day and World IPv6 Launch Day — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/World_IPv6_Day_and_World_IPv6_Launch_Day",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-global-surveillance",
+    "label": "Global surveillance disclosures (2013–present) — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Global_surveillance_disclosures_(2013%E2%80%93present)",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-eurlex-gdpr",
+    "label": "Règlement (UE) 2016/679 (RGPD) — EUR-Lex",
+    "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+    "publisher": "Office des publications de l'Union européenne",
+    "notes": "Applicable à partir du 25 mai 2018 (article 99)."
   }
 ]

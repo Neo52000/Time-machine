@@ -65,6 +65,26 @@ describe("scheduling", () => {
     expect(scheduled.map((s) => s.startMs)).toEqual([1000, 1100, 1200]);
   });
 
+  it("passes the band-pass filter through to the adapter", () => {
+    const hiss = scheduleCue(handshake, 0, { enabled: true, volume: 1 }).find(
+      (s) => s.wave === "noise",
+    );
+    expect(hiss?.bandpassHz).toBe(1400);
+  });
+
+  it("gives the 56k modem a full handshake that still fits the cue limit", () => {
+    const modem = audioCatalog.get("modem-dialup-v90")!;
+    const duration = cueDurationMs(modem);
+    expect(duration).toBeGreaterThan(8000);
+    expect(duration).toBeLessThanOrEqual(MAX_CUE_DURATION_MS);
+    // Dial tone first, then the 2 100 Hz answer tone, then the training hiss.
+    const at = (predicate: (s: (typeof modem.segments)[number]) => boolean) =>
+      modem.segments.find(predicate)!.at;
+    expect(at((s) => s.frequency === 440)).toBe(0);
+    expect(at((s) => s.frequency === 2100)).toBeGreaterThan(at((s) => s.frequency === 1477));
+    expect(at((s) => s.bandpassHz === 1800)).toBeGreaterThan(at((s) => s.frequency === 2100));
+  });
+
   it("schedules nothing when disabled or silent", () => {
     expect(scheduleCue(handshake, 0, { enabled: false, volume: 1 })).toEqual([]);
     expect(scheduleCue(handshake, 0, { enabled: true, volume: 0 })).toEqual([]);
@@ -98,7 +118,9 @@ describe("era bindings", () => {
 
   it("resolves the Minitel dial to the handshake and stays silent elsewhere", () => {
     expect(resolveSoundCue(audioCatalog, era1985.machine, "dial")?.id).toBe("modem-handshake-v23");
-    expect(resolveSoundCue(audioCatalog, era1998.machine, "dial")).toBeUndefined();
+    // 1998 dials a 56k modem over the phone network; 2005 is always-on broadband.
+    expect(resolveSoundCue(audioCatalog, era1998.machine, "dial")?.id).toBe("modem-dialup-v90");
+    expect(resolveSoundCue(audioCatalog, era2005.machine, "dial")).toBeUndefined();
     expect(resolveSoundCue(audioCatalog, { sounds: undefined }, "boot")).toBeUndefined();
   });
 

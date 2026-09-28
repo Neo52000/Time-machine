@@ -129,7 +129,7 @@ test.describe("audio", () => {
       .toContainEqual({
         event: "dial",
         cueId: "modem-handshake-v23",
-        segments: 22,
+        segments: 12,
       });
     await expect(page.getByTestId("minitel")).toHaveAttribute("data-phase", "kiosk", {
       timeout: 10_000,
@@ -140,7 +140,7 @@ test.describe("audio", () => {
       .toContainEqual({
         event: "connect",
         cueId: "minitel-carrier",
-        segments: 1,
+        segments: 3,
       });
 
     // Mute: cues still resolve (observable), but nothing is scheduled.
@@ -161,7 +161,9 @@ test.describe("audio", () => {
     await expect(page.getByTestId("audio-toggle")).toHaveAttribute("aria-pressed", "false");
   });
 
-  test("a 1998 machine sounds windows opening and closing, not the modem", async ({ page }) => {
+  test("a 1998 machine sounds windows opening and closing, and no modem at boot", async ({
+    page,
+  }) => {
     await captureAudio(page);
     await page.goto("/era/1998/desktop");
     await page.getByTestId("boot-screen").click();
@@ -181,6 +183,75 @@ test.describe("audio", () => {
         cueId: "pc-window-close",
         segments: 2,
       });
+    expect((await audioLog(page)).some((e) => e.event === "dial")).toBe(false);
+  });
+
+  test("1998 dials the RTC modem once, on the browser's first connection", async ({ page }) => {
+    await captureAudio(page);
+    await page.goto("/era/1998/desktop");
+    await page.getByTestId("boot-screen").click();
+    await page.getByTestId("app-browser").dblclick();
+    const link = page.getByTestId("browser-link");
+    await expect(link).toHaveAttribute("data-phase", "offline");
+
+    await page.getByTestId("browser-address").fill("altavista.com");
+    await page.getByTestId("browser-go").click();
+    // The page never waits for the modem: the reconstruction is there at once.
+    await expect(page.getByTestId("reconstruction")).toBeVisible();
+    await expect(link).toHaveAttribute("data-phase", "dialing");
+    await expect(link).toContainText("Numérotation");
+    await expect
+      .poll(() => audioLog(page))
+      .toContainEqual({ event: "dial", cueId: "modem-dialup-v90", segments: 102 });
+
+    await expect(link).toHaveAttribute("data-phase", "online", { timeout: 15_000 });
+    await expect(link).toContainText("modem 56 kbit/s");
+
+    // Already connected: more pages, even from a new browser window, never redial.
+    await page.getByTestId("browser-address").fill("yahoo.com");
+    await page.getByTestId("browser-go").click();
+    await page.getByTestId("window-close").click();
+    await page.getByTestId("app-browser").dblclick();
+    await expect(page.getByTestId("browser-link")).toHaveAttribute("data-phase", "online");
+    expect((await audioLog(page)).filter((e) => e.event === "dial")).toHaveLength(1);
+  });
+
+  test("1998 tray: hang up mid-handshake, and the mail client redials", async ({ page }) => {
+    await captureAudio(page);
+    await page.goto("/era/1998/desktop");
+    await page.getByTestId("boot-screen").click();
+    const tray = page.getByTestId("tray-modem");
+    await expect(tray).toHaveAttribute("data-phase", "offline");
+
+    // Dial by hand from the tray, then hang up before the handshake ends.
+    await tray.click();
+    await expect(tray).toHaveAttribute("data-phase", "dialing");
+    await tray.click();
+    await expect(tray).toHaveAttribute("data-phase", "offline");
+    await expect
+      .poll(() => audioLog(page))
+      .toContainEqual({ event: "disconnect", cueId: "modem-hangup", segments: 3 });
+
+    // Checking mail needs the line: the modem dials again.
+    await page.getByTestId("app-mail").dblclick();
+    await page.getByTestId("mail-fetch").click();
+    await expect(tray).toHaveAttribute("data-phase", "dialing");
+    await expect(page.getByTestId("mail-status")).toContainText("Connexion au serveur");
+    await expect(tray).toHaveAttribute("data-phase", "online", { timeout: 15_000 });
+    await expect(page.getByTestId("mail-status")).toContainText("Aucun nouveau message");
+    expect((await audioLog(page)).filter((e) => e.event === "dial")).toHaveLength(2);
+  });
+
+  test("2005 broadband is online without a modem handshake", async ({ page }) => {
+    await captureAudio(page);
+    await page.goto("/era/2005/desktop");
+    await page.getByTestId("boot-screen").click();
+    await page.getByTestId("app-browser").dblclick();
+    await page.getByTestId("browser-address").fill("wikipedia.org");
+    await page.getByTestId("browser-go").click();
+    await expect(page.getByTestId("browser-link")).toHaveAttribute("data-phase", "online");
+    await expect(page.getByTestId("browser-link")).toContainText("ADSL");
+    await expect(page.getByTestId("tray-modem")).toHaveCount(0);
     expect((await audioLog(page)).some((e) => e.event === "dial")).toBe(false);
   });
 });

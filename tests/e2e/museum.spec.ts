@@ -20,7 +20,7 @@ test("the museum has a gallery per era, built from sourced content", async ({ pa
   const google = page.getByTestId("museum-event-google-founded");
   await expect(google).toContainText("4 septembre 1998");
   await expect(google).toContainText("Sources");
-  await expect(page.getByTestId("museum-event-minitel-launch")).toContainText("à vérifier");
+  await expect(page.getByTestId("museum-event-first-web-server")).toContainText("à vérifier");
 
   // Only what was online in 1998.
   await expect(page.getByTestId("museum-site-altavista-com")).toBeVisible();

@@ -26,6 +26,7 @@ import { getSearchProvider, search, timeSearchIndex } from "@time-machine/search
 import { useAudio } from "@/lib/audio/AudioProvider";
 import { useAnalytics } from "@/lib/analytics/AnalyticsProvider";
 import { useNarrative } from "@/lib/narrative/NarrativeProvider";
+import { useNetworkConnection } from "@/lib/useNetworkConnection";
 import type { SearchResultsData } from "./browser/ReconstructedPage";
 import { ResolutionView } from "./browser/ResolutionView";
 import type { AppProps } from "./types";
@@ -100,12 +101,14 @@ export function BrowserApp({ era, fs, clock, payload }: AppProps) {
   const audio = useAudio();
   const { track } = useAnalytics();
   const { emit } = useNarrative();
+  const { connection, connect } = useNetworkConnection(era);
 
   // Each resolution is a measurable outcome; a temporal 404 also sounds like one.
   // The ref keeps the story from hearing the same visit twice (effects may re-run).
   const lastVisited = useRef<typeof resolution>(undefined);
   useEffect(() => {
     if (!resolution) return;
+    connect(); // first real address: the modem dials (no-op once online)
     track("browser.resolved", { eraId: era.id, type: resolution.type });
     if (resolution.type === "not-found") audio.play("error");
     if (lastVisited.current === resolution) return;
@@ -115,7 +118,7 @@ export function BrowserApp({ era, fs, clock, payload }: AppProps) {
       type: resolution.type,
       reason: resolution.type === "not-found" ? resolution.reason : "",
     });
-  }, [resolution, era.id, track, audio, emit]);
+  }, [resolution, era.id, track, audio, emit, connect]);
 
   const lastSearched = useRef<typeof searchResults>(undefined);
   useEffect(() => {
@@ -225,6 +228,18 @@ export function BrowserApp({ era, fs, clock, payload }: AppProps) {
         >
           Accueil
         </button>
+        <span
+          className="ml-auto px-1 text-xs"
+          role="status"
+          data-testid="browser-link"
+          data-phase={connection.phase}
+        >
+          {connection.phase === "offline"
+            ? "Hors ligne"
+            : connection.phase === "dialing"
+              ? "📞 Numérotation…"
+              : `🔗 Connecté${machine ? ` — ${machine.network.label}` : ""}`}
+        </span>
       </div>
       <form onSubmit={onSubmit} className="tm-toolbar flex items-center gap-2 px-2 py-1">
         <label className="text-xs" htmlFor="tm-address">

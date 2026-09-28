@@ -37,12 +37,15 @@ interface AudioApi {
   prefs: AudioPreferences;
   toggle: () => void;
   play: (event: SoundEvent) => void;
+  /** Cuts every cue still playing (e.g. hanging up mid-handshake). */
+  stopAll: () => void;
 }
 
 const AudioContextReact = createContext<AudioApi>({
   prefs: DEFAULT_AUDIO_PREFERENCES,
   toggle: () => undefined,
   play: () => undefined,
+  stopAll: () => undefined,
 });
 
 export function useAudio(): AudioApi {
@@ -51,6 +54,8 @@ export function useAudio(): AudioApi {
 
 const ATTACK_S = 0.005;
 const RELEASE_S = 0.008;
+/** Wide enough to keep a hiss, narrow enough to sound like a phone line. */
+const BANDPASS_Q = 1.4;
 
 let noiseBuffer: AudioBuffer | null = null;
 function getNoiseBuffer(ctx: AudioContext): AudioBuffer {
@@ -63,7 +68,11 @@ function getNoiseBuffer(ctx: AudioContext): AudioBuffer {
 }
 
 /** Renders one scheduled segment with a click-free envelope. */
-function renderSegment(ctx: AudioContext, segment: ScheduledSegment, originS: number): void {
+function renderSegment(
+  ctx: AudioContext,
+  segment: ScheduledSegment,
+  originS: number,
+): AudioScheduledSourceNode {
   const start = originS + segment.startMs / 1000;
   const end = originS + segment.endMs / 1000;
   const gain = ctx.createGain();
@@ -88,13 +97,24 @@ function renderSegment(ctx: AudioContext, segment: ScheduledSegment, originS: nu
     }
     source = osc;
   }
-  source.connect(gain);
+  if (segment.bandpassHz !== undefined) {
+    const filter = ctx.createBiquadFilter();
+    filter.type = "bandpass";
+    filter.frequency.setValueAtTime(segment.bandpassHz, start);
+    filter.Q.setValueAtTime(BANDPASS_Q, start);
+    source.connect(filter);
+    filter.connect(gain);
+    source.addEventListener("ended", () => filter.disconnect());
+  } else {
+    source.connect(gain);
+  }
   source.start(start);
   source.stop(end + RELEASE_S);
   source.addEventListener("ended", () => {
     source.disconnect();
     gain.disconnect();
   });
+  return source;
 }
 
 /**
@@ -112,6 +132,7 @@ export function AudioProvider({
   const [prefs, setPrefs] = useState<AudioPreferences>(DEFAULT_AUDIO_PREFERENCES);
   const prefsRef = useRef(prefs);
   const ctxRef = useRef<AudioContext | null>(null);
+  const playingRef = useRef(new Set<AudioScheduledSourceNode>());
   const loadedRef = useRef(false);
 
   useEffect(() => {
@@ -158,7 +179,11 @@ export function AudioProvider({
         const ctx = (ctxRef.current ??= new window.AudioContext());
         if (ctx.state === "suspended") void ctx.resume().catch(() => undefined);
         const origin = ctx.currentTime + 0.01;
-        for (const segment of segments) renderSegment(ctx, segment, origin);
+        for (const segment of segments) {
+          const source = renderSegment(ctx, segment, origin);
+          playingRef.current.add(source);
+          source.addEventListener("ended", () => playingRef.current.delete(source));
+        }
       } catch {
         // Autoplay policy or an exotic browser: silence is acceptable.
       }
@@ -166,9 +191,23 @@ export function AudioProvider({
     [machine],
   );
 
+  const stopAll = useCallback(() => {
+    for (const source of playingRef.current) {
+      try {
+        source.stop();
+      } catch {
+        // Not started yet or already stopped: nothing to cut.
+      }
+    }
+    playingRef.current.clear();
+  }, []);
+
   const toggle = useCallback(() => setPrefs((p) => toggleAudio(p)), []);
 
-  const api = useMemo<AudioApi>(() => ({ prefs, toggle, play }), [prefs, toggle, play]);
+  const api = useMemo<AudioApi>(
+    () => ({ prefs, toggle, play, stopAll }),
+    [prefs, toggle, play, stopAll],
+  );
 
   return <AudioContextReact.Provider value={api}>{children}</AudioContextReact.Provider>;
 }

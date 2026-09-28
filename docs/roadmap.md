@@ -68,6 +68,11 @@ implement → test → validate → commit.
       `packages/museum-engine` (`/museum`, one sourced gallery per era —
       `docs/museum-engine.md`). Every engine of the architecture now exists.
 
+- [x] **Phase 12 — Vertical timeline**: the homepage timeline is a single
+      vertical column (readable from a phone to a wide screen) grouped by
+      year, with the playable eras as stations, decade jumps, category
+      filters and per-event sources; 37 more sourced events (1981 → 2022).
+
 ## Recommended next step
 
 Every engine in `docs/architecture.md` is implemented. Candidates, in order of leverage:
