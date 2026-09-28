@@ -9,6 +9,7 @@ import {
   type TimelineYear,
 } from "@time-machine/timeline-engine";
 import { useAnalytics } from "@/lib/analytics/AnalyticsProvider";
+import { EraStampCount } from "./Passport";
 
 const CATEGORY_LABELS: Record<string, string> = {
   web: "Web",
@@ -197,6 +198,7 @@ function EraStation({ era }: { era: EraManifest }) {
           >
             Salle du musée
           </Link>
+          <EraStampCount eraId={era.id} />
         </div>
       </div>
     </li>

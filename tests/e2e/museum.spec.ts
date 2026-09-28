@@ -4,7 +4,7 @@ test("the museum has a gallery per era, built from sourced content", async ({ pa
   await page.goto("/");
   await page.getByTestId("home-museum").click();
   await expect(page).toHaveURL(/\/museum$/);
-  for (const id of ["1985", "1998", "2005"]) {
+  for (const id of ["1985", "1992", "1998", "2005"]) {
     await expect(page.getByTestId(`museum-gallery-${id}`)).toBeVisible();
   }
 

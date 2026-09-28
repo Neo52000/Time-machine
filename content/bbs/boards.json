@@ -1,0 +1,276 @@
+[
+  {
+    "id": "grenier",
+    "name": "LE GRENIER NUMERIQUE",
+    "phone": "(1) 00 00 01 92",
+    "sysop": "Castor",
+    "tagline": "Le BBS des bricoleurs de l'informatique — ouvert de 20 h à 8 h.",
+    "bannerColor": "cyan",
+    "banner": [
+      "  +--------------------------------------------+",
+      "  |   _     ___  ___  ___  ___  _  _  ___  ___  |",
+      "  |  | |   | __|| __|| _ \\| __|| \\| ||_ _|| __| |",
+      "  |  | |__ | _| | _| |   /| _| | .` | | | | _|  |",
+      "  |  |____||___||___||_|_\\|___||_|\\_||___||___| |",
+      "  |          G R E N I E R   N U M E R I Q U E   |",
+      "  +--------------------------------------------+"
+    ],
+    "areas": [
+      {
+        "id": "grenier-forums",
+        "key": "F",
+        "title": "Forums",
+        "kind": "messages",
+        "items": [
+          {
+            "id": "gf-1",
+            "title": "Mon modem siffle et raccroche",
+            "body": [
+              "Salut à tous,",
+              "mon modem 2400 siffle deux secondes puis raccroche.",
+              "Quelqu'un a une idée ?",
+              "",
+              "Réponse de Castor : essaie une chaîne d'init plus simple,",
+              "et vérifie que personne ne décroche le téléphone !"
+            ],
+            "author": "Nono",
+            "date": "1992-03-02"
+          },
+          {
+            "id": "gf-2",
+            "title": "Qui a déjà vu le World Wide Web ?",
+            "body": [
+              "On m'a parlé d'un système de pages reliées entre elles,",
+              "inventé dans un laboratoire de physique en Suisse.",
+              "Il paraît qu'on peut le consulter depuis une université.",
+              "Quelqu'un a essayé ?"
+            ],
+            "author": "Mélusine",
+            "date": "1992-04-18"
+          },
+          {
+            "id": "gf-3",
+            "title": "Rencontre des utilisateurs samedi",
+            "body": [
+              "Rendez-vous samedi 15 h au café de la gare.",
+              "Apportez vos disquettes, on échange les dernières démos !",
+              "— Castor, sysop"
+            ],
+            "author": "Castor",
+            "date": "1992-05-06"
+          }
+        ]
+      },
+      {
+        "id": "grenier-fichiers",
+        "key": "T",
+        "title": "Fichiers",
+        "kind": "files",
+        "items": [
+          {
+            "id": "gt-1",
+            "title": "Petit jeu de labyrinthe en mode texte",
+            "body": [
+              "Un labyrinthe à parcourir avec les flèches du clavier.",
+              "Archive fictive : son contenu n'est pas reproduit ici."
+            ],
+            "filename": "LABYR.ZIP",
+            "sizeKb": 48
+          },
+          {
+            "id": "gt-2",
+            "title": "Pilote pour modem 14 400",
+            "body": [
+              "Chaîne d'initialisation et conseils de réglage.",
+              "Archive fictive : son contenu n'est pas reproduit ici."
+            ],
+            "filename": "MODEM144.ZIP",
+            "sizeKb": 12
+          },
+          {
+            "id": "gt-3",
+            "title": "Collection de fonds d'écran VGA",
+            "body": [
+              "Douze images en 16 couleurs, 640x480.",
+              "Archive fictive : son contenu n'est pas reproduit ici."
+            ],
+            "filename": "FONDSVGA.ZIP",
+            "sizeKb": 210
+          }
+        ]
+      },
+      {
+        "id": "grenier-bulletins",
+        "key": "B",
+        "title": "Bulletins du sysop",
+        "kind": "bulletins",
+        "items": [
+          {
+            "id": "gb-1",
+            "title": "Règles du BBS",
+            "body": [
+              "1. Un seul appel par soir, 30 minutes maximum.",
+              "2. Pas de fichiers piratés.",
+              "3. Politesse dans les forums.",
+              "Merci de raccrocher proprement avec [G] !"
+            ],
+            "author": "Castor"
+          },
+          {
+            "id": "gb-2",
+            "title": "Nouveau disque dur !",
+            "body": [
+              "Le Grenier passe à 80 Mo de stockage.",
+              "La rubrique Fichiers peut enfin grandir."
+            ],
+            "author": "Castor",
+            "date": "1992-02-14"
+          }
+        ]
+      }
+    ],
+    "fictional": true,
+    "availableFrom": "1990-01-01",
+    "sourceIds": ["src-timemachine-bbs-fiction"],
+    "rightsStatus": "original"
+  },
+  {
+    "id": "pixelclub",
+    "name": "PIXEL CLUB",
+    "phone": "(1) 00 00 02 92",
+    "sysop": "Aquarelle",
+    "tagline": "Graphisme, images et palettes de couleurs.",
+    "bannerColor": "magenta",
+    "banner": [
+      "   ########  ##  ##  ##  #######  ##",
+      "   ##    ##  ##   ####   ##       ##",
+      "   ########  ##    ##    #####    ##",
+      "   ##        ##   ####   ##       ##",
+      "   ##        ##  ##  ##  #######  ######",
+      "           ~ C L U B ~"
+    ],
+    "areas": [
+      {
+        "id": "pixel-forums",
+        "key": "F",
+        "title": "Galerie et discussions",
+        "kind": "messages",
+        "items": [
+          {
+            "id": "pf-1",
+            "title": "16 couleurs, c'est assez ?",
+            "body": [
+              "Avec la bonne palette et du tramage,",
+              "on fait des merveilles en 16 couleurs.",
+              "Postez vos essais dans les fichiers !"
+            ],
+            "author": "Aquarelle",
+            "date": "1992-01-30"
+          },
+          {
+            "id": "pf-2",
+            "title": "Défi du mois : un coucher de soleil",
+            "body": [
+              "Contrainte : 320x200 et 16 couleurs.",
+              "Envoyez vos images avant la fin du mois."
+            ],
+            "author": "Aquarelle",
+            "date": "1992-06-01"
+          }
+        ]
+      },
+      {
+        "id": "pixel-fichiers",
+        "key": "T",
+        "title": "Images à télécharger",
+        "kind": "files",
+        "items": [
+          {
+            "id": "pt-1",
+            "title": "Coucher de soleil tramé",
+            "body": [
+              "Image 320x200, 16 couleurs.",
+              "Image fictive : son contenu n'est pas reproduit ici."
+            ],
+            "filename": "SOLEIL.PCX",
+            "sizeKb": 34
+          },
+          {
+            "id": "pt-2",
+            "title": "Palette « Océan »",
+            "body": [
+              "Une palette de 16 bleus et verts.",
+              "Fichier fictif : son contenu n'est pas reproduit ici."
+            ],
+            "filename": "OCEAN.PAL",
+            "sizeKb": 2
+          }
+        ]
+      }
+    ],
+    "fictional": true,
+    "availableFrom": "1991-01-01",
+    "sourceIds": ["src-timemachine-bbs-fiction"],
+    "rightsStatus": "original"
+  },
+  {
+    "id": "passerelle",
+    "name": "LA PASSERELLE",
+    "phone": "(1) 00 00 03 92",
+    "sysop": "Hérisson",
+    "tagline": "Infos locales, petites annonces et courrier entre abonnés.",
+    "bannerColor": "green",
+    "banner": [
+      "  ==========================================",
+      "     L A   P A S S E R E L L E",
+      "     le BBS de quartier  -  24 h / 24",
+      "  =========================================="
+    ],
+    "areas": [
+      {
+        "id": "passerelle-annonces",
+        "key": "A",
+        "title": "Petites annonces",
+        "kind": "messages",
+        "items": [
+          {
+            "id": "pa-1",
+            "title": "Vends modem 9600 bit/s",
+            "body": ["Très bon état, avec câble série.", "Écrire au sysop pour me contacter."],
+            "author": "Loutre",
+            "date": "1992-03-21"
+          },
+          {
+            "id": "pa-2",
+            "title": "Cherche partenaire pour jeu par courrier",
+            "body": ["Partie d'échecs par messages sur le BBS.", "Un coup par soir !"],
+            "author": "Pion",
+            "date": "1992-04-02"
+          }
+        ]
+      },
+      {
+        "id": "passerelle-infos",
+        "key": "I",
+        "title": "Infos du quartier",
+        "kind": "bulletins",
+        "items": [
+          {
+            "id": "pi-1",
+            "title": "Coupure de ligne jeudi",
+            "body": [
+              "Travaux sur la ligne jeudi soir :",
+              "le BBS sera injoignable de 22 h à minuit."
+            ],
+            "author": "Hérisson",
+            "date": "1992-05-12"
+          }
+        ]
+      }
+    ],
+    "fictional": true,
+    "availableFrom": "1989-06-01",
+    "sourceIds": ["src-timemachine-bbs-fiction"],
+    "rightsStatus": "original"
+  }
+]

@@ -40,7 +40,7 @@ export function MessengerApp(_props: AppProps) {
   const logRef = useRef<HTMLDivElement>(null);
   const audio = useAudio();
   const { track } = useAnalytics();
-  const { emit } = useNarrative();
+  const { emit, storyMessages } = useNarrative();
 
   useEffect(() => {
     let id: number | undefined;
@@ -84,10 +84,14 @@ export function MessengerApp(_props: AppProps) {
       from: "me" as const,
       text: m.text,
     }));
+    // Messages the story made this contact send (e.g. after a site visit).
+    const story = storyMessages
+      .filter((m) => m.contactId === activeConversation.contactId)
+      .map((m) => ({ key: m.id, from: "contact" as const, text: m.text }));
     // Interleave roughly by keeping scripted order and appending sent messages at the end
     // of the segment they were typed in — good enough for a demo conversation.
-    return [...scripted, ...sent];
-  }, [activeConversation, runtime, session.sentMessages]);
+    return [...scripted, ...story, ...sent];
+  }, [activeConversation, runtime, session.sentMessages, storyMessages]);
 
   useEffect(() => {
     logRef.current?.scrollTo({ top: logRef.current.scrollHeight });

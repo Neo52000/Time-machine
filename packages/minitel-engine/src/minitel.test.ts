@@ -3,7 +3,7 @@ import sources from "../../../content/sources/sources.json";
 import { createMinitelCatalog } from "./catalog";
 import { minitelCatalog } from "./content";
 import { BODY_ROWS, layoutPage } from "./layout";
-import { COLS, ROWS, center, fit, videotexInput, wrap } from "./screen";
+import { COLS, ROWS, center, fit, mosaicRows, videotexInput, wrap } from "./screen";
 import {
   createSession,
   currentPage,
@@ -239,5 +239,35 @@ describe("session: services and navigation", () => {
         .map((l) => l.text)
         .join("\n"),
     ).toContain("Derniere communication");
+  });
+});
+
+describe("mosaic (semi-graphic) rows", () => {
+  it("packs each 2×3 pixel block into one cell mask, in G1 bit order", () => {
+    // Top-left, middle-right, bottom-left and bottom-right lit → 1 + 8 + 16 + 32.
+    const [row] = mosaicRows(["#.", ".#", "##"]);
+    expect(row).toHaveLength(COLS);
+    expect(row!.filter((m) => m !== 0)).toEqual([1 + 8 + 16 + 32]);
+  });
+
+  it("centres narrow art and pads the height to whole rows", () => {
+    const rows = mosaicRows(["##", "##"]);
+    expect(rows).toHaveLength(1);
+    expect(rows[0]!.indexOf(15)).toBe(19); // 2 px wide in an 80 px screen → cell 19
+  });
+
+  it("refuses art wider than the screen", () => {
+    expect(() => mosaicRows(["#".repeat(81)])).toThrow(/max 80/);
+  });
+
+  it("lays out shipped mosaic pictures as blank-text rows with an alternative", () => {
+    const page = minitelCatalog.getPage("demo-home")!;
+    const [screen] = layoutPage(page).screens;
+    const pictureRows = screen!.filter((l) => l.mosaic);
+    expect(pictureRows.length).toBeGreaterThan(0);
+    expect(pictureRows[0]!.alt).toMatch(/Minitel/);
+    for (const l of pictureRows) expect(l.text.trim()).toBe("");
+    // The menu still fits on the first screen.
+    expect(screen!.some((l) => l.text.includes("GUIDE TIME MACHINE"))).toBe(true);
   });
 });

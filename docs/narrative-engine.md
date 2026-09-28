@@ -40,21 +40,49 @@ actions to perform (placeholders filled) and the ids that fired.
 
 ## Events emitted today
 
-| Event              | Emitted by                         | Data                           |
-| ------------------ | ---------------------------------- | ------------------------------ |
-| `era.loaded`       | Desktop, when boot completes       | `eraId`                        |
-| `file.opened`      | Notepad, terminal `TYPE`           | `path`, `name`                 |
-| `site.visited`     | Time Browser, each resolution      | `domain`, `type`, `reason`     |
-| `search.executed`  | Time Browser, non-empty query      | `query`, `results`, `provider` |
-| `message.received` | Messenger, incoming message        | `contactId`                    |
-| `service.opened`   | Minitel, each newly opened service | `kiosk`, `service`             |
+| Event              | Emitted by                                 | Data                                                                                        |
+| ------------------ | ------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| `era.loaded`       | Desktop, when boot completes               | `eraId`                                                                                     |
+| `file.opened`      | Notepad, terminal `TYPE`                   | `path`, `name`                                                                              |
+| `site.visited`     | Time Browser, each resolution              | `domain`, `type`, `reason`                                                                  |
+| `search.executed`  | Time Browser, non-empty query              | `query`, `results`, `provider`                                                              |
+| `message.received` | Messenger, incoming message                | `contactId`                                                                                 |
+| `service.opened`   | Minitel, each newly opened service         | `kiosk`, `service`                                                                          |
+| `service.opened`   | Terminal BBS (1992): login, area, download | `kiosk` = `bbs` / `bbs-area` / `bbs-download`, `service` = board id / area kind / file name |
+| `media.played`     | Media player, play pressed                 | `clipId`                                                                                    |
 
 ## Actions performed today
 
 `show.notification` (tray balloon, polite live region, auto-dismiss 8 s,
 click-through except its close button), `create.file` (added to the virtual
 disk through `desktop-engine`'s `addTextFile` — never overwrites a file),
-`play.sound` (through the era's sound bindings), `set.flag`.
+`play.sound` (through the era's sound bindings), `set.flag`, and:
+
+- `send.message` — a Messenger contact "writes" (the message is merged into
+  that contact's conversation; no chatbot, the text is content).
+- `change.desktop` — a reward wallpaper colour (`#rrggbb`) for the session.
+- `award.stamp` — stamps the visitor's **passport** (below).
+
+## Passport (stamps)
+
+`content/narrative/stamps.json` lists small achievements per era (id, era,
+title, hint, icon). A trigger awards one with `award.stamp`; the engine also
+sets the flag `stamp:<id>`, so a reward trigger can `requiresFlags` every
+stamp of an era. Stamps are kept in the visitor's browser
+(`apps/web/lib/narrative/passport.ts`, key `time-machine-passport`, never
+sent anywhere) and shown on the homepage: earned stamps in colour, missing
+ones as a hint. A new session is seeded with the flags of stamps already
+earned, so an era reward also unlocks for a returning visitor; a stamp is
+celebrated with a balloon only the first time. The catalogue refuses a stamp
+no trigger awards, an award of an unknown stamp, and an award outside the
+stamp's era.
+
+| Era  | Stamps                                                                            | Reward                 |
+| ---- | --------------------------------------------------------------------------------- | ---------------------- |
+| 1985 | first service, directory (3611), 3614 BAL, DEMO + TEMPS + FUTUR                   | —                      |
+| 1992 | first BBS login, a forum message, a download, info.cern.ch, a site not yet online | wallpaper « Sarcelle » |
+| 1998 | first connection, a temporal 404, a search, info.cern.ch, the travel log          | wallpaper « Voyageur » |
+| 2005 | a Messenger message, a video, the free encyclopedia, the 2005 log                 | wallpaper « Prairie »  |
 
 ## Fail fast
 

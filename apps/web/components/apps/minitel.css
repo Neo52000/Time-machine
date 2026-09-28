@@ -99,3 +99,19 @@
 .mt-key:active {
   background: #333;
 }
+
+/* Semi-graphic (mosaic) rows: each 8×8 cell is a 2×3 grid of blocks. */
+.mt-mosaic-row {
+  display: flex;
+}
+.mt-cell {
+  display: grid;
+  grid-template-columns: repeat(2, 4px);
+  grid-template-rows: 3px 2px 3px;
+  width: 8px;
+  height: 8px;
+  flex: none;
+}
+.mt-px {
+  background: currentColor;
+}

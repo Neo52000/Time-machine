@@ -45,7 +45,9 @@ test("1998: the story greets the user, explains a temporal 404 and writes a trav
   await terminalInput.fill("type LISEZMOI.txt");
   await terminalInput.press("Enter");
   await expect(toasts.filter({ hasText: "Carnet de voyage.txt" })).toBeVisible();
-  expect(await story(page)).toEqual(["welcome-1998", "not-yet-online", "explorer-1998"]);
+  expect(await story(page)).toEqual(
+    expect.arrayContaining(["welcome-1998", "not-yet-online", "explorer-1998"]),
+  );
 
   // The file really is on the virtual disk, readable by every app.
   await page.getByTestId("app-file-manager").dblclick();
@@ -73,8 +75,12 @@ test("1985: opening a Minitel service is a story beat on the full-screen shell",
   });
   await page.keyboard.type("DEMO");
   await page.keyboard.press("Enter");
-  await expect(page.getByTestId("narrative-notification")).toContainText("3615 demo", {
+  await expect(
+    page.getByTestId("narrative-notification").filter({ hasText: "Service ouvert" }),
+  ).toContainText("3615 demo", {
     timeout: 10_000,
   });
-  expect(await story(page)).toEqual(["minitel-first-service"]);
+  expect(await story(page)).toEqual(
+    expect.arrayContaining(["minitel-first-service", "stamp-m-premier-service"]),
+  );
 });

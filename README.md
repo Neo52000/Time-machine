@@ -32,12 +32,12 @@ pnpm build               # production build of every app
 pnpm test:e2e            # Playwright end-to-end tests (starts the app itself)
 ```
 
-## What works today (Phases 0–11)
+## What works today (Phases 0–13)
 
 ```text
 Homepage ("WHEN DO YOU WANT TO GO?")
   → vertical timeline, one column at any width (phone to wide screen):
-      55 sourced dates from 1980 to today, the 1985 / 1998 / 2005 machines as
+      58 sourced dates from 1980 to today, the 1985 / 1992 / 1998 / 2005 machines as
       stations in the stream, decade jumps, category filters, sources per
       event and "à vérifier" on anything unconfirmed
   → select an era
@@ -83,11 +83,18 @@ Homepage ("WHEN DO YOU WANT TO GO?")
   → a data-driven story (Narrative Engine): tray notifications, a temporal
       404 explained, a travel log written to Mes Documents once you have
       browsed, searched and opened a file
+  → 1992: a VGA PC with a 14 400 bit/s modem — call fictional BBS (forums,
+      bulletins, downloads timed on the modem and saved to C:\BBS\DOWNLOAD),
+      one phone line shared with a Web that has a single site: info.cern.ch
+  → Minitel mosaic pictures on the 3615 home pages (original pixel art)
+  → a visitor passport: 18 stamps to earn across the four eras, kept in the
+      browser and shown on the homepage; completing an era unlocks a
+      wallpaper; Messenger contacts react to what you do
   → /museum: one gallery per era — its machine, its events, the sites then
       online — every label sourced, uncertain ones marked "à vérifier"
 ```
 
-1985 (Minitel), 1998 (early Web desktop), and 2005 (social web + video) each
+1985 (Minitel), 1992 (BBS + first Web), 1998 (early Web desktop), and 2005 (social web + video) each
 load their own `EraManifest` (`eras/<id>/manifest.json`) — nothing is
 hard-coded per era in the app code. Themes, shells, boot sequences, disks and app
 lists are all resolved from manifest keys.
@@ -119,6 +126,7 @@ packages/
   computer-engine/    Machine profiles as data, link timing model
   narrative-engine/   Data-driven story triggers, pure dispatch
   museum-engine/      Per-era galleries derived from sourced content
+  bbs-engine/         Fictional BBS boards as data, pure call session
 eras/                 EraManifest JSON, one folder per era
 content/
   events/             HistoricalEvent seed data

@@ -1064,5 +1064,202 @@
       }
     ],
     "rightsStatus": "original"
+  },
+  {
+    "id": "modem-dialup-v32",
+    "title": "Connexion modem 14 400 bit/s",
+    "description": "Numérotation d'un BBS fictif, sonnerie, tonalité de réponse à 2 100 Hz, double tonalité d'apprentissage puis souffle jusqu'à la coupure du haut-parleur. Évoque une liaison V.32bis ; synthèse originale, aucun enregistrement.",
+    "segments": [
+      {
+        "at": 0,
+        "durationMs": 800,
+        "wave": "sine",
+        "frequency": 440,
+        "gain": 0.18
+      },
+      {
+        "at": 0,
+        "durationMs": 6000,
+        "wave": "noise",
+        "gain": 0.01,
+        "bandpassHz": 1400
+      },
+      {
+        "at": 900,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 697,
+        "gain": 0.14
+      },
+      {
+        "at": 900,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1209,
+        "gain": 0.14
+      },
+      {
+        "at": 1030,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 941,
+        "gain": 0.14
+      },
+      {
+        "at": 1030,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1336,
+        "gain": 0.14
+      },
+      {
+        "at": 1160,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 941,
+        "gain": 0.14
+      },
+      {
+        "at": 1160,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1336,
+        "gain": 0.14
+      },
+      {
+        "at": 1290,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 941,
+        "gain": 0.14
+      },
+      {
+        "at": 1290,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1336,
+        "gain": 0.14
+      },
+      {
+        "at": 1420,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 941,
+        "gain": 0.14
+      },
+      {
+        "at": 1420,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1336,
+        "gain": 0.14
+      },
+      {
+        "at": 1550,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 941,
+        "gain": 0.14
+      },
+      {
+        "at": 1550,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1336,
+        "gain": 0.14
+      },
+      {
+        "at": 1680,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 697,
+        "gain": 0.14
+      },
+      {
+        "at": 1680,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1209,
+        "gain": 0.14
+      },
+      {
+        "at": 1810,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 852,
+        "gain": 0.14
+      },
+      {
+        "at": 1810,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1477,
+        "gain": 0.14
+      },
+      {
+        "at": 1940,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 697,
+        "gain": 0.14
+      },
+      {
+        "at": 1940,
+        "durationMs": 75,
+        "wave": "sine",
+        "frequency": 1336,
+        "gain": 0.14
+      },
+      {
+        "at": 2220,
+        "durationMs": 900,
+        "wave": "sine",
+        "frequency": 440,
+        "gain": 0.14
+      },
+      {
+        "at": 3220,
+        "durationMs": 1100,
+        "wave": "sine",
+        "frequency": 2100,
+        "gain": 0.17
+      },
+      {
+        "at": 4370,
+        "durationMs": 400,
+        "wave": "sine",
+        "frequency": 1800,
+        "gain": 0.08
+      },
+      {
+        "at": 4370,
+        "durationMs": 400,
+        "wave": "sine",
+        "frequency": 600,
+        "gain": 0.08
+      },
+      {
+        "at": 4820,
+        "durationMs": 300,
+        "wave": "sine",
+        "frequency": 1800,
+        "gain": 0.08
+      },
+      {
+        "at": 4820,
+        "durationMs": 300,
+        "wave": "sine",
+        "frequency": 600,
+        "gain": 0.08
+      },
+      {
+        "at": 5170,
+        "durationMs": 900,
+        "wave": "noise",
+        "gain": 0.12,
+        "bandpassHz": 1800
+      }
+    ],
+    "rightsStatus": "original"
   }
 ]

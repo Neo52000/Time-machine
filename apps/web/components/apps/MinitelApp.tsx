@@ -185,15 +185,29 @@ export function MinitelApp({ clock }: AppProps) {
         onClick={() => screenRef.current?.focus()}
         data-testid="minitel-screen"
       >
-        {screen.map((row, i) => (
-          <div
-            key={i}
-            className={`mt-row mt-${row.color}${row.inverse ? " mt-inverse" : ""}`}
-            data-row={i}
-          >
-            {row.text}
-          </div>
-        ))}
+        {screen.map((row, i) =>
+          row.mosaic ? (
+            <div
+              key={i}
+              className={`mt-row mt-mosaic-row mt-${row.color}`}
+              data-row={i}
+              data-mosaic="true"
+            >
+              {row.alt && <span className="sr-only">{row.alt}</span>}
+              {row.mosaic.map((mask, c) => (
+                <MosaicCell key={c} mask={mask} />
+              ))}
+            </div>
+          ) : (
+            <div
+              key={i}
+              className={`mt-row mt-${row.color}${row.inverse ? " mt-inverse" : ""}`}
+              data-row={i}
+            >
+              {row.text}
+            </div>
+          ),
+        )}
       </div>
       <div id="mt-status" className="sr-only" aria-live="polite" data-testid="minitel-status">
         {describe(session)}
@@ -214,5 +228,18 @@ export function MinitelApp({ clock }: AppProps) {
         ))}
       </div>
     </div>
+  );
+}
+
+const MOSAIC_BITS = [1, 2, 4, 8, 16, 32];
+
+/** One videotex semi-graphic character: a 2×3 grid of lit or dark blocks. */
+function MosaicCell({ mask }: { mask: number }) {
+  return (
+    <span className="mt-cell" aria-hidden>
+      {mask === 0
+        ? null
+        : MOSAIC_BITS.map((bit) => <span key={bit} className={mask & bit ? "mt-px" : undefined} />)}
+    </span>
   );
 }

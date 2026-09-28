@@ -19,7 +19,8 @@ TIME MACHINE
 ├── Browser Engine      — packages/browser-engine  (implemented: URL normalisation, Time Web catalogue, 6-step resolution, history)
 ├── Time Web Engine     — browser-engine catalogue + content/websites|snapshots|reconstructions (14 sites, 12 pages)
 ├── Time Search Engine  — packages/search-engine  (implemented: catalogue-derived index, +/-/phrase syntax, temporal filter)
-├── Minitel Engine      — packages/minitel-engine  (implemented: videotex layout, session, kiosks/services as data)
+├── Minitel Engine      — packages/minitel-engine  (implemented: videotex layout incl. mosaic pictures, session, kiosks/services as data)
+├── BBS Engine          — packages/bbs-engine      (implemented: fictional boards as data, pure session, 80-column screens)
 ├── Messenger Engine    — packages/messenger-engine (implemented: scripted conversations, background presence, no chatbot)
 ├── Media Engine        — packages/media-engine    (implemented: pure player, upload-date lock, original placeholder visuals)
 ├── Museum Engine       — packages/museum-engine    (implemented: one sourced gallery per era, derived from the catalogues)
@@ -100,7 +101,8 @@ packages/
   computer-engine/  Machine profiles (CPU, memory, disk, display, network link) + transfer-time model
   narrative-engine/ Trigger catalogue (validated against what the runtime emits/performs) + pure dispatch
   museum-engine/    Per-era galleries derived from eras, events, websites, machines and sources
-eras/               EraManifest JSON per era (1985, 1998, 2005)
+  bbs-engine/       BBS boards as data, pure call session (login, areas, downloads), 80-column render
+eras/               EraManifest JSON per era (1985, 1992, 1998, 2005)
 content/
   events/           HistoricalEvent seed data
   sources/          SourceReference seed data
@@ -112,7 +114,8 @@ content/
   media/            Video clips (incl. an original "Me at the zoo" reconstruction) and comments
   audio/            Sound cues as tone/noise segments — synthesised, never sampled
   machines/         Machine profiles (representative configurations, sourced)
-  narrative/        Narrative triggers (meta, fictional story beats)
+  narrative/        Narrative triggers and passport stamps (meta, fictional story beats)
+  bbs/              BBS boards, areas and items (fictional seed)
 ```
 
 See `docs/era-format.md` and `docs/content-model.md` for the data contracts,

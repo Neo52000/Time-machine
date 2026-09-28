@@ -84,6 +84,25 @@ export const MinitelBlockSchema = z.discriminatedUnion("type", [
     align: z.enum(["left", "center"]).optional(),
   }),
   z.object({ type: z.literal("blank"), rows: z.number().int().positive().optional() }),
+  /**
+   * Semi-graphic (mosaic) picture. Each text cell of a videotex screen can
+   * show a 2×3 block of "pixels", so the art is drawn at 80×(3·rows) as
+   * strings of "#" (lit) and "." (dark). Original pixel art only.
+   */
+  z.object({
+    type: z.literal("mosaic"),
+    pixels: z
+      .array(
+        z
+          .string()
+          .regex(/^[#.]+$/, 'Mosaic rows use "#" and "."')
+          .max(80),
+      )
+      .min(1),
+    color: VideotexColorSchema.optional(),
+    /** What the picture shows, for screen readers. */
+    alt: z.string().min(1),
+  }),
   z.object({ type: z.literal("rule") }),
   z.object({
     type: z.literal("menu"),

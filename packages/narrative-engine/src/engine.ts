@@ -28,9 +28,13 @@ export interface DispatchResult {
   fired: string[];
 }
 
-export function createNarrativeState(): NarrativeState {
-  return { progress: {}, fired: [], flags: [] };
+/** `flags` seeds a session, e.g. with `stamp:<id>` for stamps already in the passport. */
+export function createNarrativeState(flags: readonly string[] = []): NarrativeState {
+  return { progress: {}, fired: [], flags: [...new Set(flags)] };
 }
+
+/** The flag an `award.stamp` trigger sets alongside the stamp (convention used by content). */
+export const stampFlag = (stampId: string) => `stamp:${stampId}`;
 
 function sameValue(expected: NarrativeScalar, actual: NarrativeScalar | undefined): boolean {
   if (typeof expected === "string" && typeof actual === "string") {
@@ -101,8 +105,14 @@ export function dispatch(
       if (!t.once) progress[t.id] = t.when.map(() => false);
       for (const action of t.actions) {
         actions.push(fillAction(action, data));
-        if (action.type === "set.flag" && !flags.has(action.payload.flag)) {
-          flags.add(action.payload.flag);
+        const flag =
+          action.type === "set.flag"
+            ? action.payload.flag
+            : action.type === "award.stamp"
+              ? stampFlag(action.payload.stampId)
+              : undefined;
+        if (flag !== undefined && !flags.has(flag)) {
+          flags.add(flag);
           changed = true;
         }
       }

@@ -45,7 +45,7 @@ test("filters keep the machines, jump links reach them, sources are cited", asyn
   await expect(page.getByTestId("filter-mobile")).toHaveAttribute("aria-pressed", "true");
   await expect(page.getByTestId("timeline-event-iphone-announced")).toBeVisible();
   await expect(page.getByTestId("timeline-event-google-founded")).toHaveCount(0);
-  for (const id of ["1985", "1998", "2005"]) {
+  for (const id of ["1985", "1992", "1998", "2005"]) {
     await expect(page.getByTestId(`timeline-era-${id}`)).toHaveCount(1);
   }
   await page.getByTestId("filter-reset").click();

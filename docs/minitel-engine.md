@@ -84,3 +84,15 @@ date" and a 1984 machine cannot dial `3615` at all.
 - Documentary reconstructions of real services can be added later without
   touching the engine: a service is data, its rights status must not be
   `unknown` unless it is flagged fictional.
+
+## Mosaic (semi-graphic) pictures
+
+A page block `{ "type": "mosaic", "pixels": [...], "color": "cyan", "alt": "…" }`
+draws a picture the videotex way: each of the 40 text cells can show a 2×3
+block of "pixels", so art is authored at up to 80 px wide as rows of `#`
+(lit) and `.` (dark). `mosaicRows` (`screen.ts`) packs every 2×3 block into a
+6-bit mask (bit 0 top-left … bit 5 bottom-right), centres narrow art and pads
+the height to whole rows. The screen line keeps 40 blank columns of `text`
+plus `mosaic` masks; the web renderer draws each cell as a 2×3 grid and
+gives screen readers the block's `alt`. All pictures are original pixel art
+(DEMO: a terminal, TEMPS: sun and cloud, BAL: an envelope, FUTUR: a rocket).

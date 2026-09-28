@@ -21,16 +21,32 @@ const sequences: Record<string, BootSequence> = {
     id: "pc-1998-boot",
     holdMs: 700,
     lines: [
-      { text: "Award Modular BIOS v4.51PG, An Energy Star Ally", delayMs: 0 },
-      { text: "Copyright (C) 1984-98, Award Software, Inc.", delayMs: 60 },
+      // Brand-neutral, and consistent with the pc-1998 profile (content/machines).
+      { text: "Time Machine BIOS v4.5 - Configuration 1998", delayMs: 0 },
+      { text: "(C) Time Machine. Tous droits reserves.", delayMs: 60 },
       { text: "", delayMs: 300 },
-      { text: "Pentium II 300MHz CPU at 300MHz", delayMs: 200 },
-      { text: "Memory Test :  65536K OK", delayMs: 500 },
+      { text: "Processeur x86 a 266 MHz", delayMs: 200 },
+      { text: "Test memoire :  32768K OK", delayMs: 500 },
       { text: "", delayMs: 100 },
-      { text: "Detecting IDE Primary Master ... QUANTUM FIREBALL SE4.3A", delayMs: 400 },
-      { text: "Detecting IDE Secondary Master ... CD-ROM 24X", delayMs: 350 },
+      { text: "Disque maitre primaire ... 4 Go", delayMs: 400 },
+      { text: "Disque esclave secondaire ... lecteur CD-ROM", delayMs: 350 },
       { text: "", delayMs: 100 },
       { text: "Starting Time Machine OS 98...", delayMs: 500 },
+    ],
+  },
+  "pc-1992-boot": {
+    id: "pc-1992-boot",
+    holdMs: 700,
+    lines: [
+      { text: "Time Machine BIOS v2.1 - Configuration 1992", delayMs: 0 },
+      { text: "Processeur x86 a 33 MHz", delayMs: 250 },
+      { text: "Test memoire :  4096K OK", delayMs: 600 },
+      { text: "Disque dur ... 120 Mo", delayMs: 350 },
+      { text: "Carte graphique VGA 640x480, 16 couleurs", delayMs: 250 },
+      { text: "Modem 14400 bit/s detecte sur COM2", delayMs: 300 },
+      { text: "", delayMs: 100 },
+      { text: "C:\\> TMDOS", delayMs: 400 },
+      { text: "Chargement de l'environnement graphique...", delayMs: 500 },
     ],
   },
   "minitel-boot": {
@@ -48,7 +64,7 @@ const sequences: Record<string, BootSequence> = {
     lines: [
       { text: "Time Machine OS 2005", delayMs: 0 },
       { text: "Chargement des paramètres personnels...", delayMs: 500 },
-      { text: "Connexion ADSL établie — 8 Mbit/s", delayMs: 600 },
+      { text: "Connexion ADSL établie — 2 Mbit/s", delayMs: 600 },
     ],
   },
 };

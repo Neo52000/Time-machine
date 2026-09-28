@@ -73,6 +73,15 @@ implement → test → validate → commit.
       year, with the playable eras as stations, decade jumps, category
       filters and per-event sources; 37 more sourced events (1981 → 2022).
 
+- [x] **Phase 13 — Play**: the 1992 era (VGA PC, 14 400 bit/s modem,
+      `packages/bbs-engine` + Terminal BBS with three fictional boards,
+      downloads timed on the modem, the one-site Web of 1992 —
+      `docs/bbs-engine.md`); Minitel mosaic (semi-graphic) pictures
+      (`docs/minitel-engine.md`); a richer story: Messenger messages,
+      reward wallpapers and a visitor passport of 18 stamps across the four
+      eras (`docs/narrative-engine.md`). Boot screens no longer name real
+      BIOS/CPU/disk brands and now match the machine profiles.
+
 ## Recommended next step
 
 Every engine in `docs/architecture.md` is implemented. Candidates, in order of leverage:
@@ -96,8 +105,7 @@ Every engine in `docs/architecture.md` is implemented. Candidates, in order of l
   backend exists.
 - Analytics: the only sink is the visitor's own browser; nothing is
   collected centrally yet (see `docs/polish.md`).
-- Minitel: no graphic (mosaic) characters and no double-height text; the
-  screen is text-only.
+- Minitel: no double-height text (mosaic pictures exist since Phase 13).
 - Messenger: one scripted conversation per contact, no group chats, no
   file transfer (period-accurate but out of scope for the MVP).
 - Media player: four clips, one library; no upload flow, no search.

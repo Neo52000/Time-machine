@@ -11,39 +11,80 @@
         "align": "center",
         "inverse": true
       },
-      { "type": "blank" },
+      {
+        "type": "mosaic",
+        "pixels": [
+          "....##########################....",
+          "....#........................#....",
+          "....#..##########............#....",
+          "....#........................#....",
+          "....#..###############.......#....",
+          "....#........................#....",
+          "....#..#######...............#....",
+          "....##########################....",
+          ".........################.........",
+          "......######################......",
+          ".....#.#.#.#.#.#.#.#.#.#.#.#......",
+          "....##########################...."
+        ],
+        "color": "cyan",
+        "alt": "Dessin en mosaïque d'un terminal Minitel."
+      },
+      {
+        "type": "blank"
+      },
       {
         "type": "text",
         "lines": ["Bienvenue sur 3615 DEMO, un service invente pour decouvrir le Minitel de 1985."]
       },
-      { "type": "blank" },
+      {
+        "type": "blank"
+      },
       {
         "type": "menu",
         "items": [
           {
             "key": "1",
             "label": "Qu'est-ce que le Minitel ?",
-            "action": { "type": "goto", "pageId": "demo-minitel" }
+            "action": {
+              "type": "goto",
+              "pageId": "demo-minitel"
+            }
           },
           {
             "key": "2",
             "label": "Naviguer avec les touches",
-            "action": { "type": "goto", "pageId": "demo-touches" }
+            "action": {
+              "type": "goto",
+              "pageId": "demo-touches"
+            }
           },
           {
             "key": "3",
             "label": "Les services disponibles",
-            "action": { "type": "goto", "pageId": "demo-services" }
+            "action": {
+              "type": "goto",
+              "pageId": "demo-services"
+            }
           },
           {
             "key": "4",
             "label": "Chronologie",
-            "action": { "type": "goto", "pageId": "demo-chrono" }
+            "action": {
+              "type": "goto",
+              "pageId": "demo-chrono"
+            }
           }
         ]
       },
-      { "type": "blank" },
-      { "type": "text", "lines": ["Tapez le numero du choix puis ENVOI."], "color": "green" }
+      {
+        "type": "blank"
+      },
+      {
+        "type": "text",
+        "lines": ["Tapez le numero du choix puis ENVOI."],
+        "color": "green"
+      }
     ]
   },
   {
@@ -51,8 +92,15 @@
     "serviceId": "demo",
     "title": "Le Minitel",
     "blocks": [
-      { "type": "text", "lines": ["QU'EST-CE QUE LE MINITEL ?"], "color": "cyan", "inverse": true },
-      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": ["QU'EST-CE QUE LE MINITEL ?"],
+        "color": "cyan",
+        "inverse": true
+      },
+      {
+        "type": "blank"
+      },
       {
         "type": "text",
         "lines": [
@@ -65,8 +113,14 @@
           "Les services sont atteints par un numero (3611, 3614, 3615) puis un code, et factures a la duree sur la note de telephone."
         ]
       },
-      { "type": "blank" },
-      { "type": "text", "lines": ["SOMMAIRE: accueil   RETOUR: page precedente"], "color": "green" }
+      {
+        "type": "blank"
+      },
+      {
+        "type": "text",
+        "lines": ["SOMMAIRE: accueil   RETOUR: page precedente"],
+        "color": "green"
+      }
     ]
   },
   {
@@ -74,8 +128,15 @@
     "serviceId": "demo",
     "title": "Les touches",
     "blocks": [
-      { "type": "text", "lines": ["NAVIGUER AVEC LES TOUCHES"], "color": "cyan", "inverse": true },
-      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": ["NAVIGUER AVEC LES TOUCHES"],
+        "color": "cyan",
+        "inverse": true
+      },
+      {
+        "type": "blank"
+      },
       {
         "type": "text",
         "lines": [
@@ -91,7 +152,9 @@
         ],
         "color": "yellow"
       },
-      { "type": "blank" },
+      {
+        "type": "blank"
+      },
       {
         "type": "text",
         "lines": [
@@ -105,8 +168,15 @@
     "serviceId": "demo",
     "title": "Services",
     "blocks": [
-      { "type": "text", "lines": ["LES SERVICES DISPONIBLES"], "color": "cyan", "inverse": true },
-      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": ["LES SERVICES DISPONIBLES"],
+        "color": "cyan",
+        "inverse": true
+      },
+      {
+        "type": "blank"
+      },
       {
         "type": "text",
         "lines": [
@@ -118,7 +188,9 @@
         ],
         "color": "yellow"
       },
-      { "type": "blank" },
+      {
+        "type": "blank"
+      },
       {
         "type": "text",
         "lines": [
@@ -132,8 +204,15 @@
     "serviceId": "demo",
     "title": "Chronologie",
     "blocks": [
-      { "type": "text", "lines": ["CHRONOLOGIE DU MINITEL"], "color": "cyan", "inverse": true },
-      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": ["CHRONOLOGIE DU MINITEL"],
+        "color": "cyan",
+        "inverse": true
+      },
+      {
+        "type": "blank"
+      },
       {
         "type": "text",
         "lines": [
@@ -145,15 +224,25 @@
           "Les dates precises sont a confirmer : voir la chronologie de Time Machine et docs/historical-sources.md."
         ]
       },
-      { "type": "blank" },
+      {
+        "type": "blank"
+      },
       {
         "type": "text",
         "lines": [
           "Cette page est volontairement longue pour montrer la pagination : pressez SUITE."
         ]
       },
-      { "type": "blank", "rows": 6 },
-      { "type": "text", "lines": ["PAGE 2"], "color": "cyan", "inverse": true },
+      {
+        "type": "blank",
+        "rows": 6
+      },
+      {
+        "type": "text",
+        "lines": ["PAGE 2"],
+        "color": "cyan",
+        "inverse": true
+      },
       {
         "type": "text",
         "lines": ["Vous avez utilise SUITE. RETOUR revient a la page 1, puis a la page precedente."]
@@ -165,8 +254,15 @@
     "serviceId": "demo",
     "title": "Guide",
     "blocks": [
-      { "type": "text", "lines": ["AIDE 3615 DEMO"], "color": "cyan", "inverse": true },
-      { "type": "blank" },
+      {
+        "type": "text",
+        "lines": ["AIDE 3615 DEMO"],
+        "color": "cyan",
+        "inverse": true
+      },
+      {
+        "type": "blank"
+      },
       {
         "type": "text",
         "lines": [
@@ -179,6 +275,33 @@
     "id": "futur-home",
     "serviceId": "futur",
     "title": "Sommaire",
-    "blocks": [{ "type": "text", "lines": ["Ce service ouvre en 1990."] }]
+    "blocks": [
+      {
+        "type": "text",
+        "lines": ["Ce service ouvre en 1990."]
+      },
+      {
+        "type": "mosaic",
+        "pixels": [
+          "..............##..............",
+          ".............####.............",
+          "............##..##............",
+          "............#....#............",
+          "............#.##.#............",
+          "............#.##.#............",
+          "............#....#............",
+          "...........##....##...........",
+          "..........###....###..........",
+          ".........#.##....##.#.........",
+          "............#.##.#............",
+          ".............#..#.............",
+          "..............##..............",
+          ".............#..#.............",
+          ".#..........#....#.........#.."
+        ],
+        "color": "magenta",
+        "alt": "Dessin en mosaïque d'une fusée."
+      }
+    ]
   }
 ]

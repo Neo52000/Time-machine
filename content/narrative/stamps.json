@@ -1,0 +1,128 @@
+[
+  {
+    "id": "m-premier-service",
+    "eraId": "1985",
+    "title": "Premier service",
+    "hint": "Ouvrir un service Minitel.",
+    "icon": "📟"
+  },
+  {
+    "id": "m-annuaire",
+    "eraId": "1985",
+    "title": "Annuaire",
+    "hint": "Chercher un abonné dans l'annuaire électronique du 3611.",
+    "icon": "📒"
+  },
+  {
+    "id": "m-bal",
+    "eraId": "1985",
+    "title": "Boîte aux lettres",
+    "hint": "Ouvrir la messagerie 3614 BAL.",
+    "icon": "✉"
+  },
+  {
+    "id": "m-tour-kiosque",
+    "eraId": "1985",
+    "title": "Tour du kiosque",
+    "hint": "Visiter DEMO, TEMPS et FUTUR sur le 3615.",
+    "icon": "🗺"
+  },
+  {
+    "id": "b92-premier-bbs",
+    "eraId": "1992",
+    "title": "Premier BBS",
+    "hint": "Se connecter à un BBS avec un pseudo.",
+    "icon": "☎"
+  },
+  {
+    "id": "b92-forum",
+    "eraId": "1992",
+    "title": "Habitué des forums",
+    "hint": "Lire un message dans le forum d'un BBS.",
+    "icon": "📋"
+  },
+  {
+    "id": "b92-telechargement",
+    "eraId": "1992",
+    "title": "Téléchargement",
+    "hint": "Télécharger un fichier depuis un BBS.",
+    "icon": "💾"
+  },
+  {
+    "id": "b92-web",
+    "eraId": "1992",
+    "title": "Pionnier du Web",
+    "hint": "Visiter le premier site Web, alors presque seul en ligne.",
+    "icon": "🕸"
+  },
+  {
+    "id": "b92-trop-tot",
+    "eraId": "1992",
+    "title": "Web en construction",
+    "hint": "Chercher un site qui n'existe pas encore en 1992.",
+    "icon": "🚧"
+  },
+  {
+    "id": "w98-premiere-connexion",
+    "eraId": "1998",
+    "title": "Première connexion",
+    "hint": "Se connecter au Web avec le modem.",
+    "icon": "📞"
+  },
+  {
+    "id": "w98-trop-tot",
+    "eraId": "1998",
+    "title": "Trop tôt !",
+    "hint": "Tenter de visiter un site qui n'existe pas encore.",
+    "icon": "⏳"
+  },
+  {
+    "id": "w98-chercheur",
+    "eraId": "1998",
+    "title": "Chercheur",
+    "hint": "Lancer une recherche dans un moteur de 1998.",
+    "icon": "🔎"
+  },
+  {
+    "id": "w98-archeologue",
+    "eraId": "1998",
+    "title": "Archéologue du Web",
+    "hint": "Retrouver le tout premier site Web.",
+    "icon": "🏛"
+  },
+  {
+    "id": "w98-carnet",
+    "eraId": "1998",
+    "title": "Carnet de voyage",
+    "hint": "Visiter un site, lancer une recherche et ouvrir un document.",
+    "icon": "📓"
+  },
+  {
+    "id": "w05-message",
+    "eraId": "2005",
+    "title": "Premier message",
+    "hint": "Recevoir un message sur Messenger.",
+    "icon": "💬"
+  },
+  {
+    "id": "w05-video",
+    "eraId": "2005",
+    "title": "Séance vidéo",
+    "hint": "Regarder une vidéo dans le lecteur multimédia.",
+    "icon": "▶"
+  },
+  {
+    "id": "w05-encyclo",
+    "eraId": "2005",
+    "title": "Encyclopédiste",
+    "hint": "Consulter l'encyclopédie libre en ligne.",
+    "icon": "📚"
+  },
+  {
+    "id": "w05-carnet",
+    "eraId": "2005",
+    "title": "Carnet 2005",
+    "hint": "Discuter sur Messenger et visiter un site reconstitué.",
+    "icon": "📔"
+  }
+]
