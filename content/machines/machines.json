@@ -79,5 +79,32 @@
     "sourceIds": ["src-wikipedia-adsl-fr", "src-timemachine-machine-profile"],
     "needsResearch": true,
     "notes": "Débit ADSL représentatif d'un foyer français en 2005, à confirmer par une source primaire."
+  },
+  {
+    "id": "phone-2010",
+    "label": "Smartphone de 2010",
+    "kind": "phone",
+    "cpu": {
+      "label": "Processeur ARM",
+      "clockMHz": 1000
+    },
+    "memoryKb": 524288,
+    "storageKb": 8388608,
+    "os": "Time Machine Mobile 2",
+    "display": "Écran tactile capacitif d'environ 3,7 pouces",
+    "network": {
+      "kind": "mobile",
+      "label": "3G+ (HSDPA)",
+      "downstreamBps": 1000000,
+      "upstreamBps": 384000,
+      "latencyMs": 150
+    },
+    "sourceIds": [
+      "src-wikipedia-smartphone",
+      "src-wikipedia-hsdpa",
+      "src-timemachine-machine-profile"
+    ],
+    "needsResearch": true,
+    "notes": "Débit 3G+ réel moyen (1 Mbit/s descendant, 384 kbit/s montant) plutôt que le maximum théorique de 3,6 Mbit/s ; le Wi-Fi du téléphone est décrit dans content/phone/phone.json."
   }
 ]

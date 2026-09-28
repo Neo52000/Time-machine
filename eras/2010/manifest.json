@@ -1,0 +1,23 @@
+{
+  "id": "2010",
+  "label": "2010 — Le Web dans la poche",
+  "dateStart": "2010-01-01",
+  "dateEnd": "2010-12-31",
+  "machine": {
+    "id": "phone-2010",
+    "resolution": { "width": 360, "height": 640 },
+    "bootSequence": "phone-2010-boot",
+    "theme": "touch-2010",
+    "sounds": {
+      "boot": "phone-unlock",
+      "window-open": "phone-tap",
+      "notification": "sms-received",
+      "sent": "sms-sent",
+      "capture": "camera-shutter",
+      "error": "pc-error"
+    }
+  },
+  "apps": ["sms", "camera", "store", "settings"],
+  "network": { "web": false, "minitel": false, "bbs": false, "messenger": false },
+  "timelineTags": ["mobile", "telecom", "software"]
+}

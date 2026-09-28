@@ -53,6 +53,8 @@ interface NarrativeApi {
   wallpaper: string | null;
   /** Adds a text file to this session's disk (e.g. a BBS download). */
   createFile: (file: CreatedFile) => void;
+  /** Raises a balloon outside the story (e.g. an SMS arriving on the phone). */
+  notify: (title: string, body: string) => void;
 }
 
 const NarrativeContext = createContext<NarrativeApi>({
@@ -63,6 +65,7 @@ const NarrativeContext = createContext<NarrativeApi>({
   storyMessages: [],
   wallpaper: null,
   createFile: () => undefined,
+  notify: () => undefined,
 });
 
 export function useNarrative(): NarrativeApi {
@@ -91,15 +94,16 @@ export function NarrativeProvider({ eraId, children }: { eraId: string; children
     setCreatedFiles((list) => (list.some((f) => f.path === file.path) ? list : [...list, file]));
   }, []);
 
+  const notify = useCallback((title: string, body: string) => {
+    const notification = { id: nextId.current++, title, body };
+    setNotifications((list) => [...list, notification]);
+  }, []);
+
   const emit = useCallback(
     (type: NarrativeEventType, data?: NarrativeEventData) => {
       stateRef.current ??= createNarrativeState(Object.keys(readPassport()).map(stampFlag));
       const result = dispatch(triggers, stateRef.current, { type, data });
       stateRef.current = result.state;
-      const notify = (title: string, body: string) => {
-        const notification = { id: nextId.current++, title, body };
-        setNotifications((list) => [...list, notification]);
-      };
       for (const action of result.actions) {
         switch (action.type) {
           case "show.notification":
@@ -139,7 +143,7 @@ export function NarrativeProvider({ eraId, children }: { eraId: string; children
         document.dispatchEvent(new CustomEvent(NARRATIVE_DOM_EVENT, { detail: { id, eraId } }));
       }
     },
-    [triggers, audio, eraId, createFile],
+    [triggers, audio, eraId, createFile, notify],
   );
 
   const dismiss = useCallback((id: number) => {
@@ -147,8 +151,17 @@ export function NarrativeProvider({ eraId, children }: { eraId: string; children
   }, []);
 
   const api = useMemo(
-    () => ({ emit, notifications, dismiss, createdFiles, storyMessages, wallpaper, createFile }),
-    [emit, notifications, dismiss, createdFiles, storyMessages, wallpaper, createFile],
+    () => ({
+      emit,
+      notifications,
+      dismiss,
+      createdFiles,
+      storyMessages,
+      wallpaper,
+      createFile,
+      notify,
+    }),
+    [emit, notifications, dismiss, createdFiles, storyMessages, wallpaper, createFile, notify],
   );
   return <NarrativeContext.Provider value={api}>{children}</NarrativeContext.Provider>;
 }

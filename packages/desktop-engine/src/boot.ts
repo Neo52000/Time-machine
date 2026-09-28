@@ -67,6 +67,16 @@ const sequences: Record<string, BootSequence> = {
       { text: "Connexion ADSL établie — 2 Mbit/s", delayMs: 600 },
     ],
   },
+  "phone-2010-boot": {
+    id: "phone-2010-boot",
+    holdMs: 500,
+    lines: [
+      { text: "Time Machine Mobile 2", delayMs: 0 },
+      { text: "Code PIN accepté", delayMs: 500 },
+      { text: "Recherche du réseau...", delayMs: 400 },
+      { text: "TM Mobile — 3G+", delayMs: 700 },
+    ],
+  },
 };
 
 const fallbackSequence: BootSequence = {

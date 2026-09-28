@@ -45,6 +45,10 @@ export const SoundEventSchema = z.enum([
   "connect",
   "disconnect",
   "error",
+  /** A photo is taken (phone shutter). */
+  "capture",
+  /** A message leaves the machine (SMS sent). */
+  "sent",
 ]);
 
 export type Waveform = z.infer<typeof WaveformSchema>;

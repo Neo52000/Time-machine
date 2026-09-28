@@ -7,7 +7,7 @@ import { z } from "zod";
  * the CPU is described generically and the OS is the project's own fictional
  * "Time Machine OS". `EraManifest.machine.id` points at a profile id.
  */
-export const NetworkLinkKindSchema = z.enum(["videotex", "dial-up", "broadband"]);
+export const NetworkLinkKindSchema = z.enum(["videotex", "dial-up", "broadband", "mobile"]);
 
 export const NetworkLinkSchema = z.object({
   kind: NetworkLinkKindSchema,
@@ -19,7 +19,7 @@ export const NetworkLinkSchema = z.object({
   latencyMs: z.number().int().nonnegative(),
 });
 
-export const MachineKindSchema = z.enum(["terminal", "personal-computer"]);
+export const MachineKindSchema = z.enum(["terminal", "personal-computer", "phone"]);
 
 export const MachineProfileSchema = z.object({
   id: z.string().min(1),

@@ -656,5 +656,236 @@
       "stamp:b92-web",
       "stamp:b92-trop-tot"
     ]
+  },
+  {
+    "id": "welcome-2010",
+    "eras": ["2010"],
+    "when": [
+      {
+        "event": "era.loaded"
+      }
+    ],
+    "actions": [
+      {
+        "type": "show.notification",
+        "payload": {
+          "title": "Bienvenue en 2010",
+          "body": "Le Web tient dans la poche : SMS, photos, boutique d'applis. Surveillez le forfait !"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-t10-sms",
+    "eras": ["2010"],
+    "when": [
+      {
+        "event": "service.opened",
+        "match": {
+          "kiosk": "sms",
+          "service": "sent"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "t10-sms"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-t10-pave",
+    "eras": ["2010"],
+    "when": [
+      {
+        "event": "service.opened",
+        "match": {
+          "kiosk": "sms",
+          "service": "multipart"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "t10-pave"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-t10-appli",
+    "eras": ["2010"],
+    "when": [
+      {
+        "event": "service.opened",
+        "match": {
+          "kiosk": "store"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "t10-appli"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-t10-mms",
+    "eras": ["2010"],
+    "when": [
+      {
+        "event": "service.opened",
+        "match": {
+          "kiosk": "photo",
+          "service": "mms"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "t10-mms"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-t10-wifi",
+    "eras": ["2010"],
+    "when": [
+      {
+        "event": "service.opened",
+        "match": {
+          "kiosk": "photo",
+          "service": "upload",
+          "network": "wifi"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "t10-wifi"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "stamp-t10-serpentin",
+    "eras": ["2010"],
+    "when": [
+      {
+        "event": "service.opened",
+        "match": {
+          "kiosk": "game",
+          "service": "serpentin-5"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "award.stamp",
+        "payload": {
+          "stampId": "t10-serpentin"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "lea-mms-thanks",
+    "eras": ["2010"],
+    "when": [
+      {
+        "event": "service.opened",
+        "match": {
+          "kiosk": "photo",
+          "service": "mms"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "send.message",
+        "payload": {
+          "contactId": "lea",
+          "text": "Reçu ta photo ! Toute petite sur mon clapet, mais trop jolie. Tu me la mets en entier sur ton blog ?"
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "forfait-3g-upload",
+    "eras": ["2010"],
+    "when": [
+      {
+        "event": "service.opened",
+        "match": {
+          "kiosk": "photo",
+          "service": "upload",
+          "network": "mobile"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "show.notification",
+        "payload": {
+          "title": "Forfait",
+          "body": "Photo publiée en 3G+ : elle est décomptée de votre forfait. Le Wi-Fi de la maison, lui, est gratuit et plus rapide."
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "reward-2010",
+    "eras": ["2010"],
+    "when": [
+      {
+        "event": "service.opened"
+      }
+    ],
+    "actions": [
+      {
+        "type": "change.desktop",
+        "payload": {
+          "wallpaper": "#5a2a6e"
+        }
+      },
+      {
+        "type": "show.notification",
+        "payload": {
+          "title": "Époque complétée",
+          "body": "Tous les tampons de 2010 sont à vous : fond d'écran « Aurore » débloqué."
+        }
+      }
+    ],
+    "once": true,
+    "requiresFlags": [
+      "stamp:t10-sms",
+      "stamp:t10-pave",
+      "stamp:t10-appli",
+      "stamp:t10-mms",
+      "stamp:t10-wifi",
+      "stamp:t10-serpentin"
+    ]
   }
 ]

@@ -16,6 +16,7 @@
     "@time-machine/apps-runtime": "workspace:*",
     "@time-machine/audio-engine": "workspace:*",
     "@time-machine/bbs-engine": "workspace:*",
+    "@time-machine/phone-engine": "workspace:*",
     "@time-machine/browser-engine": "workspace:*",
     "@time-machine/computer-engine": "workspace:*",
     "@time-machine/content-schema": "workspace:*",

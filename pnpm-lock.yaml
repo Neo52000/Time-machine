@@ -111,6 +111,9 @@ importers:
       '@time-machine/narrative-engine':
         specifier: workspace:*
         version: link:../../packages/narrative-engine
+      '@time-machine/phone-engine':
+        specifier: workspace:*
+        version: link:../../packages/phone-engine
       '@time-machine/search-engine':
         specifier: workspace:*
         version: link:../../packages/search-engine
@@ -354,6 +357,25 @@ importers:
       '@time-machine/messenger-engine':
         specifier: workspace:*
         version: link:../messenger-engine
+      '@time-machine/phone-engine':
+        specifier: workspace:*
+        version: link:../phone-engine
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@22.20.1)
+
+  packages/phone-engine:
+    dependencies:
+      '@time-machine/computer-engine':
+        specifier: workspace:*
+        version: link:../computer-engine
+      '@time-machine/content-schema':
+        specifier: workspace:*
+        version: link:../content-schema
+    devDependencies:
       typescript:
         specifier: ^5.7.2
         version: 5.9.3

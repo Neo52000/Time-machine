@@ -1,5 +1,5 @@
 {
-  "name": "@time-machine/narrative-engine",
+  "name": "@time-machine/phone-engine",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -15,12 +15,10 @@
     "clean": "rm -rf dist .turbo"
   },
   "dependencies": {
+    "@time-machine/computer-engine": "workspace:*",
     "@time-machine/content-schema": "workspace:*"
   },
   "devDependencies": {
-    "@time-machine/era-engine": "workspace:*",
-    "@time-machine/messenger-engine": "workspace:*",
-    "@time-machine/phone-engine": "workspace:*",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8"
   }

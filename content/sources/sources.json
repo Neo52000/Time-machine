@@ -456,5 +456,68 @@
     "url": "https://en.wikipedia.org/wiki/Les_Horribles_Cernettes",
     "publisher": "Wikipedia",
     "notes": "Souvent citée comme la première photographie publiée sur le Web (juillet 1992) ; date et primauté à confirmer."
+  },
+  {
+    "id": "src-wikipedia-sms",
+    "label": "Short Message Service — Wikipedia",
+    "url": "https://fr.wikipedia.org/wiki/Short_Message_Service",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-gsm-0338",
+    "label": "GSM 03.38 (alphabet des SMS) — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/GSM_03.38",
+    "publisher": "Wikipedia",
+    "notes": "Alphabet 7 bits par défaut, table d'extension, bascule en UCS-2 (70 caractères)."
+  },
+  {
+    "id": "src-wikipedia-hsdpa",
+    "label": "High Speed Downlink Packet Access — Wikipedia",
+    "url": "https://fr.wikipedia.org/wiki/High_Speed_Downlink_Packet_Access",
+    "publisher": "Wikipedia",
+    "notes": "Débits nominaux ; le débit réel moyen de 2010 reste à confirmer."
+  },
+  {
+    "id": "src-wikipedia-mms",
+    "label": "Multimedia Messaging Service — Wikipedia",
+    "url": "https://fr.wikipedia.org/wiki/Multimedia_Messaging_Service",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-app-store",
+    "label": "App Store — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/App_Store_(Apple)",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-google-play",
+    "label": "Google Play (Android Market) — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Google_Play",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-ipad",
+    "label": "iPad (1re génération) — Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/IPad_(1st_generation)",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-free-mobile",
+    "label": "Free Mobile — Wikipedia",
+    "url": "https://fr.wikipedia.org/wiki/Free_Mobile",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-wikipedia-smartphone",
+    "label": "Smartphone — Wikipedia",
+    "url": "https://fr.wikipedia.org/wiki/Smartphone",
+    "publisher": "Wikipedia"
+  },
+  {
+    "id": "src-timemachine-phone-fiction",
+    "label": "Time Machine — contenus fictifs du téléphone 2010",
+    "url": "https://github.com/Neo52000/Time-machine/blob/main/docs/phone-engine.md",
+    "publisher": "Time Machine",
+    "notes": "Contacts, SMS, applications et forfait sont inventés pour la démonstration."
   }
 ]

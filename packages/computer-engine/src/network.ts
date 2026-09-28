@@ -9,6 +9,7 @@ const BITS_PER_BYTE: Record<NetworkLinkKind, number> = {
   videotex: 10,
   "dial-up": 10,
   broadband: 8,
+  mobile: 8,
 };
 
 export type TransferDirection = "down" | "up";

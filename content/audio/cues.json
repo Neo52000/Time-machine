@@ -1261,5 +1261,109 @@
       }
     ],
     "rightsStatus": "original"
+  },
+  {
+    "id": "phone-unlock",
+    "title": "Déverrouillage du téléphone",
+    "description": "Deux notes brèves montantes, comme un loquet qui s'ouvre. Synthèse originale.",
+    "rightsStatus": "original",
+    "segments": [
+      {
+        "at": 0,
+        "durationMs": 70,
+        "wave": "sine",
+        "gain": 0.12,
+        "frequency": 880
+      },
+      {
+        "at": 80,
+        "durationMs": 110,
+        "wave": "sine",
+        "gain": 0.12,
+        "frequency": 1320
+      }
+    ]
+  },
+  {
+    "id": "phone-tap",
+    "title": "Toucher d'écran",
+    "description": "Clic très court d'un écran tactile. Synthèse originale.",
+    "rightsStatus": "original",
+    "segments": [
+      {
+        "at": 0,
+        "durationMs": 18,
+        "wave": "noise",
+        "gain": 0.08,
+        "bandpassHz": 3000
+      }
+    ]
+  },
+  {
+    "id": "sms-received",
+    "title": "SMS reçu",
+    "description": "Trois notes rapides en arpège, sonnerie de message originale (aucune sonnerie de fabricant).",
+    "rightsStatus": "original",
+    "segments": [
+      {
+        "at": 0,
+        "durationMs": 90,
+        "wave": "triangle",
+        "gain": 0.16,
+        "frequency": 1047
+      },
+      {
+        "at": 110,
+        "durationMs": 90,
+        "wave": "triangle",
+        "gain": 0.16,
+        "frequency": 1319
+      },
+      {
+        "at": 220,
+        "durationMs": 160,
+        "wave": "triangle",
+        "gain": 0.16,
+        "frequency": 1568
+      }
+    ]
+  },
+  {
+    "id": "sms-sent",
+    "title": "SMS envoyé",
+    "description": "Un glissando montant : le message s'envole. Synthèse originale.",
+    "rightsStatus": "original",
+    "segments": [
+      {
+        "at": 0,
+        "durationMs": 180,
+        "wave": "sine",
+        "gain": 0.1,
+        "frequency": 600,
+        "frequencyTo": 1400
+      }
+    ]
+  },
+  {
+    "id": "camera-shutter",
+    "title": "Déclencheur photo",
+    "description": "Double claquement de bruit filtré imitant un obturateur (les téléphones le simulaient aussi). Synthèse originale.",
+    "rightsStatus": "original",
+    "segments": [
+      {
+        "at": 0,
+        "durationMs": 40,
+        "wave": "noise",
+        "gain": 0.22,
+        "bandpassHz": 2500
+      },
+      {
+        "at": 90,
+        "durationMs": 60,
+        "wave": "noise",
+        "gain": 0.18,
+        "bandpassHz": 1800
+      }
+    ]
   }
 ]

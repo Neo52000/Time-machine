@@ -181,6 +181,15 @@
     "needsResearch": true
   },
   {
+    "id": "first-sms",
+    "date": "1992-12-03",
+    "title": "Premier SMS",
+    "summary": "« Merry Christmas » : le premier SMS est envoyé d'un ordinateur vers un téléphone, au Royaume-Uni.",
+    "category": ["mobile", "telecom", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-sms"]
+  },
+  {
     "id": "mosaic-release",
     "date": "1993-04-22",
     "title": "Sortie du navigateur Mosaic",
@@ -464,6 +473,25 @@
     "needsResearch": true
   },
   {
+    "id": "iphone-france",
+    "date": "2007-11-29",
+    "title": "Le smartphone tactile arrive en France",
+    "summary": "L'iPhone est commercialisé en France : l'écran tactile et le Web mobile entrent dans les poches.",
+    "category": ["mobile", "hardware", "france"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-iphone"],
+    "needsResearch": true
+  },
+  {
+    "id": "app-store-opens",
+    "date": "2008-07-10",
+    "title": "Ouverture de l'App Store",
+    "summary": "Une boutique d'applications intégrée au téléphone : on installe un logiciel en un geste, gratuit ou pour quelques centimes.",
+    "category": ["mobile", "software", "economy", "world"],
+    "importance": 4,
+    "sourceIds": ["src-wikipedia-app-store"]
+  },
+  {
     "id": "chrome-release",
     "date": "2008-09-02",
     "title": "Sortie de Google Chrome",
@@ -482,6 +510,15 @@
     "sourceIds": ["src-wikipedia-htc-dream"]
   },
   {
+    "id": "android-market-opens",
+    "date": "2008-10-22",
+    "title": "Ouverture de l'Android Market",
+    "summary": "Android a lui aussi sa boutique d'applications (future Google Play).",
+    "category": ["mobile", "software", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-google-play"]
+  },
+  {
     "id": "bitcoin-whitepaper",
     "date": "2008-10-31",
     "title": "Livre blanc du Bitcoin",
@@ -491,6 +528,15 @@
     "sourceIds": ["src-wikipedia-bitcoin-whitepaper"]
   },
   {
+    "id": "ipad-announced",
+    "date": "2010-01-27",
+    "title": "Présentation de l'iPad",
+    "summary": "La tablette tactile grand public : entre le téléphone et l'ordinateur.",
+    "category": ["hardware", "mobile", "world"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-ipad"]
+  },
+  {
     "id": "instagram-launch",
     "date": "2010-10-06",
     "title": "Lancement d'Instagram",
@@ -498,6 +544,15 @@
     "category": ["social", "mobile", "world"],
     "importance": 3,
     "sourceIds": ["src-wikipedia-instagram"]
+  },
+  {
+    "id": "free-mobile-launch",
+    "date": "2012-01-10",
+    "title": "Lancement de Free Mobile",
+    "summary": "Le quatrième opérateur mobile français fait chuter les prix des forfaits : SMS illimités et Internet mobile se banalisent.",
+    "category": ["mobile", "telecom", "economy", "france"],
+    "importance": 3,
+    "sourceIds": ["src-wikipedia-free-mobile"]
   },
   {
     "id": "ipv6-launch",

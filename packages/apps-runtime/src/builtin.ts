@@ -1,5 +1,8 @@
 import type { AppDefinition } from "./registry";
 
+/** Phone apps always run full-screen; the size only matters to the registry. */
+const PHONE_SCREEN = { width: 360, height: 640 };
+
 /**
  * Apps shipped with the MVP. Rendering components live in
  * `apps/web/components/apps/`; this list is the single source of truth for
@@ -70,5 +73,54 @@ export const builtinApps: AppDefinition[] = [
     defaultSize: { width: 640, height: 480 },
     singleton: true,
     eras: ["1985"],
+  },
+  // 2010 phone: the store installs `torch` and `serpentin` (content/phone/phone.json).
+  {
+    id: "sms",
+    title: "Messages",
+    icon: "✉",
+    defaultSize: PHONE_SCREEN,
+    singleton: true,
+    eras: ["2010"],
+  },
+  {
+    id: "camera",
+    title: "Photo",
+    icon: "📷",
+    defaultSize: PHONE_SCREEN,
+    singleton: true,
+    eras: ["2010"],
+  },
+  {
+    id: "store",
+    title: "Boutique",
+    icon: "🛍",
+    defaultSize: PHONE_SCREEN,
+    singleton: true,
+    eras: ["2010"],
+  },
+  {
+    id: "settings",
+    title: "Réglages",
+    icon: "⚙",
+    defaultSize: PHONE_SCREEN,
+    singleton: true,
+    eras: ["2010"],
+  },
+  {
+    id: "torch",
+    title: "Lampe de poche",
+    icon: "🔦",
+    defaultSize: PHONE_SCREEN,
+    singleton: true,
+    eras: ["2010"],
+  },
+  {
+    id: "serpentin",
+    title: "Serpentin",
+    icon: "🐍",
+    defaultSize: PHONE_SCREEN,
+    singleton: true,
+    eras: ["2010"],
   },
 ];
