@@ -118,6 +118,19 @@ export function BrowserApp({ era, fs, clock, payload }: AppProps) {
       type: resolution.type,
       reason: resolution.type === "not-found" ? resolution.reason : "",
     });
+    // The dated events the page shows (temporal 404 timeline, document card).
+    const shown =
+      resolution.type === "not-found"
+        ? resolution.eventIds
+        : resolution.type === "document"
+          ? [resolution.eventId]
+          : [];
+    for (const eventId of shown) {
+      const event = timeWebCatalog.getEvent(eventId);
+      if (event) {
+        emit("event.viewed", { eventId, title: event.title, date: event.date.slice(0, 10) });
+      }
+    }
   }, [resolution, era.id, track, audio, emit, connect]);
 
   const lastSearched = useRef<typeof searchResults>(undefined);

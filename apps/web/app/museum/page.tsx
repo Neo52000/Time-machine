@@ -3,6 +3,8 @@ import { museum } from "@time-machine/museum-engine";
 
 export const metadata = {
   title: "Musée — Time Machine",
+  description: "Une salle par époque : la machine, ce qui se passait, ce qui était en ligne.",
+  alternates: { canonical: "/museum" },
 };
 
 export default function MuseumPage() {

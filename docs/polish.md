@@ -154,7 +154,8 @@ stored under `time-machine-analytics-consent`.
 Events: `era.selected`, `boot.completed { skipped }`, `app.opened`,
 `browser.resolved { type }`, `search.performed { provider, results }`,
 `minitel.connected { kiosk, service }`, `messenger.sent`, `media.played`,
-`admin.published { kind }`, `audio.toggled`.
+`admin.published { kind }`, `audio.toggled`,
+`passport.shared { stamps, method }`.
 
 ### UI
 

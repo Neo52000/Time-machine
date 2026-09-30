@@ -1,7 +1,9 @@
 "use client";
 
-import { passportProgress, narrativeCatalog } from "@time-machine/narrative-engine";
+import { useState } from "react";
+import { encodePassport, passportProgress, narrativeCatalog } from "@time-machine/narrative-engine";
 import type { EraManifest } from "@time-machine/content-schema";
+import { useAnalytics } from "@/lib/analytics/AnalyticsProvider";
 import { usePassport } from "@/lib/narrative/passport";
 
 /**
@@ -30,6 +32,7 @@ export function Passport({ eras }: { eras: EraManifest[] }) {
           {earned} / {total} tampons
         </span>
       </div>
+      {earned > 0 && <SharePassport code={encodePassport(narrativeCatalog.stamps, passport)} />}
       <div
         className="mt-2 h-1 w-full bg-neutral-800"
         role="progressbar"
@@ -76,6 +79,55 @@ export function Passport({ eras }: { eras: EraManifest[] }) {
         ))}
       </ul>
     </section>
+  );
+}
+
+/**
+ * Shares the passport as a link (native share sheet when there is one,
+ * clipboard otherwise). The link holds stamp ids only — see `encodePassport`.
+ */
+function SharePassport({ code }: { code: string }) {
+  const { track } = useAnalytics();
+  const [status, setStatus] = useState<"idle" | "copied" | "failed">("idle");
+  const stamps = code.split(".").length;
+
+  async function share() {
+    const url = `${window.location.origin}/passport/${code}`;
+    try {
+      if (typeof navigator.share === "function") {
+        await navigator.share({ title: "Mon passeport Time Machine", url });
+        track("passport.shared", { stamps, method: "native" });
+        return;
+      }
+      await navigator.clipboard.writeText(url);
+      setStatus("copied");
+      track("passport.shared", { stamps, method: "clipboard" });
+    } catch (error) {
+      // Closing the share sheet is not a failure worth reporting.
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      setStatus("failed");
+    }
+  }
+
+  return (
+    <div className="mt-2 flex items-center gap-3 text-xs">
+      <button
+        type="button"
+        onClick={share}
+        className="border border-amber-700 px-2 py-1 text-amber-300 hover:border-amber-400"
+        data-testid="passport-share"
+      >
+        Partager mon passeport
+      </button>
+      <span role="status" className="text-neutral-500" data-testid="passport-share-status">
+        {status === "copied" && "Lien copié."}
+        {status === "failed" && (
+          <a href={`/passport/${code}`} className="underline">
+            Ouvrir le lien à partager
+          </a>
+        )}
+      </span>
+    </div>
   );
 }
 

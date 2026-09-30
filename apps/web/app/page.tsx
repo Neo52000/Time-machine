@@ -6,6 +6,8 @@ import { buildVerticalTimeline, listCategories } from "@time-machine/timeline-en
 import { HomeTimeline } from "@/components/HomeTimeline";
 import { Passport } from "@/components/Passport";
 
+export const metadata = { alternates: { canonical: "/" } };
+
 export default function HomePage() {
   const eras = listEras();
   // The catalogue has already validated events and sources and dropped drafts.

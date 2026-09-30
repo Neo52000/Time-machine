@@ -40,16 +40,17 @@ actions to perform (placeholders filled) and the ids that fired.
 
 ## Events emitted today
 
-| Event              | Emitted by                                 | Data                                                                                        |
-| ------------------ | ------------------------------------------ | ------------------------------------------------------------------------------------------- |
-| `era.loaded`       | Desktop, when boot completes               | `eraId`                                                                                     |
-| `file.opened`      | Notepad, terminal `TYPE`                   | `path`, `name`                                                                              |
-| `site.visited`     | Time Browser, each resolution              | `domain`, `type`, `reason`                                                                  |
-| `search.executed`  | Time Browser, non-empty query              | `query`, `results`, `provider`                                                              |
-| `message.received` | Messenger, incoming message                | `contactId`                                                                                 |
-| `service.opened`   | Minitel, each newly opened service         | `kiosk`, `service`                                                                          |
-| `service.opened`   | Terminal BBS (1992): login, area, download | `kiosk` = `bbs` / `bbs-area` / `bbs-download`, `service` = board id / area kind / file name |
-| `media.played`     | Media player, play pressed                 | `clipId`                                                                                    |
+| Event              | Emitted by                                                                     | Data                                                                                                |
+| ------------------ | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------- |
+| `era.loaded`       | Desktop, when boot completes                                                   | `eraId`                                                                                             |
+| `file.opened`      | Notepad, terminal `TYPE`                                                       | `path`, `name`                                                                                      |
+| `site.visited`     | Time Browser, each resolution                                                  | `domain`, `type`, `reason`                                                                          |
+| `search.executed`  | Time Browser, non-empty query                                                  | `query`, `results`, `provider`                                                                      |
+| `message.received` | Messenger, incoming message                                                    | `contactId`                                                                                         |
+| `service.opened`   | Minitel, each newly opened service                                             | `kiosk`, `service`                                                                                  |
+| `service.opened`   | Terminal BBS (1992): login, area, download                                     | `kiosk` = `bbs` / `bbs-area` / `bbs-download`, `service` = board id / area kind / file name         |
+| `media.played`     | Media player, play pressed                                                     | `clipId`                                                                                            |
+| `event.viewed`     | Time Browser, each dated event it shows (temporal 404 timeline, document card) | `eventId`, `title`, `date` (YYYY-MM-DD) — copied from the sourced event, never written by the story |
 
 ## Actions performed today
 
@@ -62,6 +63,17 @@ disk through `desktop-engine`'s `addTextFile` — never overwrites a file),
   that contact's conversation; no chatbot, the text is content).
 - `change.desktop` — a reward wallpaper colour (`#rrggbb`) for the session.
 - `award.stamp` — stamps the visitor's **passport** (below).
+
+## Shared passport
+
+The homepage passport has a « Partager mon passeport » button (native share
+sheet, clipboard otherwise). The link is `/passport/<ids>`: the earned stamp
+ids in catalogue order joined by `.` (`encodePassport` / `decodePassport`) —
+no server, no timestamps, nothing about the visitor, and stamp ids are
+schema-enforced `[a-z0-9-]`. The page lists the stamps per era with a way in
+for whoever opens it, has its own share card, is `noindex`, and answers 404
+when the code names no known stamp (unknown ids are dropped, so a renamed
+stamp never breaks an old link entirely).
 
 ## Passport (stamps)
 
@@ -86,13 +98,17 @@ stamp's era.
 
 ## Fail fast
 
-The schema keeps the full contract (`event.viewed`, `time.changed`,
-`unlock.site`, `send.message`, `change.desktop`, `unlock.era`) for the
-future, but `createNarrativeCatalog` **refuses** a trigger that waits for an
+The schema keeps the full contract (`time.changed`, `unlock.site`,
+`unlock.era`) for the future, but `createNarrativeCatalog` **refuses** a trigger that waits for an
 event nothing emits, uses an action nothing performs, or requires a flag no
 trigger sets. A story can therefore never silently do nothing. Supporting a
 new event/action = emit/perform it, then add it to `EMITTED_EVENTS` /
 `PERFORMED_ACTIONS`.
+
+Those three stay refused on purpose (Phase 14 review): every era and every
+documented site is already open to everyone and the era clock cannot be set,
+so there is nothing to unlock and no time change to hear. Wiring them would
+mean locking content that is free today — a regression, not a feature.
 
 Story content is meta and fictional (greetings, hints, a travel log); it
 never asserts a historical fact the sourced content doesn't already carry.
