@@ -32,7 +32,7 @@ pnpm build               # production build of every app
 pnpm test:e2e            # Playwright end-to-end tests (starts the app itself)
 ```
 
-## What works today (Phases 0–13)
+## What works today (Phases 0–14)
 
 ```text
 Homepage ("WHEN DO YOU WANT TO GO?")
@@ -91,7 +91,11 @@ Homepage ("WHEN DO YOU WANT TO GO?")
       browser and shown on the homepage; completing an era unlocks a
       wallpaper; Messenger contacts react to what you do
   → /museum: one gallery per era — its machine, its events, the sites then
-      online — every label sourced, uncertain ones marked "à vérifier"
+      online — every label sourced, uncertain ones marked "à vérifier"  → sharing: "Partager mon passeport" turns the passport into a link
+      (/passport/<stamp ids> — no server, nothing personal) with its own
+      share card; every era and gallery has an original Open Graph card
+  → deployable: netlify.toml (apps/web only), sitemap.xml, robots.txt,
+      canonical URLs — set NEXT_PUBLIC_SITE_URL to the public origin
 ```
 
 1985 (Minitel), 1992 (BBS + first Web), 1998 (early Web desktop), and 2005 (social web + video) each

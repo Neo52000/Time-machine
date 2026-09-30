@@ -17,7 +17,8 @@ test("Messenger shows contact presence and plays a scripted conversation", async
   await expect(page.getByTestId("message-j1")).toContainText("Salut ! T'es la ?", {
     timeout: 3000,
   });
-  await expect(page.getByTestId("message-j5")).toContainText("a plus tard", { timeout: 10_000 });
+  // The script adds up to ~10.2 s (content/messenger/conversations.json): leave headroom.
+  await expect(page.getByTestId("message-j5")).toContainText("a plus tard", { timeout: 15_000 });
   await expect(page.getByTestId("messenger-typing")).toHaveCount(0);
 
   // Background presence: Marc comes online after 5s even with Julie's chat open.

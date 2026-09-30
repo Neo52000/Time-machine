@@ -96,7 +96,8 @@ export const NarrativeActionSchema = z.discriminatedUnion("type", [
  * for exploring, never historical claims.
  */
 export const PassportStampSchema = z.object({
-  id: z.string().min(1),
+  /** URL-safe: a shared passport link is the earned ids joined by "." (narrative-engine). */
+  id: z.string().regex(/^[a-z0-9-]+$/, "Expected lowercase letters, digits and hyphens"),
   eraId: z.string().min(1),
   title: z.string().min(1),
   /** How to earn it — shown once earned, and as a hint before. */
