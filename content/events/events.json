@@ -7,7 +7,7 @@
     "category": ["minitel", "telecom", "france"],
     "importance": 4,
     "experienceId": "minitel-demo",
-    "sourceIds": ["src-wikipedia-minitel"],
+    "sourceIds": ["src-wikipedia-minitel", "src-histelfrance-fr-minitel-launch"],
     "needsResearch": true
   },
   {
@@ -17,7 +17,7 @@
     "summary": "IBM commercialise son Personal Computer (modèle 5150), dont l'architecture ouverte devient la référence des « compatibles PC ».",
     "category": ["hardware", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-ibm-pc"]
+    "sourceIds": ["src-wikipedia-ibm-pc", "src-ibm-com-ibm-pc-launch"]
   },
   {
     "id": "arpanet-tcpip",
@@ -26,7 +26,11 @@
     "summary": "Le réseau ARPANET abandonne NCP et bascule en une journée sur TCP/IP, la pile de protocoles qui fonde l'Internet.",
     "category": ["network", "world"],
     "importance": 5,
-    "sourceIds": ["src-wikipedia-flag-day"]
+    "sourceIds": [
+      "src-wikipedia-flag-day",
+      "src-rfc-editor-org-arpanet-tcpip",
+      "src-internetsociety-org-arpanet-tcpip"
+    ]
   },
   {
     "id": "macintosh-launch",
@@ -35,7 +39,11 @@
     "summary": "Apple lance le Macintosh, qui popularise l'interface graphique et la souris auprès du grand public.",
     "category": ["hardware", "software", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-macintosh"]
+    "sourceIds": [
+      "src-wikipedia-macintosh",
+      "src-computerhistory-org-macintosh-launch",
+      "src-americanhistory-si-edu-macintosh-launch"
+    ]
   },
   {
     "id": "plan-informatique-pour-tous",
@@ -44,7 +52,11 @@
     "summary": "Le gouvernement français lance un plan d'équipement des écoles en micro-ordinateurs et de formation des enseignants à l'informatique.",
     "category": ["hardware", "education", "france"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-plan-ipt"],
+    "sourceIds": [
+      "src-wikipedia-plan-ipt",
+      "src-epi-asso-fr-plan-informatique-pour-tous",
+      "src-1024-socinfo-fr-plan-informatique-pour-tous"
+    ],
     "needsResearch": true
   },
   {
@@ -54,7 +66,11 @@
     "summary": "symbolics.com est le premier nom de domaine enregistré en .com.",
     "category": ["network", "web", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-symbolics-com"]
+    "sourceIds": [
+      "src-wikipedia-symbolics-com",
+      "src-icann-org-first-com-domain",
+      "src-edn-com-first-com-domain"
+    ]
   },
   {
     "id": "amiga-launch",
@@ -63,7 +79,7 @@
     "summary": "Commodore présente l'Amiga 1000, micro-ordinateur multitâche aux capacités graphiques et sonores très en avance.",
     "category": ["hardware", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-amiga-1000"]
+    "sourceIds": ["src-wikipedia-amiga-1000", "src-computerhistory-org-amiga-launch"]
   },
   {
     "id": "windows-1-release",
@@ -72,7 +88,11 @@
     "summary": "Microsoft commercialise Windows 1.0, première interface graphique fenêtrée pour MS-DOS.",
     "category": ["software", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-windows-1"]
+    "sourceIds": [
+      "src-wikipedia-windows-1",
+      "src-news-microsoft-com-windows-1-release",
+      "src-learn-microsoft-com-windows-1-release"
+    ]
   },
   {
     "id": "irc-created",
@@ -81,7 +101,7 @@
     "summary": "Jarkko Oikarinen crée Internet Relay Chat, l'un des premiers systèmes de discussion en direct sur Internet.",
     "category": ["messaging", "network", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-irc"],
+    "sourceIds": ["src-wikipedia-irc", "src-irc-org-irc-created", "src-ietf-org-irc-created"],
     "needsResearch": true
   },
   {
@@ -91,7 +111,11 @@
     "summary": "Un ver informatique se propage sur l'Internet naissant et paralyse une part importante des machines connectées ; c'est l'une des premières attaques à grande échelle.",
     "category": ["security", "network", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-morris-worm"]
+    "sourceIds": [
+      "src-wikipedia-morris-worm",
+      "src-fbi-gov-morris-worm",
+      "src-cs-cornell-edu-morris-worm"
+    ]
   },
   {
     "id": "www-proposal",
@@ -100,7 +124,7 @@
     "summary": "Tim Berners-Lee soumet au CERN « Information Management: A Proposal », le document fondateur du Web.",
     "category": ["web", "world"],
     "importance": 5,
-    "sourceIds": ["src-w3-www-proposal"],
+    "sourceIds": ["src-w3-www-proposal", "src-w3-org-www-proposal", "src-home-cern-www-proposal"],
     "needsResearch": true
   },
   {
@@ -110,7 +134,7 @@
     "summary": "L'ARPANET, ancêtre de l'Internet, est démantelé ; ses fonctions sont reprises par les réseaux qui forment l'Internet.",
     "category": ["network", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-arpanet"],
+    "sourceIds": ["src-wikipedia-arpanet", "src-computerhistory-org-arpanet-decommissioned"],
     "needsResearch": true
   },
   {
@@ -120,7 +144,11 @@
     "summary": "Tim Berners-Lee met en service le premier serveur Web (CERN httpd) sur sa station NeXT au CERN.",
     "category": ["web", "hardware", "world"],
     "importance": 5,
-    "sourceIds": ["src-w3-first-server"],
+    "sourceIds": [
+      "src-w3-first-server",
+      "src-timeline-web-cern-ch-first-web-server",
+      "src-home-cern-first-web-server"
+    ],
     "needsResearch": true
   },
   {
@@ -130,7 +158,11 @@
     "summary": "Tim Berners-Lee publie info.cern.ch, le premier site Web accessible en dehors du CERN.",
     "category": ["web", "world"],
     "importance": 5,
-    "sourceIds": ["src-wikipedia-first-website"]
+    "sourceIds": [
+      "src-wikipedia-first-website",
+      "src-w3-org-first-website",
+      "src-timeline-web-cern-ch-first-website"
+    ]
   },
   {
     "id": "linux-announced",
@@ -139,7 +171,7 @@
     "summary": "Linus Torvalds annonce sur Usenet le noyau de système d'exploitation libre qui deviendra Linux.",
     "category": ["software", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-linux"]
+    "sourceIds": ["src-wikipedia-linux", "src-lwn-net-linux-announced"]
   },
   {
     "id": "first-webcam",
@@ -148,7 +180,11 @@
     "summary": "La cafetière de la Trojan Room à l'université de Cambridge est filmée en continu pour vérifier à distance si le café est prêt — l'une des premières webcams.",
     "category": ["hardware", "culture", "world"],
     "importance": 2,
-    "sourceIds": ["src-wikipedia-webcam"],
+    "sourceIds": [
+      "src-wikipedia-webcam",
+      "src-cl-cam-ac-uk-first-webcam",
+      "src-cl-cam-ac-uk-first-webcam-2"
+    ],
     "needsResearch": true
   },
   {
@@ -158,7 +194,7 @@
     "summary": "La version 0.12 du noyau Linux adopte la licence publique générale GNU, qui garantit à chacun le droit de le modifier et de le redistribuer.",
     "category": ["software", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-linux"],
+    "sourceIds": ["src-wikipedia-linux", "src-mirrors-edge-kernel-org-linux-gpl"],
     "needsResearch": true
   },
   {
@@ -168,7 +204,11 @@
     "summary": "Microsoft publie Windows 3.1, qui installe durablement l'interface graphique sur les PC grand public.",
     "category": ["software", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-windows-31"]
+    "sourceIds": [
+      "src-wikipedia-windows-31",
+      "src-computerhistory-org-windows-31",
+      "src-learn-microsoft-com-windows-31"
+    ]
   },
   {
     "id": "first-web-photo",
@@ -177,7 +217,11 @@
     "summary": "Une photo d'un groupe musical formé par des employées du CERN est mise en ligne ; elle est souvent citée comme la première image publiée sur le Web.",
     "category": ["web", "culture", "world"],
     "importance": 2,
-    "sourceIds": ["src-wikipedia-cernettes"],
+    "sourceIds": [
+      "src-wikipedia-cernettes",
+      "src-musiclub-web-cern-ch-first-web-photo",
+      "src-cds-cern-ch-first-web-photo"
+    ],
     "needsResearch": true
   },
   {
@@ -187,7 +231,7 @@
     "summary": "« Merry Christmas » : le premier SMS est envoyé d'un ordinateur vers un téléphone, au Royaume-Uni.",
     "category": ["mobile", "telecom", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-sms"]
+    "sourceIds": ["src-wikipedia-sms", "src-vodafone-co-uk-first-sms", "src-vodafone-com-first-sms"]
   },
   {
     "id": "mosaic-release",
@@ -196,7 +240,11 @@
     "summary": "Le NCSA publie Mosaic, navigateur graphique qui affiche images et texte dans la même page et fait décoller le Web.",
     "category": ["web", "software", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-mosaic"],
+    "sourceIds": [
+      "src-wikipedia-mosaic",
+      "src-ncsa-illinois-edu-mosaic-release",
+      "src-guinnessworldrecords-com-mosaic-release"
+    ],
     "needsResearch": true
   },
   {
@@ -206,7 +254,11 @@
     "summary": "Le CERN met le logiciel du World Wide Web à disposition de tous, sans redevance.",
     "category": ["web", "world"],
     "importance": 5,
-    "sourceIds": ["src-cern-www-public-domain"]
+    "sourceIds": [
+      "src-cern-www-public-domain",
+      "src-cds-cern-ch-www-public-domain",
+      "src-timeline-web-cern-ch-www-public-domain"
+    ]
   },
   {
     "id": "yahoo-founded",
@@ -215,7 +267,7 @@
     "summary": "Jerry Yang et David Filo créent \"Jerry and David's Guide to the World Wide Web\", qui deviendra l'annuaire Yahoo!.",
     "category": ["search", "web", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-yahoo"],
+    "sourceIds": ["src-wikipedia-yahoo", "src-web-stanford-edu-yahoo-founded"],
     "needsResearch": true
   },
   {
@@ -225,7 +277,11 @@
     "summary": "Le moteur de recherche Lycos, né d'un projet de l'université Carnegie Mellon, est mis en ligne.",
     "category": ["search", "web", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-lycos"],
+    "sourceIds": [
+      "src-wikipedia-lycos",
+      "src-lazytoad-com-lycos-launch",
+      "src-cs-cmu-edu-lycos-launch"
+    ],
     "needsResearch": true
   },
   {
@@ -235,7 +291,12 @@
     "summary": "Netscape publie la version 1.0 de son navigateur, qui domine rapidement le marché.",
     "category": ["web", "software", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-netscape-navigator"]
+    "sourceIds": [
+      "src-wikipedia-netscape-navigator",
+      "src-ebsco-com-netscape-navigator",
+      "src-britannica-com-netscape-navigator",
+      "src-neowin-netscape-navigator"
+    ]
   },
   {
     "id": "amazon-launch",
@@ -244,7 +305,11 @@
     "summary": "Amazon.com ouvre en ligne comme librairie.",
     "category": ["web", "commerce", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-amazon"]
+    "sourceIds": [
+      "src-wikipedia-amazon",
+      "src-press-aboutamazon-com-amazon-launch",
+      "src-aboutamazon-com-amazon-launch"
+    ]
   },
   {
     "id": "windows-95-release",
@@ -253,7 +318,11 @@
     "summary": "Microsoft lance Windows 95, qui fait entrer le menu Démarrer, la barre des tâches et l'accès à Internet dans les foyers.",
     "category": ["software", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-windows-95"]
+    "sourceIds": [
+      "src-wikipedia-windows-95",
+      "src-news-microsoft-com-windows-95-release",
+      "src-computerhistory-org-windows-95-release"
+    ]
   },
   {
     "id": "ebay-founded",
@@ -262,7 +331,7 @@
     "summary": "Pierre Omidyar lance AuctionWeb, site d'enchères en ligne qui deviendra eBay.",
     "category": ["web", "commerce", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-ebay"]
+    "sourceIds": ["src-wikipedia-ebay", "src-ebayinc-com-ebay-founded", "src-time-com-ebay-founded"]
   },
   {
     "id": "altavista-launch",
@@ -271,7 +340,11 @@
     "summary": "Digital Equipment Corporation lance AltaVista, l'un des premiers moteurs de recherche à indexer le Web en texte intégral.",
     "category": ["search", "web", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-altavista"]
+    "sourceIds": [
+      "src-wikipedia-altavista",
+      "src-encyclopedia-com-altavista-launch",
+      "src-tomshardware-altavista"
+    ]
   },
   {
     "id": "hotmail-launch",
@@ -280,7 +353,11 @@
     "summary": "Hotmail ouvre l'un des premiers services de courrier électronique gratuits accessibles depuis un navigateur.",
     "category": ["web", "messaging", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-hotmail"]
+    "sourceIds": [
+      "src-wikipedia-hotmail",
+      "src-news-microsoft-com-hotmail-launch",
+      "src-technologyreview-com-hotmail-launch"
+    ]
   },
   {
     "id": "icq-launch",
@@ -289,7 +366,7 @@
     "summary": "ICQ popularise la messagerie instantanée avec liste de contacts et présence en ligne.",
     "category": ["messaging", "software", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-icq"],
+    "sourceIds": ["src-wikipedia-icq", "src-haaretz-com-icq-launch"],
     "needsResearch": true
   },
   {
@@ -299,7 +376,11 @@
     "summary": "L'IEEE publie la norme 802.11, base des réseaux locaux sans fil.",
     "category": ["network", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-ieee-80211"],
+    "sourceIds": [
+      "src-wikipedia-ieee-80211",
+      "src-standards-ieee-org-wifi-80211",
+      "src-ieeexplore-ieee-org-wifi-80211"
+    ],
     "needsResearch": true
   },
   {
@@ -309,7 +390,11 @@
     "summary": "Larry Page et Sergey Brin fondent Google, dont le moteur de recherche s'appuie sur l'algorithme PageRank.",
     "category": ["search", "web", "world"],
     "importance": 5,
-    "sourceIds": ["src-wikipedia-google"]
+    "sourceIds": [
+      "src-wikipedia-google",
+      "src-about-google-google-founded",
+      "src-sec-gov-google-founded"
+    ]
   },
   {
     "id": "napster-launch",
@@ -318,7 +403,11 @@
     "summary": "Shawn Fanning lance Napster, service pionnier de partage de fichiers musicaux en pair-à-pair.",
     "category": ["culture", "web", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-napster"],
+    "sourceIds": [
+      "src-wikipedia-napster",
+      "src-npr-org-napster-launch",
+      "src-britannica-com-napster-launch"
+    ],
     "needsResearch": true
   },
   {
@@ -328,7 +417,11 @@
     "summary": "Microsoft lance MSN Messenger Service, sa messagerie instantanée grand public.",
     "category": ["messaging", "software", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-msn-messenger"],
+    "sourceIds": [
+      "src-wikipedia-msn-messenger",
+      "src-news-microsoft-com-msn-messenger-launch",
+      "src-news-microsoft-com-msn-messenger-launch-2"
+    ],
     "needsResearch": true
   },
   {
@@ -338,7 +431,11 @@
     "summary": "L'indice NASDAQ Composite atteint son sommet avant l'éclatement de la bulle des « dot-com ».",
     "category": ["economy", "web", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-dotcom-bubble"]
+    "sourceIds": [
+      "src-wikipedia-dotcom-bubble",
+      "src-npr-org-dotcom-peak",
+      "src-britannica-com-dotcom-peak"
+    ]
   },
   {
     "id": "wikipedia-launch",
@@ -347,7 +444,11 @@
     "summary": "Jimmy Wales et Larry Sanger lancent Wikipedia, encyclopédie collaborative librement modifiable.",
     "category": ["culture", "web", "world"],
     "importance": 5,
-    "sourceIds": ["src-wikipedia-wikipedia"]
+    "sourceIds": [
+      "src-wikipedia-wikipedia",
+      "src-britannica-com-wikipedia-launch",
+      "src-content-time-com-wikipedia-launch"
+    ]
   },
   {
     "id": "bittorrent-release",
@@ -356,7 +457,11 @@
     "summary": "Bram Cohen annonce BitTorrent, protocole d'échange pair-à-pair qui répartit le téléchargement entre tous les participants.",
     "category": ["network", "culture", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-bittorrent"],
+    "sourceIds": [
+      "src-wikipedia-bittorrent",
+      "src-torrentfreak-com-bittorrent-release",
+      "src-britannica-com-bittorrent-release"
+    ],
     "needsResearch": true
   },
   {
@@ -366,7 +471,11 @@
     "summary": "Apple présente l'iPod, baladeur numérique qui accompagne l'essor de la musique téléchargée.",
     "category": ["hardware", "culture", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-ipod"]
+    "sourceIds": [
+      "src-wikipedia-ipod",
+      "src-apple-com-ipod-announced",
+      "src-computerhistory-org-ipod-announced"
+    ]
   },
   {
     "id": "myspace-launch",
@@ -375,7 +484,11 @@
     "summary": "Myspace ouvre ses portes et devient l'un des premiers réseaux sociaux grand public.",
     "category": ["social", "web", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-myspace"],
+    "sourceIds": [
+      "src-wikipedia-myspace",
+      "src-britannica-com-myspace-launch",
+      "src-computerhistory-org-myspace-launch"
+    ],
     "needsResearch": true
   },
   {
@@ -385,7 +498,11 @@
     "summary": "Niklas Zennström et Janus Friis lancent Skype, logiciel de voix et messagerie sur IP.",
     "category": ["messaging", "software", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-skype"],
+    "sourceIds": [
+      "src-wikipedia-skype",
+      "src-blogs-skype-com-skype-launch",
+      "src-britannica-com-skype-launch"
+    ],
     "needsResearch": true
   },
   {
@@ -395,7 +512,11 @@
     "summary": "Mark Zuckerberg lance \"Thefacebook\" depuis l'université Harvard.",
     "category": ["social", "web", "world"],
     "importance": 5,
-    "sourceIds": ["src-wikipedia-facebook"]
+    "sourceIds": [
+      "src-wikipedia-facebook",
+      "src-thecrimson-com-facebook-launch",
+      "src-thecrimson-com-facebook-launch-2"
+    ]
   },
   {
     "id": "gmail-launch",
@@ -404,7 +525,11 @@
     "summary": "Google lance Gmail en accès limité sur invitation, avec 1 Go de stockage — une révolution pour l'époque.",
     "category": ["software", "web", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-gmail"]
+    "sourceIds": [
+      "src-wikipedia-gmail",
+      "src-googlepress-blogspot-com-gmail-launch",
+      "src-time-com-gmail-launch"
+    ]
   },
   {
     "id": "firefox-1",
@@ -413,7 +538,11 @@
     "summary": "La fondation Mozilla publie Firefox 1.0, navigateur libre qui relance la concurrence face à Internet Explorer.",
     "category": ["web", "software", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-firefox"]
+    "sourceIds": [
+      "src-wikipedia-firefox",
+      "src-www-archive-mozilla-org-firefox-1",
+      "src-blog-mozilla-org-firefox-1"
+    ]
   },
   {
     "id": "youtube-founded",
@@ -422,7 +551,11 @@
     "summary": "Chad Hurley, Steve Chen et Jawed Karim fondent YouTube, plateforme de partage de vidéos.",
     "category": ["video", "web", "world"],
     "importance": 5,
-    "sourceIds": ["src-wikipedia-youtube"]
+    "sourceIds": [
+      "src-wikipedia-youtube",
+      "src-britannica-com-youtube-founded",
+      "src-npr-org-youtube-founded"
+    ]
   },
   {
     "id": "first-youtube-video",
@@ -432,7 +565,11 @@
     "category": ["video", "web", "world"],
     "importance": 4,
     "experienceId": "youtube-first-video",
-    "sourceIds": ["src-wikipedia-me-at-the-zoo"]
+    "sourceIds": [
+      "src-wikipedia-me-at-the-zoo",
+      "src-blog-youtube-first-youtube-video",
+      "src-smithsonianmag-com-first-youtube-video"
+    ]
   },
   {
     "id": "twitter-launch",
@@ -441,7 +578,11 @@
     "summary": "Twitter, créé en mars 2006, ouvre son service de micro-blogging au public.",
     "category": ["social", "web", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-twitter"],
+    "sourceIds": [
+      "src-wikipedia-twitter",
+      "src-britannica-com-twitter-launch",
+      "src-history-com-twitter-launch"
+    ],
     "needsResearch": true
   },
   {
@@ -451,7 +592,11 @@
     "summary": "Google annonce le rachat de YouTube, un an et demi après la mise en ligne du site.",
     "category": ["video", "economy", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-youtube-google"]
+    "sourceIds": [
+      "src-wikipedia-youtube-google",
+      "src-googlepress-blogspot-com-youtube-acquired",
+      "src-sec-gov-youtube-acquired"
+    ]
   },
   {
     "id": "iphone-announced",
@@ -460,7 +605,7 @@
     "summary": "Apple présente l'iPhone : le Web complet tient désormais dans la poche.",
     "category": ["hardware", "mobile", "world"],
     "importance": 5,
-    "sourceIds": ["src-wikipedia-iphone"]
+    "sourceIds": ["src-wikipedia-iphone", "src-apple-com-iphone-announced"]
   },
   {
     "id": "netflix-streaming",
@@ -469,7 +614,7 @@
     "summary": "Netflix, jusque-là loueur de DVD par courrier, lance le visionnage de films directement en ligne.",
     "category": ["video", "web", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-netflix"],
+    "sourceIds": ["src-wikipedia-netflix", "src-sec-gov-netflix-streaming"],
     "needsResearch": true
   },
   {
@@ -479,7 +624,11 @@
     "summary": "L'iPhone est commercialisé en France : l'écran tactile et le Web mobile entrent dans les poches.",
     "category": ["mobile", "hardware", "france"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-iphone"],
+    "sourceIds": [
+      "src-wikipedia-iphone",
+      "src-apple-com-iphone-france",
+      "src-histoire-orange-com-iphone-france"
+    ],
     "needsResearch": true
   },
   {
@@ -489,7 +638,11 @@
     "summary": "Une boutique d'applications intégrée au téléphone : on installe un logiciel en un geste, gratuit ou pour quelques centimes.",
     "category": ["mobile", "software", "economy", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-app-store"]
+    "sourceIds": [
+      "src-wikipedia-app-store",
+      "src-apple-com-app-store-opens",
+      "src-apple-com-app-store-opens-2"
+    ]
   },
   {
     "id": "chrome-release",
@@ -498,7 +651,11 @@
     "summary": "Google publie son navigateur Chrome, qui isole chaque onglet dans un processus séparé.",
     "category": ["web", "software", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-chrome"]
+    "sourceIds": [
+      "src-wikipedia-chrome",
+      "src-googleblog-blogspot-com-chrome-release",
+      "src-googlepress-blogspot-com-chrome-release"
+    ]
   },
   {
     "id": "android-htc-dream",
@@ -507,7 +664,11 @@
     "summary": "Le HTC Dream (T-Mobile G1), premier smartphone sous Android, est annoncé.",
     "category": ["hardware", "mobile", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-htc-dream"]
+    "sourceIds": [
+      "src-wikipedia-htc-dream",
+      "src-t-mobile-com-android-htc-dream",
+      "src-techcrunch-com-android-htc-dream"
+    ]
   },
   {
     "id": "android-market-opens",
@@ -516,7 +677,10 @@
     "summary": "Android a lui aussi sa boutique d'applications (future Google Play).",
     "category": ["mobile", "software", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-google-play"]
+    "sourceIds": [
+      "src-wikipedia-google-play",
+      "src-android-developers-googleblog--android-market-opens"
+    ]
   },
   {
     "id": "bitcoin-whitepaper",
@@ -525,7 +689,10 @@
     "summary": "Un auteur sous le pseudonyme Satoshi Nakamoto publie le livre blanc décrivant Bitcoin, monnaie électronique pair-à-pair.",
     "category": ["economy", "network", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-bitcoin-whitepaper"]
+    "sourceIds": [
+      "src-wikipedia-bitcoin-whitepaper",
+      "src-satoshi-nakamotoinstitute-org-bitcoin-whitepaper"
+    ]
   },
   {
     "id": "ipad-announced",
@@ -534,7 +701,7 @@
     "summary": "La tablette tactile grand public : entre le téléphone et l'ordinateur.",
     "category": ["hardware", "mobile", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-ipad"]
+    "sourceIds": ["src-wikipedia-ipad", "src-apple-com-ipad-announced"]
   },
   {
     "id": "instagram-launch",
@@ -543,7 +710,11 @@
     "summary": "Instagram sort sur iPhone : partage de photos carrées retouchées par filtres, pensé pour le mobile.",
     "category": ["social", "mobile", "world"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-instagram"]
+    "sourceIds": [
+      "src-wikipedia-instagram",
+      "src-techcrunch-com-instagram-launch",
+      "src-britannica-com-instagram-launch"
+    ]
   },
   {
     "id": "free-mobile-launch",
@@ -552,7 +723,11 @@
     "summary": "Le quatrième opérateur mobile français fait chuter les prix des forfaits : SMS illimités et Internet mobile se banalisent.",
     "category": ["mobile", "telecom", "economy", "france"],
     "importance": 3,
-    "sourceIds": ["src-wikipedia-free-mobile"]
+    "sourceIds": [
+      "src-wikipedia-free-mobile",
+      "src-franceinfo-fr-free-mobile-launch",
+      "src-journaldunet-com-free-mobile-launch"
+    ]
   },
   {
     "id": "ipv6-launch",
@@ -561,7 +736,11 @@
     "summary": "Grands sites et fournisseurs d'accès activent IPv6 de façon permanente, pour dépasser la pénurie d'adresses IPv4.",
     "category": ["network", "world"],
     "importance": 2,
-    "sourceIds": ["src-wikipedia-ipv6-launch"]
+    "sourceIds": [
+      "src-wikipedia-ipv6-launch",
+      "src-internetsociety-org-ipv6-launch",
+      "src-internetsociety-org-ipv6-launch-2"
+    ]
   },
   {
     "id": "minitel-shutdown",
@@ -570,7 +749,11 @@
     "summary": "Le service Minitel est définitivement arrêté en France, trente ans après son déploiement.",
     "category": ["minitel", "telecom", "france"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-minitel-shutdown"]
+    "sourceIds": [
+      "src-wikipedia-minitel-shutdown",
+      "src-aljazeera-com-minitel-shutdown",
+      "src-france24-com-minitel-shutdown"
+    ]
   },
   {
     "id": "snowden-disclosures",
@@ -579,7 +762,11 @@
     "summary": "Les premiers articles tirés des documents d'Edward Snowden révèlent l'ampleur de la surveillance d'Internet par des agences de renseignement.",
     "category": ["security", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-global-surveillance"]
+    "sourceIds": [
+      "src-wikipedia-global-surveillance",
+      "src-npr-org-snowden-disclosures",
+      "src-eff-org-snowden-disclosures"
+    ]
   },
   {
     "id": "gdpr-applies",
@@ -588,7 +775,11 @@
     "summary": "Le Règlement général sur la protection des données s'applique dans toute l'Union européenne.",
     "category": ["security", "law", "france"],
     "importance": 4,
-    "sourceIds": ["src-eurlex-gdpr"]
+    "sourceIds": [
+      "src-eurlex-gdpr",
+      "src-eur-lex-europa-eu-gdpr-applies",
+      "src-eur-lex-europa-eu-gdpr-applies-2"
+    ]
   },
   {
     "id": "chatgpt-release",
@@ -597,6 +788,6 @@
     "summary": "OpenAI ouvre au public ChatGPT, agent conversationnel qui popularise l'IA générative.",
     "category": ["ai", "software", "world"],
     "importance": 4,
-    "sourceIds": ["src-wikipedia-chatgpt"]
+    "sourceIds": ["src-wikipedia-chatgpt", "src-openai-com-chatgpt-release"]
   }
 ]

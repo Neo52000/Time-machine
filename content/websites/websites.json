@@ -6,7 +6,12 @@
     "description": "Le premier site Web, hébergé au CERN sur la machine NeXT de Tim Berners-Lee.",
     "category": ["science", "web"],
     "availableFrom": "1991-08-06",
-    "sourceIds": ["src-wikipedia-first-website", "src-w3-first-website"],
+    "sourceIds": [
+      "src-wikipedia-first-website",
+      "src-w3-first-website",
+      "src-w3-org-first-website",
+      "src-home-cern-first-web-server"
+    ],
     "relatedEventIds": ["first-website"]
   },
   {
@@ -16,7 +21,12 @@
     "description": "Moteur de recherche plein texte de Digital Equipment Corporation, référence des années 1996-1999.",
     "category": ["search"],
     "availableFrom": "1995-12-15",
-    "sourceIds": ["src-wikipedia-altavista"],
+    "sourceIds": [
+      "src-wikipedia-altavista",
+      "src-webdesignmuseum-org-altavista-com",
+      "src-computerhistory-org-altavista-com",
+      "src-tomshardware-altavista"
+    ],
     "relatedEventIds": ["altavista-launch"]
   },
   {
@@ -26,7 +36,11 @@
     "description": "Annuaire hiérarchique du Web devenu portail grand public.",
     "category": ["directory", "portal"],
     "availableFrom": "1995-01-18",
-    "sourceIds": ["src-wikipedia-yahoo"],
+    "sourceIds": [
+      "src-wikipedia-yahoo",
+      "src-webdesignmuseum-org-yahoo-com",
+      "src-britannica-com-yahoo-com"
+    ],
     "relatedEventIds": ["yahoo-founded"],
     "needsResearch": true
   },
@@ -37,7 +51,11 @@
     "description": "Moteur de recherche fondé sur PageRank, encore en bêta en 1998.",
     "category": ["search"],
     "availableFrom": "1997-09-15",
-    "sourceIds": ["src-wikipedia-google"],
+    "sourceIds": [
+      "src-wikipedia-google",
+      "src-graphics-stanford-edu-google-com",
+      "src-9to5google-com-google-com"
+    ],
     "relatedEventIds": ["google-founded"]
   },
   {
@@ -48,7 +66,11 @@
     "category": ["hosting", "community"],
     "availableFrom": "1995-12-01",
     "availableUntil": "2009-10-26",
-    "sourceIds": ["src-wikipedia-geocities"],
+    "sourceIds": [
+      "src-wikipedia-geocities",
+      "src-webdesignmuseum-org-geocities-com",
+      "src-computerhistory-org-geocities-com"
+    ],
     "needsResearch": true
   },
   {
@@ -58,7 +80,11 @@
     "description": "Moteur de recherche issu de l'université Carnegie Mellon.",
     "category": ["search"],
     "availableFrom": "1994-07-20",
-    "sourceIds": ["src-wikipedia-lycos"],
+    "sourceIds": [
+      "src-wikipedia-lycos",
+      "src-lazytoad-com-lycos-com",
+      "src-cs-cmu-edu-lycos-launch"
+    ],
     "relatedEventIds": ["lycos-launch"],
     "needsResearch": true
   },
@@ -69,7 +95,11 @@
     "description": "Librairie en ligne « Earth's Biggest Bookstore ».",
     "category": ["commerce"],
     "availableFrom": "1995-07-16",
-    "sourceIds": ["src-wikipedia-amazon"],
+    "sourceIds": [
+      "src-wikipedia-amazon",
+      "src-press-aboutamazon-com-amazon-launch",
+      "src-mimmsmuseum-org-amazon-com"
+    ],
     "needsResearch": true
   },
   {
@@ -79,7 +109,11 @@
     "description": "Service de partage de fichiers MP3 en pair-à-pair, fermé sur décision de justice en 2001.",
     "category": ["music", "p2p"],
     "availableFrom": "1999-06-01",
-    "sourceIds": ["src-wikipedia-napster"],
+    "sourceIds": [
+      "src-wikipedia-napster",
+      "src-npr-org-napster-com",
+      "src-computerhistory-org-napster-com"
+    ],
     "relatedEventIds": ["napster-launch"],
     "needsResearch": true,
     "availableUntil": "2001-07-01"
@@ -91,7 +125,11 @@
     "description": "Encyclopédie libre et collaborative.",
     "category": ["reference"],
     "availableFrom": "2001-01-15",
-    "sourceIds": ["src-wikipedia-wikipedia"],
+    "sourceIds": [
+      "src-wikipedia-wikipedia",
+      "src-britannica-com-wikipedia-launch",
+      "src-wikimediafoundation-org-wikipedia-org"
+    ],
     "relatedEventIds": ["wikipedia-launch"]
   },
   {
@@ -101,7 +139,11 @@
     "description": "Messagerie électronique gratuite accessible depuis n'importe quel navigateur.",
     "category": ["email", "webmail"],
     "availableFrom": "1996-07-04",
-    "sourceIds": ["src-wikipedia-hotmail"]
+    "sourceIds": [
+      "src-wikipedia-hotmail",
+      "src-news-microsoft-com-hotmail-launch",
+      "src-news-microsoft-com-hotmail-com"
+    ]
   },
   {
     "id": "excite-com",
@@ -110,7 +152,11 @@
     "description": "Portail et moteur de recherche : actualités, météo, e-mail et annuaire.",
     "category": ["search", "portal"],
     "availableFrom": "1995-10-01",
-    "sourceIds": ["src-wikipedia-excite"],
+    "sourceIds": [
+      "src-wikipedia-excite",
+      "src-encyclopedia-com-excite-com",
+      "src-computerhistory-org-excite-com"
+    ],
     "needsResearch": true
   },
   {
@@ -120,7 +166,12 @@
     "description": "Partage de vidéos en ligne : regardez, publiez et commentez des vidéos.",
     "category": ["video", "social"],
     "availableFrom": "2005-04-23",
-    "sourceIds": ["src-wikipedia-youtube", "src-wikipedia-me-at-the-zoo"],
+    "sourceIds": [
+      "src-wikipedia-youtube",
+      "src-wikipedia-me-at-the-zoo",
+      "src-vam-ac-uk-youtube-com",
+      "src-smithsonianmag-com-first-youtube-video"
+    ],
     "relatedEventIds": ["youtube-founded", "first-youtube-video"],
     "needsResearch": true
   },
@@ -131,7 +182,11 @@
     "description": "Réseau social : profils personnalisables, amis, musique et blogs.",
     "category": ["social", "music"],
     "availableFrom": "2003-08-01",
-    "sourceIds": ["src-wikipedia-myspace"],
+    "sourceIds": [
+      "src-wikipedia-myspace",
+      "src-britannica-com-myspace-launch",
+      "src-webdesignmuseum-org-myspace-com"
+    ],
     "relatedEventIds": ["myspace-launch"],
     "needsResearch": true
   },
@@ -142,7 +197,11 @@
     "description": "Webmail de Google lancé en bêta sur invitation, avec 1 Go de stockage.",
     "category": ["email", "webmail"],
     "availableFrom": "2004-04-01",
-    "sourceIds": ["src-wikipedia-gmail"],
+    "sourceIds": [
+      "src-wikipedia-gmail",
+      "src-googlepress-blogspot-com-gmail-launch",
+      "src-time-com-gmail-launch"
+    ],
     "relatedEventIds": ["gmail-launch"]
   }
 ]

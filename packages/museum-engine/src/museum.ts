@@ -5,6 +5,7 @@ import type {
   MachineProfile,
   SourceReference,
 } from "@time-machine/content-schema";
+import { isAuthoritativeSource } from "@time-machine/content-schema";
 
 /**
  * Museum Engine — turns the same validated content the machines run on
@@ -32,6 +33,8 @@ export interface Sourced<T> {
   item: T;
   sources: SourceReference[];
   toConfirm: boolean;
+  /** At least one primary, institutional or press source (not only an encyclopedia). */
+  authoritative: boolean;
 }
 
 export interface MuseumGallery {
@@ -68,7 +71,12 @@ export function buildMuseum(input: MuseumInput, options: MuseumOptions = {}): Mu
       if (!source) throw new Error(`${kind} ${item.id} references unknown source "${id}"`);
       return source;
     });
-    return { item, sources, toConfirm: item.needsResearch === true };
+    return {
+      item,
+      sources,
+      toConfirm: item.needsResearch === true,
+      authoritative: sources.some(isAuthoritativeSource),
+    };
   }
 
   const events = input.events
@@ -114,4 +122,10 @@ export function buildMuseum(input: MuseumInput, options: MuseumOptions = {}): Mu
 
   const byId = new Map(galleries.map((g) => [g.era.id, g]));
   return { galleries, getGallery: (eraId) => byId.get(eraId) };
+}
+
+/** How many of a gallery's dated facts (events of the era, sites online) rest on an authoritative source. */
+export function galleryCoverage(gallery: MuseumGallery): { authoritative: number; total: number } {
+  const facts = [...gallery.during, ...gallery.online];
+  return { authoritative: facts.filter((f) => f.authoritative).length, total: facts.length };
 }
