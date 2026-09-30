@@ -124,7 +124,7 @@ describe("buildMuseum", () => {
 
 describe("shipped museum", () => {
   it("has one gallery per era, each with its machine", () => {
-    expect(museum.galleries.map((g) => g.era.id)).toEqual(["1985", "1992", "1998", "2005"]);
+    expect(museum.galleries.map((g) => g.era.id)).toEqual(["1985", "1992", "1998", "2005", "2010"]);
     for (const g of museum.galleries) expect(g.machine, g.era.id).toBeDefined();
   });
 

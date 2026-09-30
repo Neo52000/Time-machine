@@ -1,0 +1,100 @@
+{
+  "sourceIds": ["src-timemachine-phone-fiction", "src-wikipedia-smartphone"],
+  "dataAllowanceMb": 500,
+  "contacts": [
+    {
+      "id": "lea",
+      "name": "Léa",
+      "initial": "L"
+    },
+    {
+      "id": "maman",
+      "name": "Maman",
+      "initial": "M"
+    }
+  ],
+  "threads": [
+    {
+      "contactId": "lea",
+      "replyDelayMs": 3500,
+      "openings": [
+        {
+          "text": "Alors, il est comment ton nouveau téléphone ? Envoie-moi une photo !",
+          "afterMs": 4000
+        }
+      ],
+      "replies": [
+        "Trop bien ! Moi j'ai encore mon vieux téléphone à clapet : 3 appuis sur la touche 7 pour faire un S, mdr",
+        "Au fait : mets un seul ê ou un seul ç dans ton SMS et il ne fait plus que 70 caractères au lieu de 160. Regarde le compteur !",
+        "Bon je file, bisous. Et installe des applis, tout le monde en parle !"
+      ]
+    },
+    {
+      "contactId": "maman",
+      "replyDelayMs": 6000,
+      "openings": [
+        {
+          "text": "Coucou. Attention au forfait : 500 Mo d'Internet par mois, pas plus ! A la maison, mets le Wi-Fi. Bisous, Maman",
+          "afterMs": 20000
+        }
+      ],
+      "replies": ["D'accord. Et pense a rappeler ta grand-mere pour son anniversaire !"]
+    }
+  ],
+  "radios": [
+    {
+      "id": "mobile",
+      "label": "3G+",
+      "metered": true,
+      "needsResearch": true,
+      "sourceIds": ["src-wikipedia-hsdpa"],
+      "link": {
+        "kind": "mobile",
+        "label": "3G+ (HSDPA)",
+        "downstreamBps": 1000000,
+        "upstreamBps": 384000,
+        "latencyMs": 150
+      }
+    },
+    {
+      "id": "wifi",
+      "label": "Wi-Fi",
+      "metered": false,
+      "needsResearch": true,
+      "sourceIds": ["src-wikipedia-ieee-80211", "src-wikipedia-adsl-fr"],
+      "link": {
+        "kind": "broadband",
+        "label": "Wi-Fi (box ADSL)",
+        "downstreamBps": 8000000,
+        "upstreamBps": 800000,
+        "latencyMs": 40
+      }
+    }
+  ],
+  "store": [
+    {
+      "id": "torch",
+      "title": "Lampe de poche",
+      "icon": "🔦",
+      "description": "Allume l'écran en blanc pour éclairer une serrure dans le noir. L'appli star des débuts.",
+      "sizeKb": 180,
+      "priceCents": 0,
+      "availableFrom": "2009-01-01"
+    },
+    {
+      "id": "serpentin",
+      "title": "Serpentin",
+      "icon": "🐍",
+      "description": "Mangez les pastilles, grandissez, ne vous mordez pas la queue. Balayez l'écran pour tourner.",
+      "sizeKb": 2400,
+      "priceCents": 79,
+      "availableFrom": "2009-06-01"
+    }
+  ],
+  "photo": {
+    "width": 2592,
+    "height": 1944,
+    "sizeKb": 1800,
+    "mmsSizeKb": 90
+  }
+}

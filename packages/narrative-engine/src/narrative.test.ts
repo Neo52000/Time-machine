@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { listEras } from "@time-machine/era-engine";
 import { messengerCatalog } from "@time-machine/messenger-engine";
+import { phoneCatalog } from "@time-machine/phone-engine";
 import {
   createNarrativeCatalog,
   createNarrativeState,
@@ -281,7 +282,10 @@ describe("passport", () => {
 
 describe("shipped story", () => {
   it("only messages contacts that exist, and every era has stamps", () => {
-    const contactIds = new Set(messengerCatalog.contacts.map((c) => c.id));
+    // Messenger contacts (2005) and phone contacts (2010) both receive story messages.
+    const contactIds = new Set(
+      [...messengerCatalog.contacts, ...phoneCatalog.contacts].map((c) => c.id),
+    );
     for (const t of narrativeCatalog.triggers) {
       for (const a of t.actions) {
         if (a.type === "send.message") expect(contactIds, t.id).toContain(a.payload.contactId);

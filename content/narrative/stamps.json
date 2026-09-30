@@ -124,5 +124,47 @@
     "title": "Carnet 2005",
     "hint": "Discuter sur Messenger et visiter un site reconstitué.",
     "icon": "📔"
+  },
+  {
+    "id": "t10-sms",
+    "eraId": "2010",
+    "title": "Premier SMS",
+    "hint": "Envoyer un SMS depuis Messages.",
+    "icon": "✉"
+  },
+  {
+    "id": "t10-pave",
+    "eraId": "2010",
+    "title": "Roman-fleuve",
+    "hint": "Écrire un SMS si long qu'il part en plusieurs morceaux.",
+    "icon": "📜"
+  },
+  {
+    "id": "t10-appli",
+    "eraId": "2010",
+    "title": "Première appli",
+    "hint": "Installer une application depuis la Boutique.",
+    "icon": "🛍"
+  },
+  {
+    "id": "t10-mms",
+    "eraId": "2010",
+    "title": "Photo envoyée",
+    "hint": "Envoyer une photo à Léa par MMS.",
+    "icon": "📷"
+  },
+  {
+    "id": "t10-wifi",
+    "eraId": "2010",
+    "title": "Économe",
+    "hint": "Publier une photo en Wi-Fi pour épargner le forfait.",
+    "icon": "📶"
+  },
+  {
+    "id": "t10-serpentin",
+    "eraId": "2010",
+    "title": "Charmeur de serpent",
+    "hint": "Atteindre 5 points à Serpentin.",
+    "icon": "🐍"
   }
 ]

@@ -82,6 +82,14 @@ implement → test → validate → commit.
       eras (`docs/narrative-engine.md`). Boot screens no longer name real
       BIOS/CPU/disk brands and now match the machine profiles.
 
+- [x] **Phase 14 — Pocket Web**: the 2010 era, a touch smartphone
+      (`packages/phone-engine`, `shell: "phone"`): Messages with the live
+      160/70-character SMS counter, Photo (MMS vs full upload over 3G+ or
+      Wi-Fi), Boutique (apps timed and counted on the plan), Réglages
+      (Wi-Fi, airplane mode, data gauge), the Serpentin game; six stamps,
+      a reward wallpaper; six more sourced events (first SMS, app stores,
+      Free Mobile…) — `docs/phone-engine.md`. The 2005 Messenger no longer
+      mentions YouTube on 1 January 2005, before it existed.
 - [x] **Phase 14 — Ship**: `apps/web` is deployable and indexable
       (`netlify.toml` — web only, never `apps/admin`; `sitemap.xml` and
       `robots.txt` derived from the era registry and the museum; canonical
@@ -136,4 +144,7 @@ ship. Candidates, in order of leverage:
   persisted); only narrative `create.file` actions add files, for the
   current session.
 - Machine profiles are representative configurations; the 2005 ADSL speed
-  is flagged `needsResearch` until a primary source confirms it.
+  and the 2010 3G+/Wi-Fi throughputs are flagged `needsResearch` until a
+  primary source confirms them.
+- The 2010 phone has no Web browser yet (the Time Browser's reconstructions
+  are desktop pages); a transfer in progress is dropped if you leave its app.

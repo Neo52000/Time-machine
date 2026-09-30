@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
@@ -37,8 +38,43 @@ import { Window } from "./Window";
 import "./desktop.css";
 
 const registry = createAppRegistry(builtinApps);
+/** Only the phone era downloads the phone shell and its apps. */
+const PhoneScreen = dynamic(
+  () => import("@/components/phone/PhoneScreen").then((m) => ({ default: m.PhoneScreen })),
+  { ssr: false },
+);
 const EMPTY_PAYLOAD: WindowPayload = {};
 const noop = () => undefined;
+/** Height kept free above the phone for the stage tools (see .tm-stage-phone). */
+const PHONE_TOOLS_PX = 40;
+/** The phone's bezel, drawn outside its screen (box-shadow in phone.css). */
+const PHONE_BEZEL_PX = 12;
+
+/** Sound toggle and way out, for the full-screen shells (terminal, phone). */
+function StageTools() {
+  const audio = useAudio();
+  const { track } = useAnalytics();
+  return (
+    <div className="tm-stage-tools">
+      <button
+        type="button"
+        className="tm-stage-tool"
+        aria-pressed={audio.prefs.enabled}
+        aria-label={audio.prefs.enabled ? "Couper le son" : "Activer le son"}
+        data-testid="audio-toggle"
+        onClick={() => {
+          audio.toggle();
+          track("audio.toggled", { enabled: !audio.prefs.enabled });
+        }}
+      >
+        {audio.prefs.enabled ? "🔊" : "🔇"}
+      </button>
+      <Link href="/" className="tm-stage-tool" data-testid="stage-exit">
+        ← Timeline
+      </Link>
+    </div>
+  );
+}
 
 /** Stable definitions for windows whose app id is unknown to the registry. */
 const fallbackApps = new Map<string, AppDefinition>();
@@ -140,10 +176,20 @@ function DesktopStage({ era }: { era: EraManifest }) {
   useEffect(() => {
     const stage = stageRef.current;
     if (!stage) return;
-    const maxScale = theme.shell === "terminal" ? 3 : 1;
+    const maxScale = { terminal: 3, phone: 1.5, desktop: 1 }[theme.shell];
+    // The phone stands below the stage tools, its bezel fully on screen.
+    const phone = theme.shell === "phone";
+    const reservedX = phone ? 2 * PHONE_BEZEL_PX : 0;
+    const reservedY = phone ? PHONE_TOOLS_PX + 2 * PHONE_BEZEL_PX : 0;
     const fit = () => {
       const { width, height } = stage.getBoundingClientRect();
-      setScale(Math.min(maxScale, width / viewport.width, height / viewport.height));
+      setScale(
+        Math.min(
+          maxScale,
+          (width - reservedX) / viewport.width,
+          (height - reservedY) / viewport.height,
+        ),
+      );
     };
     fit();
     const observer = new ResizeObserver(fit);
@@ -231,6 +277,32 @@ function DesktopStage({ era }: { era: EraManifest }) {
     return <BootScreen sequence={bootSequence} onDone={onBootDone} />;
   }
 
+  // Phone shell: a home screen of icons, one app at a time.
+  if (theme.shell === "phone") {
+    return (
+      <div ref={stageRef} className="tm-stage tm-stage-phone">
+        <div
+          className={`tm-desktop-root tm-style-${theme.windowStyle}`}
+          data-testid="desktop"
+          data-theme={theme.id}
+          data-shell="phone"
+          data-wallpaper={wallpaper ?? undefined}
+          data-audio-enabled={audio.prefs.enabled}
+          style={{
+            width: viewport.width,
+            height: viewport.height,
+            transform: `scale(${scale})`,
+            ...tokens,
+          }}
+        >
+          <PhoneScreen era={era} clock={clock} apps={apps} />
+          <NarrativeToasts limit={2} dismissAfterMs={5000} />
+        </div>
+        <StageTools />
+      </div>
+    );
+  }
+
   // Terminal shell: no windows, the machine *is* its first application.
   if (theme.shell === "terminal") {
     const app = apps[0];
@@ -266,24 +338,7 @@ function DesktopStage({ era }: { era: EraManifest }) {
           )}
           <NarrativeToasts />
         </div>
-        <div className="tm-stage-tools">
-          <button
-            type="button"
-            className="tm-stage-tool"
-            aria-pressed={audio.prefs.enabled}
-            aria-label={audio.prefs.enabled ? "Couper le son" : "Activer le son"}
-            data-testid="audio-toggle"
-            onClick={() => {
-              audio.toggle();
-              track("audio.toggled", { enabled: !audio.prefs.enabled });
-            }}
-          >
-            {audio.prefs.enabled ? "🔊" : "🔇"}
-          </button>
-          <Link href="/" className="tm-stage-tool" data-testid="stage-exit">
-            ← Timeline
-          </Link>
-        </div>
+        <StageTools />
       </div>
     );
   }

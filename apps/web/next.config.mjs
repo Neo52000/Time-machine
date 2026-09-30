@@ -8,6 +8,7 @@ const nextConfig = {
   transpilePackages: [
     "@time-machine/audio-engine",
     "@time-machine/bbs-engine",
+    "@time-machine/phone-engine",
     "@time-machine/analytics-engine",
     "@time-machine/computer-engine",
     "@time-machine/content-schema",

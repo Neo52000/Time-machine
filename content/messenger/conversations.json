@@ -20,14 +20,14 @@
       {
         "id": "j3",
         "from": "contact",
-        "text": "T'as vu le nouveau site dont tout le monde parle, YouTube ?",
+        "text": "T'as vu ? Tout le monde ouvre son blog en ce moment",
         "delayMs": 2200,
         "typingMs": 1400
       },
       {
         "id": "j4",
         "from": "contact",
-        "text": "On peut y mettre ses videos gratuitement, c'est dingue",
+        "text": "On y raconte sa vie et les copains laissent des commentaires, c'est dingue",
         "delayMs": 2600,
         "typingMs": 1600
       },

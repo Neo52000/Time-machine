@@ -16,3 +16,4 @@ export * from "./media";
 export * from "./status";
 export * from "./audio";
 export * from "./analytics";
+export * from "./phone";

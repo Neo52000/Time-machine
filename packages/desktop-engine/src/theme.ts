@@ -18,8 +18,9 @@ export interface DesktopTheme {
   /**
    * "desktop": windows, icons and a taskbar. "terminal": the machine runs its
    * first app full-screen (a Minitel has no desktop), scaled up to fit.
+   * "phone": a touch home screen of app icons; one app at a time, full-screen.
    */
-  shell: "desktop" | "terminal";
+  shell: "desktop" | "terminal" | "phone";
 }
 
 const themes: Record<string, DesktopTheme> = {
@@ -128,6 +129,33 @@ const themes: Record<string, DesktopTheme> = {
       "--tm-selection": "#e6e6e6",
       "--tm-content": "#000000",
       "--tm-font": '"Courier New", monospace',
+      "--tm-font-mono": '"Courier New", monospace',
+    },
+  },
+  "touch-2010": {
+    id: "touch-2010",
+    name: "Time Machine Mobile 2",
+    startLabel: "Accueil",
+    windowStyle: "flat",
+    crt: false,
+    shell: "phone",
+    tokens: {
+      "--tm-desktop": "#1b2a4a",
+      "--tm-surface": "#f2f2f5",
+      "--tm-surface-light": "#ffffff",
+      "--tm-surface-dark": "#c7c7cc",
+      "--tm-surface-darker": "#8e8e93",
+      "--tm-text": "#111111",
+      "--tm-text-muted": "#6d6d72",
+      "--tm-title-active-from": "#2b3f66",
+      "--tm-title-active-to": "#16223b",
+      "--tm-title-inactive-from": "#8e8e93",
+      "--tm-title-inactive-to": "#8e8e93",
+      "--tm-title-text": "#ffffff",
+      "--tm-icon-text": "#ffffff",
+      "--tm-selection": "#2f7cf6",
+      "--tm-content": "#ffffff",
+      "--tm-font": '"Helvetica Neue", Helvetica, Arial, sans-serif',
       "--tm-font-mono": '"Courier New", monospace',
     },
   },

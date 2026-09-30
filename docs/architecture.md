@@ -21,6 +21,7 @@ TIME MACHINE
 ├── Time Search Engine  — packages/search-engine  (implemented: catalogue-derived index, +/-/phrase syntax, temporal filter)
 ├── Minitel Engine      — packages/minitel-engine  (implemented: videotex layout incl. mosaic pictures, session, kiosks/services as data)
 ├── BBS Engine          — packages/bbs-engine      (implemented: fictional boards as data, pure session, 80-column screens)
+├── Phone Engine        — packages/phone-engine    (implemented: SMS counting and scripts, radios, store, Serpentin; phone shell)
 ├── Messenger Engine    — packages/messenger-engine (implemented: scripted conversations, background presence, no chatbot)
 ├── Media Engine        — packages/media-engine    (implemented: pure player, upload-date lock, original placeholder visuals)
 ├── Museum Engine       — packages/museum-engine    (implemented: one sourced gallery per era, derived from the catalogues)
@@ -102,7 +103,8 @@ packages/
   narrative-engine/ Trigger catalogue (validated against what the runtime emits/performs) + pure dispatch
   museum-engine/    Per-era galleries derived from eras, events, websites, machines and sources
   bbs-engine/       BBS boards as data, pure call session (login, areas, downloads), 80-column render
-eras/               EraManifest JSON per era (1985, 1992, 1998, 2005)
+  phone-engine/     SMS segmentation (GSM-7/UCS-2), scripted SMS, radio transfer costs, store, Serpentin
+eras/               EraManifest JSON per era (1985, 1992, 1998, 2005, 2010)
 content/
   events/           HistoricalEvent seed data
   sources/          SourceReference seed data
@@ -116,6 +118,7 @@ content/
   machines/         Machine profiles (representative configurations, sourced)
   narrative/        Narrative triggers and passport stamps (meta, fictional story beats)
   bbs/              BBS boards, areas and items (fictional seed)
+  phone/            2010 phone: contacts, SMS scripts, radios, store apps, photo, plan (fictional seed)
 ```
 
 See `docs/era-format.md` and `docs/content-model.md` for the data contracts,
