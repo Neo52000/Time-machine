@@ -2,13 +2,15 @@
 
 import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
-import type { SourceReference } from "@time-machine/content-schema";
+import { SourceKindSchema, type SourceReference } from "@time-machine/content-schema";
 import { ApiError, submitRecord } from "@/lib/apiClient";
-import { TextField } from "./fields";
+import { SelectField, TextField } from "./fields";
 
 const EMPTY: SourceReference = {
   id: "",
   label: "",
+  // The weakest kind until an editor says otherwise.
+  kind: "reference",
   url: undefined,
   publisher: undefined,
   accessedAt: undefined,
@@ -55,6 +57,13 @@ export function SourceForm({ initial }: { initial?: SourceReference }) {
         value={record.label}
         onChange={(label) => setRecord({ ...record, label })}
         required
+      />
+      <SelectField
+        label="Kind"
+        hint="primary / institutional / press carry a date; reference and project do not"
+        value={record.kind}
+        options={SourceKindSchema.options}
+        onChange={(kind) => setRecord({ ...record, kind: SourceKindSchema.parse(kind) })}
       />
       <TextField
         label="URL"

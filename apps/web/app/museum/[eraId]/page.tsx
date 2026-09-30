@@ -6,7 +6,7 @@ import type {
   SourceReference,
 } from "@time-machine/content-schema";
 import { describeMachine } from "@time-machine/computer-engine";
-import { museum, type Sourced } from "@time-machine/museum-engine";
+import { galleryCoverage, museum, type Sourced } from "@time-machine/museum-engine";
 
 export function generateStaticParams() {
   return museum.galleries.map((g) => ({ eraId: g.era.id }));
@@ -38,6 +38,27 @@ function ToConfirm() {
   );
 }
 
+const KIND_LABEL: Record<SourceReference["kind"], string | null> = {
+  primary: "primaire",
+  institutional: "institutionnelle",
+  press: "presse",
+  reference: null,
+  project: null,
+};
+
+function KindBadge({ kind }: { kind: SourceReference["kind"] }) {
+  const label = KIND_LABEL[kind];
+  if (!label) return null;
+  return (
+    <span
+      className="ml-1 border border-emerald-800 px-1 text-[10px] uppercase text-emerald-500"
+      data-testid="source-kind"
+    >
+      {label}
+    </span>
+  );
+}
+
 function Sources({ sources }: { sources: SourceReference[] }) {
   if (sources.length === 0) return null;
   return (
@@ -58,6 +79,7 @@ function Sources({ sources }: { sources: SourceReference[] }) {
           ) : (
             s.label
           )}
+          <KindBadge kind={s.kind} />
         </span>
       ))}
     </p>
@@ -111,6 +133,7 @@ export default async function MuseumGalleryPage({
   const gallery = museum.getGallery(eraId);
   if (!gallery) notFound();
   const { era, machine } = gallery;
+  const coverage = galleryCoverage(gallery);
 
   return (
     <main
@@ -123,6 +146,10 @@ export default async function MuseumGalleryPage({
       <h1 className="mt-4 text-2xl font-bold tracking-wide">{era.label}</h1>
       <p className="mt-2 text-sm text-neutral-400">
         Du {formatDay(era.dateStart)} au {formatDay(era.dateEnd)}.
+      </p>
+      <p className="mt-1 text-xs text-neutral-500" data-testid="museum-coverage">
+        {coverage.authoritative}/{coverage.total} dates et sites appuyés sur une source primaire,
+        institutionnelle ou de presse.
       </p>
       <Link
         href={`/era/${era.id}/loading`}

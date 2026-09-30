@@ -5,7 +5,7 @@ import type {
   HistoricalWebsite,
   MachineProfile,
 } from "@time-machine/content-schema";
-import { buildMuseum, museum } from "./index";
+import { buildMuseum, galleryCoverage, museum } from "./index";
 
 const era = (id: string, year: number, machineId = `pc-${year}`): EraManifest => ({
   id,
@@ -55,7 +55,7 @@ const machine: MachineProfile = {
   sourceIds: ["s"],
 };
 
-const sources = [{ id: "s", label: "Source" }];
+const sources = [{ id: "s", label: "Source", kind: "primary" as const }];
 
 describe("buildMuseum", () => {
   const built = buildMuseum(
@@ -107,6 +107,24 @@ describe("buildMuseum", () => {
     expect(g1998.machine?.item.id).toBe("pc-1998");
     expect(g1998.machine?.sources.map((s) => s.label)).toEqual(["Source"]);
     expect(built.getGallery("2005")!.machine).toBeUndefined();
+  });
+
+  it("tells authoritative sources from encyclopedias and counts coverage", () => {
+    const withWiki = buildMuseum({
+      eras: [era("1998", 1998)],
+      events: [
+        event("strong", "1998-01-01"),
+        { ...event("weak", "1998-02-01"), sourceIds: ["wiki"] },
+      ],
+      websites: [],
+      machines: [],
+      sources: [...sources, { id: "wiki", label: "Encyclopédie", kind: "reference" as const }],
+    }).getGallery("1998")!;
+    expect(withWiki.during.map((e) => [e.item.id, e.authoritative])).toEqual([
+      ["strong", true],
+      ["weak", false],
+    ]);
+    expect(galleryCoverage(withWiki)).toEqual({ authoritative: 1, total: 2 });
   });
 
   it("fails fast on a dangling source", () => {

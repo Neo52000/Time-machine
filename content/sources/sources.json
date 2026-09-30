@@ -2,6 +2,7 @@
   {
     "id": "src-wikipedia-minitel",
     "label": "Minitel — Wikipedia",
+    "kind": "reference",
     "url": "https://fr.wikipedia.org/wiki/Minitel",
     "publisher": "Wikipedia",
     "notes": "Reference source for the seed MVP; exact commercial launch date needs primary-source verification."
@@ -9,12 +10,14 @@
   {
     "id": "src-wikipedia-first-website",
     "label": "World Wide Web — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/History_of_the_World_Wide_Web",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-w3-first-server",
     "label": "First Web server — World Wide Web Consortium (W3C)",
+    "kind": "institutional",
     "url": "https://www.w3.org/History/1991-WWW-NeXT.txt",
     "publisher": "W3C",
     "notes": "Exact day of the first working CERN httpd needs primary-source verification."
@@ -22,6 +25,7 @@
   {
     "id": "src-wikipedia-webcam",
     "label": "Trojan Room coffee pot — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Trojan_Room_coffee_pot",
     "publisher": "Wikipedia",
     "notes": "Sources diverge on the 1991 local video feed vs. the 1993 web-connected version."
@@ -29,90 +33,105 @@
   {
     "id": "src-wikipedia-yahoo",
     "label": "Yahoo! — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Yahoo!",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-lycos",
     "label": "Lycos — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Lycos",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-altavista",
     "label": "AltaVista — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/AltaVista",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-google",
     "label": "Google — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Google",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-msn-messenger",
     "label": "MSN Messenger — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Windows_Live_Messenger",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-napster",
     "label": "Napster — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Napster",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-wikipedia",
     "label": "Wikipedia (project history) — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/History_of_Wikipedia",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-facebook",
     "label": "Facebook — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Facebook",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-youtube",
     "label": "YouTube — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/YouTube",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-me-at-the-zoo",
     "label": "\"Me at the zoo\" — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Me_at_the_zoo",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-gmail",
     "label": "Gmail — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Gmail",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-skype",
     "label": "Skype — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Skype",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-myspace",
     "label": "Myspace — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Myspace",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-twitter",
     "label": "Twitter (X) — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Twitter",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-geocities",
     "label": "GeoCities — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/GeoCities",
     "publisher": "Wikipedia",
     "notes": "Founded November 1994 as Beverly Hills Internet; US service closed 26 October 2009."
@@ -120,6 +139,7 @@
   {
     "id": "src-wikipedia-amazon",
     "label": "Amazon (company) — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Amazon_(company)",
     "publisher": "Wikipedia",
     "notes": "Online bookstore opened July 1995; exact launch day to confirm."
@@ -127,6 +147,7 @@
   {
     "id": "src-w3-first-website",
     "label": "The first website — CERN / W3C",
+    "kind": "primary",
     "url": "https://info.cern.ch/hypertext/WWW/TheProject.html",
     "publisher": "CERN",
     "notes": "Restored copy of the first website hosted at info.cern.ch."
@@ -134,12 +155,14 @@
   {
     "id": "src-timemachine-reconstruction",
     "label": "Time Machine original reconstruction",
+    "kind": "project",
     "publisher": "Time Machine",
     "notes": "Era-inspired page authored for this project. Original layout and text; no third-party markup, artwork or trademarked chrome reproduced."
   },
   {
     "id": "src-wayback-yahoo-1998",
     "label": "Wayback Machine capture of yahoo.com (1998)",
+    "kind": "primary",
     "url": "https://web.archive.org/web/1998/http://www.yahoo.com/",
     "publisher": "Internet Archive",
     "notes": "Documentary reference only; never rendered inline (docs/rights-policy.md)."
@@ -147,6 +170,7 @@
   {
     "id": "src-wikipedia-hotmail",
     "label": "Outlook.com (Hotmail) — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Outlook.com",
     "publisher": "Wikipedia",
     "notes": "Hotmail launched 4 July 1996."
@@ -154,6 +178,7 @@
   {
     "id": "src-wikipedia-excite",
     "label": "Excite — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Excite",
     "publisher": "Wikipedia",
     "notes": "Portal launched in 1995; exact day to confirm."
@@ -161,6 +186,7 @@
   {
     "id": "src-wikipedia-teletel",
     "label": "Télétel — Wikipédia",
+    "kind": "reference",
     "url": "https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9tel",
     "publisher": "Wikipedia",
     "notes": "Kiosque Télétel, codes d'accès 3613/3614/3615 ; dates d'ouverture par palier à confirmer."
@@ -168,18 +194,21 @@
   {
     "id": "src-timemachine-minitel-fiction",
     "label": "Time Machine — service Minitel fictif",
+    "kind": "project",
     "publisher": "Time Machine",
     "notes": "Service et contenu inventés pour la démonstration, dans l'esprit des services vidéotex de 1985. Aucune marque ni contenu historique reproduits."
   },
   {
     "id": "src-timemachine-video-reconstruction",
     "label": "Time Machine — reconstruction vidéo originale",
+    "kind": "project",
     "publisher": "Time Machine",
     "notes": "Animation originale évoquant l'événement documenté (aucun extrait de la vidéo réelle n'est reproduit)."
   },
   {
     "id": "src-wikipedia-v90",
     "label": "V.90 — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/V.90",
     "publisher": "Wikipedia",
     "notes": "Norme ITU-T des modems 56 kbit/s (voie montante 33,6 kbit/s), approuvée en 1998 ; précédée en 1997 par les procédés concurrents X2 et K56flex."
@@ -187,6 +216,7 @@
   {
     "id": "src-wikipedia-adsl-fr",
     "label": "Asymmetric digital subscriber line — Wikipédia",
+    "kind": "reference",
     "url": "https://fr.wikipedia.org/wiki/Asymmetric_digital_subscriber_line",
     "publisher": "Wikipedia",
     "notes": "Débits ADSL grand public ; le débit « typique » d'un foyer français en 2005 reste à confirmer par une source primaire."
@@ -194,18 +224,21 @@
   {
     "id": "src-timemachine-machine-profile",
     "label": "Time Machine — configuration machine représentative",
+    "kind": "project",
     "publisher": "Time Machine",
     "notes": "Configuration type composée pour le projet (processeur décrit de façon générique, système « Time Machine OS » fictif). Elle évoque l'équipement d'un foyer de l'époque sans reproduire un modèle commercial précis."
   },
   {
     "id": "src-wikipedia-ibm-pc",
     "label": "IBM Personal Computer — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/IBM_Personal_Computer",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-flag-day",
     "label": "Flag day (computing) — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Flag_day_(computing)",
     "publisher": "Wikipedia",
     "notes": "Bascule de l'ARPANET vers TCP/IP le 1er janvier 1983."
@@ -213,12 +246,14 @@
   {
     "id": "src-wikipedia-macintosh",
     "label": "Macintosh 128K — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Macintosh_128K",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-symbolics-com",
     "label": "Symbolics — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Symbolics",
     "publisher": "Wikipedia",
     "notes": "symbolics.com, premier nom de domaine en .com enregistré le 15 mars 1985."
@@ -226,12 +261,14 @@
   {
     "id": "src-wikipedia-morris-worm",
     "label": "Morris worm — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Morris_worm",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-w3-www-proposal",
     "label": "Information Management: A Proposal — W3C",
+    "kind": "institutional",
     "url": "https://www.w3.org/History/1989/proposal.html",
     "publisher": "W3C",
     "notes": "Proposition datée « March 1989, May 1990 » ; le jour (12 mars) est la date commémorée, à confirmer sur le document original."
@@ -239,6 +276,7 @@
   {
     "id": "src-wikipedia-arpanet",
     "label": "ARPANET — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/ARPANET",
     "publisher": "Wikipedia",
     "notes": "Démantèlement en 1990 ; jour exact à confirmer."
@@ -246,6 +284,7 @@
   {
     "id": "src-wikipedia-linux",
     "label": "History of Linux — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/History_of_Linux",
     "publisher": "Wikipedia",
     "notes": "Annonce de Linus Torvalds sur comp.os.minix le 25 août 1991."
@@ -253,6 +292,7 @@
   {
     "id": "src-cern-www-public-domain",
     "label": "Licensing the Web — CERN",
+    "kind": "institutional",
     "url": "https://home.cern/science/computing/birth-web/licensing-web",
     "publisher": "CERN",
     "notes": "Le CERN place le logiciel du WWW dans le domaine public le 30 avril 1993."
@@ -260,6 +300,7 @@
   {
     "id": "src-wikipedia-mosaic",
     "label": "Mosaic (web browser) — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Mosaic_(web_browser)",
     "publisher": "Wikipedia",
     "notes": "Date de la version 1.0 à confirmer."
@@ -267,24 +308,28 @@
   {
     "id": "src-wikipedia-netscape-navigator",
     "label": "Netscape Navigator — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Netscape_Navigator",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-windows-95",
     "label": "Windows 95 — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Windows_95",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-ebay",
     "label": "eBay — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/EBay",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-dotcom-bubble",
     "label": "Dot-com bubble — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Dot-com_bubble",
     "publisher": "Wikipedia",
     "notes": "Pic de l'indice NASDAQ Composite le 10 mars 2000."
@@ -292,24 +337,28 @@
   {
     "id": "src-wikipedia-ipod",
     "label": "IPod — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/IPod",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-iphone",
     "label": "iPhone (1st generation) — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/IPhone_(1st_generation)",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-htc-dream",
     "label": "HTC Dream — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/HTC_Dream",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-minitel-shutdown",
     "label": "Minitel — Wikipédia (fin du service)",
+    "kind": "reference",
     "url": "https://fr.wikipedia.org/wiki/Minitel",
     "publisher": "Wikipedia",
     "notes": "Arrêt du service Minitel le 30 juin 2012."
@@ -317,12 +366,14 @@
   {
     "id": "src-wikipedia-chatgpt",
     "label": "ChatGPT — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/ChatGPT",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-plan-ipt",
     "label": "Plan informatique pour tous — Wikipédia",
+    "kind": "reference",
     "url": "https://fr.wikipedia.org/wiki/Plan_informatique_pour_tous",
     "publisher": "Wikipedia",
     "notes": "Annonce en janvier 1985 ; jour exact à confirmer."
@@ -330,18 +381,21 @@
   {
     "id": "src-wikipedia-amiga-1000",
     "label": "Amiga 1000 — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Amiga_1000",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-windows-1",
     "label": "Windows 1.0 — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Windows_1.0",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-irc",
     "label": "Internet Relay Chat — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Internet_Relay_Chat",
     "publisher": "Wikipedia",
     "notes": "Créé en août 1988 ; jour exact à confirmer."
@@ -349,6 +403,7 @@
   {
     "id": "src-wikipedia-icq",
     "label": "ICQ — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/ICQ",
     "publisher": "Wikipedia",
     "notes": "Lancé en novembre 1996 ; jour exact à confirmer."
@@ -356,6 +411,7 @@
   {
     "id": "src-wikipedia-ieee-80211",
     "label": "IEEE 802.11 — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/IEEE_802.11",
     "publisher": "Wikipedia",
     "notes": "Première version de la norme publiée en 1997 ; jour exact à confirmer."
@@ -363,6 +419,7 @@
   {
     "id": "src-wikipedia-bittorrent",
     "label": "BitTorrent — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/BitTorrent",
     "publisher": "Wikipedia",
     "notes": "Première version annoncée par Bram Cohen en juillet 2001 ; jour exact à confirmer."
@@ -370,12 +427,14 @@
   {
     "id": "src-wikipedia-firefox",
     "label": "Firefox version history — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Firefox_version_history",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-youtube-google",
     "label": "YouTube — Wikipedia (rachat par Google)",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/YouTube",
     "publisher": "Wikipedia",
     "notes": "Rachat annoncé le 9 octobre 2006."
@@ -383,6 +442,7 @@
   {
     "id": "src-wikipedia-netflix",
     "label": "Netflix — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Netflix",
     "publisher": "Wikipedia",
     "notes": "Lancement du visionnage en ligne en janvier 2007 ; jour exact à confirmer."
@@ -390,12 +450,14 @@
   {
     "id": "src-wikipedia-chrome",
     "label": "Google Chrome — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Google_Chrome",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-bitcoin-whitepaper",
     "label": "Bitcoin — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Bitcoin",
     "publisher": "Wikipedia",
     "notes": "Livre blanc publié le 31 octobre 2008."
@@ -403,24 +465,28 @@
   {
     "id": "src-wikipedia-instagram",
     "label": "Instagram — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Instagram",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-ipv6-launch",
     "label": "World IPv6 Day and World IPv6 Launch Day — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/World_IPv6_Day_and_World_IPv6_Launch_Day",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-global-surveillance",
     "label": "Global surveillance disclosures (2013–present) — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Global_surveillance_disclosures_(2013%E2%80%93present)",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-eurlex-gdpr",
     "label": "Règlement (UE) 2016/679 (RGPD) — EUR-Lex",
+    "kind": "institutional",
     "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
     "publisher": "Office des publications de l'Union européenne",
     "notes": "Applicable à partir du 25 mai 2018 (article 99)."
@@ -428,18 +494,21 @@
   {
     "id": "src-timemachine-bbs-fiction",
     "label": "Time Machine — BBS fictif",
+    "kind": "project",
     "publisher": "Time Machine",
     "notes": "Serveur, pseudonymes, messages et fichiers inventés pour la démonstration, dans l'esprit des BBS amateurs du début des années 1990. Aucun contenu ni nom de BBS réel reproduit."
   },
   {
     "id": "src-wikipedia-bbs",
     "label": "Bulletin board system — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Bulletin_board_system",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-v32",
     "label": "V.32 — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/V.32",
     "publisher": "Wikipedia",
     "notes": "V.32bis (14 400 bit/s), norme ITU-T de 1991."
@@ -447,12 +516,14 @@
   {
     "id": "src-wikipedia-windows-31",
     "label": "Windows 3.1 — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Windows_3.1",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-cernettes",
     "label": "Les Horribles Cernettes — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Les_Horribles_Cernettes",
     "publisher": "Wikipedia",
     "notes": "Souvent citée comme la première photographie publiée sur le Web (juillet 1992) ; date et primauté à confirmer."
@@ -460,12 +531,14 @@
   {
     "id": "src-wikipedia-sms",
     "label": "Short Message Service — Wikipedia",
+    "kind": "reference",
     "url": "https://fr.wikipedia.org/wiki/Short_Message_Service",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-gsm-0338",
     "label": "GSM 03.38 (alphabet des SMS) — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/GSM_03.38",
     "publisher": "Wikipedia",
     "notes": "Alphabet 7 bits par défaut, table d'extension, bascule en UCS-2 (70 caractères)."
@@ -473,6 +546,7 @@
   {
     "id": "src-wikipedia-hsdpa",
     "label": "High Speed Downlink Packet Access — Wikipedia",
+    "kind": "reference",
     "url": "https://fr.wikipedia.org/wiki/High_Speed_Downlink_Packet_Access",
     "publisher": "Wikipedia",
     "notes": "Débits nominaux ; le débit réel moyen de 2010 reste à confirmer."
@@ -480,42 +554,49 @@
   {
     "id": "src-wikipedia-mms",
     "label": "Multimedia Messaging Service — Wikipedia",
+    "kind": "reference",
     "url": "https://fr.wikipedia.org/wiki/Multimedia_Messaging_Service",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-app-store",
     "label": "App Store — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/App_Store_(Apple)",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-google-play",
     "label": "Google Play (Android Market) — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/Google_Play",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-ipad",
     "label": "iPad (1re génération) — Wikipedia",
+    "kind": "reference",
     "url": "https://en.wikipedia.org/wiki/IPad_(1st_generation)",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-free-mobile",
     "label": "Free Mobile — Wikipedia",
+    "kind": "reference",
     "url": "https://fr.wikipedia.org/wiki/Free_Mobile",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-wikipedia-smartphone",
     "label": "Smartphone — Wikipedia",
+    "kind": "reference",
     "url": "https://fr.wikipedia.org/wiki/Smartphone",
     "publisher": "Wikipedia"
   },
   {
     "id": "src-timemachine-phone-fiction",
     "label": "Time Machine — contenus fictifs du téléphone 2010",
+    "kind": "project",
     "url": "https://github.com/Neo52000/Time-machine/blob/main/docs/phone-engine.md",
     "publisher": "Time Machine",
     "notes": "Contacts, SMS, applications et forfait sont inventés pour la démonstration."
