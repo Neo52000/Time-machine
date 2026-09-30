@@ -16,6 +16,7 @@ export const AnalyticsEventNameSchema = z.enum([
   "media.played",
   "admin.published",
   "audio.toggled",
+  "passport.shared",
 ]);
 
 export const AnalyticsPropsSchema = z.record(
