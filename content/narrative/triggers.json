@@ -41,6 +41,32 @@
     "once": true
   },
   {
+    "id": "history-note",
+    "eras": ["1998", "2005"],
+    "when": [
+      {
+        "event": "event.viewed"
+      }
+    ],
+    "actions": [
+      {
+        "type": "create.file",
+        "payload": {
+          "path": "/Mes Documents/Note d'histoire.txt",
+          "content": "NOTE D'HISTOIRE\n\nVu dans le Time Browser : {date} — {title}.\n\nLes dates du Time Web ne sont pas inventées : chacune cite ses sources.\nRetrouvez cet événement, ses sources et ce qui était en ligne à la même\népoque au Musée (page d'accueil › Musée).\n"
+        }
+      },
+      {
+        "type": "show.notification",
+        "payload": {
+          "title": "Nouveau document",
+          "body": "« Note d'histoire.txt » vient d'apparaître dans Mes Documents."
+        }
+      }
+    ],
+    "once": true
+  },
+  {
     "id": "explorer-1998",
     "eras": ["1998"],
     "when": [

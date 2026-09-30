@@ -10,8 +10,8 @@ import { stampFlag } from "./engine";
 
 /**
  * Events the platform actually emits today. The schema lists more
- * (`event.viewed`, `time.changed`) for the future; a trigger waiting on one
- * of those would silently never fire, so the catalogue refuses it instead.
+ * (`time.changed`: the era clock cannot be set yet); a trigger waiting on
+ * one of those would silently never fire, so the catalogue refuses it instead.
  */
 export const EMITTED_EVENTS: readonly NarrativeEventType[] = [
   "era.loaded",
@@ -21,6 +21,7 @@ export const EMITTED_EVENTS: readonly NarrativeEventType[] = [
   "message.received",
   "service.opened",
   "media.played",
+  "event.viewed",
 ];
 
 /**

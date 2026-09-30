@@ -82,20 +82,32 @@ implement → test → validate → commit.
       eras (`docs/narrative-engine.md`). Boot screens no longer name real
       BIOS/CPU/disk brands and now match the machine profiles.
 
+- [x] **Phase 14 — Ship**: `apps/web` is deployable and indexable
+      (`netlify.toml` — web only, never `apps/admin`; `sitemap.xml` and
+      `robots.txt` derived from the era registry and the museum; canonical
+      URLs, Open Graph / Twitter metadata, original `next/og` share cards per
+      era and gallery); the visitor passport becomes a shareable link
+      (`/passport/<stamp ids>`, no server, nothing personal — opt-in
+      `passport.shared` analytics); `event.viewed` is emitted by the Time
+      Browser and drives a « Note d'histoire » pointing to the museum.
+      `unlock.site` / `unlock.era` / `time.changed` stay refused on purpose
+      (`docs/narrative-engine.md`).
+
 ## Recommended next step
 
-Every engine in `docs/architecture.md` is implemented. Candidates, in order of leverage:
+Every engine in `docs/architecture.md` is implemented and the web app can
+ship. Candidates, in order of leverage:
 
-1. **Backend (Supabase)**: give `apps/admin` real multi-editor persistence
-   (currently direct filesystem writes to `content/**/*.json` — see
-   `docs/admin.md` for why that still holds at this scale) and give
-   analytics a real collector behind the same consent gate.
+1. **Go live**: create the Netlify site from `netlify.toml`, set
+   `NEXT_PUBLIC_SITE_URL`, submit the sitemap to Search Console — then let
+   real traffic (opt-in `passport.shared`, `era.selected`) pick between 2–4.
 2. **Content depth**: primary sources replacing the Wikipedia placeholders,
    screenshot/document snapshots (resolution step 2), more reconstructed
-   pages per site.
-3. **Narrative depth**: emit `event.viewed` / `time.changed` and perform
-   `unlock.site`, `send.message`, `change.desktop`, `unlock.era` — the
-   contracts exist; the catalogue refuses them until the runtime does.
+   pages per site — what the museum and share cards put in front of visitors.
+3. **Backend (Supabase)**: multi-editor persistence for `apps/admin` and a
+   real analytics collector behind the same consent gate — once there is
+   traffic to collect and more than one editor.
+4. **A fifth era** (smartphone / 2010s), reusing every engine as data.
 
 ## Known gaps carried forward
 

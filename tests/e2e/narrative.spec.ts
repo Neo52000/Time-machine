@@ -61,6 +61,29 @@ test("1998: the story greets the user, explains a temporal 404 and writes a trav
   await expect(log).toHaveCount(0);
 });
 
+test("1998: a date seen in a temporal 404 becomes a note pointing to the museum", async ({
+  page,
+}) => {
+  await captureStory(page);
+  await page.goto("/era/1998/desktop");
+  await page.getByTestId("boot-screen").click();
+  await page.getByTestId("app-browser").dblclick();
+  await page.getByTestId("browser-address").fill("www.napster.com");
+  await page.getByTestId("browser-address").press("Enter");
+  const shown = page.getByTestId("temporal-404").locator("li").first();
+  const title = ((await shown.textContent()) ?? "").split(" — ")[1]!.replace(/ \(.*\)$/, "");
+
+  const toasts = page.getByTestId("narrative-notification");
+  await expect(toasts.filter({ hasText: "Note d'histoire.txt" })).toBeVisible();
+  expect(await story(page)).toContain("history-note");
+
+  await page.getByTestId("app-file-manager").dblclick();
+  await page.getByTestId("fm-entry-Mes Documents").getByRole("button").dblclick();
+  await page.getByTestId("fm-entry-Note d'histoire.txt").getByRole("button").dblclick();
+  await expect(page.getByTestId("notepad-text")).toHaveValue(/Musée/);
+  expect(await page.getByTestId("notepad-text").inputValue()).toContain(`— ${title}.`);
+});
+
 test("1985: opening a Minitel service is a story beat on the full-screen shell", async ({
   page,
 }) => {
