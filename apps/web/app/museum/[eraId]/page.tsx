@@ -15,7 +15,16 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ eraId: string }> }) {
   const { eraId } = await params;
   const gallery = museum.getGallery(eraId);
-  return { title: gallery ? `Musée ${gallery.era.label} — Time Machine` : "Musée — Time Machine" };
+  if (!gallery) return { title: "Musée — Time Machine" };
+  const title = `Musée ${gallery.era.label} — Time Machine`;
+  const description = `La machine, ${gallery.during.length} événement(s) sourcé(s) et ${gallery.online.length} site(s) en ligne : ${gallery.era.label}.`;
+  return {
+    title,
+    description,
+    alternates: { canonical: `/museum/${eraId}` },
+    openGraph: { title, description, url: `/museum/${eraId}` },
+    twitter: { title, description },
+  };
 }
 
 const dateFormat = new Intl.DateTimeFormat("fr-FR", { dateStyle: "long", timeZone: "UTC" });

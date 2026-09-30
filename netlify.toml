@@ -1,0 +1,15 @@
+# Public deployment of apps/web only. apps/admin is a local tool with no
+# authentication that writes to content/*.json (docs/admin.md): it must
+# never be deployed.
+[build]
+  command = "pnpm turbo run build --filter=@time-machine/web"
+  publish = "apps/web/.next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  # Canonical origin used for sitemap, robots and Open Graph URLs. Netlify's
+  # own `URL` is the fallback (see apps/web/lib/site.ts).
+  # NEXT_PUBLIC_SITE_URL = "https://example.org"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
