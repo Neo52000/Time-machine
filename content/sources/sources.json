@@ -600,5 +600,1202 @@
     "url": "https://github.com/Neo52000/Time-machine/blob/main/docs/phone-engine.md",
     "publisher": "Time Machine",
     "notes": "Contacts, SMS, applications et forfait sont inventés pour la démonstration."
+  },
+  {
+    "id": "src-histelfrance-fr-minitel-launch",
+    "label": "Minitel / Télétel / Vidéotex",
+    "kind": "institutional",
+    "url": "https://www.histelfrance.fr/minitelteletelvideotex/",
+    "publisher": "HistelFrance (association d'histoire des télécommunications)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : L'expérimentation de l'annuaire électronique avec 55 abonnés volontaires de Saint-Malo débute le 15 juillet 1980, deux jours après une présentation au président Giscard d'Estaing le 13 juillet 1980 (dépôt : 1er juillet)."
+  },
+  {
+    "id": "src-ibm-com-ibm-pc-launch",
+    "label": "The IBM PC",
+    "kind": "primary",
+    "url": "https://www.ibm.com/history/personal-computer",
+    "publisher": "IBM Heritage",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : On August 12, 1981, Estridge unveiled the IBM PC at New York's Waldorf Hotel, priced at USD 1,565."
+  },
+  {
+    "id": "src-rfc-editor-org-arpanet-tcpip",
+    "label": "RFC 801: NCP/TCP transition plan (J. Postel, nov. 1981)",
+    "kind": "primary",
+    "url": "https://www.rfc-editor.org/rfc/rfc801.html",
+    "publisher": "RFC Editor / IETF",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The plan's goal was a complete switch-over from NCP to IP/TCP by 1 January 1983, when NCP was to be removed from service."
+  },
+  {
+    "id": "src-internetsociety-org-arpanet-tcpip",
+    "label": "Final report on TCP/IP migration in 1983",
+    "kind": "institutional",
+    "url": "https://www.internetsociety.org/blog/2016/09/final-report-on-tcpip-migration-in-1983/",
+    "publisher": "Internet Society",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Internet Society blog publishing the final report on the 1983 TCP/IP migration (search summary gives only the year 1983)."
+  },
+  {
+    "id": "src-computerhistory-org-macintosh-launch",
+    "label": "A Computer for the Rest of Us",
+    "kind": "institutional",
+    "url": "https://computerhistory.org/blog/a-computer-for-the-rest-of-us/",
+    "publisher": "Computer History Museum",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : On January 24, 1984, at Apple's annual shareholders meeting at the Flint Center, Jobs unveiled the Macintosh."
+  },
+  {
+    "id": "src-americanhistory-si-edu-macintosh-launch",
+    "label": "Apple Macintosh Microcomputer",
+    "kind": "institutional",
+    "url": "https://americanhistory.si.edu/collections/object/nmah_334371",
+    "publisher": "Smithsonian National Museum of American History",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Released January 24, 1984, the Macintosh brought the mouse-driven graphical user interface to a consumer desktop."
+  },
+  {
+    "id": "src-epi-asso-fr-plan-informatique-pour-tous",
+    "label": "Le plan « Informatique Pour Tous »",
+    "kind": "institutional",
+    "url": "https://www.epi.asso.fr/revue/37/b37p023.htm",
+    "publisher": "EPI (Enseignement Public et Informatique), revue n°37",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Le plan IPT est présenté à la presse le 25 janvier 1985 par le Premier ministre Laurent Fabius : plus de 120 000 machines dans 50 000 établissements et 110 000 enseignants formés."
+  },
+  {
+    "id": "src-1024-socinfo-fr-plan-informatique-pour-tous",
+    "label": "Le plan « Informatique pour tous » (J. Baudé), 1024 n°5",
+    "kind": "institutional",
+    "url": "https://1024.socinfo.fr/2015/03/1024_5_2015_95.pdf",
+    "publisher": "Société informatique de France",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Article historique de la SIF sur le plan IPT ; le résumé de recherche ne précise pas la date."
+  },
+  {
+    "id": "src-icann-org-first-com-domain",
+    "label": "Celebrating the Rise of the Modern Internet: The First Dot Com Domain Name Turns 30",
+    "kind": "institutional",
+    "url": "https://www.icann.org/en/blogs/details/celebrating-the-rise-of-the-modern-internet-the-first-dot-com-domain-name-turns-30-16-3-2015-en",
+    "publisher": "ICANN",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Symbolics Inc registered the first .com domain name, symbolics.com, on March 15, 1985 (ICANN blog of 16 March 2015 marking its 30th anniversary)."
+  },
+  {
+    "id": "src-edn-com-first-com-domain",
+    "label": "1st .com domain name is registered, March 15, 1985",
+    "kind": "press",
+    "url": "https://www.edn.com/1st-com-domain-name-is-registered-march-15-1985/",
+    "publisher": "EDN",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : On March 15, 1985, Symbolics Inc registered the first .com domain name, symbolics.com."
+  },
+  {
+    "id": "src-computerhistory-org-amiga-launch",
+    "label": "Amiga Computing at the Computer History Museum",
+    "kind": "institutional",
+    "url": "https://computerhistory.org/blog/amiga-computing-at-the-computer-history-museum/",
+    "publisher": "Computer History Museum",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The Amiga 1000 was announced at a major event at New York's Lincoln Center in 1985 with Andy Warhol and Debbie Harry; sold for $1,295."
+  },
+  {
+    "id": "src-news-microsoft-com-windows-1-release",
+    "label": "Die Geschichte von Windows",
+    "kind": "primary",
+    "url": "https://news.microsoft.com/de-at/features/die-geschichte-von-windows/",
+    "publisher": "Microsoft News Center",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Windows 1.0 was released on November 20, 1985 (Microsoft's own Windows history feature)."
+  },
+  {
+    "id": "src-learn-microsoft-com-windows-1-release",
+    "label": "History of Windows",
+    "kind": "primary",
+    "url": "https://learn.microsoft.com/en-us/archive/blogs/uktechnet/history-of-windows",
+    "publisher": "Microsoft Learn (UK TechNet blog archive)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Microsoft history page stating Windows 1.0 shipped on November 20, 1985, requiring 256 KB and two floppy drives."
+  },
+  {
+    "id": "src-irc-org-irc-created",
+    "label": "IRC History by Jarkko Oikarinen",
+    "kind": "primary",
+    "url": "http://www.irc.org/history_docs/jarkko.html",
+    "publisher": "IRC.org (récit de Jarkko Oikarinen)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Oikarinen writes that the exact date is unknown, but IRC's birthday was in August 1988, at the end of the month; the first server was tolsun.oulu.fi."
+  },
+  {
+    "id": "src-ietf-org-irc-created",
+    "label": "RFC 1459 – Internet Relay Chat Protocol",
+    "kind": "institutional",
+    "url": "https://www.ietf.org/rfc/rfc1459.html",
+    "publisher": "IETF",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Standards document for the IRC protocol by Oikarinen and Reed; the search summary gives no creation date."
+  },
+  {
+    "id": "src-fbi-gov-morris-worm",
+    "label": "Morris Worm",
+    "kind": "institutional",
+    "url": "https://www.fbi.gov/history/cases-and-criminals/morris-worm",
+    "publisher": "Federal Bureau of Investigation",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : At around 8:30 p.m. on November 2, 1988, the worm was unleashed on the Internet from an MIT computer; about 6,000 of 60,000 connected machines were halted."
+  },
+  {
+    "id": "src-cs-cornell-edu-morris-worm",
+    "label": "The Internet Worm: The Cornell Commission – On Morris and the Worm",
+    "kind": "institutional",
+    "url": "https://www.cs.cornell.edu/courses/cs1110/2009sp/assignments/a1/p706-eisenberg.pdf",
+    "publisher": "Cornell University / Communications of the ACM",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Cornell commission report on Robert T. Morris's worm; date not given in the search summary."
+  },
+  {
+    "id": "src-w3-org-www-proposal",
+    "label": "Information Management: A Proposal (T. Berners-Lee)",
+    "kind": "primary",
+    "url": "https://www.w3.org/History/1989/proposal-msw.html",
+    "publisher": "W3C (document original)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The original proposal document, dated March 1989, describing a distributed hypertext system for CERN."
+  },
+  {
+    "id": "src-home-cern-www-proposal",
+    "label": "Web@30: The 30-year anniversary of an invention that changed the world",
+    "kind": "institutional",
+    "url": "https://home.cern/news/news/computing/web30-30-year-anniversary-invention-changed-world",
+    "publisher": "CERN",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : CERN dates the proposal to March 1989 and held its Web@30 celebration on 12 March 2019; the search summary does not state 12 March 1989 explicitly."
+  },
+  {
+    "id": "src-computerhistory-org-arpanet-decommissioned",
+    "label": "Internet History – 1990s",
+    "kind": "institutional",
+    "url": "https://www.computerhistory.org/internethistory/1990s/",
+    "publisher": "Computer History Museum",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : States that ARPANET formally shuts down in 1990; no day given."
+  },
+  {
+    "id": "src-timeline-web-cern-ch-first-web-server",
+    "label": "The world's first browser/editor, website and server go live at CERN",
+    "kind": "institutional",
+    "url": "https://timeline.web.cern.ch/worlds-first-browsereditor-website-and-server-go-live-cern",
+    "publisher": "CERN (timeline)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : By Christmas 1990 Berners-Lee had written the first browser/editor and server software, running on a NeXT computer at CERN (info.cern.ch)."
+  },
+  {
+    "id": "src-home-cern-first-web-server",
+    "label": "A short history of the Web",
+    "kind": "institutional",
+    "url": "https://home.cern/science/computing/the-birth-of-the-web/short-history-web/",
+    "publisher": "CERN",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : By Christmas 1990 the Web's basic concepts (HTML, HTTP, URL) and first server were in place; no exact day."
+  },
+  {
+    "id": "src-w3-org-first-website",
+    "label": "Message de Tim Berners-Lee à alt.hypertext (août 1991)",
+    "kind": "primary",
+    "url": "https://www.w3.org/People/Berners-Lee/1991/08/art-6484.txt",
+    "publisher": "W3C (archive du message Usenet original)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Original alt.hypertext post by timbl@info.cern.ch announcing the WWW project, archived under 1991/08."
+  },
+  {
+    "id": "src-timeline-web-cern-ch-first-website",
+    "label": "Sir Berners-Lee announces the WWW software on the Internet",
+    "kind": "institutional",
+    "url": "https://timeline.web.cern.ch/berners-lee-posts-a-summary-of-the-project-on-althypertext",
+    "publisher": "CERN (timeline)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The first announcement was made on 6 August 1991 to the alt.hypertext newsgroup, with instructions to get the WWW software from CERN."
+  },
+  {
+    "id": "src-lwn-net-linux-announced",
+    "label": "What would you like to see most in minix? (L. Torvalds)",
+    "kind": "primary",
+    "url": "https://lwn.net/2001/0823/a/lt-announcement.php3",
+    "publisher": "LWN.net (reproduction du message Usenet original)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Reproduces Torvalds's 25 August 1991 comp.os.minix post announcing a free OS for 386(486) AT clones, 'just a hobby'."
+  },
+  {
+    "id": "src-cl-cam-ac-uk-first-webcam",
+    "label": "The Trojan Room Coffee Pot Timeline",
+    "kind": "primary",
+    "url": "https://www.cl.cam.ac.uk/coffee/qsf/timeline.html",
+    "publisher": "University of Cambridge Computer Laboratory",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : XCoffee was created in late (November) 1991; first published mention by Bob Metcalfe on 27 January 1992; images reached the Web on 22 November 1993."
+  },
+  {
+    "id": "src-cl-cam-ac-uk-first-webcam-2",
+    "label": "Trojan Room Coffee Pot Biography (Q. Stafford-Fraser)",
+    "kind": "primary",
+    "url": "https://www.cl.cam.ac.uk/coffee/qsf/coffee.html",
+    "publisher": "University of Cambridge Computer Laboratory",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The camera started in 1991 on the local network; the first Web images of the pot appeared on 22 November 1993."
+  },
+  {
+    "id": "src-mirrors-edge-kernel-org-linux-gpl",
+    "label": "Release notes for Linux v0.12",
+    "kind": "primary",
+    "url": "http://mirrors.edge.kernel.org/pub/linux/kernel/Historic/old-versions/RELNOTES-0.12",
+    "publisher": "kernel.org (notes originales de L. Torvalds)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Torvalds announces the copyright will change to the GNU copyleft, taking effect as of the first of February (1992), removing the no-commercial-distribution condition."
+  },
+  {
+    "id": "src-computerhistory-org-windows-31",
+    "label": "April 6: Microsoft Releases Windows 3.1",
+    "kind": "institutional",
+    "url": "https://www.computerhistory.org/tdih/april/6/",
+    "publisher": "Computer History Museum",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Microsoft released Windows 3.1 on April 6, 1992, retail price $149, with over 1 million advance orders."
+  },
+  {
+    "id": "src-learn-microsoft-com-windows-31",
+    "label": "The History of Microsoft – 1992",
+    "kind": "primary",
+    "url": "https://learn.microsoft.com/en-us/shows/history/history-of-microsoft-1992",
+    "publisher": "Microsoft Learn",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Microsoft's own 1992 history episode covering the Windows 3.1 release; exact date not in summary."
+  },
+  {
+    "id": "src-musiclub-web-cern-ch-first-web-photo",
+    "label": "LHC: The First Band on the Web",
+    "kind": "primary",
+    "url": "https://musiclub.web.cern.ch/MusiClub/bands/cernettes/firstband.html",
+    "publisher": "CERN MusiClub",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : On July 18, 1992 the first picture of Les Horribles Cernettes was uploaded to the Web by Tim Berners-Lee."
+  },
+  {
+    "id": "src-cds-cern-ch-first-web-photo",
+    "label": "Les Horribles Cernettes à l'origine de l'image du World wide web !",
+    "kind": "institutional",
+    "url": "http://cds.cern.ch/record/1711824?ln=en",
+    "publisher": "CERN Document Server",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : CERN record on the Cernettes photo as the origin of images on the Web; date not stated in summary."
+  },
+  {
+    "id": "src-vodafone-co-uk-first-sms",
+    "label": "'Merry Christmas': The 30th anniversary of the first text message",
+    "kind": "primary",
+    "url": "https://www.vodafone.co.uk/newscentre/features/merry-christmas-the-30th-anniversary-of-the-first-text-message/",
+    "publisher": "Vodafone UK News Centre",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Neil Papworth sent the first text message, 'Merry Christmas', from a computer to Richard Jarvis's Orbitel 901 handset on 3 December 1992."
+  },
+  {
+    "id": "src-vodafone-com-first-sms",
+    "label": "25 years since the world's first text message",
+    "kind": "primary",
+    "url": "https://www.vodafone.com/news/newsroom/technology/25-anniversary-text-message",
+    "publisher": "Vodafone Group",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Vodafone marks 25 years since the first SMS sent on 3 December 1992."
+  },
+  {
+    "id": "src-ncsa-illinois-edu-mosaic-release",
+    "label": "NCSA Mosaic",
+    "kind": "primary",
+    "url": "https://www.ncsa.illinois.edu/research/project-highlights/ncsa-mosaic/",
+    "publisher": "NCSA – University of Illinois",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The X (Unix) version of Mosaic was released in April 1993; Windows and Macintosh versions followed in December (an NCSA 30 page also cites an early 23 January 1993 release)."
+  },
+  {
+    "id": "src-guinnessworldrecords-com-mosaic-release",
+    "label": "First internet browser",
+    "kind": "institutional",
+    "url": "https://www.guinnessworldrecords.com/world-records/first-internet-browser",
+    "publisher": "Guinness World Records",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Released on 22 April 1993, NCSA Mosaic was created at NCSA, University of Illinois Urbana-Champaign."
+  },
+  {
+    "id": "src-cds-cern-ch-www-public-domain",
+    "label": "Software release of WWW into public domain",
+    "kind": "primary",
+    "url": "https://cds.cern.ch/record/1164399",
+    "publisher": "CERN Document Server (document original)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The signed CERN document releasing the WWW software into the public domain on 30 April 1993."
+  },
+  {
+    "id": "src-timeline-web-cern-ch-www-public-domain",
+    "label": "CERN puts the World Wide Web in the public domain",
+    "kind": "institutional",
+    "url": "https://timeline.web.cern.ch/cern-puts-world-wide-web-public-domain",
+    "publisher": "CERN (timeline)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : On 30 April 1993 CERN put the World Wide Web software in the public domain."
+  },
+  {
+    "id": "src-web-stanford-edu-yahoo-founded",
+    "label": "Yahoo! (case study STVP-1998-005)",
+    "kind": "institutional",
+    "url": "https://web.stanford.edu/class/e145/2007_fall/materials/Yahoo_1995_STVPCase.pdf",
+    "publisher": "Stanford Technology Ventures Program",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : States Yahoo was founded in January 1994 as 'Jerry and David's Guide to the World Wide Web', renamed Yahoo about three months later (≈April 1994), incorporated March 2, 1995."
+  },
+  {
+    "id": "src-lazytoad-com-lycos-launch",
+    "label": "Lycos Search Announcement (M. Mauldin)",
+    "kind": "primary",
+    "url": "http://lazytoad.com/lti/lycos/lycos-post-02.html",
+    "publisher": "Lazytoad (archive personnelle de Michael Mauldin)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Mauldin's announcement posted to robots@nexor.co.uk on July 20, 1994: Lycos goes public with a catalog of 54,000 documents."
+  },
+  {
+    "id": "src-cs-cmu-edu-lycos-launch",
+    "label": "Dr. Michael Mauldin – CSD50",
+    "kind": "institutional",
+    "url": "https://www.cs.cmu.edu/csd50/dr-michael-mauldin",
+    "publisher": "Carnegie Mellon University",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Lycos was created from a research project by Michael 'Fuzzy' Mauldin at Carnegie Mellon in 1994."
+  },
+  {
+    "id": "src-ebsco-com-netscape-navigator",
+    "label": "Release of Netscape Navigator 1.0",
+    "kind": "reference",
+    "url": "https://www.ebsco.com/research-starters/computer-science/release-netscape-navigator-10",
+    "publisher": "EBSCO Research Starters",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Netscape Navigator 1.0 was released on December 15, 1994, from Mountain View, California, and took 75% of the market within four months."
+  },
+  {
+    "id": "src-britannica-com-netscape-navigator",
+    "label": "Netscape Navigator",
+    "kind": "reference",
+    "url": "https://www.britannica.com/technology/Netscape-Navigator",
+    "publisher": "Encyclopaedia Britannica",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Britannica article on the Netscape Navigator browser; the search summary does not give the exact day."
+  },
+  {
+    "id": "src-press-aboutamazon-com-amazon-launch",
+    "label": "Amazon.com Celebrates Fifth Anniversary – Timeline",
+    "kind": "primary",
+    "url": "https://press.aboutamazon.com/news-releases/news-release-details/amazoncom-celebrates-fifth-anniversary-timeline-illustrates",
+    "publisher": "Amazon Press Center",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Amazon's July 2000 anniversary release: in July 1995 Amazon.com opened as an online bookseller out of Bezos' Bellevue home."
+  },
+  {
+    "id": "src-aboutamazon-com-amazon-launch",
+    "label": "Amazon recreated the garage where Jeff Bezos started the company in 1994",
+    "kind": "primary",
+    "url": "https://www.aboutamazon.com/news/workplace/first-amazon-office-jeff-bezos-garage",
+    "publisher": "About Amazon",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : On July 16, 1995, Bezos invited 300 friends to beta test the website; the first book sold was Hofstadter's 'Fluid Concepts and Creative Analogies'."
+  },
+  {
+    "id": "src-news-microsoft-com-windows-95-release",
+    "label": "Launch of Windows 95",
+    "kind": "primary",
+    "url": "https://news.microsoft.com/announcement/launch-of-windows-95/",
+    "publisher": "Microsoft Stories",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Microsoft's own announcement page for the Windows 95 launch, surfaced in a search whose results give 24 August 1995 as the launch date."
+  },
+  {
+    "id": "src-computerhistory-org-windows-95-release",
+    "label": "August 24: Microsoft Ships Windows 95",
+    "kind": "institutional",
+    "url": "https://www.computerhistory.org/tdih/august/24/",
+    "publisher": "Computer History Museum",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : CHM 'This Day in History' for August 24 is titled 'Microsoft Ships Windows 95' (launch on 24 August 1995)."
+  },
+  {
+    "id": "src-ebayinc-com-ebay-founded",
+    "label": "Our History - eBay Inc.",
+    "kind": "primary",
+    "url": "https://www.ebayinc.com/company/our-history/",
+    "publisher": "eBay Inc.",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : eBay's history page says Omidyar launched AuctionWeb after spending Labor Day weekend 1995 writing code; this is consistent with September 1995 but gives no exact day."
+  },
+  {
+    "id": "src-time-com-ebay-founded",
+    "label": "eBay at 20: The Small-Scale Story Behind Its Big Bucks",
+    "kind": "press",
+    "url": "https://time.com/4013672/ebay-founded-story/",
+    "publisher": "TIME",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : This came up in a search whose summary says eBay was founded on 3 September 1995 as AuctionWeb. The summary does not say which result stated the exact day."
+  },
+  {
+    "id": "src-encyclopedia-com-altavista-launch",
+    "label": "AltaVista Company",
+    "kind": "reference",
+    "url": "https://www.encyclopedia.com/books/politics-and-business-magazines/altavista-company",
+    "publisher": "Encyclopedia.com (International Directory of Company Histories)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The search summary states that AltaVista, built by researchers at Digital Equipment, launched on 15 December 1995. The summary does not tie the day to this one result."
+  },
+  {
+    "id": "src-news-microsoft-com-hotmail-launch",
+    "label": "MSN Hotmail: From Zero to 30 Million Members in 30 Months",
+    "kind": "primary",
+    "url": "https://news.microsoft.com/1999/02/08/msn-hotmail-from-zero-to-30-million-members-in-30-months/",
+    "publisher": "Microsoft (press release, 8 Feb 1999)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Microsoft's press release says Hotmail launched on 4 July 1996 and had more than 30 million active members 2.5 years later."
+  },
+  {
+    "id": "src-technologyreview-com-hotmail-launch",
+    "label": "Sabeer Bhatia - Innovators Under 35",
+    "kind": "press",
+    "url": "https://www.technologyreview.com/innovator/sabeer-bhatia/",
+    "publisher": "MIT Technology Review",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : MIT Technology Review names Bhatia and Jack Smith as the founders of Hotmail, the first free web-based email service. The summary gives no date for this page."
+  },
+  {
+    "id": "src-haaretz-com-icq-launch",
+    "label": "TechNation (ICQ, 20 years)",
+    "kind": "press",
+    "url": "https://www.haaretz.com/israel-news/business/2016-11-22/ty-article/technation/0000017f-e78d-da9b-a1ff-efeffe0f0000",
+    "publisher": "Haaretz",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Haaretz (22 Nov 2016) says ICQ, made by the Israeli startup Mirabilis, was first released 20 years earlier that month, which means November 1996."
+  },
+  {
+    "id": "src-standards-ieee-org-wifi-80211",
+    "label": "IEEE 802.11-1997 Standard for Wireless LAN MAC and PHY",
+    "kind": "institutional",
+    "url": "https://standards.ieee.org/ieee/802.11/1163/",
+    "publisher": "IEEE Standards Association",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The IEEE SA page gives Board approval of 802.11 on 26 June 1997 and publication on 18 November 1997. The repo date is the approval date, not the publication date."
+  },
+  {
+    "id": "src-ieeexplore-ieee-org-wifi-80211",
+    "label": "802.11-1997 - IEEE Standard for Wireless LAN",
+    "kind": "primary",
+    "url": "https://ieeexplore.ieee.org/document/654749/",
+    "publisher": "IEEE Xplore",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The full text of the 802.11-1997 standard as published by IEEE (1997)."
+  },
+  {
+    "id": "src-about-google-google-founded",
+    "label": "How we started and where we are today",
+    "kind": "primary",
+    "url": "https://about.google/intl/ALL_us/our-story/",
+    "publisher": "Google",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Google's 'Our Story' page describes the August 1998 Bechtolsheim cheque and incorporation in September 1998. The search summary also gives incorporation on 4 September 1998."
+  },
+  {
+    "id": "src-sec-gov-google-founded",
+    "label": "Google Inc. prospectus (Form 424B3, 2004)",
+    "kind": "primary",
+    "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312504204864/d424b3.htm",
+    "publisher": "U.S. SEC / Google Inc.",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The search summary says the SEC filings list Google's incorporation in California as September 1998."
+  },
+  {
+    "id": "src-npr-org-napster-launch",
+    "label": "Napster -- the file-sharing service -- helped to disrupt the record industry",
+    "kind": "press",
+    "url": "https://www.npr.org/2024/06/03/nx-s1-4982796/napster-the-file-sharing-service-helped-to-disrupt-the-record-industry",
+    "publisher": "NPR",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : This NPR anniversary piece (June 2024) came up in a search whose summary says Napster was born on 1 June 1999 as a peer-to-peer file-sharing service."
+  },
+  {
+    "id": "src-britannica-com-napster-launch",
+    "label": "Napster",
+    "kind": "reference",
+    "url": "https://www.britannica.com/topic/Napster",
+    "publisher": "Encyclopaedia Britannica",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Britannica says Napster was created by college student Shawn Fanning in 1999."
+  },
+  {
+    "id": "src-news-microsoft-com-msn-messenger-launch",
+    "label": "Microsoft Launches MSN Messenger Service",
+    "kind": "primary",
+    "url": "https://news.microsoft.com/source/1999/07/21/microsoft-launches-msn-messenger-service/",
+    "publisher": "Microsoft (press release, 21 July 1999)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The press release is dated 21 July 1999 and says the client could be downloaded free from midnight on 22 July 1999."
+  },
+  {
+    "id": "src-news-microsoft-com-msn-messenger-launch-2",
+    "label": "MSN Messenger Service Reaches Over 700,000 People In First Six Days",
+    "kind": "primary",
+    "url": "https://news.microsoft.com/source/1999/07/28/msn-messenger-service-reaches-over-700000-people-in-first-six-days-of-availability/",
+    "publisher": "Microsoft (press release, 28 July 1999)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Microsoft says the service reached more than 700,000 people after becoming available on 22 July 1999."
+  },
+  {
+    "id": "src-npr-org-dotcom-peak",
+    "label": "NASDAQ Is Half Of Its All-Time High A Decade Later",
+    "kind": "press",
+    "url": "https://www.npr.org/2010/03/10/124537450/a-decade-later-nasdaq-is-half-its-all-time-high",
+    "publisher": "NPR",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : This NPR piece, dated 10 March 2010, marks ten years since the NASDAQ peak, which the search summary gives as a record close of 5,048.62 on 10 March 2000."
+  },
+  {
+    "id": "src-britannica-com-dotcom-peak",
+    "label": "Dot-com Bubble & Bust",
+    "kind": "reference",
+    "url": "https://www.britannica.com/money/dot-com-bubble",
+    "publisher": "Encyclopaedia Britannica",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Britannica says the NASDAQ fell from 5,048 to 1,139 between March 2000 and October 2002."
+  },
+  {
+    "id": "src-britannica-com-wikipedia-launch",
+    "label": "Wikipedia",
+    "kind": "reference",
+    "url": "https://www.britannica.com/topic/Wikipedia",
+    "publisher": "Encyclopaedia Britannica",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The search summary says Wikipedia launched on 15 January 2001, founded by Wales and Sanger as a companion to Nupedia. Britannica's article is one of the results behind that summary."
+  },
+  {
+    "id": "src-content-time-com-wikipedia-launch",
+    "label": "Who Founded Wikipedia? - Top 10 Wikipedia Moments",
+    "kind": "press",
+    "url": "https://content.time.com/time/specials/packages/article/0,28804,2042333_2042334_2042587,00.html",
+    "publisher": "TIME",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : TIME says Larry Sanger co-founded Wikipedia with Jimmy Wales in 2001."
+  },
+  {
+    "id": "src-torrentfreak-com-bittorrent-release",
+    "label": "BitTorrent Turns 20: The File-Sharing Revolution Revisited",
+    "kind": "press",
+    "url": "https://torrentfreak.com/bittorrent-turns-20-the-file-sharing-revolution-revisited-210702/",
+    "publisher": "TorrentFreak",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : TorrentFreak (2 July 2021) quotes Bram Cohen's Yahoo! group post of 2 July 2001: 'My new app, BitTorrent, is now in working order'."
+  },
+  {
+    "id": "src-britannica-com-bittorrent-release",
+    "label": "BitTorrent",
+    "kind": "reference",
+    "url": "https://www.britannica.com/technology/BitTorrent",
+    "publisher": "Encyclopaedia Britannica",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Britannica's BitTorrent article came up in the same search. The summary does not give its date."
+  },
+  {
+    "id": "src-apple-com-ipod-announced",
+    "label": "Apple Presents iPod",
+    "kind": "primary",
+    "url": "https://www.apple.com/newsroom/2001/10/23Apple-Presents-iPod/",
+    "publisher": "Apple Newsroom",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Apple's press release of 23 October 2001 introduces the iPod: 1,000 songs, 5 GB hard drive, FireWire."
+  },
+  {
+    "id": "src-computerhistory-org-ipod-announced",
+    "label": "October 23: Apple Computer Releases the iPod",
+    "kind": "institutional",
+    "url": "https://www.computerhistory.org/tdih/october/23/",
+    "publisher": "Computer History Museum",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : CHM 'This Day in History' for 23 October is titled 'Apple Computer Releases the iPod'."
+  },
+  {
+    "id": "src-britannica-com-myspace-launch",
+    "label": "Myspace",
+    "kind": "reference",
+    "url": "https://www.britannica.com/topic/Myspace",
+    "publisher": "Encyclopaedia Britannica",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Britannica says Tom Anderson and Chris DeWolfe launched the site on 15 August 2003. The repo has 1 August 2003."
+  },
+  {
+    "id": "src-computerhistory-org-myspace-launch",
+    "label": "CHM Revolution - Myspace",
+    "kind": "institutional",
+    "url": "https://www.computerhistory.org/revolution/the-web/20/403/2360",
+    "publisher": "Computer History Museum",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : This came up in a search whose summary says MySpace launched on 15 August 2003. The summary does not tie that day to this page."
+  },
+  {
+    "id": "src-blogs-skype-com-skype-launch",
+    "label": "Skype celebrates a decade of meaningful conversations",
+    "kind": "primary",
+    "url": "https://blogs.skype.com/stories/2013/08/28/skype-celebrates-a-decade-of-meaningful-conversations",
+    "publisher": "Skype (official blog)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Skype's 10th-anniversary post (Aug 2013) came up in a search whose summary says Skype was founded or launched on 29 August 2003 by Zennström and Friis."
+  },
+  {
+    "id": "src-britannica-com-skype-launch",
+    "label": "Skype",
+    "kind": "reference",
+    "url": "https://www.britannica.com/technology/Skype",
+    "publisher": "Encyclopaedia Britannica",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Britannica calls Skype, founded by Niklas Zennström and Janus Friis, one of the early VoIP successes (2003)."
+  },
+  {
+    "id": "src-thecrimson-com-facebook-launch",
+    "label": "Hundreds Register for New Facebook Website",
+    "kind": "press",
+    "url": "https://www.thecrimson.com/article/2004/2/9/hundreds-register-for-new-facebook-website/",
+    "publisher": "The Harvard Crimson (9 Feb 2004)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : This contemporary Crimson article reports that thefacebook.com was launched to the Harvard campus on 4 February and that hundreds registered."
+  },
+  {
+    "id": "src-thecrimson-com-facebook-launch-2",
+    "label": "Ten Years Later, Facebook's First Users Look Back",
+    "kind": "press",
+    "url": "https://www.thecrimson.com/article/2014/2/4/facebook-ten-years-feature-1/",
+    "publisher": "The Harvard Crimson",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The Crimson says that on 4 February 2004 Mark Zuckerberg launched thefacebook from his Kirkland House dorm room."
+  },
+  {
+    "id": "src-googlepress-blogspot-com-gmail-launch",
+    "label": "Google Gets the Message, Launches Gmail",
+    "kind": "primary",
+    "url": "http://googlepress.blogspot.com/2004/04/google-gets-message-launches-gmail.html",
+    "publisher": "Google (press release)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Google's press release of 1 April 2004 announces a test preview of Gmail with 1,000 MB of free storage."
+  },
+  {
+    "id": "src-time-com-gmail-launch",
+    "label": "How Gmail Happened: The Inside Story of Its Launch 10 Years Ago Today",
+    "kind": "press",
+    "url": "https://time.com/43263/gmail-10th-anniversary/",
+    "publisher": "TIME",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : TIME's 10th-anniversary article (1 April 2014) tells the story of Gmail's launch ten years earlier."
+  },
+  {
+    "id": "src-www-archive-mozilla-org-firefox-1",
+    "label": "Mozilla Foundation releases the highly anticipated Mozilla Firefox 1.0 web browser",
+    "kind": "primary",
+    "url": "https://www-archive.mozilla.org/press/mozilla-2004-11-09.html",
+    "publisher": "Mozilla Foundation (archived press release)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The Mozilla Foundation's press release of 9 November 2004 announces worldwide availability of Firefox 1.0."
+  },
+  {
+    "id": "src-blog-mozilla-org-firefox-1",
+    "label": "Firefox 1.0 release - Mozilla Press Center",
+    "kind": "primary",
+    "url": "https://blog.mozilla.org/press/2004/11/mozilla-foundation-releases-the-highly-anticipated-mozilla-firefox-1-0-web-browser/",
+    "publisher": "Mozilla",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The same announcement on the Mozilla Press Center (November 2004)."
+  },
+  {
+    "id": "src-britannica-com-youtube-founded",
+    "label": "YouTube",
+    "kind": "reference",
+    "url": "https://www.britannica.com/topic/YouTube",
+    "publisher": "Encyclopaedia Britannica",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Britannica says Chen, Hurley and Karim registered the YouTube domain on 14 February 2005."
+  },
+  {
+    "id": "src-npr-org-youtube-founded",
+    "label": "YouTube turns 20 years old today",
+    "kind": "press",
+    "url": "https://www.npr.org/2025/02/14/nx-s1-5296900/youtube-20th-anniversary",
+    "publisher": "NPR",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : NPR's piece of 14 February 2025 marks YouTube's 20th anniversary, dating its founding to 14 February 2005."
+  },
+  {
+    "id": "src-blog-youtube-first-youtube-video",
+    "label": "How the V&A is preserving the history of YouTube and early internet culture",
+    "kind": "primary",
+    "url": "https://blog.youtube/news-and-events/va-museum-youtube-first-video/",
+    "publisher": "YouTube Official Blog",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The search summary says 'Me at the zoo' became the first video uploaded to YouTube on Saturday 23 April 2005. This YouTube blog post about the V&A preserving it is one of the results behind that summary."
+  },
+  {
+    "id": "src-smithsonianmag-com-first-youtube-video",
+    "label": "Watch the First-Ever Video Uploaded to YouTube",
+    "kind": "press",
+    "url": "https://www.smithsonianmag.com/smart-news/watch-the-first-ever-video-uploaded-to-youtube-a-grainy-19-second-clip-called-me-at-the-zoo-180988225/",
+    "publisher": "Smithsonian Magazine",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The search summary says Jawed Karim uploaded 'Me at the zoo' on 23 April 2005. This Smithsonian article is one of the results behind that summary."
+  },
+  {
+    "id": "src-britannica-com-twitter-launch",
+    "label": "X (formerly Twitter)",
+    "kind": "reference",
+    "url": "https://www.britannica.com/money/Twitter",
+    "publisher": "Encyclopaedia Britannica",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The search summary says the completed version of Twitter debuted on 15 July 2006, after the first tweet on 21 March 2006. Britannica's article is one of the results behind that summary."
+  },
+  {
+    "id": "src-history-com-twitter-launch",
+    "label": "Twitter launches | July 15, 2006",
+    "kind": "press",
+    "url": "https://www.history.com/this-day-in-history/july-15/twitter-launches",
+    "publisher": "HISTORY (A&E Networks)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : HISTORY says Odeo released Twttr to the public on 15 July 2006."
+  },
+  {
+    "id": "src-googlepress-blogspot-com-youtube-acquired",
+    "label": "Google To Acquire YouTube for $1.65 Billion in Stock",
+    "kind": "primary",
+    "url": "https://googlepress.blogspot.com/2006/10/google-to-acquire-youtube-for-165_09.html",
+    "publisher": "Google (press release)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Google announced on 9 October 2006 that it had agreed to acquire YouTube for $1.65 billion in stock."
+  },
+  {
+    "id": "src-sec-gov-youtube-acquired",
+    "label": "Google Inc. Form 8-K, Exhibit 99.1 (press release)",
+    "kind": "primary",
+    "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312506206884/dex991.htm",
+    "publisher": "U.S. SEC / Google Inc.",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : The same 9 October 2006 announcement as filed with the SEC. The deal closed on 13 November 2006."
+  },
+  {
+    "id": "src-apple-com-iphone-announced",
+    "label": "Apple Reinvents the Phone with iPhone",
+    "kind": "primary",
+    "url": "https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/",
+    "publisher": "Apple Newsroom",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Apple's press release of 9 January 2007 (Macworld San Francisco) introduces the iPhone as phone, widescreen iPod and Internet communicator in one."
+  },
+  {
+    "id": "src-sec-gov-netflix-streaming",
+    "label": "Netflix Inc. Form 10-K (FY2006)",
+    "kind": "primary",
+    "url": "https://www.sec.gov/Archives/edgar/data/0001065280/000119312507042689/d10k.htm",
+    "publisher": "U.S. SEC / Netflix Inc.",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Netflix's annual report says the company introduced a feature in January 2007 that lets subscribers instantly watch movies and TV series on their PCs. No exact day is given."
+  },
+  {
+    "id": "src-apple-com-iphone-france",
+    "label": "Apple Chooses Orange as Exclusive Carrier for iPhone in France",
+    "kind": "primary",
+    "url": "https://www.apple.com/newsroom/2007/10/16Apple-Chooses-Orange-as-Exclusive-Carrier-for-iPhone-in-France/",
+    "publisher": "Apple Newsroom (16 Oct 2007)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Apple's press release says the iPhone would debut in France with Orange on Thursday 29 November, at 399 euros for the 8 GB model."
+  },
+  {
+    "id": "src-histoire-orange-com-iphone-france",
+    "label": "iPhone - Histoire - Orange",
+    "kind": "primary",
+    "url": "https://histoire.orange.com/fr/nos_objets/iphone/",
+    "publisher": "Orange (site histoire)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : This came up in a search whose summary says the device was sold in France from 29 November 2007. The summary does not tie that day to Orange's history page alone."
+  },
+  {
+    "id": "src-apple-com-app-store-opens",
+    "label": "iPhone 3G on Sale Tomorrow",
+    "kind": "primary",
+    "url": "https://www.apple.com/newsroom/2008/07/10iPhone-3G-on-Sale-Tomorrow/",
+    "publisher": "Apple Newsroom (10 July 2008)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Apple's release of 10 July 2008 says the App Store was available from that day via iTunes 7.7 with more than 500 apps, before the iPhone 3G went on sale on 11 July."
+  },
+  {
+    "id": "src-apple-com-app-store-opens-2",
+    "label": "The App Store turns 10",
+    "kind": "primary",
+    "url": "https://www.apple.com/newsroom/2018/07/app-store-turns-10/",
+    "publisher": "Apple Newsroom",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Apple's July 2018 post marks the App Store's 10th anniversary."
+  },
+  {
+    "id": "src-googleblog-blogspot-com-chrome-release",
+    "label": "Official Google Blog: A fresh take on the browser",
+    "kind": "primary",
+    "url": "https://googleblog.blogspot.com/2008/09/fresh-take-on-browser.html",
+    "publisher": "Google",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Search summary: Google announced Chrome on the Official Google Blog as a 'fresh take on the browser', launched September 2, 2008."
+  },
+  {
+    "id": "src-googlepress-blogspot-com-chrome-release",
+    "label": "Google Chrome: A New Take on the Browser (communiqué)",
+    "kind": "primary",
+    "url": "https://googlepress.blogspot.com/2008/09/google-chrome-new-take-on-browser_02.html",
+    "publisher": "Google",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Press release: Google launched Google Chrome on September 2, 2008, beta in 40+ languages, each tab a separate process."
+  },
+  {
+    "id": "src-t-mobile-com-android-htc-dream",
+    "label": "T-Mobile Unveils the T-Mobile G1 — the First Phone Powered by Android",
+    "kind": "primary",
+    "url": "https://www.t-mobile.com/news/press/t-mobile-unveils-the-t-mobile-g1-the-first-phone-powered-by",
+    "publisher": "T-Mobile",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : T-Mobile press release: on September 23, 2008 T-Mobile announced the first Android-powered phone, on sale in the US from October 22, 2008."
+  },
+  {
+    "id": "src-techcrunch-com-android-htc-dream",
+    "label": "T-Mobile officially announces the G1 Android phone",
+    "kind": "press",
+    "url": "https://techcrunch.com/2008/09/23/t-mobile-officially-announces-the-g1-android-phone/",
+    "publisher": "TechCrunch",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Article dated 2008-09-23 reporting the G1 announcement at a New York launch event."
+  },
+  {
+    "id": "src-android-developers-googleblog--android-market-opens",
+    "label": "Android Market: Now available for users",
+    "kind": "primary",
+    "url": "https://android-developers.googleblog.com/2008/10/android-market-now-available-for-users.html",
+    "publisher": "Android Developers Blog (Google)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Official post dated October 22, 2008: Android Market launched for users alongside the T-Mobile G1; developer uploads from October 27."
+  },
+  {
+    "id": "src-satoshi-nakamotoinstitute-org-bitcoin-whitepaper",
+    "label": "Bitcoin P2P e-cash paper (message original, liste Cryptography)",
+    "kind": "primary",
+    "url": "https://satoshi.nakamotoinstitute.org/emails/cryptography/1/",
+    "publisher": "Satoshi Nakamoto Institute (archive of the original mailing-list post)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Archive of Satoshi Nakamoto's email 'Bitcoin P2P e-cash paper' to the Cryptography mailing list, sent October 31, 2008 at 18:10 UTC."
+  },
+  {
+    "id": "src-apple-com-ipad-announced",
+    "label": "Apple Launches iPad",
+    "kind": "primary",
+    "url": "https://www.apple.com/newsroom/2010/01/27Apple-Launches-iPad/",
+    "publisher": "Apple Newsroom",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Apple press release dated January 27, 2010 introducing iPad, available late March from $499."
+  },
+  {
+    "id": "src-techcrunch-com-instagram-launch",
+    "label": "Instagram Launches With The Hope Of Igniting Communication Through Images",
+    "kind": "press",
+    "url": "https://techcrunch.com/2010/10/06/instagram-launch/",
+    "publisher": "TechCrunch",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Contemporary launch article dated 2010-10-06."
+  },
+  {
+    "id": "src-britannica-com-instagram-launch",
+    "label": "Instagram | History, Features",
+    "kind": "reference",
+    "url": "https://www.britannica.com/money/Instagram",
+    "publisher": "Encyclopaedia Britannica",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : States Instagram was released in Apple's App Store on October 6, 2010, reaching 25,000 users on day one."
+  },
+  {
+    "id": "src-franceinfo-fr-free-mobile-launch",
+    "label": "Free fait sauter les prix de la téléphonie mobile",
+    "kind": "press",
+    "url": "https://www.franceinfo.fr/economie/entreprises/free-mobile-sera-lance-le-10-janvier_48007.html",
+    "publisher": "franceinfo",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Reports the launch of Free Mobile (Iliad) on Tuesday January 10, 2012 with 2 € and 19,99 € plans."
+  },
+  {
+    "id": "src-journaldunet-com-free-mobile-launch",
+    "label": "Free lance un forfait tout illimité pour 19,99 euros par mois",
+    "kind": "press",
+    "url": "https://www.journaldunet.com/ebusiness/internet-mobile/1096710-free-lance-un-forfait-tout-illimite-pour-19-99-euros-par-mois/",
+    "publisher": "Journal du Net",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Contemporary JDN article on the 19,99 € unlimited plan launched January 10, 2012."
+  },
+  {
+    "id": "src-internetsociety-org-ipv6-launch",
+    "label": "World IPv6 Launch on June 6, 2012, To Bring Permanent IPv6 Deployment",
+    "kind": "primary",
+    "url": "https://www.internetsociety.org/blog/2012/01/world-ipv6-launch-on-june-6-2012-to-bring-permanent-ipv6-deployment/",
+    "publisher": "Internet Society",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : ISOC (organiser) announced World IPv6 Launch for June 6, 2012, when participants permanently enabled IPv6."
+  },
+  {
+    "id": "src-internetsociety-org-ipv6-launch-2",
+    "label": "World IPv6 Launch Solidifies Global Support for New Internet Protocol",
+    "kind": "primary",
+    "url": "https://www.internetsociety.org/news/press-releases/2012/world-ipv6-launch-solidifies-global-support-for-new-internet-protocol/",
+    "publisher": "Internet Society",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : ISOC press release on the June 6, 2012 launch (participants incl. Google, Facebook, Bing, Yahoo, Free Telecom)."
+  },
+  {
+    "id": "src-aljazeera-com-minitel-shutdown",
+    "label": "France pulls the plug on Minitel",
+    "kind": "press",
+    "url": "https://www.aljazeera.com/news/2012/6/30/france-pulls-the-plug-on-minitel",
+    "publisher": "Al Jazeera",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Contemporary report: France Telecom shut down the Minitel network on June 30, 2012, with ~400,000 regular users."
+  },
+  {
+    "id": "src-france24-com-minitel-shutdown",
+    "label": "Nation bids 'adieu' to 'French Internet'",
+    "kind": "press",
+    "url": "https://www.france24.com/en/20120628-france-switches-off-landmark-minitel-network-predated-internet",
+    "publisher": "France 24",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Reports the Minitel network switched off on Saturday June 30 (2012)."
+  },
+  {
+    "id": "src-npr-org-snowden-disclosures",
+    "label": "NSA Collecting Verizon Phone Records Of American Customers",
+    "kind": "press",
+    "url": "https://www.npr.org/sections/thetwo-way/2013/06/05/189037290/nsa-collecting-verizon-phone-records-of-american-customers",
+    "publisher": "NPR",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : NPR piece dated 2013-06-05 relaying The Guardian's revelation of the secret FISA court order on Verizon records."
+  },
+  {
+    "id": "src-eff-org-snowden-disclosures",
+    "label": "June 5th is Coming: Actions on the Anniversary of the First Snowden Release",
+    "kind": "press",
+    "url": "https://www.eff.org/deeplinks/2014/05/snowden-anniversary",
+    "publisher": "Electronic Frontier Foundation",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : EFF identifies June 5 (2013) as the date of the first Snowden release (Guardian Verizon story)."
+  },
+  {
+    "id": "src-eur-lex-europa-eu-gdpr-applies",
+    "label": "The general data protection regulation applies in all Member States from 25 May 2018",
+    "kind": "institutional",
+    "url": "https://eur-lex.europa.eu/content/news/general-data-protection-regulation-GDPR-applies-from-25-May-2018.html",
+    "publisher": "EUR-Lex (Union européenne)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : EUR-Lex: the GDPR is applicable from 25 May 2018 in all Member States."
+  },
+  {
+    "id": "src-eur-lex-europa-eu-gdpr-applies-2",
+    "label": "Règlement (UE) 2016/679 (RGPD)",
+    "kind": "primary",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32016R0679",
+    "publisher": "EUR-Lex (Union européenne)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Official text of Regulation 2016/679: entered into force 24 May 2016, applies from 25 May 2018."
+  },
+  {
+    "id": "src-openai-com-chatgpt-release",
+    "label": "Introducing ChatGPT",
+    "kind": "primary",
+    "url": "https://openai.com/index/chatgpt/",
+    "publisher": "OpenAI",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : OpenAI announcement of ChatGPT (GPT-3.5 based, free research preview) dated November 30, 2022."
+  },
+  {
+    "id": "src-webdesignmuseum-org-altavista-com",
+    "label": "AltaVista - Web Design Museum",
+    "kind": "reference",
+    "url": "https://www.webdesignmuseum.org/web-design-history/altavista-1995",
+    "publisher": "Web Design Museum",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : States that on December 15, 1995 a DEC research team led by Louise Monier and Michael Burrows launched AltaVista."
+  },
+  {
+    "id": "src-computerhistory-org-altavista-com",
+    "label": "DEC Alta Vista search engine - CHM Revolution",
+    "kind": "institutional",
+    "url": "https://www.computerhistory.org/revolution/the-web/20/intro/2056",
+    "publisher": "Computer History Museum",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : CHM exhibit: AltaVista, first full-text web search, created in 1995 at DEC's Palo Alto lab (no day given in summary)."
+  },
+  {
+    "id": "src-webdesignmuseum-org-yahoo-com",
+    "label": "Yahoo! - Web Design Museum",
+    "kind": "reference",
+    "url": "https://www.webdesignmuseum.org/web-design-history/yahoo-1994",
+    "publisher": "Web Design Museum",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : States Yahoo! was renamed in March 1994 and the yahoo.com domain was registered on January 18, 1995."
+  },
+  {
+    "id": "src-britannica-com-yahoo-com",
+    "label": "Yahoo Inc. | Internet Pioneer, History",
+    "kind": "reference",
+    "url": "https://www.britannica.com/money/Yahoo-Inc",
+    "publisher": "Encyclopaedia Britannica",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Yahoo founded 1994 by Stanford students Jerry Yang and David Filo; incorporated April 1995 (no domain date in summary)."
+  },
+  {
+    "id": "src-graphics-stanford-edu-google-com",
+    "label": "Origin of the name \"Google\"",
+    "kind": "institutional",
+    "url": "https://graphics.stanford.edu/~dk/google_name_origin.html",
+    "publisher": "Stanford University (Graphics Lab)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Stanford page: Larry Page registered google.com on September 15, 1997 after a misspelling of 'googol'. Note: this is the domain registration; Google Inc. was founded September 4, 1998."
+  },
+  {
+    "id": "src-9to5google-com-google-com",
+    "label": "Google.com was first registered 20 years ago today",
+    "kind": "press",
+    "url": "https://9to5google.com/2017/09/15/google-domain-20-year-anniversary/",
+    "publisher": "9to5Google",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Article dated 2017-09-15 stating google.com was registered September 15, 1997."
+  },
+  {
+    "id": "src-webdesignmuseum-org-geocities-com",
+    "label": "GeoCities - Web Design Museum",
+    "kind": "reference",
+    "url": "https://www.webdesignmuseum.org/web-design-history/geocities-1994",
+    "publisher": "Web Design Museum",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Beverly Hills Internet founded November 1994 by David Bohnett and John Rezner, renamed GeoCities in 1995 (no day given)."
+  },
+  {
+    "id": "src-computerhistory-org-geocities-com",
+    "label": "A Tale of Deleted Cities: A Conversation with GeoCities Co-founder David Bohnett",
+    "kind": "institutional",
+    "url": "https://www.computerhistory.org/collections/catalog/102738191",
+    "publisher": "Computer History Museum",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : CHM oral-history record with co-founder David Bohnett; summary gives no launch date."
+  },
+  {
+    "id": "src-lazytoad-com-lycos-com",
+    "label": "Lycos: Design choices in an Internet search service (M. Mauldin, IEEE 1997)",
+    "kind": "primary",
+    "url": "https://lazytoad.com/lti/pub/ieee97.html",
+    "publisher": "Michael L. Mauldin (creator of Lycos)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Creator's paper: Lycos went public on July 20, 1994 with a catalog of 54,000 documents."
+  },
+  {
+    "id": "src-mimmsmuseum-org-amazon-com",
+    "label": "Amazon's 30th - A Timeline",
+    "kind": "institutional",
+    "url": "https://mimmsmuseum.org/2025/07/16/celebrating-30-years-of-amazon-com-from-bookstore-to-global-tech-titan/",
+    "publisher": "Mimms Museum of Technology and Art",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Museum timeline (published on the 30th anniversary, 2025-07-16): Amazon.com opened on July 16, 1995."
+  },
+  {
+    "id": "src-npr-org-napster-com",
+    "label": "25 years ago, Napster changed how we listen to music forever",
+    "kind": "press",
+    "url": "https://www.npr.org/2024/06/02/nx-s1-4985877/25-years-ago-napster-changed-how-we-listen-to-music-forever",
+    "publisher": "NPR",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : NPR 25th-anniversary piece: Napster launched June 1, 1999, created by Shawn Fanning."
+  },
+  {
+    "id": "src-computerhistory-org-napster-com",
+    "label": "Napster.com music-sharing service - CHM Revolution",
+    "kind": "institutional",
+    "url": "https://www.computerhistory.org/revolution/the-web/20/403/2128",
+    "publisher": "Computer History Museum",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : CHM exhibit entry on Napster's 1999 arrival and decentralized P2P music sharing."
+  },
+  {
+    "id": "src-wikimediafoundation-org-wikipedia-org",
+    "label": "Wikipedia celebrates 15 years of free knowledge",
+    "kind": "primary",
+    "url": "https://wikimediafoundation.org/news/2016/01/14/wikipedia-15-foundation-endowment/",
+    "publisher": "Wikimedia Foundation",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : WMF announcement of Wikipedia's 15th anniversary (Jan 2016), consistent with a January 2001 launch."
+  },
+  {
+    "id": "src-news-microsoft-com-hotmail-com",
+    "label": "Microsoft Acquires Hotmail",
+    "kind": "primary",
+    "url": "https://news.microsoft.com/source/1997/12/31/microsoft-acquires-hotmail/",
+    "publisher": "Microsoft",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Acquisition press release (1997-12-31); launch date not given in summary."
+  },
+  {
+    "id": "src-encyclopedia-com-excite-com",
+    "label": "Excite@Home | Encyclopedia.com (company history)",
+    "kind": "reference",
+    "url": "https://www.encyclopedia.com/economics/encyclopedias-almanacs-transcripts-and-maps/excitehome",
+    "publisher": "Encyclopedia.com (International Directory of Company Histories)",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : In October 1995 Architext launched the Excite suite of services at www.excite.com."
+  },
+  {
+    "id": "src-computerhistory-org-excite-com",
+    "label": "Architext Software Inc. - CHM catalog",
+    "kind": "institutional",
+    "url": "https://www.computerhistory.org/collections/catalog/102737095",
+    "publisher": "Computer History Museum",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : CHM collection record for Architext Software (Excite's original company); no launch date in summary."
+  },
+  {
+    "id": "src-vam-ac-uk-youtube-com",
+    "label": "Acquiring an early YouTube watch page and its first-ever video",
+    "kind": "institutional",
+    "url": "https://www.vam.ac.uk/articles/acquiring-an-early-youtube-watch-page-and-its-first-ever-video",
+    "publisher": "Victoria and Albert Museum",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : 'Me at the zoo', the first YouTube video, was uploaded April 23, 2005; YouTube itself founded (domain) February 14, 2005 — repo date is the first-upload date, not domain activation."
+  },
+  {
+    "id": "src-webdesignmuseum-org-myspace-com",
+    "label": "MySpace - Web Design Museum",
+    "kind": "reference",
+    "url": "https://www.webdesignmuseum.org/web-design-history/myspace-2003",
+    "publisher": "Web Design Museum",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : In August 2003 Tom Anderson and Chris DeWolfe founded MySpace; one million users by February 2004."
+  },
+  {
+    "id": "src-neowin-netscape-navigator",
+    "label": "A quick look back at the launch of Netscape Navigator 1.0",
+    "kind": "press",
+    "url": "https://www.neowin.net/news/a-quick-look-back-at-the-launch-of-netscape-navigator-10-29-years-ago-this-week/",
+    "publisher": "Neowin",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Article rétrospectif ; le résumé de recherche situe la sortie de Navigator 1.0 au 15 décembre 1994 sans l'attribuer précisément à cette page."
+  },
+  {
+    "id": "src-tomshardware-altavista",
+    "label": "Search pioneer AltaVista’s star shone bright… 30 years ago",
+    "kind": "press",
+    "url": "https://www.tomshardware.com/tech-industry/big-tech/search-pioneer-altavistas-star-shone-bright-with-a-clean-and-minimal-ui-30-years-ago-engine-lost-momentum-after-multiple-ownership-changes-and-the-embrace-of-the-web-portal-trend",
+    "publisher": "Tom's Hardware",
+    "accessedAt": "2026-09-30",
+    "notes": "Trouvée par recherche web le 2026-09-30 ; page non consultée directement (à ouvrir avant de lever needsResearch). Résumé de recherche : Article rétrospectif ; le résumé de recherche situe le lancement au 15 décembre 1995 sans l'attribuer précisément à cette page. Aucun communiqué de Digital Equipment trouvé."
   }
 ]

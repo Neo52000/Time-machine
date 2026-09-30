@@ -7,6 +7,7 @@ import type {
 } from "@time-machine/content-schema";
 import { describeMachine } from "@time-machine/computer-engine";
 import { galleryCoverage, museum, type Sourced } from "@time-machine/museum-engine";
+import { SOURCE_KIND_LABEL, bySourceStrength } from "@/lib/sourceKind";
 
 export function generateStaticParams() {
   return museum.galleries.map((g) => ({ eraId: g.era.id }));
@@ -38,16 +39,8 @@ function ToConfirm() {
   );
 }
 
-const KIND_LABEL: Record<SourceReference["kind"], string | null> = {
-  primary: "primaire",
-  institutional: "institutionnelle",
-  press: "presse",
-  reference: null,
-  project: null,
-};
-
 function KindBadge({ kind }: { kind: SourceReference["kind"] }) {
-  const label = KIND_LABEL[kind];
+  const label = SOURCE_KIND_LABEL[kind];
   if (!label) return null;
   return (
     <span
@@ -64,7 +57,7 @@ function Sources({ sources }: { sources: SourceReference[] }) {
   return (
     <p className="mt-1 text-xs text-neutral-500">
       Sources :{" "}
-      {sources.map((s, i) => (
+      {bySourceStrength(sources).map((s, i) => (
         <span key={s.id}>
           {i > 0 ? " · " : ""}
           {s.url ? (

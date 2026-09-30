@@ -8,7 +8,7 @@ import { timeWebCatalog } from "./content";
  * encyclopedias are context only. The ratchet below may only go down: when
  * a batch of sources lands, lower it to the new count in the same commit.
  */
-const MAX_WITHOUT_AUTHORITATIVE_SOURCE = 73;
+const MAX_WITHOUT_AUTHORITATIVE_SOURCE = 2;
 
 const { events, websites, sources } = timeWebCatalog;
 const sourceById = new Map(sources.map((s) => [s.id, s]));

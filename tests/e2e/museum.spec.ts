@@ -20,6 +20,8 @@ test("the museum has a gallery per era, built from sourced content", async ({ pa
   const google = page.getByTestId("museum-event-google-founded");
   await expect(google).toContainText("4 septembre 1998");
   await expect(google).toContainText("Sources");
+  // …and say what kind of source backs them (not only an encyclopedia).
+  await expect(google.getByTestId("source-kind").first()).toBeVisible();
   await expect(page.getByTestId("museum-event-first-web-server")).toContainText("à vérifier");
   // Sourcing quality is shown, not implied.
   await expect(page.getByTestId("museum-coverage")).toContainText(/\d+\/\d+ dates et sites/);
