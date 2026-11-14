@@ -86,7 +86,7 @@ describe("SMS conversations", () => {
       store: [],
       photo: { width: 1, height: 1, sizeKb: 1, mmsSizeKb: 1 },
     },
-    sources: [{ id: "s", label: "Source" }],
+    sources: [{ id: "s", label: "Source", kind: "primary" }],
   });
 
   it("delivers openings when they fall due, unread", () => {

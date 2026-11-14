@@ -19,6 +19,7 @@ export default async function SourcesPage() {
         <thead>
           <tr>
             <th>Label</th>
+            <th>Kind</th>
             <th>Publisher</th>
             <th>URL</th>
             <th />
@@ -30,6 +31,7 @@ export default async function SourcesPage() {
               <td>
                 <Link href={`/sources/${source.id}`}>{source.label}</Link>
               </td>
+              <td data-testid={`source-kind-${source.id}`}>{source.kind}</td>
               <td>{source.publisher ?? "—"}</td>
               <td>
                 {source.url ? (

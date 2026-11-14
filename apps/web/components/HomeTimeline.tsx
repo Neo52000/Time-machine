@@ -10,6 +10,7 @@ import {
 } from "@time-machine/timeline-engine";
 import { useAnalytics } from "@/lib/analytics/AnalyticsProvider";
 import { EraStampCount } from "./Passport";
+import { SOURCE_KIND_LABEL, bySourceStrength } from "@/lib/sourceKind";
 
 const CATEGORY_LABELS: Record<string, string> = {
   web: "Web",
@@ -213,7 +214,9 @@ function EventItem({
   sources: Record<string, SourceReference>;
 }) {
   const major = event.importance >= 5;
-  const cited = event.sourceIds.flatMap((id) => (sources[id] ? [sources[id]] : []));
+  const cited = bySourceStrength(
+    event.sourceIds.flatMap((id) => (sources[id] ? [sources[id]] : [])),
+  );
   return (
     <li className="relative pl-6" data-testid={`timeline-event-${event.id}`}>
       <span
@@ -264,6 +267,11 @@ function EventItem({
                     >
                       {s.label}
                     </a>
+                    {SOURCE_KIND_LABEL[s.kind] && (
+                      <span className="ml-1 uppercase text-emerald-600" data-testid="source-kind">
+                        {SOURCE_KIND_LABEL[s.kind]}
+                      </span>
+                    )}
                   </li>
                 ) : (
                   <li key={s.id}>{s.label}</li>

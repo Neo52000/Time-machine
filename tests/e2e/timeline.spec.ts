@@ -38,7 +38,9 @@ test("filters keep the machines, jump links reach them, sources are cited", asyn
   const google = page.getByTestId("timeline-event-google-founded");
   await expect(google).toContainText("4 septembre 1998");
   await google.getByText(/^Sources/).click();
-  await expect(google.getByRole("link", { name: /Google/ })).toBeVisible();
+  // Strongest source first: Google's own pages before the encyclopedia.
+  await expect(google.getByRole("link").first()).toContainText("How we started");
+  await expect(google.getByTestId("source-kind").first()).toHaveText("primaire");
   await expect(page.getByTestId("timeline-event-www-proposal")).toContainText("à vérifier");
 
   await page.getByTestId("filter-mobile").click();

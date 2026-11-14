@@ -101,21 +101,29 @@ implement → test → validate → commit.
       `unlock.site` / `unlock.era` / `time.changed` stay refused on purpose
       (`docs/narrative-engine.md`).
 
+- [x] **Phase 15 — Primary sources**: `SourceReference.kind`
+      (primary / institutional / press / reference / project), 133 new
+      sources, 115 of them primary, institutional or press — 76 of 78 dated
+      facts now rest on one (was 5);
+      kind badges and per-gallery coverage in the museum; `kind` in the
+      admin; a content ratchet test. Flags stay up until a human opens the
+      pages (`docs/source-review.md`: 3 date conflicts, 7 wording fixes).
+
 ## Recommended next step
 
 Every engine in `docs/architecture.md` is implemented and the web app can
 ship. Candidates, in order of leverage:
 
-1. **Go live**: create the Netlify site from `netlify.toml`, set
-   `NEXT_PUBLIC_SITE_URL`, submit the sitemap to Search Console — then let
-   real traffic (opt-in `passport.shared`, `era.selected`) pick between 2–4.
-2. **Content depth**: primary sources replacing the Wikipedia placeholders,
-   screenshot/document snapshots (resolution step 2), more reconstructed
-   pages per site — what the museum and share cards put in front of visitors.
-3. **Backend (Supabase)**: multi-editor persistence for `apps/admin` and a
+1. **Source review** (human, ~2 h): open the URLs in `docs/source-review.md`,
+   settle the 3 date conflicts, apply or reject the 7 wording fixes, clear
+   `needsResearch` in `apps/admin` where the page confirms the date.
+2. **Go live checks**: submit the sitemap to Search Console; watch opt-in
+   `passport.shared` / `era.selected` to pick between 3 and 4.
+3. **Content depth**: screenshot/document snapshots (resolution step 2), more
+   reconstructed pages per site.
+4. **Backend (Supabase)**: multi-editor persistence for `apps/admin` and a
    real analytics collector behind the same consent gate — once there is
    traffic to collect and more than one editor.
-4. **A fifth era** (smartphone / 2010s), reusing every engine as data.
 
 ## Known gaps carried forward
 

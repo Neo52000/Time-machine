@@ -30,7 +30,7 @@ describe("BBS catalogue", () => {
 
   it("refuses files without a size, duplicate keys and unknown rights", () => {
     const board = structuredClone(bbsCatalog.getBoard("grenier")!) as Record<string, unknown>;
-    const sources = [{ id: "src-timemachine-bbs-fiction", label: "x" }];
+    const sources = [{ id: "src-timemachine-bbs-fiction", label: "x", kind: "project" }];
     const files = (board.areas as { kind: string; items: Record<string, unknown>[] }[]).find(
       (a) => a.kind === "files",
     )!;
